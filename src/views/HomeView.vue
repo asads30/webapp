@@ -1,64 +1,48 @@
 <template>
   <div class="home">
-    <Home v-if="home" :cookie="cookie" />
-    <Start v-if="start" :cookie="cookie" />
-    <Ident v-if="ident" />
+    <Header :left="false" :right="false" :center="true" :centerText="'Акция'"/>
+    {{ cookie }}
+    <div class="home-wrapper" v-if="getUser">
+      <Top :count="getUser?.prizes_count" />
+      <User :name="getUser?.name + ' ' + getUser?.surname" :phone="getUser?.phone_number" />
+      <Shot :score="getUser?.score" />
+      <Drawing />
+    </div>
   </div>
 </template>
 
 <script>
-import {api} from '@/boot/axios'
-import Home from '@/components/Home/Index'
-import Start from '@/components/Home/Start'
-import Ident from '@/components/Home/Ident'
+import Header from '@/components/Header'
+import Top from '@/components/Home/Top'
+import User from '@/components/Home/User'
+import Shot from '@/components/Home/Shot'
+import Drawing from '@/components/Home/Drawing'
+import {mapActions, mapGetters} from 'vuex';
 
 export default {
   name: 'HomeView',
+  components: {
+    Header,
+    Top,
+    User,
+    Shot,
+    Drawing
+  },
   computed: {
     cookie(){
-      return this.getCookie('web-session')
-    }
-  },
-  data() {
-    return {
-      home: false,
-      start: false,
-      ident: false
-    }
-  },
-  components: {
-    Home,
-    Start,
-    Ident
+      return this.$route.query.web
+    },
+    ...mapGetters([
+      'getUser'
+    ])
   },
   methods: {
-    getCookie(name) {
-      var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-      if (arr = document.cookie.match(reg))
-        return (arr[2]);
-      else
-        return null;
-    }
+    ...mapActions([
+      'fetchUser'
+    ]),
   },
-  async mounted() {
-    this.start = true
-    const data = {
-      web_session: this.getCookie('web-session')
-    }
-    await api.post('me', data).then(res => {
-      if(res.data.status == 200){
-        this.home = true
-      }
-    }).catch(err => {
-      if(err.response.data){
-        if(err.response.data.error.code == 1000){
-          this.start = true
-        }
-        if(err.response.data.error.code == 1001){
-          this.ident = true
-        }
-      }
-    })
+  mounted() {
+    this.fetchUser(this.cookie)
   },
 }
 </script>
