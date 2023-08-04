@@ -3,7 +3,6 @@
     <Home v-if="home" />
     <Start v-if="start" />
     <Ident v-if="ident" />
-    {{ cookie }}
   </div>
 </template>
 

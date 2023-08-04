@@ -12,15 +12,30 @@
             <div class="container">
                 <ul class="nav nav-tabs start-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">У меня есть<br />промокод</button>
+                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">У меня есть<br />промокод</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Я самостоятельно узнал(а) об акции</button>
+                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Я самостоятельно узнал(а) об акции</button>
                     </li>
                   </ul>
                   <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
-                    <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                        <div class="start-content">
+                            <div class="start-content-top">
+                                <div class="start-content-text">Введите промокод от друга, чтобы увеличить шансы на победу у обоих!</div>
+                                <div class="start-content-text"><span>+2</span> шанса на участие</div>
+                                <div class="start-content-text"><span>+2</span> возможности крутить колесо</div>
+                                <div class="start-content-input">
+                                    <input type="text" placeholder="Промокод" v-model="promocode">
+                                </div>
+                            </div>
+                            <div class="start-content-bottom">
+                                <div class="start-content-privacy">Нажимая кнопку Участвовать в акции, вы соглашаетесь с <button>условиями акции</button> «ID марафон»</div>
+                                <button class="start-content-btn" :disabled="promocode.length != 6">Участвовать в акции</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                         <div class="start-content">
                             <div class="start-content-top">
                                 <div class="start-content-text">Становитесь участником самой масштабной акции!</div>
@@ -39,7 +54,12 @@
 
 <script>
     export default {
-        name: 'StartComponent'
+        name: 'StartComponent',
+        data() {
+            return {
+                promocode: ''
+            }
+        },
     }
 </script>
 
@@ -66,11 +86,13 @@
         }
         &-bottom{
             height: calc(100vh - 318px);
-            padding: 30px 0 40px;
+            padding: 30px 0 0;
+            overflow-y: auto;
         }
         &-tabs{
             display: flex;
             border: 0;
+            margin-bottom: 10px;
             .nav-item{
                 width: 50%;
                 flex-wrap: nowrap;
@@ -100,13 +122,36 @@
             }
         }
         &-content{
-            height: calc(100vh - 440px);
+            height: calc(100vh - 409px);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding-top: 20px;
+            &-bottom{
+                padding-top: 15px;
+                padding-bottom: 40px;
+            }
             &-text{
                 font-size: 14px;
+                span{
+                    color: #FCFE5D;
+                }
+            }
+            &-input{
+                margin: 16px 0;
+                input{
+                    width: 100%;
+                    background: #E2E4F0;
+                    border: 1px solid #E2E4F0;
+                    height: 40px;
+                    line-height: 40px;
+                    text-align: center;
+                    border-radius: 10px;
+                    &:focus{
+                        border-color: #0073FF;
+                        box-shadow: none;
+                        outline: 0;
+                    }
+                }
             }
             &-privacy{
                 font-size: 12px;
@@ -132,6 +177,10 @@
                 text-decoration: none;
                 font-size: 14px;
                 font-weight: 700;
+                &:disabled{
+                    background: #363744;
+                    color: #575965;
+                }
             }
         }
     }
