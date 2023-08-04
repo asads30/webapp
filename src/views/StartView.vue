@@ -85,13 +85,19 @@
                     }
                 })
             },
-            async goActionNot(){
+            async goAction(){
                 const data = {
                     web_session: this.cookie,
-                    active: true
+                    active: 'ref',
+                    ref: this.promocode
                 }
-                api.post('me', data).then(res => {
+                await api.post('me', data).then(res => {
                     if(res.data.status == 200){
+                        try {
+                            this.$store.commit('setUser', res.data.data)
+                        } catch (error) {
+                            console.log(error)
+                        }
                         this.$router.push({ name: 'home', query: { method: 'nocode' }})
                     }
                 })

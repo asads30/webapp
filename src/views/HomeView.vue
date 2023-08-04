@@ -32,10 +32,7 @@ export default {
     },
     ...mapGetters([
       'getUser'
-    ]),
-    popup(){
-      return this.$route.query.method
-    }
+    ])
   },
   components: {
     Header,
@@ -46,7 +43,7 @@ export default {
     Referall,
     Footer
   },
-  async mounted() {
+  async created() {
     const data = {
       web_session: getCookie('web-session')
     }
@@ -63,7 +60,7 @@ export default {
         this.$router.push({name: 'ident', query: { web: getCookie('web-session') }})
       }
     })
-  },
+  }
 }
 </script>
 
