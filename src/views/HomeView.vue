@@ -6,6 +6,8 @@
       <User :name="getUser?.name + ' ' + getUser?.surname" :phone="getUser?.phone_number" />
       <Shot :score="getUser?.score" />
       <Drawing />
+      <Referall />
+      <Footer :count="getUser?.spin_wheel" />
     </div>
   </div>
 </template>
@@ -16,6 +18,8 @@ import Top from '@/components/Home/Top'
 import User from '@/components/Home/User'
 import Shot from '@/components/Home/Shot'
 import Drawing from '@/components/Home/Drawing'
+import Referall from '@/components/Home/Referall'
+import Footer from '@/components/Home/Footer'
 import {api} from '@/boot/axios'
 import {getCookie} from '@/boot/util'
 import {mapGetters} from 'vuex'
@@ -38,7 +42,9 @@ export default {
     Top,
     User,
     Shot,
-    Drawing
+    Drawing,
+    Referall,
+    Footer
   },
   async mounted() {
     const data = {
@@ -60,3 +66,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+  .home-wrapper{
+    height: calc(100vh - 74px);
+    overflow-y: auto;
+  }
+</style>e
