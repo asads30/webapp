@@ -1,8 +1,7 @@
 <template>
     <div class="home">
       <Header :left="false" :right="false" :center="true" :centerText="'Акция'"/>
-      <div class="home-wrapper">
-        {{ cookie }}
+      <div class="home-wrapper" v-if="getUser">
         <Top :count="getUser?.prizes_count" />
         <User :name="getUser?.name + ' ' + getUser?.surname" :phone="getUser?.phone_number" />
         <Shot :score="getUser?.score" />
