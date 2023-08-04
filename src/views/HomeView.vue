@@ -51,6 +51,7 @@ export default {
       if(res.data.status == 200){
         this.home = true
         this.$store.commit('setUser', res.data.data)
+        localStorage.setItem('web', getCookie('web-session'))
       }
     }).catch(err => {
       if(err.response.data.error.code == 1000){
