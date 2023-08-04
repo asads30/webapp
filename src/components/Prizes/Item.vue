@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/" class="myprizes-item">
+    <router-link :to="'/prizes/'+id" class="myprizes-item">
         <div class="myprizes-img" :style="'background: ' + background">
             <img :src="'https://promadm.click.uz/' + img">
         </div>

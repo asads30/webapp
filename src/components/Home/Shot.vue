@@ -1,7 +1,7 @@
 <template>
   <div class="shot">
       <div class="container">
-        <router-link to="/" class="shot-box">
+        <router-link to="/chances" class="shot-box">
           <div class="shot-left">
             <div class="shot-rating">
               <div class="shot-rating-icon">

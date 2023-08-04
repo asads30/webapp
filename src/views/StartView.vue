@@ -81,7 +81,7 @@
                         } catch (error) {
                             console.log(error)
                         }
-                        this.$router.push({ name: 'home', query: { method: 'code' }})
+                        this.$router.push({ name: 'home', query: { method: 'code' } })
                     }
                 })
             },
@@ -92,7 +92,7 @@
                 }
                 await api.post('me', data).then(res => {
                     if(res){
-                        this.$router.push('/')
+                        this.$router.push({ name: 'home', query: { method: 'nocode' } })
                     }
                 })
             }

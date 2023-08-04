@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/" class="drawing">
+  <router-link to="/super" class="drawing">
        <div class="drawing-top">
          <div class="container">
            <div class="drawing-title">В розыгрыше</div>
@@ -84,7 +84,7 @@ export default {
            font-weight: 600;
            text-align: center;
            border-radius: 24px;
-           background: var(--gradient-2, linear-gradient(54deg, #FCFE5D 0%, #FDDC08 24.02%, #FD9F83 47.72%, #F97DD3 69.57%, #C566E4 100%));
+           background: linear-gradient(54deg, #FCFE5D 0%, #FDDC08 24.02%, #FD9F83 47.72%, #F97DD3 69.57%, #C566E4 100%);
            position: absolute;
            right: -8px;
            top: -6px;

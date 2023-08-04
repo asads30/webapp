@@ -35,3 +35,28 @@ body{
     background-size: cover;
     background-position: top left;
 }
+
+.offcanvas.offcanvas-bottom{
+  height: 60vh;
+}
+
+.offcanvas-body p{
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 10px;
+}
+
+.offcanvas-header{
+  padding-bottom: 0;
+}
+
+.offcanvas-title{
+  font-size: 18px;
+  padding-bottom: 0;
+}
+
+.modal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

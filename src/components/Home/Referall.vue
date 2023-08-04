@@ -2,7 +2,7 @@
     <div class="referall">
         <div class="container">
           <div class="referall-title">Увеличивай свои шансы приглашай друзей</div>
-          <button class="referall-btn">
+          <button class="referall-btn" @click="goRef">
             <span>Пригласи друга</span>
             <img src="@/assets/images/referall.svg" alt="">
           </button>
@@ -13,6 +13,11 @@
 <script>
 export default {
     name: 'ReferallHomeBlock',
+    methods: {
+      goRef(){
+        this.$router.push('/referall')
+      }
+    },
 }
 </script>
 

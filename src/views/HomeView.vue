@@ -2,6 +2,7 @@
   <div class="home">
     <Header :left="false" :right="false" :center="true" :centerText="'Акция'"/>
     <div class="home-wrapper" v-if="getUser">
+      <Modal :code="code" />
       <Top :count="getUser?.prizes_count" />
       <User :name="getUser?.name + ' ' + getUser?.surname" :phone="getUser?.phone_number" />
       <Shot :score="getUser?.score" />
@@ -20,19 +21,32 @@ import Shot from '@/components/Home/Shot'
 import Drawing from '@/components/Home/Drawing'
 import Referall from '@/components/Home/Referall'
 import Footer from '@/components/Home/Footer'
+import Modal from '@/components/Home/Modal'
 import {api} from '@/boot/axios'
 import {getCookie} from '@/boot/util'
 import {mapGetters} from 'vuex'
 
 export default {
   name: 'HomeView',
+  data() {
+    return {
+      code: false
+    }
+  },
   computed: {
     cookie(){
       return getCookie('web-session')
     },
     ...mapGetters([
       'getUser'
-    ])
+    ]),
+    code(){
+      if(this.$route.query.method == 'code'){
+        return true
+      } else{
+        return false
+      }
+    }
   },
   components: {
     Header,
@@ -41,7 +55,8 @@ export default {
     Shot,
     Drawing,
     Referall,
-    Footer
+    Footer,
+    Modal
   },
   async created() {
     const data = {
@@ -61,6 +76,21 @@ export default {
         this.$router.push({name: 'ident', query: { web: getCookie('web-session') }})
       }
     })
+    // let theme = getCookie('theme');
+    // if(theme && theme == 'light'){
+    //   localStorage.setItem('theme', 'light')
+    //   document.documentElement.setAttribute('theme', 'light');
+    // } else{
+    //   localStorage.setItem('theme', 'dark')
+    //   document.documentElement.setAttribute('theme', 'dark');
+    // }
+    // let lang = getCookie('lang');
+    // if(lang && lang == 'ru'){
+    //   localStorage.setItem('lang', 'ru')
+    // } else{
+    //   localStorage.setItem('lang', 'uz')
+    // }
+    document.documentElement.setAttribute('theme', 'light');
   }
 }
 </script>
