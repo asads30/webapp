@@ -1,4 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+}
+
+#app{
+  height: 100vh;
+  position: relative;
+}
+
+body{
+  font-family: 'Golos Text', sans-serif !important;
+  background: #242429;
+  color: #fff;
+}
+
+.container{
+    padding: 0 20px;
+}
+
+.ident{
+    background: #242429 url(../assets/images/ident_bg.jpg) 100% no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.start-top{
+    border-radius: 0px 0px 24px 24px;
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 14px;
+    background: #242429 url(../assets/images/start_bg.jpg) no-repeat 100%;
+    background-size: cover;
+    background-position: top left;
 }
