@@ -42,7 +42,6 @@ export default {
     }
   },
   async mounted() {
-    this.start = true
     const data = {
       web_session: this.getCookie('web-session')
     }
