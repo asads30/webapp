@@ -1,6 +1,7 @@
 <template>
     <div class="start">
         <div class="start-top">
+            {{ cookie }}
             <div class="container">
                 <div class="start-title">Click разыгрывает<br />BYD и множество других призов</div>
                 <div class="start-img">
@@ -66,13 +67,13 @@
             cookie: String 
         },
         methods: {
-            goAction(){
+            async goAction(){
                 const data = {
                     web_session: this.cookie,
                     active: 'ref',
                     ref: this.promocode
                 }
-                api.post('me', data).then(res => {
+                await api.post('me', data).then(res => {
                     if(res.data.status == 200){
                         this.$router.push({ name: 'home', query: { method: 'code' }})
                     }
