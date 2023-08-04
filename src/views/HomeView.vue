@@ -28,7 +28,10 @@ export default {
     },
     ...mapGetters([
       'getUser'
-    ])
+    ]),
+    popup(){
+      return this.$route.query.method
+    }
   },
   components: {
     Header,

@@ -1,7 +1,6 @@
 <template>
     <div class="start">
         <div class="start-top">
-            {{ cookie }}
             <div class="container">
                 <div class="start-title">Click разыгрывает<br />BYD и множество других призов</div>
                 <div class="start-img">
@@ -77,6 +76,11 @@
                 }
                 await api.post('me', data).then(res => {
                     if(res.data.status == 200){
+                        try {
+                            this.$store.commit('setUser', res.data.data)
+                        } catch (error) {
+                            console.log(error)
+                        }
                         this.$router.push({ name: 'home', query: { method: 'code' }})
                     }
                 })
