@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <Home v-if="home" />
-    <Start v-if="start" />
+    <Home v-if="home" :cookie="cookie" />
+    <Start v-if="start" :cookie="cookie" />
     <Ident v-if="ident" />
   </div>
 </template>
@@ -41,6 +41,7 @@ export default {
     }
   },
   async mounted() {
+    this.start = true
     const data = {
       web_session: this.getCookie('web-session')
     }

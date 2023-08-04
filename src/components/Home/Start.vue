@@ -31,7 +31,7 @@
                             </div>
                             <div class="start-content-bottom">
                                 <div class="start-content-privacy">Нажимая кнопку Участвовать в акции, вы соглашаетесь с <button>условиями акции</button> «ID марафон»</div>
-                                <button class="start-content-btn" :disabled="promocode.length != 6">Участвовать в акции</button>
+                                <button class="start-content-btn" :disabled="promocode.length != 6" @click="goAction">Участвовать в акции</button>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="start-content-bottom">
                                 <div class="start-content-privacy">Нажимая кнопку Участвовать в акции, вы соглашаетесь с <button>условиями акции</button> «ID марафон»</div>
-                                <button class="start-content-btn">Участвовать в акции</button>
+                                <button class="start-content-btn" @click="goActionNot">Участвовать в акции</button>
                             </div>
                         </div>
                     </div>
@@ -53,11 +53,41 @@
 </template>
 
 <script>
+    import {api} from '@/boot/axios'
+    
     export default {
         name: 'StartComponent',
         data() {
             return {
                 promocode: ''
+            }
+        },
+        props:{
+            cookie: String 
+        },
+        methods: {
+            goAction(){
+                const data = {
+                    web_session: this.cookie,
+                    active: 'ref',
+                    ref: this.promocode
+                }
+                api.post('me', data).then(res => {
+                    if(res.data.status == 200){
+                        this.$router.push({ name: 'home', query: { method: 'code' }})
+                    }
+                })
+            },
+            goActionNot(){
+                const data = {
+                    web_session: this.cookie,
+                    active: true
+                }
+                api.post('me', data).then(res => {
+                    if(res.data.status == 200){
+                        this.$router.push({ name: 'home', query: { method: 'nocode' }})
+                    }
+                })
             }
         },
     }
