@@ -51,7 +51,7 @@ export default {
         this.$router.push({name: 'start', query: { web: getCookie('web-session') }})
       }
       if(err.response.data.error.code == 1001){
-        this.$router.push({name: 'start', query: { web: getCookie('web-session') }})
+        this.$router.push({name: 'ident', query: { web: getCookie('web-session') }})
       }
     })
   },
