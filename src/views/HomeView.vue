@@ -1,10 +1,14 @@
 <template>
   <div class="home">
-    {{ cookie }}
+    <Home v-if="home" />
+    <Start v-if="start" />
   </div>
 </template>
 
 <script>
+import {api} from '@/boot/axios'
+import Home from '@/components/Home'
+import Start from '@/components/Start'
 
 export default {
   name: 'HomeView',
@@ -12,6 +16,16 @@ export default {
     cookie(){
       return this.getCookie('web-session')
     }
+  },
+  data() {
+    return {
+      home: false,
+      start: false
+    }
+  },
+  components: {
+    Home,
+    Start
   },
   methods: {
     getCookie(name) {
@@ -21,7 +35,21 @@ export default {
       else
         return null;
     }
-  }
+  },
+  async mounted() {
+    const data = {
+      web_session: this.getCookie('web-session')
+    }
+    await api.post('me', data).then(res => {
+      if(res.data.status == 200){
+        this.home = true
+      }
+    }).catch(err => {
+      if(err.response.data.error.code == 1000){
+        this.start = true
+      }
+    })
+  },
 }
 </script>
 
