@@ -17,7 +17,8 @@ import Top from '@/components/Home/Top'
 import User from '@/components/Home/User'
 import Shot from '@/components/Home/Shot'
 import Drawing from '@/components/Home/Drawing'
-import {mapGetters} from 'vuex';
+import {mapGetters, mapActions} from 'vuex';
+
 
 export default {
   name: 'HomeView',
@@ -29,29 +30,17 @@ export default {
     Drawing
   },
   computed: {
-    cookie(){
-      return this.$route.query.web
-    },
     ...mapGetters([
       'getUser'
     ])
   },
   methods: {
-    fetchUser(cookie){
-      this.$store.dispatch('fetchUser', {
-        web_session: cookie
-      })
-    },
-    getCookie(name) {
-      var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-      if (arr = document.cookie.match(reg))
-        return (arr[2]);
-      else
-        return null;
-    }
+    ...mapActions([
+      'fetchUser'
+    ])
   },
   mounted() {
-    this.fetchUser(this.getCookie('web-session'))
+    this.fetchUser()
   },
 }
 </script>

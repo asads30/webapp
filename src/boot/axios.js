@@ -5,5 +5,11 @@ const api = axios.create({
   timeout: 5000
 })
 
+axios.interceptors.response.use(function (response) {
+  return response
+}, function (error) {
+  console.log(error)
+})
+
 
 export { api }
