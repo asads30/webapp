@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{ cookie }}
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  computed: {
+    cookie(){
+      return this.getCookie('web-session')
+    }
+  },
+  methods: {
+    getCookie(name) {
+      var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+      if (arr = document.cookie.match(reg))
+        return (arr[2]);
+      else
+        return null;
+    }
   }
 }
 </script>
+
+<style lang="scss">
+  .home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+</style>
