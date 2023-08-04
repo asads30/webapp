@@ -85,14 +85,15 @@
                     }
                 })
             },
-            goAction(){
+            async goAction(){
                 const data = {
                     web_session: this.cookie,
-                    active: 'ref',
-                    ref: this.promocode
+                    active: true
                 }
-                api.post('me', data).then(res => {
-                    this.$router.push({ name: 'home', query: { method: 'nocode' }})
+                await api.post('me', data).then(res => {
+                    if(res){
+                        this.$router.push('/')
+                    }
                 })
             }
         },
