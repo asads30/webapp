@@ -48,7 +48,7 @@
         }
       },
       mounted() {
-        this.fetchUser('3a33262e-9516-44f5-ba42-a1a58aa78d4d')
+        this.fetchUser(this.cookie)
       },
   }
 </script>
