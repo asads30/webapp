@@ -85,7 +85,7 @@
                     }
                 })
             },
-            async goAction(){
+            async goActionNot(){
                 const data = {
                     web_session: this.cookie,
                     active: true
