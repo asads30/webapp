@@ -85,21 +85,14 @@
                     }
                 })
             },
-            async goAction(){
+            goAction(){
                 const data = {
                     web_session: this.cookie,
                     active: 'ref',
                     ref: this.promocode
                 }
-                await api.post('me', data).then(res => {
-                    if(res.data.status == 200){
-                        try {
-                            this.$store.commit('setUser', res.data.data)
-                        } catch (error) {
-                            console.log(error)
-                        }
-                        this.$router.push({ name: 'home', query: { method: 'nocode' }})
-                    }
+                api.post('me', data).then(res => {
+                    this.$router.push({ name: 'home', query: { method: 'nocode' }})
                 })
             }
         },
