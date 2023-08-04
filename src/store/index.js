@@ -18,8 +18,11 @@ export default createStore({
   actions: {
     async fetchUser({commit}, session) {
       try {
-        const res = await api.post(`me`, { web_session: session});
-        commit('setUser', res.data.data);
+        await api.post(`me`, session).then(res => {
+          if(res){
+            commit('setUser', res.data.data)
+          }
+        })
       } catch (err) {
         console.log(err)
       }
