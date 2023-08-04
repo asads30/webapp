@@ -20,7 +20,7 @@
             </div>
             <div class="header-right">
                 <div v-if="right" class="header-right-text">
-                    {{ rightText }}
+                    
                 </div>
             </div>
         </div>

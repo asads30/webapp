@@ -1,61 +1,57 @@
 <template>
   <div class="home">
-    <Home v-if="home" />
-    <Start v-if="start" />
-    <Ident v-if="ident" />
+    <Header :left="false" :right="false" :center="true" :centerText="'Акция'"/>
+    <div class="home-wrapper" v-if="getUser">
+      <Top :count="getUser?.prizes_count" />
+      <User :name="getUser?.name + ' ' + getUser?.surname" :phone="getUser?.phone_number" />
+      <Shot :score="getUser?.score" />
+      <Drawing />
+    </div>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
+import Top from '@/components/Home/Top'
+import User from '@/components/Home/User'
+import Shot from '@/components/Home/Shot'
+import Drawing from '@/components/Home/Drawing'
 import {api} from '@/boot/axios'
-import Home from '@/components/Home'
-import Start from '@/components/Start'
-import Ident from '@/components/Ident'
+import {getCookie} from '@/boot/util'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'HomeView',
   computed: {
     cookie(){
-      return this.getCookie('web-session')
-    }
-  },
-  data() {
-    return {
-      home: false,
-      start: false,
-      ident: false
-    }
+      return getCookie('web-session')
+    },
+    ...mapGetters([
+      'getUser'
+    ])
   },
   components: {
-    Home,
-    Start,
-    Ident
-  },
-  methods: {
-    getCookie(name) {
-      var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-      if (arr = document.cookie.match(reg))
-        return (arr[2]);
-      else
-        return null;
-    }
+    Header,
+    Top,
+    User,
+    Shot,
+    Drawing
   },
   async mounted() {
     const data = {
-      web_session: this.getCookie('web-session')
+      web_session: getCookie('web-session')
     }
     await api.post('me', data).then(res => {
       if(res.data.status == 200){
         this.home = true
+        this.$store.commit('setUser', res.data.data)
       }
     }).catch(err => {
-      if(err.response.data){
-        if(err.response.data.error.code == 1000){
-          this.start = true
-        }
-        if(err.response.data.error.code == 1001){
-          this.ident = true
-        }
+      if(err.response.data.error.code == 1000){
+        this.$router.push({name: 'start', query: { web: getCookie('web-session') }})
+      }
+      if(err.response.data.error.code == 1001){
+        this.$router.push({name: 'start', query: { web: getCookie('web-session') }})
       }
     })
   },

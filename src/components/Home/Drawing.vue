@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/main" class="drawing">
+  <router-link to="/" class="drawing">
        <div class="drawing-top">
          <div class="container">
            <div class="drawing-title">В розыгрыше</div>

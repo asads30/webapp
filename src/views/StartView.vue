@@ -1,6 +1,7 @@
 <template>
     <div class="start">
         <div class="start-top">
+            {{ cookie }}
             <div class="container">
                 <div class="start-title">Click разыгрывает<br />BYD и множество других призов</div>
                 <div class="start-img">
@@ -8,7 +9,6 @@
                 </div>
             </div>
         </div>
-        {{ cookie }}
         <div class="start-bottom">
             <div class="container">
                 <ul class="nav nav-tabs start-tabs" id="myTab" role="tablist">
@@ -54,35 +54,46 @@
 </template>
 
 <script>
-import {api} from '@/boot/axios'
-
-export default {
-    name: 'StartComponent',
-    data() {
-        return {
-            promocode: ''
-        }
-    },
-    computed: {
-        cookie(){
-            return this.$route.query.web
-        }
-    },
-    methods: {
-        async goAction(){
-            const data = {
-                web_session: this.cookie,
-                ref: this.promocode,
-                active: 'ref'
+    import {api} from '@/boot/axios'
+    
+    export default {
+        name: 'StartView',
+        data() {
+            return {
+                promocode: ''
             }
-            await api.post('me', data).then(res => {
-                if(res.data.status == 200){
-                    
+        },
+        computed: {
+            cookie(){
+                return this.$route.query.web
+            }
+        },
+        methods: {
+            async goAction(){
+                const data = {
+                    web_session: this.cookie,
+                    active: 'ref',
+                    ref: this.promocode
                 }
-            })
-        }
-    },
-}
+                await api.post('me', data).then(res => {
+                    if(res.data.status == 200){
+                        this.$router.push({ name: 'home', query: { method: 'code' }})
+                    }
+                })
+            },
+            async goActionNot(){
+                const data = {
+                    web_session: this.cookie,
+                    active: true
+                }
+                api.post('me', data).then(res => {
+                    if(res.data.status == 200){
+                        this.$router.push({ name: 'home', query: { method: 'nocode' }})
+                    }
+                })
+            }
+        },
+    }
 </script>
 
 <style lang="scss">
