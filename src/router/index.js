@@ -59,9 +59,11 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-  if(to.name == 'start' && from.name == 'home'){
-    return false
+  const isLogged = store.getters.getUser;
+  if (isLogged && to.name == 'start') {
+      return router.push({ name: 'home' });
   }
+  return next();
 })
 
 export default router
