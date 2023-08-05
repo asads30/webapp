@@ -3,6 +3,9 @@
         <Header :left="true" :right="false" :center="true" :centerText="'Мои призы'"/>
         <div class="prizes-wrapper">
             <div class="container">
+                <div class="text-white">
+                    {{ session }}
+                </div>
                 <div class="prizes-list">
                     <Prize 
                         v-for="item in getPrizes"
@@ -34,12 +37,15 @@ export default {
         web () {
             return this.$route.query.web
         },
+        session(){
+            return getStorage('session')
+        }
     },
     components: {
         Header,
         Prize
     },
-    created() {
+    mounted() {
         const session = getStorage('session');
         api.get(`myPrizes?web_session=${session}`).then(res => {
             this.$store.commit('setPrizes', res.data)
