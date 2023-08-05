@@ -4,7 +4,8 @@
         <div class="chancesview-wrapper">
             <div class="chances-top">
                 <div class="container">
-                    <div class="chances-title">Вы набрали <span>{{ getUser?.score }} шанс</span></div>
+                    <div class="chances-title">Вы набрали <span>шансы</span></div>
+                    {{ cookie }}
                 </div>
             </div>
             <div class="chances-des">
@@ -15,7 +16,7 @@
             <div class="chances-items">
                 <div class="container">
                     <div class="chances-list">
-                        <div class="chances-item" v-for="(chance, key) in getChances" :key="chance">
+                        <div class="chances-item" v-for="(chance, key) in chances" :key="chance">
                             <div class="chances-date">{{ key }}</div>
                             <div class="chances-group" v-for="(category, key2) in chance" :key="category">
                                 <div class="chances-group-left">
@@ -45,7 +46,6 @@
 
 <script>
 import Header from '@/components/Header'
-import {mapGetters} from 'vuex';
 import {api} from '@/boot/axios'
 
 export default {
@@ -53,20 +53,20 @@ export default {
     components: {
         Header,
     },
+    data() {
+        return {
+            chances: null,
+        };
+    },
     computed: {
-        ...mapGetters([
-            'getChances',
-            'getUser'
-        ]),
         cookie(){
             return this.$route.query.web
         }
     },
-    async mounted(){
-        await api.post(`chancesList?web_session=${this.cookie}`).then(res => {
-            if(res.data.status == 200){
-                this.$store.commit('setChances', res.data)
-            }
+    mounted(){
+        api.get(`chancesList?web_session=${this.cookie}`).then(res => {
+            this.chances = res.data
+            console.log(res)
         }).catch(err => {
             console.log(err)
         })

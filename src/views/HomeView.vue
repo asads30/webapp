@@ -64,20 +64,6 @@ export default {
         this.$router.push({name: 'ident', query: { web: getCookie('web-session') }})
       }
     })
-    let theme = getCookie('theme');
-    if(theme && theme == 'light'){
-      localStorage.setItem('theme', 'light')
-      document.documentElement.setAttribute('theme', 'light');
-    } else{
-      localStorage.setItem('theme', 'dark')
-      document.documentElement.setAttribute('theme', 'dark');
-    }
-    let lang = getCookie('lang');
-    if(lang && lang == 'ru'){
-      localStorage.setItem('lang', 'ru')
-    } else{
-      localStorage.setItem('lang', 'uz')
-    }
   }
 }
 </script>
