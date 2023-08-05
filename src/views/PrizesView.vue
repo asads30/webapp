@@ -23,6 +23,7 @@ import Header from '@/components/Header'
 import Prize from '@/components/Prizes/Item'
 import {api} from '@/boot/axios'
 import {mapGetters} from 'vuex';
+import {getStorage} from '@/boot/util'
 
 export default {
     name: 'PrizesView',
@@ -39,7 +40,8 @@ export default {
         Prize
     },
     created() {
-        api.get(`myPrizes?web_session=${this.web}`).then(res => {
+        const session = getStorage('session');
+        api.get(`myPrizes?web_session=${session}`).then(res => {
             this.$store.commit('setPrizes', res.data)
         }).catch(err => {
             console.log(err)
