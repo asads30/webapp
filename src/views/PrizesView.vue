@@ -46,8 +46,7 @@ export default {
         Prize
     },
     mounted() {
-        const session = getStorage('session');
-        api.get(`myPrizes?web_session=${session}`).then(res => {
+        api.get(`myPrizes?web_session=${this.session}`).then(res => {
             this.$store.commit('setPrizes', res.data)
         }).catch(err => {
             console.log(err)
