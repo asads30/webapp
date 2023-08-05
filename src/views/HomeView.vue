@@ -125,7 +125,16 @@ export default {
       }
     })
     this.$store.commit('setWeb', data.web_session)
-  }
+  },
+  mounted() {
+    window.onpopstate = event => {
+      if (
+        this.$route.path == "/"
+      ) {
+        this.$router.push("/"); // redirect to home, for example
+      }
+    }
+  },
 }
 </script>
 
