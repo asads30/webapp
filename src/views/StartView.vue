@@ -26,7 +26,7 @@
                                 <div class="start-content-text"><span>+2</span> шанса на участие</div>
                                 <div class="start-content-text"><span>+2</span> возможности крутить колесо</div>
                                 <div class="start-content-input">
-                                    <input type="text" placeholder="Промокод" v-model="promocode">
+                                    <input type="text" placeholder="Промокод" v-model="promocode" v-on:keypress="isLetter($event)">
                                 </div>
                             </div>
                             <div class="start-content-bottom">
@@ -68,6 +68,11 @@
             }
         },
         methods: {
+            isLetter(e) {
+                if(e.target.value.length > 5){
+                    e.preventDefault()
+                }
+            },
             async goAction(){
                 const data = {
                     web_session: this.cookie,
@@ -183,11 +188,22 @@
                     line-height: 40px;
                     text-align: center;
                     border-radius: 10px;
+                    text-transform: uppercase;
+                    color: #000;
+                    font-weight: 900;
+                    font-size: 18px;
                     &:focus{
                         border-color: #0073FF;
                         box-shadow: none;
                         outline: 0;
                     }
+                    &::placeholder{
+                        font-weight: 300;
+                    }
+                    &:-ms-input-placeholder{
+                        font-weight: 300;
+                    }
+
                 }
             }
             &-privacy{
