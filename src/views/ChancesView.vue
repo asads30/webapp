@@ -5,7 +5,6 @@
             <div class="chances-top">
                 <div class="container">
                     <div class="chances-title">Вы набрали <span>шансы</span></div>
-                    {{ cookie }}
                 </div>
             </div>
             <div class="chances-des">
@@ -59,10 +58,12 @@ export default {
         };
     },
     computed: {
-        cookie: localStorage.getItem('web')
+        code () {
+            return this.$route.query.web
+        }
     },
-    async mounted(){
-        await api.get(`chancesList?web_session=${localStorage.getItem('web')}`).then(res => {
+    created(){
+        api.get(`chancesList?web_session=${this.code}`).then(res => {
             this.chances = res.data
         }).catch(err => {
             console.log(err)

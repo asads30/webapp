@@ -7,7 +7,26 @@
     <div class="home-wrapper" v-if="getUser">
       <Top :count="getUser?.prizes_count" />
       <User :name="getUser?.name + ' ' + getUser?.surname" :phone="getUser?.phone_number" />
-      <Shot :score="getUser?.score" :cookie="cookie" />
+      <div class="shot">
+        <div class="container">
+          <router-link :to="{name: 'chances', query: { web: cookie }}" class="shot-box">
+            <div class="shot-left">
+              <div class="shot-rating">
+                <div class="shot-rating-icon">
+                  <img src="@/assets/images/shot.svg" alt="">
+                </div>
+                <div class="shot-rating-number">{{ getUser?.score }}</div>
+              </div>
+              <div class="shot-title">Шанс для розыгрышей<br />суперпризов</div>
+            </div>
+            <div class="shot-right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                <path d="M1 1L7.25 7.875L1 14.75" stroke="#B3B7CE" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </router-link>
+        </div>
+      </div>
       <Drawing />
       <Referall />
       <Footer :count="getUser?.spin_wheel" />
@@ -72,5 +91,45 @@ export default {
   .home-wrapper{
     height: calc(100vh - 74px);
     overflow-y: auto;
+  }
+  .shot {
+    margin: 0 0 20px;
+    .shot-box{
+      background: #34353F;
+      justify-content: space-between;
+      padding: 10px 15px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      .shot-left{
+        display: flex;
+        align-items: center;
+        .shot-rating {
+          gap: 9px;
+          padding-right: 15px;
+          border-right: 1px solid hsla(0,0%,100%,.2);
+          margin-right: 15px;
+          display: flex;
+          align-items: center;
+          .shot-rating-icon{
+            height: 19px;
+            img{
+              vertical-align: baseline;
+            }
+          }
+          .shot-rating-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+          }
+        }
+        .shot-title{
+          font-size: 14px;
+          color: #fff;
+          font-weight: 600;
+        }
+      }
+    }
   }
 </style>e
