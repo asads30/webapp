@@ -26,7 +26,8 @@ const routes = [
   {
     path: '/prizes',
     name: 'prizes',
-    component: PrizesView
+    component: PrizesView,
+    props: true
   },
   {
     path: `/prizes/:id`,
@@ -36,7 +37,8 @@ const routes = [
   {
     path: '/chances',
     name: 'chances',
-    component: ChancesView
+    component: ChancesView,
+    props: true
   },
   {
     path: '/super',
