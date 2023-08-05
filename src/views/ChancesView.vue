@@ -61,8 +61,8 @@ export default {
             'getChances'
         ])
     },
-    mounted(){
-        api.get(`chancesList?web_session=${this.code}`).then(res => {
+    async mounted(){
+        await api.get(`chancesList?web_session=${this.code}`).then(res => {
             this.$store.commit('setChances', res.data)
         }).catch(err => {
             console.log(err)

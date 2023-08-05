@@ -84,7 +84,7 @@ import Drawing from '@/components/Home/Drawing'
 import Referall from '@/components/Home/Referall'
 import Footer from '@/components/Home/Footer'
 import {api} from '@/boot/axios'
-import {getCookie} from '@/boot/util'
+import {getCookie, saveStorage} from '@/boot/util'
 import {mapGetters} from 'vuex'
 
 export default {
@@ -115,6 +115,7 @@ export default {
         this.home = true
         this.$store.commit('setUser', res.data.data)
         this.$store.commit('setWeb', data.web_session)
+        saveStorage('session', data.web_session)
       }
     }).catch(err => {
       if(err.response.data.error.code == 1000){
