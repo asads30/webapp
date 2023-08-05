@@ -2,7 +2,7 @@
   <div class="home">
     <Header :left="false" :right="false" :center="true" :centerText="'Акция'"/>
     <div class="text-white">
-      {{ cookie }}
+      {{ getWeb }}
     </div>
     <div class="home-wrapper" v-if="getUser">
       <div class="prizes">
@@ -94,7 +94,8 @@ export default {
       return getCookie('web-session')
     },
     ...mapGetters([
-      'getUser'
+      'getUser',
+      'getWeb'
     ])
   },
   components: {
@@ -106,7 +107,15 @@ export default {
     Referall,
     Footer,
   },
-  async mounted() {
+  mounted() {
+    const data = {
+      web_session: this.getWeb
+    }
+    api.post('me', data).then(res => {
+      this.$store.commit('setUser', res.data.data)
+    })
+  },
+  async created() {
     const data = {
       web_session: getCookie('web-session')
     }
