@@ -4,7 +4,7 @@
         <div class="chancesview-wrapper">
             <div class="chances-top">
                 <div class="text-white">
-                    {{ code }}
+                    {{ getWeb }}
                 </div>
                 <div class="container">
                     <div class="chances-title">Вы набрали <span>шансы</span></div>
@@ -50,7 +50,6 @@
 import Header from '@/components/Header'
 import {api} from '@/boot/axios'
 import {mapGetters} from 'vuex'
-import {getStorage} from '@/boot/util'
 
 export default {
     name: 'ChancesView',
@@ -62,7 +61,8 @@ export default {
             return this.$route.query.web
         },
         ...mapGetters([
-            'getChances'
+            'getChances',
+            'getWeb'
         ])
     },
     mounted(){
