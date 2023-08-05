@@ -84,7 +84,7 @@ import Drawing from '@/components/Home/Drawing'
 import Referall from '@/components/Home/Referall'
 import Footer from '@/components/Home/Footer'
 import {api} from '@/boot/axios'
-import {getCookie, saveStorage} from '@/boot/util'
+import {getCookie} from '@/boot/util'
 import {mapGetters} from 'vuex'
 
 export default {
@@ -111,18 +111,18 @@ export default {
       web_session: getCookie('web-session')
     }
     await api.post('me', data).then(res => {
+      this.$store.commit('setWeb', data.web_session)
       if(res.data.status == 200){
         this.home = true
         this.$store.commit('setUser', res.data.data)
-        this.$store.commit('setWeb', data.web_session)
-        saveStorage('session', data.web_session)
       }
     }).catch(err => {
+      this.$store.commit('setWeb', data.web_session)
       if(err.response.data.error.code == 1000){
-        this.$router.push({name: 'start', query: { web: getCookie('web-session') }})
+        this.$router.push({name: 'start'})
       }
       if(err.response.data.error.code == 1001){
-        this.$router.push({name: 'ident', query: { web: getCookie('web-session') }})
+        this.$router.push({name: 'ident'})
       }
     })
   }

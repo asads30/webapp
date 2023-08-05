@@ -54,7 +54,8 @@
 
 <script>
     import {api} from '@/boot/axios'
-    
+    import {mapGetters} from 'vuex'
+
     export default {
         name: 'StartView',
         data() {
@@ -63,14 +64,14 @@
             }
         },
         computed: {
-            cookie(){
-                return this.$route.query.web
-            }
+            ...mapGetters([
+                'getWeb'
+            ])
         },
         methods: {
             async goAction(){
                 const data = {
-                    web_session: this.cookie,
+                    web_session: this.getWeb,
                     active: 'ref',
                     ref: this.promocode
                 }
@@ -87,11 +88,16 @@
             },
             async goActionNot(){
                 const data = {
-                    web_session: this.cookie,
+                    web_session: this.getWeb,
                     active: true
                 }
                 await api.post('me', data).then(res => {
-                    if(res){
+                    if(res.data.status == 200){
+                        try {
+                            this.$store.commit('setUser', res.data.data)
+                        } catch (error) {
+                            console.log(error)
+                        }
                         this.$router.push({ name: 'home'})
                     }
                 })
