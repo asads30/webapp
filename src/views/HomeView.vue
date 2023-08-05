@@ -2,7 +2,6 @@
   <div class="home">
     <Header :left="false" :right="false" :center="true" :centerText="'Акция'"/>
     <div class="home-wrapper" v-if="getUser">
-      <Modal :code="code" />
       <Top :count="getUser?.prizes_count" />
       <User :name="getUser?.name + ' ' + getUser?.surname" :phone="getUser?.phone_number" />
       <Shot :score="getUser?.score" />
@@ -21,32 +20,19 @@ import Shot from '@/components/Home/Shot'
 import Drawing from '@/components/Home/Drawing'
 import Referall from '@/components/Home/Referall'
 import Footer from '@/components/Home/Footer'
-import Modal from '@/components/Home/Modal'
 import {api} from '@/boot/axios'
 import {getCookie} from '@/boot/util'
 import {mapGetters} from 'vuex'
 
 export default {
   name: 'HomeView',
-  data() {
-    return {
-      code: false
-    }
-  },
   computed: {
     cookie(){
       return getCookie('web-session')
     },
     ...mapGetters([
       'getUser'
-    ]),
-    code(){
-      if(this.$route.query.method == 'code'){
-        return true
-      } else{
-        return false
-      }
-    }
+    ])
   },
   components: {
     Header,
@@ -56,7 +42,6 @@ export default {
     Drawing,
     Referall,
     Footer,
-    Modal
   },
   async created() {
     const data = {

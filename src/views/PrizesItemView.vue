@@ -49,9 +49,6 @@
                 </div>
             </div>
         </div>
-        <div class="text-white">
-            {{ prize }}
-        </div>
     </div>
 </template>
 

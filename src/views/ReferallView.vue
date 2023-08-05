@@ -51,7 +51,7 @@
                     <div class="chances">
                         <div class="chances-top">
                             <div class="container">
-                                <div class="chances-title">Вы пригласили <span> пользователей</span></div>
+                                <div class="chances-title">Вы пригласили <span>пользователей</span></div>
                             </div>
                         </div>
                         <div class="chances-items">
@@ -91,9 +91,8 @@ export default {
     computed: {
         ...mapGetters([
             'getReferalls',
-            'getUser',
-            'getCountReferalls'
-        ])
+            'getUser'
+        ]),
     },
     components: {
         Header
@@ -105,7 +104,7 @@ export default {
     },
     created() {
         this.fetchReferalls()
-    },
+    }
 }
 </script>
 
