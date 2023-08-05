@@ -65,7 +65,7 @@ export default {
             return this.$route.query.web
         }
     },
-    created(){
+    mounted(){
         api.get(`chancesList?web_session=${this.code}`).then(res => {
             this.chances = res.data
         }).catch(err => {
