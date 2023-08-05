@@ -7,9 +7,6 @@
                     <div class="chances-title">Вы набрали <span>шансы</span></div>
                 </div>
             </div>
-            <div class="text-white">
-                {{ code }}
-            </div>
             <div class="chances-des">
                 <div class="container">
                     <p>Колеса, это одно из гарантированных призов. Когда участник прокрутит Колесо Фортуны, оно рандомным образом определит, какой из призов станет его выигрышем. Здесь нет проигравших! </p>
@@ -18,7 +15,7 @@
             <div class="chances-items">
                 <div class="container">
                     <div class="chances-list">
-                        <div class="chances-item" v-for="(chance, key) in chances" :key="chance">
+                        <div class="chances-item" v-for="(chance, key) in getChances" :key="chance">
                             <div class="chances-date">{{ key }}</div>
                             <div class="chances-group" v-for="(category, key2) in chance" :key="category">
                                 <div class="chances-group-left">
@@ -49,29 +46,27 @@
 <script>
 import Header from '@/components/Header'
 import {api} from '@/boot/axios'
+import {mapGetters} from 'vuex'
 
 export default {
     name: 'ChancesView',
     components: {
         Header,
     },
-    data() {
-        return {
-            chances: null,
-        };
-    },
     computed: {
         code () {
             return this.$route.query.web
-        }
+        },
+        ...mapGetters([
+            'getChances'
+        ])
     },
     mounted(){
         api.get(`chancesList?web_session=${this.code}`).then(res => {
-            this.chances = res.data
+            this.$store.commit('setChances', res.data)
         }).catch(err => {
             console.log(err)
         })
-    
     }
 }
 </script>

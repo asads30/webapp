@@ -1,10 +1,11 @@
 import { createStore } from 'vuex'
-import {api} from '@/boot/axios'
 
 export default createStore({
   state: {
     user: null,
     prizes: null,
+    chances: null,
+    web: null
   },
   getters: {
     getUser(state){
@@ -12,6 +13,12 @@ export default createStore({
     },
     getPrizes(state){
       return state.prizes
+    },
+    getChances(state){
+      return state.chances
+    },
+    getWeb(state){
+      return state.web
     }
   },
   mutations: {
@@ -20,17 +27,14 @@ export default createStore({
     },
     setPrizes: (state, prizes) => {
       state.prizes = prizes;
-    }
+    },
+    setChances: (state, chances) => {
+      state.chances = chances;
+    },
+    setWeb: (state, web) => {
+      state.web = web;
+    },
   },
   actions: {
-    async fetchPrizes({commit}) {
-      const web_session = localStorage.getItem('web');
-      try {
-          const res = await api.get(`myPrizes?web_session=${web_session}`);
-          commit('setPrizes', res.data);
-      } catch (err) {
-        console.log(err)
-      }
-    }
   }
 })
