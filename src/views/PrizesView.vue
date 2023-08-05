@@ -3,9 +3,6 @@
         <Header :left="true" :right="false" :center="true" :centerText="'Мои призы'"/>
         <div class="prizes-wrapper">
             <div class="container">
-                <div class="text-white">
-                    {{ web }}
-                </div>
                 <div class="prizes-list">
                     <Prize 
                         v-for="item in getPrizes"
