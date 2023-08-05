@@ -9,9 +9,9 @@
         <div class="prizesview-content">
             <div class="prizesview-content-top">
                 <div class="container">
-                    <div class="prizesview-date">{{ format_date(prize.created_at) }}</div>
+                    <div class="prizesview-date">{{ format_date(prize.prize.created_at) }}</div>
                     <div class="prizesview-title">{{ prize.prize.name_ru }}</div>
-                    <div class="prizesview-des">{{ prize.prize.prizes_type.description_ru }}</div>
+                    <div class="prizesview-des" v-html="prize.prize.description_ru"></div>
                 </div>
             </div>
             <div class="prizesview-content-bottom">
