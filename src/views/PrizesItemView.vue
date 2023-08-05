@@ -9,7 +9,9 @@
         <div class="prizesview-content">
             <div class="prizesview-content-top">
                 <div class="container">
+                    <div class="prizesview-date">{{ format_date(prize.created_at) }}</div>
                     <div class="prizesview-title">{{ prize.prize.name_ru }}</div>
+                    <div class="prizesview-des">{{ prize.prize.prizes_type.description }}</div>
                 </div>
             </div>
             <div class="prizesview-content-bottom">
@@ -68,6 +70,10 @@
         methods: {
             goHome(){
                 this.$router.push('/')
+            },
+            format_date(value){
+                var data = new Date(value);
+                return data.toLocaleString();
             }
         },
     };

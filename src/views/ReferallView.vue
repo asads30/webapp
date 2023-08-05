@@ -153,5 +153,73 @@ export default {
 }
 .ref-content{
     height: calc(100vh - 107px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ref-box-top{
+    display: flex;
+    padding-top: 20px;
+}
+.ref-img{
+    text-align: center;
+    margin-bottom: 35px;
+}
+.ref-title{
+    font-size: 24px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.ref-des{
+    font-size: 12px;
+    line-height: 16px;
+}
+.ref-box-bottom{
+    padding-bottom: 40px;
+    padding-top: 50px;
+    border-radius: 0px 0px 24px 24px;
+    background: #1B1B1F;
+    .referall-codebox{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 60px;
+        .code-title{
+            font-size: 10px;
+            color: #B3B7CE;
+            font-weight: 600;
+        }
+        input{
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            width: 100%;
+            height: 36px;
+            line-height: 36px;
+            padding: 0 12px;
+            background: none;
+            color: #fff;
+        }
+    }
+}
+.ref-invite>button{
+    border-radius: 10px;
+    background: linear-gradient(0deg, #0073FF 0%, #00C2FF 100%), #FFF;
+    height: 40px;
+    line-height: 40px;
+    border: 0;
+    width: 100%;
+    color: #fff;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    gap: 8px;
+    svg{
+        path{
+            fill: #fff;
+        }
+    }
 }
 </style>
