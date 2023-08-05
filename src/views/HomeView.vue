@@ -106,7 +106,7 @@ export default {
     Referall,
     Footer,
   },
-  async created() {
+  async mounted() {
     const data = {
       web_session: getCookie('web-session')
     }

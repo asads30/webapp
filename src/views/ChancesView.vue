@@ -6,6 +6,9 @@
                 <div class="text-white">
                     {{ code }}
                 </div>
+                <div class="text-white">
+                    {{ session }}
+                </div>
                 <div class="container">
                     <div class="chances-title">Вы набрали <span>шансы</span></div>
                 </div>
@@ -50,6 +53,7 @@
 import Header from '@/components/Header'
 import {api} from '@/boot/axios'
 import {mapGetters} from 'vuex'
+import {getStorage} from '@/boot/util'
 
 export default {
     name: 'ChancesView',
@@ -60,12 +64,15 @@ export default {
         code () {
             return this.$route.query.web
         },
+        session(){
+            return getStorage('session')
+        },
         ...mapGetters([
             'getChances'
         ])
     },
     mounted(){
-        api.get(`chancesList?web_session=${this.code}`).then(res => {
+        api.get(`chancesList?web_session=${this.session}`).then(res => {
             this.$store.commit('setChances', res.data)
         }).catch(err => {
             console.log(err)
