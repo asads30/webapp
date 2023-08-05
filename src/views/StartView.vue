@@ -26,7 +26,7 @@
                                 <div class="start-content-text"><span>+2</span> шанса на участие</div>
                                 <div class="start-content-text"><span>+2</span> возможности крутить колесо</div>
                                 <div class="start-content-input">
-                                    <input type="text" placeholder="Промокод" v-model="promocode" v-on:keypress="isLetter($event)">
+                                    <input type="text" placeholder="Промокод" v-model="promocode">
                                 </div>
                             </div>
                             <div class="start-content-bottom">
@@ -68,11 +68,6 @@
             }
         },
         methods: {
-            isLetter(e) {
-                if(e.target.value.length > 5){
-                    e.preventDefault()
-                }
-            },
             async goAction(){
                 const data = {
                     web_session: this.cookie,

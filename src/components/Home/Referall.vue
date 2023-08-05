@@ -15,7 +15,7 @@ export default {
     name: 'ReferallHomeBlock',
     methods: {
       goRef(){
-        this.$router.push('/referall')
+        this.$router.push('/')
       }
     },
 }

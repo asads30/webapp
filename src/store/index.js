@@ -6,7 +6,6 @@ export default createStore({
     user: null,
     prizes: null,
     chances: null,
-    referalls: null
   },
   getters: {
     getUser(state){
@@ -18,9 +17,6 @@ export default createStore({
     getChances(state){
       return state.chances
     },
-    getReferalls(state){
-      return state.referalls
-    }
   },
   mutations: {
     setUser: (state, user) => {
@@ -31,9 +27,6 @@ export default createStore({
     },
     setChances: (state, chances) => {
       state.chances = chances;
-    },
-    setReferalls: (state, referalls) => {
-      state.referalls = referalls;
     },
   },
   actions: {
@@ -54,15 +47,6 @@ export default createStore({
       } catch (err) {
         console.log(err)
       }
-    },
-    async fetchReferalls({commit}) {
-      const web_session = localStorage.getItem('web');
-      try {
-          const res = await api.get(`myReferrals?web_session=${web_session}`);
-          commit('setReferalls', res.data);
-      } catch (err) {
-        console.log(err)
-      }
-    },
+    }
   }
 })
