@@ -7,7 +7,7 @@
     <div class="home-wrapper" v-if="getUser">
       <Top :count="getUser?.prizes_count" />
       <User :name="getUser?.name + ' ' + getUser?.surname" :phone="getUser?.phone_number" />
-      <Shot :score="getUser?.score" />
+      <Shot :score="getUser?.score" :cookie="cookie" />
       <Drawing />
       <Referall />
       <Footer :count="getUser?.spin_wheel" />

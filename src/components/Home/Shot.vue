@@ -1,7 +1,7 @@
 <template>
   <div class="shot">
       <div class="container">
-        <router-link to="/chances" class="shot-box">
+        <router-link :to="{name: 'chances', query: { web: cookie }}" class="shot-box">
           <div class="shot-left">
             <div class="shot-rating">
               <div class="shot-rating-icon">
@@ -25,7 +25,8 @@
 export default {
   name: 'ShotHomeBlock',
   props: {
-      score: Number
+      score: Number,
+      cookie: String
   }
 }
 </script>

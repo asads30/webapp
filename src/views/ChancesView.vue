@@ -45,7 +45,8 @@
 
 <script>
 import Header from '@/components/Header'
-import {mapGetters, mapActions} from 'vuex';
+import {mapGetters} from 'vuex';
+import {api} from '@/boot/axios'
 
 export default {
     name: 'ChancesView',
@@ -56,16 +57,21 @@ export default {
         ...mapGetters([
             'getChances',
             'getUser'
-        ])
+        ]),
+        cookie(){
+            return this.$route.query.web
+        }
     },
-    methods: {
-        ...mapActions([
-            'fetchChances'
-        ])
-    },
-    created() {
-        this.fetchChances()
-    },
+    async mounted(){
+        await api.post(`chancesList?web_session=${this.cookie}`).then(res => {
+            if(res.data.status == 200){
+                this.$store.commit('setChances', res.data)
+            }
+        }).catch(err => {
+            console.log(err)
+        })
+    
+    }
 }
 </script>
 
