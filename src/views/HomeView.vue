@@ -107,26 +107,16 @@ export default {
     Referall,
     Footer,
   },
-  mounted() {
-    const data = {
-      web_session: this.getWeb
-    }
-    api.post('me', data).then(res => {
-      this.$store.commit('setUser', res.data.data)
-    })
-  },
   async created() {
     const data = {
-      web_session: getCookie('web-session')
+      web_session: (this.getWeb) ? this.getWeb : this.cookie
     }
     await api.post('me', data).then(res => {
-      this.$store.commit('setWeb', data.web_session)
       if(res.data.status == 200){
         this.home = true
         this.$store.commit('setUser', res.data.data)
       }
     }).catch(err => {
-      this.$store.commit('setWeb', data.web_session)
       if(err.response.data.error.code == 1000){
         this.$router.push({name: 'start'})
       }
@@ -134,6 +124,7 @@ export default {
         this.$router.push({name: 'ident'})
       }
     })
+    this.$store.commit('setWeb', data.web_session)
   }
 }
 </script>
