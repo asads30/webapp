@@ -51,13 +51,13 @@
                     <div class="chances">
                         <div class="chances-top">
                             <div class="container">
-                                <div class="chances-title">Вы пригласили <span>{{ getCountReferalls }} пользователей</span></div>
+                                <div class="chances-title">Вы пригласили <span> пользователей</span></div>
                             </div>
                         </div>
                         <div class="chances-items">
                             <div class="container">
                                 <div class="chances-list">
-                                    <div class="chances-item" v-for="(referall, key, index) in getReferalls" :key="referall">
+                                    <div class="chances-item" v-for="(referall, key) in getReferalls" :key="referall">
                                         <div class="chances-date">{{ key }}</div>
                                         <div class="chances-group" v-for="group in referall" :key="group">
                                             <div class="chances-group-left">

@@ -20,9 +20,6 @@ export default createStore({
     },
     getReferalls(state){
       return state.referalls
-    },
-    getCountReferalls(state){
-      return Object.keys(state.referalls).length
     }
   },
   mutations: {
