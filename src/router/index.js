@@ -6,7 +6,6 @@ import PrizesView from '../views/PrizesView.vue'
 import PrizesItemView from '../views/PrizesItemView.vue'
 import ChancesView from '../views/ChancesView.vue'
 import SuperView from '../views/SuperView.vue'
-import ReferallView from '../views/ReferallView.vue'
 
 const routes = [
   {
@@ -46,16 +45,19 @@ const routes = [
     name: 'super',
     component: SuperView
   },
-  {
-    path: '/referall',
-    name: 'referall',
-    component: ReferallView
-  },
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  const isLogged = store.getters.getUser;
+  if (isLogged && to.name == 'start') {
+      return router.push({ name: 'home' });
+  }
+  return next();
+});
 
 export default router
