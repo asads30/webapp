@@ -3,6 +3,9 @@
         <Header :left="true" :right="false" :center="true" :centerText="'Мои шансы'"/>
         <div class="chancesview-wrapper">
             <div class="chances-top">
+                <div class="text-white">
+                    {{ code }}
+                </div>
                 <div class="container">
                     <div class="chances-title">Вы набрали <span>шансы</span></div>
                 </div>
