@@ -3,9 +3,6 @@
         <Header :left="true" :right="false" :center="true" :centerText="'Мои шансы'"/>
         <div class="chancesview-wrapper">
             <div class="chances-top">
-                <div class="text-white">
-                    {{ getWeb }}
-                </div>
                 <div class="container">
                     <div class="chances-title">Вы набрали <span>шансы</span></div>
                 </div>
@@ -57,16 +54,13 @@ export default {
         Header,
     },
     computed: {
-        code () {
-            return this.$route.query.web
-        },
         ...mapGetters([
             'getChances',
             'getWeb'
         ])
     },
     mounted(){
-        api.get(`chancesList?web_session=${this.code}`).then(res => {
+        api.get(`chancesList?web_session=${this.getWeb}`).then(res => {
             this.$store.commit('setChances', res.data)
         }).catch(err => {
             console.log(err)
