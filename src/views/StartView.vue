@@ -65,8 +65,14 @@
         },
         computed: {
             ...mapGetters([
-                'getWeb'
+                'getWeb',
+                'getUser'
             ])
+        },
+        mounted() {
+            if(this.getUser){
+                this.$router.push('/')
+            }
         },
         methods: {
             async goAction(){
