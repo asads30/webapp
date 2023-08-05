@@ -4,7 +4,7 @@
         <div class="chancesview-wrapper">
             <div class="chances-top">
                 <div class="container">
-                    <div class="chances-title">Вы набрали <span>{{ getUser.score }} шанс</span></div>
+                    <div class="chances-title">Вы набрали <span>{{ getUser?.score }} шанс</span></div>
                 </div>
             </div>
             <div class="chances-des">
@@ -32,7 +32,7 @@
                                     <span>{{ key2 }}</span>
                                 </div>
                                 <div class="chances-group-right">
-                                    <div class="chanc" v-for="(cat, key3) in category" :key="cat">{{ cat.id }}</div>
+                                    <div class="chanc" v-for="cat in category" :key="cat">{{ cat.id }}</div>
                                 </div>
                             </div>
                         </div>
