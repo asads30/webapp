@@ -4,7 +4,7 @@
         <div class="prizes-wrapper">
             <div class="container">
                 <div class="text-white">
-                    {{ session }}
+                    {{ web }}
                 </div>
                 <div class="prizes-list">
                     <Prize 
@@ -26,7 +26,6 @@ import Header from '@/components/Header'
 import Prize from '@/components/Prizes/Item'
 import {api} from '@/boot/axios'
 import {mapGetters} from 'vuex';
-import {getStorage} from '@/boot/util'
 
 export default {
     name: 'PrizesView',
@@ -37,16 +36,13 @@ export default {
         web () {
             return this.$route.query.web
         },
-        session(){
-            return getStorage('session')
-        }
     },
     components: {
         Header,
         Prize
     },
     mounted() {
-        api.get(`myPrizes?web_session=${this.session}`).then(res => {
+        api.get(`myPrizes?web_session=${this.web}`).then(res => {
             this.$store.commit('setPrizes', res.data)
         }).catch(err => {
             console.log(err)
