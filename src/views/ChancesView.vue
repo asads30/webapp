@@ -58,13 +58,8 @@ export default {
             chances: null,
         };
     },
-    computed: {
-        cookie(){
-            return this.$route.query.web
-        }
-    },
     mounted(){
-        api.get(`chancesList?web_session=${this.cookie}`).then(res => {
+        api.get(`chancesList?web_session=${localStorage.getItem('web')}`).then(res => {
             this.chances = res.data
             console.log(res)
         }).catch(err => {
