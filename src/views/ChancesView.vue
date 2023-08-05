@@ -58,10 +58,12 @@ export default {
             chances: null,
         };
     },
-    mounted(){
-        api.get(`chancesList?web_session=${localStorage.getItem('web')}`).then(res => {
+    computed: {
+        cookie: localStorage.getItem('web')
+    },
+    async mounted(){
+        await api.get(`chancesList?web_session=${localStorage.getItem('web')}`).then(res => {
             this.chances = res.data
-            console.log(res)
         }).catch(err => {
             console.log(err)
         })
