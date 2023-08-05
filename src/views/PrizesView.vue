@@ -31,18 +31,16 @@ export default {
     name: 'PrizesView',
     computed: {
         ...mapGetters([
-            'getPrizes'
-        ]),
-        web () {
-            return this.$route.query.web
-        },
+            'getPrizes',
+            'getWeb'
+        ])
     },
     components: {
         Header,
         Prize
     },
     mounted() {
-        api.get(`myPrizes?web_session=${this.web}`).then(res => {
+        api.get(`myPrizes?web_session=${this.getWeb}`).then(res => {
             this.$store.commit('setPrizes', res.data)
         }).catch(err => {
             console.log(err)
