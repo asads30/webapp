@@ -1,19 +1,27 @@
 <template>
-    <div class="prizes">
-        <Header :left="true" :right="false" :center="true" :centerText="$t('home.home2')"/>
-        <div class="prizes-wrapper">
-            <div class="container">
-                <div class="prizes-list">
-                    <Prize 
-                        v-for="item in getPrizes"
-                        :key="item.id"
-                        :background="item.prize.background" 
-                        :text="item.prize.name_ru" 
-                        :img="item.prize.photo"
-                        :id="item.id"
-                    />
+    <div class="page">
+        <div class="prizes" v-if="getPrizes">
+            <Header :left="true" :right="false" :center="true" :centerText="$t('home.home2')"/>
+            <div class="prizes-wrapper">
+                <div class="container">
+                    <div class="prizes-list">
+                        <Prize 
+                            v-for="item in getPrizes"
+                            :key="item.id"
+                            :background="item.prize.background" 
+                            :text="item.prize.name_ru" 
+                            :img="item.prize.photo"
+                            :id="item.id"
+                        />
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="preloader" v-else>
+            <div class="preloader-img">
+              <img src="@/assets/images/loader.svg" alt="">
+            </div>
+            <div class="preloader-text" v-html="$t('preloader')"></div>
         </div>
     </div>
 </template>

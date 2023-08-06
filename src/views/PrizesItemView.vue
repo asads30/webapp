@@ -1,55 +1,63 @@
 <template>
-    <div class="prizesview" :style="'background: ' + prize.prize.background">
-        <div class="prizesview-top">
-            <Header :left="true" :center="true" :centerText="$t('prizes.prize2')" :leftText="'prizes'"/>
-            <div class="prizesview-logo">
-                <img :src="'https://promadm.click.uz/' + prize.prize.photo">
+    <div class="page">
+        <div class="prizesview" :style="'background: ' + prize.prize.background" v-if="prize">
+            <div class="prizesview-top">
+                <Header :left="true" :center="true" :centerText="$t('prizes.prize2')" :leftText="'prizes'"/>
+                <div class="prizesview-logo">
+                    <img :src="'https://promadm.click.uz/' + prize.prize.photo">
+                </div>
+            </div>
+            <div class="prizesview-content">
+                <div class="prizesview-content-top">
+                    <div class="container">
+                        <div class="prizesview-date">{{ format_date(prize.prize.created_at) }}</div>
+                        <div class="prizesview-title">{{ prize.prize.name_ru }}</div>
+                        <div class="prizesview-des" v-html="prize.prize.description_ru"></div>
+                    </div>
+                </div>
+                <div class="prizesview-content-bottom">
+                    <div class="prizesview-promo" v-if="prize.type_id == 0">
+                        <div class="container">
+                            <div class="prizesview-promo-info">
+                                <div class="prizesview-promo-info-icon">
+                                    <img src="@/assets/images/percent.svg" alt="">
+                                </div>
+                                <div class="prizesview-promo-info-text">
+                                    <div class="prizesview-promo-info-label">{{ $t('prizes.prize1') }}</div>
+                                    <div class="prizesview-promo-info-value">{{ prize.prize.promocode }}</div>
+                                </div>
+                            </div>
+                            <div class="prizesview-promo-copy">
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <g clip-path="url(#clip0_1145_8566)">
+                                        <path d="M13.3333 6H7.33333C6.59695 6 6 6.59695 6 7.33333V13.3333C6 14.0697 6.59695 14.6667 7.33333 14.6667H13.3333C14.0697 14.6667 14.6667 14.0697 14.6667 13.3333V7.33333C14.6667 6.59695 14.0697 6 13.3333 6Z" stroke="#0073FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M3.33398 10.0002H2.66732C2.3137 10.0002 1.97456 9.85969 1.72451 9.60964C1.47446 9.35959 1.33398 9.02045 1.33398 8.66683V2.66683C1.33398 2.31321 1.47446 1.97407 1.72451 1.72402C1.97456 1.47397 2.3137 1.3335 2.66732 1.3335H8.66732C9.02094 1.3335 9.36008 1.47397 9.61013 1.72402C9.86018 1.97407 10.0007 2.31321 10.0007 2.66683V3.3335" stroke="#0073FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_1145_8566">
+                                            <rect width="16" height="16" fill="white"/>
+                                        </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <span>{{ $t('prizes.prize3') }}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prizesview-back">
+                        <div class="container">
+                            <button @click="goHome">{{ $t('prizes.prize4') }}</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="prizesview-content">
-            <div class="prizesview-content-top">
-                <div class="container">
-                    <div class="prizesview-date">{{ format_date(prize.prize.created_at) }}</div>
-                    <div class="prizesview-title">{{ prize.prize.name_ru }}</div>
-                    <div class="prizesview-des" v-html="prize.prize.description_ru"></div>
-                </div>
+        <div class="preloader" v-else>
+            <div class="preloader-img">
+              <img src="@/assets/images/loader.svg" alt="">
             </div>
-            <div class="prizesview-content-bottom">
-                <div class="prizesview-promo" v-if="prize.type_id == 0">
-                    <div class="container">
-                        <div class="prizesview-promo-info">
-                            <div class="prizesview-promo-info-icon">
-                                <img src="@/assets/images/percent.svg" alt="">
-                            </div>
-                            <div class="prizesview-promo-info-text">
-                                <div class="prizesview-promo-info-label">{{ $t('prizes.prize1') }}</div>
-                                <div class="prizesview-promo-info-value">{{ prize.prize.promocode }}</div>
-                            </div>
-                        </div>
-                        <div class="prizesview-promo-copy">
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <g clip-path="url(#clip0_1145_8566)">
-                                      <path d="M13.3333 6H7.33333C6.59695 6 6 6.59695 6 7.33333V13.3333C6 14.0697 6.59695 14.6667 7.33333 14.6667H13.3333C14.0697 14.6667 14.6667 14.0697 14.6667 13.3333V7.33333C14.6667 6.59695 14.0697 6 13.3333 6Z" stroke="#0073FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                      <path d="M3.33398 10.0002H2.66732C2.3137 10.0002 1.97456 9.85969 1.72451 9.60964C1.47446 9.35959 1.33398 9.02045 1.33398 8.66683V2.66683C1.33398 2.31321 1.47446 1.97407 1.72451 1.72402C1.97456 1.47397 2.3137 1.3335 2.66732 1.3335H8.66732C9.02094 1.3335 9.36008 1.47397 9.61013 1.72402C9.86018 1.97407 10.0007 2.31321 10.0007 2.66683V3.3335" stroke="#0073FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </g>
-                                    <defs>
-                                      <clipPath id="clip0_1145_8566">
-                                        <rect width="16" height="16" fill="white"/>
-                                      </clipPath>
-                                    </defs>
-                                </svg>
-                                <span>{{ $t('prizes.prize3') }}</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="prizesview-back">
-                    <div class="container">
-                        <button @click="goHome">{{ $t('prizes.prize4') }}</button>
-                    </div>
-                </div>
-            </div>
+            <div class="preloader-text" v-html="$t('preloader')"></div>
         </div>
     </div>
 </template>
