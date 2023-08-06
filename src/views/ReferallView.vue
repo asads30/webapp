@@ -53,7 +53,7 @@
                     </div>
                 </div>
               <div class="tab-pane fade" id="my-tab-pane" role="tabpanel" aria-labelledby="my-tab" tabindex="0">
-                <div class="chances">
+                <div class="chances" v-if="getReferall.length > 0">
                   <div class="chances-top">
                       <div class="container">
                           <div class="chances-title">Вы пригласили <span>0 пользователей</span></div>
@@ -128,11 +128,11 @@ export default {
         width: 50%;
         flex-wrap: nowrap;
         .nav-link{
-            background: rgba(255, 255, 255, 0.12);
+            background: var(--bg2);
             width: 100%;
             border-radius: 0;
             font-size: 12px;
-            color: #B3B7CE;
+            color: var(--text3);
             border: 0;
             &.active{
                 background: #1F84FF;
@@ -168,7 +168,7 @@ export default {
 }
 .ref-title{
     font-size: 24px;
-    color: #fff;
+    color: var(--text);
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -181,7 +181,7 @@ export default {
 .ref-box-bottom{
     padding-bottom: 40px;
     padding-top: 40px;
-    border-radius: 0px 0px 24px 24px;
+    border-radius: 24px 24px 0 0;
     background: #1B1B1F;
     .referall-codebox{
         display: flex;

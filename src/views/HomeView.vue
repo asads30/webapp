@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <Header :left="false" :right="false" :center="true" :centerText="'Акция'"/>
+    <div class="text-white">
+      {{ cookie }}
+    </div>
     <div class="home-wrapper" v-if="getUser">
       <div class="modal" id="codeModal">
         <div class="modal-dialog modal-dialog-centered">
