@@ -324,7 +324,12 @@
                     if(res.data.data.type_id == 1){
                         this.prize1 = res.data.data
                         this.$refs.wheel.wheelResultIndex.value = 1
-                        console.log(res.data.data.partner)
+                    }
+                    if(res.data.data.type_id == 2){
+                        this.$refs.wheel.wheelResultIndex.value = 7
+                    }
+                    if(res.data.data.type_id == 14){
+                        this.$refs.wheel.wheelResultIndex.value = 9
                     }
                 })
                 this.$refs.wheel.launchWheel()
@@ -333,10 +338,8 @@
                 console.log('wheelStartedCallback')
             },
             wheelEndedCallback(){
-                if(this.$refs.wheel.wheelResultIndex.value == 1){
-                    const modal1 = new bootstrap.Modal('#prize1-modal');
-                    modal1.show();
-                }
+                const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
+                modal.show();
             },
             goCode(){
                 this.$router.push({name: 'prizes'})
@@ -385,7 +388,7 @@
                     }
                     .info-text{
                         font-size: 12px;
-                        color: #B3B7CE;
+                        color: var(--text);
                     }
                 }
             }
@@ -395,7 +398,7 @@
             .title{
                 font-size: 28px;
                 font-weight: 600;
-                color: #fff;
+                color: var(--text);
                 text-align: center;
                 margin-bottom: 20px;
                 line-height: 36px;
@@ -404,7 +407,7 @@
                 font-size: 14px;
                 font-weight: 600;
                 line-height: 135%;
-                color: #B3B7CE;
+                color: var(--text3);
                 text-align: center;
             }
         }
