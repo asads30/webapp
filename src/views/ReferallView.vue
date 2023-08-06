@@ -33,7 +33,7 @@
                                 <div class="referall-code">
                                     <div class="referall-codebox">
                                         <div class="code-title">Ваш код приглашения</div>
-                                        <input class="code-number" readonly :value="getUser.ref" id="code" ref="code">
+                                        <input class="code-number" readonly :value="getUser?.ref" id="code" ref="code">
                                     </div>
                                     <button class="referall-copy" @click="$refs.code.select()">
                                         <img src="@/assets/images/copy.svg" alt="">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
               <div class="tab-pane fade" id="my-tab-pane" role="tabpanel" aria-labelledby="my-tab" tabindex="0">
-                <div class="chances" v-if="getReferall.length > 0">
+                <div class="chances" v-if="getReferall">
                   <div class="chances-top">
                       <div class="container">
                           <div class="chances-title">Вы пригласили <span>0 пользователей</span></div>
@@ -182,7 +182,7 @@ export default {
     padding-bottom: 40px;
     padding-top: 40px;
     border-radius: 24px 24px 0 0;
-    background: #1B1B1F;
+    background: var(--bg4);
     .referall-codebox{
         display: flex;
         flex-direction: column;
@@ -190,25 +190,25 @@ export default {
         width: calc(100% - 131px);
         .code-title{
             font-size: 10px;
-            color: #B3B7CE;
+            color: var(--text3);
             font-weight: 600;
         }
         input{
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.35);
+            border: 1px solid var(--border);
             width: 100%;
             height: 36px;
             line-height: 36px;
             padding: 0 12px;
             background: none;
-            color: #fff;
+            color: var(--text);
             font-size: 18px;
             font-weight: 700;
         }
     }
     .referall-copy{
         border-radius: 10px;
-        background: #fff;
+        background: var(--text);
         border: 0;
         padding: 0 12px;
         height: 36px;
@@ -219,7 +219,7 @@ export default {
         width: 119px;
         span{
             font-size: 12px;
-            color: #363845;
+            color: var(--bg2);
             font-weight: 600;
         }
     }
