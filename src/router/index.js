@@ -7,6 +7,7 @@ import PrizesItemView from '../views/PrizesItemView.vue'
 import ChancesView from '../views/ChancesView.vue'
 import SuperView from '../views/SuperView.vue'
 import ReferallView from '../views/ReferallView.vue'
+import FortunaView from '../views/FortunaView.vue'
 
 const routes = [
   {
@@ -50,6 +51,11 @@ const routes = [
     path: '/referall',
     name: 'referall',
     component: ReferallView
+  },
+  {
+    path: '/fortuna',
+    name: 'fortuna',
+    component: FortunaView
   },
 ]
 

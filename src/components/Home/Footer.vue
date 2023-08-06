@@ -2,7 +2,7 @@
     <div class="cfooter">
         <div class="container">
           <div class="cfooter-hr"></div>
-          <button class="cfooter-btn" :disabled="count < 1">
+          <button class="cfooter-btn" :disabled="count < 1" @click="goFortuna">
             <span>Проверить свою удачу</span>
             <div class="cfooter-btn__label" v-if="count > 0">{{ count }}</div>
             <div class="flare"></div>
@@ -16,6 +16,11 @@ export default {
     name: 'CfooterHomeBlock',
     props: {
       count: Number
+    },
+    methods: {
+      goFortuna(){
+        this.$router.push({name: 'fortuna'})
+      }
     },
 }
 </script>

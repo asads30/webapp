@@ -38,8 +38,11 @@ export default {
         }
     }
     .user-phone{
-    font-size: 14px;
-    color: var(--text);
+        font-size: 14px;
+        color: var(--text);
+        a{
+            color: var(--text);
+        }
     }
   }
 </style>

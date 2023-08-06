@@ -4,7 +4,7 @@
         <div class="chancesview-wrapper">
             <div class="chances-top">
                 <div class="container">
-                    <div class="chances-title">Количество шансов - <span>{{ getCount }}</span></div>
+                    <div class="chances-title">Количество шансов - <span>{{ getUser.score }}</span></div>
                 </div>
             </div>
             <div class="chances-des">
@@ -58,11 +58,9 @@ export default {
     computed: {
             ...mapGetters([
                 'getChances',
-                'getWeb'
+                'getWeb',
+                'getUser'
             ]),
-            getCount(){
-                return Object.keys(this.getWeb).length
-            }
     },
     mounted(){
         api.get(`chancesList?web_session=${this.getWeb}`).then(res => {
