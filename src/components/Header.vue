@@ -59,7 +59,7 @@ export default {
                     align-items: center;
                     svg{
                         path{
-                            stroke: #fff;
+                            stroke: var(--text);
                         }
                     }
                 }
@@ -68,7 +68,7 @@ export default {
                 width: calc(100% - 20px);
                 font-size: 16px;
                 font-weight: 600;
-                color: #fff;
+                color: var(--text);
                 display: flex;
                 text-align: center;
                 justify-content: center;

@@ -24,7 +24,7 @@ export default {
 <style lang="scss">
     .myprizes-item{
         width: calc(50% - 6px);
-        background: #34353F;
+        background: var(--bg2);
         border-radius: 12px;
         text-decoration: none;
     }
@@ -42,7 +42,7 @@ export default {
     }
     .myprizes-name{
         font-size: 12px;
-        color: #fff;
+        color: var(--text);
         font-weight: 500;
         line-height: 16px;
         height: 32px;

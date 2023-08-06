@@ -96,7 +96,7 @@
         &-content{
             height: calc(100vh - 259px);
             border-radius: 24px 24px 0px 0px;
-            background: #242429;
+            background: var(--bg3);
             padding: 20px 0 40px;
             display: flex;
             flex-direction: column;
@@ -104,19 +104,19 @@
         }
         &-date{
             font-size: 12px;
-            color: #fff;
+            color: var(--text3);
             line-height: 16px;
             margin-bottom: 20px;
         }
         &-title{
             font-size: 24px;
-            color: #fff;
+            color: var(--text);
             font-weight: 700;
             line-height: 135%;
             margin-bottom: 12px;
         }
         &-des{
-            color: #fff;
+            color: var(--text);
             font-weight: 400;
             line-height: 135%;
             font-size: 14px;

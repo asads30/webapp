@@ -39,7 +39,7 @@
             &-img{
                 margin-bottom: 40px;
                 img{
-                    height: 160px;
+                    width: 100%;
                 }
             }
             &-title{

@@ -3,14 +3,14 @@
         <Header :left="true" :center="true" :centerText="'Основные призы'" />
         <div class="super-wrapper">
             <div class="container">
-                <div class="des">колеса, это одно из гарантированных призов. Когда участник прокрутит Колесо Фортуны, оно рандомным образом определит, какой из призов станет его выигрышем. Здесь нет проигравших! </div>
+                <div class="des">Основные призы будут разыгрываться с помощью генератора случайных чисел в прямом эфире среди всех участников акции каждые 2 недели. На 8 неделе акции состоится розыгрыш главного приза – автомобиля BYD. Чем больше количество накопленных шансов, тем выше вероятность стать победителем основных призов</div>
                 <div class="big">
                     <div class="big-img">
-                        <img src="@/assets/images/prize1.png" alt="">
+                        <img src="@/assets/images/byd.png" alt="">
                     </div>
                     <div class="big-text">
                         <div class="big-subtitle">Супер–приз</div>
-                        <div class="big-title">BYD song plus</div>
+                        <div class="big-title">BYD Song Plus <br />Flagship</div>
                     </div>
                 </div>
                 <div class="list">
@@ -63,7 +63,7 @@
     height: 100%;
 }
 .des{
-    color: #fff;
+    color: var(--text);
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
@@ -76,7 +76,7 @@
     display: flex;
     align-items: flex-end;
     gap: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 8px;
     margin-bottom: 32px;
     &::before{
         content: '';
@@ -90,15 +90,15 @@
         z-index: 0;
     }
     .big-img{
-        width: 160px;
+        width: 180px;
         position: relative;
         z-index: 5;
         img{
-            max-width: 160px;
+            max-width: 180px;
         }
     }
     .big-text{
-        width: calc(100% - 176px);
+        width: calc(100% - 196px);
         position: relative;
         z-index: 5;
         .big-subtitle{
@@ -107,7 +107,7 @@
             margin-bottom: 2px;
         }
         .big-title{
-            font-size: 16px;
+            font-size: 12px;
             color: #fff;
             font-weight: 600;
             margin-bottom: 7px;

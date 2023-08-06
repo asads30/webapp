@@ -1,9 +1,10 @@
 <template>
     <div class="cfooter">
         <div class="container">
-          <button class="cfooter-btn">
+          <div class="cfooter-hr"></div>
+          <button class="cfooter-btn" :disabled="count < 1">
             <span>Проверить свою удачу</span>
-            <div class="cfooter-btn__label">{{ count }}</div>
+            <div class="cfooter-btn__label" v-if="count > 0">{{ count }}</div>
             <div class="flare"></div>
           </button>
         </div>
@@ -21,7 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 .cfooter{
-    padding: 30px 0 20px;
+    padding: 20px 0 20px;
     .cfooter-btn {
       background: linear-gradient(0deg,#0073ff,#00c2ff);
       height: 40px;
@@ -63,6 +64,12 @@ export default {
         background: linear-gradient(90deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.4));
         animation: flareAnimation 3s linear infinite;
       }
+      &:disabled{
+        background: #363744;
+        span{
+          color: #575965;
+        }
+      }
     }
     .cfooter-link {
       text-align: center;
@@ -72,6 +79,12 @@ export default {
         font-size: 12px;
         line-height: 16px;
       }
+    }
+    .cfooter-hr{
+      background: #3A3A42;
+      width: 100%;
+      height: 1px;
+      margin-bottom: 20px;
     }
   }
 @keyframes flareAnimation {

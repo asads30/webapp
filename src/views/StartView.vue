@@ -26,7 +26,7 @@
                                 <div class="start-content-text"><span>+2</span> шанса на участие</div>
                                 <div class="start-content-text"><span>+2</span> возможности крутить колесо</div>
                                 <div class="start-content-input">
-                                    <input type="text" placeholder="Промокод" v-model="promocode">
+                                    <input type="text" placeholder="Промокод" v-model="promocode" maxlength="6">
                                 </div>
                             </div>
                             <div class="start-content-bottom">
@@ -87,7 +87,7 @@
             ...mapGetters([
                 'getWeb',
                 'getUser'
-            ])
+            ]),
         },
         mounted() {
             if(this.getUser){
@@ -108,7 +108,7 @@
                         } catch (error) {
                             console.log(error)
                         }
-                        this.$router.push({ name: 'home'})
+                        this.$router.push({ name: 'home', query: { method: 'code' }})
                     }
                 })
             },
@@ -124,11 +124,11 @@
                         } catch (error) {
                             console.log(error)
                         }
-                        this.$router.push({ name: 'home'})
+                        this.$router.push({ name: 'home', query: { method: 'nocode' }})
                     }
                 })
-            }
-        },
+            },
+        }
     }
 </script>
 

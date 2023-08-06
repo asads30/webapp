@@ -1,7 +1,7 @@
 <template>
     <div class="referall">
         <div class="container">
-          <div class="referall-title">Увеличивай свои шансы приглашай друзей</div>
+          <div class="referall-title">Приглашайте друзей и увеличивайте свои шансы<br />на победу</div>
           <button class="referall-btn" @click="goRef">
             <span>Пригласи друга</span>
             <img src="@/assets/images/referall.svg" alt="">
@@ -26,7 +26,7 @@ export default {
 .referall {
     position: relative;
     .referall-title{
-      color: var(--text-secondary);
+      color: var(--text2);
       text-align: center;
       font-size: 12px;
       line-height: 135%;

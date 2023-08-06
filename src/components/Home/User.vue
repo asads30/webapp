@@ -27,15 +27,15 @@ export default {
         justify-content: space-between;
     }
     .user-title{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 6.5px;
-    span{
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--text);
-    }
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 4px;
+        span{
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+        }
     }
     .user-phone{
     font-size: 14px;

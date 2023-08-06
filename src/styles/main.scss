@@ -10,10 +10,32 @@
   position: relative;
 }
 
+:root {
+  --bg-ident: #242429 url(../assets/images/ident_bg.jpg) 100% no-repeat;
+  --text: #fff;
+  --text2: #A8AAC3;
+  --text3: #B3B7CE;
+  --bg: #242424;
+  --bg2: #34353F;
+  --bg3: #242424;
+  --right: #B3B7CE;
+}
+
+:root[theme="light"]{
+  --bg-ident: #242429 url(../assets/images/ident_bg-light.jpg) 100% no-repeat;
+  --text: #363845;
+  --text2: #363845;
+  --text3: #363845;
+  --bg: #E2E4F0;
+  --bg2: #fff;
+  --bg3: #fff;
+  --right: #616380;
+}
+
 body{
   font-family: 'Golos Text', sans-serif !important;
-  background: #242429;
-  color: #fff;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .container{
@@ -21,7 +43,7 @@ body{
 }
 
 .ident{
-    background: #242429 url(../assets/images/ident_bg.jpg) 100% no-repeat;
+    background: var(--bg-ident);
     background-size: cover;
     background-position: center;
 }
@@ -34,10 +56,6 @@ body{
     background: #242429 url(../assets/images/start_bg.jpg) no-repeat 100%;
     background-size: cover;
     background-position: top left;
-}
-
-.offcanvas.offcanvas-bottom{
-  height: 60vh;
 }
 
 .offcanvas-body p{
@@ -55,8 +73,47 @@ body{
   padding-bottom: 0;
 }
 
-.modal{
+.modal-dialog{
+  margin: 0 28px;
+}
+
+.modal-content{
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.cmodal-title{
+  color: #363845;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 110%;
+  margin-bottom: 15px;
+}
+
+.cmodal-hr{
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.10);
+  margin-bottom: 15px;
+}
+
+.cmodal-des{
+  font-size: 14px;
+  color: #363845;
+  margin-bottom: 15px;
+}
+
+.cmodal-btn{
+  background: linear-gradient(0deg,#0073ff,#00c2ff);
+  height: 40px;
+  border-radius: 10px;
+  line-height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  border: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
 }

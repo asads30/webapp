@@ -17,7 +17,7 @@
            </div>
            <div class="drawing-byd">
              <div class="drawing-byd-img">
-               <img src="@/assets/images/draw-3.png" alt="">
+               <img src="@/assets/images/byd.png" alt="">
              </div>
              <div class="drawing-byd-title">Супер-приз<br /><strong>BYD Song Plus</strong></div>
            </div>
