@@ -341,7 +341,7 @@
                 const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
                 modal.show();
             },
-            goCode(){
+            goPromo(){
                 this.$router.push({name: 'prizes'})
             }
         },
