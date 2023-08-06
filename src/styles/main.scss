@@ -44,6 +44,29 @@ body{
   color: var(--text);
 }
 
+.preloader{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  background: var(--bg);
+  gap: 20px;
+  &-text{
+    font-size: 12px;
+    line-height: 135%;
+    color: var(--text);
+  }
+  &-img{
+    animation: rotate 5s infinite;
+  }
+}
+
 .container{
     padding: 0 20px;
 }
@@ -175,5 +198,27 @@ body{
   height: 20px;
   img{
     vertical-align: top;
+  }
+}
+
+.wheel {
+  position: absolute;
+  left: 0;
+  bottom: -300px;
+  z-index: -1;
+  img{
+    width: 100%;
+    animation: rotate 20s infinite;
+  }
+}
+@keyframes rotate {
+  0% {
+      transform: rotate(0)
+  }
+  50% {
+      transform: rotate(360deg);
+  }
+  100% {
+      transform: rotate(0);
   }
 }

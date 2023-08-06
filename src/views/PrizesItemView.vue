@@ -1,7 +1,7 @@
 <template>
     <div class="prizesview" :style="'background: ' + prize.prize.background">
         <div class="prizesview-top">
-            <Header :left="true" :center="true" :centerText="'Детали приза'" :leftText="'prizes'"/>
+            <Header :left="true" :center="true" :centerText="$t('prizes.prize2')" :leftText="'prizes'"/>
             <div class="prizesview-logo">
                 <img :src="'https://promadm.click.uz/' + prize.prize.photo">
             </div>
@@ -22,7 +22,7 @@
                                 <img src="@/assets/images/percent.svg" alt="">
                             </div>
                             <div class="prizesview-promo-info-text">
-                                <div class="prizesview-promo-info-label">Промокод</div>
+                                <div class="prizesview-promo-info-label">{{ $t('prizes.prize1') }}</div>
                                 <div class="prizesview-promo-info-value">{{ prize.prize.promocode }}</div>
                             </div>
                         </div>
@@ -39,14 +39,14 @@
                                       </clipPath>
                                     </defs>
                                 </svg>
-                                <span>Скопировать</span>
+                                <span>{{ $t('prizes.prize3') }}</span>
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="prizesview-back">
                     <div class="container">
-                        <button @click="goHome">На главную</button>
+                        <button @click="goHome">{{ $t('prizes.prize4') }}</button>
                     </div>
                 </div>
             </div>

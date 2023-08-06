@@ -1,6 +1,6 @@
 <template>
     <div class="prizes">
-        <Header :left="true" :right="false" :center="true" :centerText="'Мои призы'"/>
+        <Header :left="true" :right="false" :center="true" :centerText="$t('home.home2')"/>
         <div class="prizes-wrapper">
             <div class="container">
                 <div class="prizes-list">

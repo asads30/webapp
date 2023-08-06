@@ -1,5 +1,6 @@
 {
     "stock": "Aksiya",
+    "preloader": "Ma'lumotlar yuklanmoqda...<br />Tez orada hamma narsa tayyor bo'ladi!",
     "modal": {
         "title": "Tabriklaymiz!<br />Siz bizning aksiyamizning<br />ishtirokchisi bo'ldingiz!",
         "des": "Siz hali ham asosiy sovrinlarni yutib olish uchun 2 imkoniyatga egasiz",
@@ -22,5 +23,21 @@
         "start1": "Click BYD va boshqa<br /> ko'plab sovrinlarni o'ynaydi",
         "start2": "Menda promo-kod<br />bor",
         "start3": "Men aksiya haqida o'zim bilib oldim"
+    },
+    "chances": {
+        "chance1": "Imkoniyatlar soni",
+        "chance2": "G'ildiraklar, bu kafolatlangan sovrinlardan biridir. Ishtirokchi boylik g'ildiragini aylantirganda, u tasodifiy ravishda qaysi sovrinlar uning yutug'iga aylanishini aniqlaydi. Bu erda yutqazganlar yo'q!",
+        "chance3": "Mening imkoniyatlarim"
+    },
+    "ident": {
+        "ident1": "Click BYD Song Plus avtomobilini va boshqa ko'plab sovrinlarni o'ynaydi!",
+        "ident2": "Aksiyada ishtirok etish uchun siz Click-da identifikatsiyadan o'tishingiz kerak",
+        "ident3": "Identifikatsiyani boshlang"
+    },
+    "prizes": {
+        "prize1": "Promokod",
+        "prize2": "Mukofot tafsilotlari",
+        "prize3": "Nusxalash",
+        "prize4": "Asosiyga o'tish"
     }
 }

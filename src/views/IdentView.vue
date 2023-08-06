@@ -7,11 +7,11 @@
                 <div class="ident-center-img">
                     <img src="@/assets/images/main.png" alt="">
                 </div>
-                <div class="ident-center-title">Click разыгрывает автомобиль BYD Song Plus и множество других призов!</div>
-                <div class="ident-center-des">Для участия в акции необходимо пройти идентификацию в Click</div>
+                <div class="ident-center-title">{{ t('chances.chance1') }}</div>
+                <div class="ident-center-des">{{ t('chances.chance2') }}</div>
             </div>
             <div class="ident-bottom">
-                <a href="https://my.click.uz/app/identification" class="ident-bottom-btn">Начать идентификацию</a>
+                <a href="https://my.click.uz/app/identification" class="ident-bottom-btn">{{ t('chances.chance3') }}</a>
             </div>
         </div>
       </div>
