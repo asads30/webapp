@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Header :left="false" :right="false" :center="true" :centerText="'Акция'"/>
+    <Header :left="false" :right="false" :center="true" :centerText="$t('stock')"/>
     <div class="text-white">
       {{ cookie }}
     </div>
@@ -8,20 +8,20 @@
       <div class="modal" id="codeModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="cmodal-title">Поздравляем!<br />Вы стали участником<br />нашей акции!</div>
+                <div class="cmodal-title" v-html="$t('modal.title')"></div>
                 <div class="cmodal-hr"></div>
-                <div class="cmodal-des">У Вас пока 2 шанса на участие в розыгрыше основных призов</div>
-                <button type="button" class="cmodal-btn" data-bs-dismiss="modal">Замечательно</button>
+                <div class="cmodal-des">{{ $t('modal.des') }}</div>
+                <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
             </div>
         </div>
       </div>
       <div class="modal" id="noCodeModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="cmodal-title">Поздравляем!<br />Вы стали участником<br />нашей акции!</div>
+              <div class="cmodal-title" v-html="$t('modal.title')"></div>
                 <div class="cmodal-hr"></div>
-                <div class="cmodal-des">У Вас пока 1 шанс на участие в розыгрыше основных призов</div>
-                <button type="button" class="cmodal-btn" data-bs-dismiss="modal">Замечательно</button>
+                <div class="cmodal-des">{{ $t('modal.des2') }}</div>
+                <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
             </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
           <div class="container">
               <div class="prizes-box">
                   <div class="prizes-left">
-                    <div class="prizes-title">Вы участник акции</div>
+                    <div class="prizes-title">{{ $t('home.home1') }}</div>
                     <button type="button" data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10 1.64798C7.7691 1.64798 5.67172 2.51674 4.09423 4.09423C2.51674 5.67172 1.64798 7.7691 1.64798 10C1.64798 12.2309 2.51674 14.3283 4.09423 15.9058C5.67172 17.4833 7.7691 18.352 10 18.352C12.2309 18.352 14.3283 17.4833 15.9058 15.9058C17.4833 14.3283 18.352 12.2309 18.352 10C18.352 7.7691 17.4833 5.67172 15.9058 4.09423C14.3283 2.51674 12.2309 1.64798 10 1.64798ZM10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0Z" fill="#0073FF"/>
@@ -42,14 +42,14 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
                       <path d="M22.1538 6.72121H18.1062C18.1512 6.68161 18.1973 6.64321 18.2412 6.60121C18.5916 6.27745 18.874 5.88197 19.0708 5.43952C19.2675 4.99706 19.3744 4.51715 19.3846 4.02979C19.3998 3.49664 19.31 2.96589 19.1208 2.47013C18.9315 1.97436 18.6469 1.52405 18.2843 1.14683C17.9216 0.769616 17.4887 0.473453 17.012 0.276528C16.5353 0.0796036 16.025 -0.0139281 15.5123 0.00167525C15.0435 0.0121767 14.5818 0.123209 14.1561 0.327821C13.7304 0.532433 13.3499 0.82622 13.0385 1.19079C12.6075 1.71023 12.2571 2.29645 12 2.92827C11.7429 2.29645 11.3925 1.71023 10.9615 1.19079C10.6501 0.82622 10.2696 0.532433 9.84392 0.327821C9.41824 0.123209 8.95653 0.0121767 8.48769 0.00167525C7.975 -0.0139281 7.46466 0.0796036 6.98799 0.276528C6.51131 0.473453 6.07838 0.769616 5.71575 1.14683C5.35312 1.52405 5.06846 1.97436 4.87924 2.47013C4.69002 2.96589 4.60023 3.49664 4.61538 4.02979C4.62564 4.51715 4.73249 4.99706 4.92924 5.43952C5.12599 5.88197 5.40841 6.27745 5.75885 6.60121C5.80269 6.64081 5.84885 6.67921 5.89385 6.72121H1.84615C1.35652 6.72121 0.886947 6.92348 0.540726 7.28352C0.194505 7.64357 0 8.13189 0 8.64107V12.4808C0 12.99 0.194505 13.4783 0.540726 13.8384C0.886947 14.1984 1.35652 14.4007 1.84615 14.4007V22.0801C1.84615 22.5893 2.04066 23.0776 2.38688 23.4377C2.7331 23.7977 3.20268 24 3.69231 24H20.3077C20.7973 24 21.2669 23.7977 21.6131 23.4377C21.9593 23.0776 22.1538 22.5893 22.1538 22.0801V14.4007C22.6435 14.4007 23.1131 14.1984 23.4593 13.8384C23.8055 13.4783 24 12.99 24 12.4808V8.64107C24 8.13189 23.8055 7.64357 23.4593 7.28352C23.1131 6.92348 22.6435 6.72121 22.1538 6.72121ZM14.4231 2.4627C14.5692 2.29486 14.7472 2.16025 14.9457 2.06733C15.1443 1.97441 15.3592 1.92518 15.5769 1.92274H15.6335C15.8887 1.9244 16.141 1.97901 16.3756 2.08338C16.6102 2.18774 16.8225 2.33976 16.9999 2.53052C17.1773 2.72128 17.3164 2.94695 17.4088 3.1943C17.5013 3.44165 17.5454 3.70571 17.5385 3.971C17.5361 4.19742 17.4888 4.42089 17.3994 4.62738C17.3101 4.83387 17.1806 5.01892 17.0192 5.17091C15.9242 6.17884 14.1069 6.53402 12.9808 6.65881C13.1192 5.3881 13.5 3.54143 14.4231 2.4627ZM7.02808 2.5059C7.3857 2.13403 7.87004 1.92403 8.37577 1.92154H8.43231C8.65004 1.92398 8.86493 1.97321 9.06349 2.06613C9.26205 2.15905 9.44 2.29366 9.58615 2.4615C10.5542 3.59902 10.8958 5.48529 11.0158 6.65161C9.89423 6.53162 8.08039 6.17164 6.98654 5.16491C6.82514 5.01292 6.6957 4.82787 6.60635 4.62138C6.51699 4.41489 6.46966 4.19142 6.46731 3.965C6.46015 3.6953 6.50576 3.4269 6.60136 3.17608C6.69696 2.92526 6.84057 2.69726 7.02346 2.5059H7.02808ZM1.84615 8.64107H11.0769V12.4808H1.84615V8.64107ZM3.69231 14.4007H11.0769V22.0801H3.69231V14.4007ZM20.3077 22.0801H12.9231V14.4007H20.3077V22.0801ZM22.1538 12.4808H12.9231V8.64107H22.1538V12.4808Z" fill="white"/>
                     </svg>
-                    <div class="prizes-right-title">Мои призы</div>
+                    <div class="prizes-right-title">{{ $t('home.home2') }}</div>
                     <div class="prizes-number">{{ getUser.prizes_count }}</div>
                   </router-link>
               </div>
           </div>
           <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
               <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="infoModalLabel">Информация об акции</h5>
+                <h5 class="offcanvas-title" id="infoModalLabel">{{ $t('home.home7') }}</h5>
               </div>
               <div class="offcanvas-body">
                 <div>
@@ -79,7 +79,7 @@
                   </div>
                   <div class="shot-rating-number">{{ getUser?.score }}</div>
                 </div>
-                <div class="shot-title">Шанс для розыгрышей<br />суперпризов</div>
+                <div class="shot-title" v-html="$t('home.home3')"></div>
               </div>
               <div class="shot-right">
                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
@@ -156,6 +156,10 @@ export default {
     let theme = getCookie('theme');
     if(theme && theme == 'light'){
       document.documentElement.setAttribute('theme', 'light');
+    }
+    let lang = getCookie('lang');
+    if(lang && lang == 'uz'){
+      this.$i18n.locale = 'uz'
     }
     if(this.getMethod == 'code'){
       const codeModal = new bootstrap.Modal('#codeModal');

@@ -2,8 +2,8 @@
   <router-link to="/super" class="drawing">
        <div class="drawing-top">
          <div class="container">
-           <div class="drawing-title">В розыгрыше</div>
-           <div class="drawing-more">Основные призы</div>
+           <div class="drawing-title">{{ $t('home.home4') }}</div>
+           <div class="drawing-more">{{ $t('home.home5') }}</div>
          </div>
        </div>
        <div class="drawing-list">
@@ -19,7 +19,7 @@
              <div class="drawing-byd-img">
                <img src="@/assets/images/byd.png" alt="">
              </div>
-             <div class="drawing-byd-title">Супер-приз<br /><strong>BYD Song Plus</strong></div>
+             <div class="drawing-byd-title">{{ $t('home.home6') }}<br /><strong>BYD Song Plus</strong></div>
            </div>
            <div class="drawing-item">
              <div class="drawing-item-label">X8</div>

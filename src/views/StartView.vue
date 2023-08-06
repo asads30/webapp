@@ -2,7 +2,7 @@
     <div class="start">
         <div class="start-top">
             <div class="container">
-                <div class="start-title">Click разыгрывает<br />BYD и множество других призов</div>
+                <div class="start-title" v-html="$t('start.start1')"></div>
                 <div class="start-img">
                     <img src="@/assets/images/main.png" alt="">
                 </div>
@@ -12,10 +12,10 @@
             <div class="container">
                 <ul class="nav nav-tabs start-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">У меня есть<br />промокод</button>
+                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" v-html="$t('start.start2')"></button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Я самостоятельно узнал(а) об акции</button>
+                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">{{ $t('start.start3') }}</button>
                     </li>
                   </ul>
                   <div class="tab-content" id="myTabContent">

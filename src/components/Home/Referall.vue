@@ -1,9 +1,9 @@
 <template>
     <div class="referall">
         <div class="container">
-          <div class="referall-title">Приглашайте друзей и увеличивайте свои шансы<br />на победу</div>
+          <div class="referall-title" v-html="$t('home.home8')"></div>
           <button class="referall-btn" @click="goRef">
-            <span>Пригласи друга</span>
+            <span>{{ $t('home.home9') }}</span>
             <img src="@/assets/images/referall.svg" alt="">
           </button>
         </div>

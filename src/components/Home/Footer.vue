@@ -3,7 +3,7 @@
         <div class="container">
           <div class="cfooter-hr"></div>
           <button class="cfooter-btn" :disabled="count < 1" @click="goFortuna">
-            <span>Проверить свою удачу</span>
+            <span>{{ $t('home.home10') }}</span>
             <div class="cfooter-btn__label" v-if="count > 0">{{ count }}</div>
             <div class="flare"></div>
           </button>

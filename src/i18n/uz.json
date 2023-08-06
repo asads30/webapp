@@ -1,0 +1,26 @@
+{
+    "stock": "Aksiya",
+    "modal": {
+        "title": "Tabriklaymiz!<br />Siz bizning aksiyamizning<br />ishtirokchisi bo'ldingiz!",
+        "des": "Siz hali ham asosiy sovrinlarni yutib olish uchun 2 imkoniyatga egasiz",
+        "des2": "Siz hali ham asosiy sovrinlarni yutib olish uchun 1 imkoniyatga egasiz",
+        "done": "Ajoyib"
+    },
+    "home": {
+        "home1": "Siz aksiya ishtirokchisisiz",
+        "home2": "Mening sovrinlarim",
+        "home3": "Super sovrinlarni yutib olish<br />imkoniyati",
+        "home4": "Lotereyada",
+        "home5": "Asosiy sovrinlar",
+        "home6": "Super-mukofot",
+        "home7": "Aksiya haqida ma'lumot",
+        "home8": "Do'stlaringizni taklif qiling va g'alaba qozonish<br />imkoniyatini oshiring",
+        "home9": "Do'stingizni taklif qiling",
+        "home10": "Omadingizni tekshiring"
+    },
+    "start": {
+        "start1": "Click BYD va boshqa<br /> ko'plab sovrinlarni o'ynaydi",
+        "start2": "Menda promo-kod<br />bor",
+        "start3": "Men aksiya haqida o'zim bilib oldim"
+    }
+}
