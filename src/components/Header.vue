@@ -57,6 +57,9 @@ export default {
                 a{
                     display: flex;
                     align-items: center;
+                    width: 20px;
+                    height: 20px;
+                    justify-content: center;
                     svg{
                         path{
                             stroke: var(--text);
