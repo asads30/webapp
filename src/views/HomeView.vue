@@ -3,7 +3,6 @@
     <div class="home" v-if="getUser">
       <Header :left="false" :right="false" :center="true" :centerText="$t('stock')"/>
       <div class="home-wrapper">
-        {{ getWeb }}
         <div class="modal" id="codeModal">
           <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -88,6 +87,7 @@
               </router-link>
             </div>
           </div>
+          {{ getWeb }}
           <Drawing />
           <Referall />
           <Footer :count="getUser?.spin_wheel" />
@@ -242,6 +242,11 @@ export default {
           height: 20px;
           svg{
             vertical-align: baseline;
+          }
+          &:focus{
+            outline: 0;
+            border: 0;
+            box-shadow: none;
           }
         }
         .prizes-title{

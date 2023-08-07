@@ -10,6 +10,13 @@
   position: relative;
 }
 
+a[href^=tel] {
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
 :root {
   --bg-ident: #242429 url(../assets/images/ident_bg.jpg) 100% no-repeat;
   --text: #fff;
