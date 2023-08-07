@@ -36,7 +36,7 @@
                         :base-display-shadow="false"
                         :base-display-indicator="false"
                         :base-size="120"
-                        :easing='"bounce"'
+                        :easing='"easy"'
                         :base-background="'linear-gradient(54deg, #FCFE5D 0%, #FDDC08 24.02%, #FD9F83 47.72%, #F97DD3 69.57%, #C566E4 100%)'"
                         :items="items" 
                         @click.once="launchWheel"
