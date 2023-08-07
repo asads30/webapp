@@ -25,7 +25,7 @@
                         :display-shadow="false"
                         :display-border="false"
                         :display-indicator="true"
-                        :centered-indicator="true"
+                        :centered-indicator="false"
                         :counter-clockwise="true"
                         :horizontal-content="false"
                         :size="width"
@@ -446,7 +446,6 @@
             top: 0;
             background: url(../assets/images/wheel.svg) no-repeat;
             background-size: cover;
-            filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.35));
         }
     }
     .priz{
