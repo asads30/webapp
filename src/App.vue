@@ -1,6 +1,5 @@
 <template>
   <div class="applayout">
-    {{ cookie }}
     <router-view/>
   </div>
 </template>
@@ -13,10 +12,18 @@ export default {
   computed: {
     cookie(){
       return getCookie('web-session')
-    },
+    }
   },
   async created() {
-    this.$store.commit('setWeb', this.cookie)
+    this.$store.commit('setWeb', this.cookie);
+    let theme = getCookie('theme');
+    if(theme && theme == 'light'){
+      document.documentElement.setAttribute('theme', 'light');
+    }
+    let lang = getCookie('lang');
+    if(lang && lang == 'uz'){
+      this.$i18n.locale = 'uz'
+    }
   }
 }
 </script>

@@ -3,6 +3,7 @@
     <div class="home" v-if="getUser">
       <Header :left="false" :right="false" :center="true" :centerText="$t('stock')"/>
       <div class="home-wrapper">
+        {{ getWeb }}
         <div class="modal" id="codeModal">
           <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -112,19 +113,14 @@ import Drawing from '@/components/Home/Drawing'
 import Referall from '@/components/Home/Referall'
 import Footer from '@/components/Home/Footer'
 import {api} from '@/boot/axios'
-import {getCookie} from '@/boot/util'
 import {mapGetters} from 'vuex'
 
 export default {
   name: 'HomeView',
   computed: {
-    cookie(){
-      return getCookie('web-session')
-    },
     ...mapGetters([
       'getUser',
-      'getWeb',
-      'getOfferText'
+      'getWeb'
     ]),
     getMethod(){
       return this.$route.query.method
@@ -139,7 +135,7 @@ export default {
   },
   async created() {
     const data = {
-      web_session: (this.getWeb) ? this.getWeb : this.cookie
+      web_session: this.getWeb
     }
     await api.post('me', data).then(res => {
       if(res.data.status == 200){
@@ -158,18 +154,6 @@ export default {
         }
       }
     })
-    api.get('getOfferText').then(res => {
-      this.$store.commit('setOfferText', res.data)
-    })
-    this.$store.commit('setWeb', data.web_session)
-    let theme = getCookie('theme');
-    if(theme && theme == 'light'){
-      document.documentElement.setAttribute('theme', 'light');
-    }
-    let lang = getCookie('lang');
-    if(lang && lang == 'uz'){
-      this.$i18n.locale = 'uz'
-    }
     if(this.getMethod == 'code'){
       const codeModal = new bootstrap.Modal('#codeModal');
       codeModal.show();
