@@ -416,11 +416,13 @@
             margin-left: -60px;
             text-align: center;
             position: relative;
+            overflow: hidden;
+            padding-top: 54px;
             @media screen and (max-height: 750px) {
                 margin-bottom: -200px;
             }
             .wheel-container{
-                overflow: inherit;
+                overflow: hidden;
                 border: 2px solid #fff;
                 .wheel-item{
                     border: 2px solid #fff;
@@ -429,15 +431,19 @@
                     border: 2px solid #fff;
                 }
             }
-            .wheel-container-indicator:before{
-                width: 54px;
-                height: 64px;
-                border: 0;
-                top: -54px;
-                background: url(../assets/images/bounce.svg) no-repeat;
-                background-size: cover;
-                filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.35));
-            }
+        }
+        .roullete::before{
+            content: '';
+            left: 50%;
+            z-index: 999;
+            position: absolute;
+            width: 54px;
+            height: 64px;
+            border: 0;
+            top: 0;
+            background: url(../assets/images/bounce.svg) no-repeat;
+            background-size: cover;
+            filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.35));
         }
     }
     .priz{
