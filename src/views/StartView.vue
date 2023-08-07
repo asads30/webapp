@@ -133,12 +133,14 @@
         justify-content: space-between;
         height: 100vh;
         background: #242429;
+        color: #fff;
         &-title{
             font-size: 24px;
             font-weight: 700;
             line-height: 26px;
             margin-bottom: 16px;
             height: 78px;
+            color: #fff;
         }
         &-img{
             text-align: center;
@@ -196,6 +198,7 @@
             }
             &-text{
                 font-size: 14px;
+                color: #fff;
                 span{
                     color: #FCFE5D;
                 }
@@ -231,6 +234,7 @@
             &-privacy{
                 font-size: 12px;
                 margin-bottom: 16px;
+                color: #fff;
                 button{
                     padding: 0;
                     border: 0;
