@@ -3,36 +3,6 @@
     <div class="home" v-if="getUser">
       <Header :left="false" :right="false" :center="true" :centerText="$t('stock')"/>
       <div class="home-wrapper">
-        <div class="modal" id="codeModal">
-          <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                  <div class="cmodal-title" v-html="$t('modal.title')"></div>
-                  <div class="cmodal-hr"></div>
-                  <div class="cmodal-des">{{ $t('modal.des') }}</div>
-                  <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
-              </div>
-          </div>
-        </div>
-        <div class="modal" id="noCodeModal">
-          <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="cmodal-title" v-html="$t('modal.title')"></div>
-                  <div class="cmodal-hr"></div>
-                  <div class="cmodal-des">{{ $t('modal.des2') }}</div>
-                  <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
-              </div>
-          </div>
-        </div>
-         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getText[1]?.title_ru }}</h5>
-            <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getText[1]?.title_uz }}</h5>
-          </div>
-          <div class="offcanvas-body">
-            <div v-if="$i18n.locale == 'ru'" v-html="getText[1]?.description_ru"></div>
-            <div v-if="$i18n.locale == 'uz'" v-html="getText[1]?.description_uz"></div>
-          </div>
-        </div>
         <div class="home-box">
           {{ getWeb }}
           <div class="prizes">
@@ -81,6 +51,26 @@
           <Drawing />
           <Referall />
           <Footer :count="getUser?.spin_wheel" />
+        </div>
+        <div class="modal fade" id="codeModal" tabindex="-1" aria-labelledby="codeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                  <div class="cmodal-title" v-html="$t('modal.title')"></div>
+                  <div class="cmodal-hr"></div>
+                  <div class="cmodal-des">{{ $t('modal.des') }}</div>
+                  <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
+              </div>
+          </div>
+        </div>
+         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getText?.title_ru }}</h5>
+            <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getText?.title_uz }}</h5>
+          </div>
+          <div class="offcanvas-body">
+            <div v-if="$i18n.locale == 'ru'" v-html="getText?.description_ru"></div>
+            <div v-if="$i18n.locale == 'uz'" v-html="getText?.description_uz"></div>
+          </div>
         </div>
       </div>
       <div class="wheelhome">
@@ -137,7 +127,7 @@ export default {
         this.$store.commit('setUser', res.data.data)
       }
     }).catch(err => {
-      if(err.response.data.error){
+      if(err.response){
         if(err.response.data.error.code == 1000){
           this.$router.push({name: 'start'})
         }
@@ -160,11 +150,11 @@ export default {
     if(lang && lang == 'uz'){
       this.$i18n.locale = 'uz'
     }
-    if(this.getMethod == 'code'){
+    if(this.getMethod && this.getMethod == 'code'){
       const codeModal = new bootstrap.Modal('#codeModal');
       codeModal.show();
     }
-    if(this.getMethod == 'nocode'){
+    if(this.getMethod && this.getMethod == 'nocode'){
       const noCodeModal = new bootstrap.Modal('#noCodeModal');
       noCodeModal.show();
     }

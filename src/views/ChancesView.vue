@@ -81,6 +81,10 @@ export default {
 </script>
 
 <style lang="scss">
+    .chancesview{
+        height: 100vh;
+        overflow: hidden;
+    }
     .chancesview-wrapper{
         height: calc(100vh - 74px);
         overflow-y: auto;
@@ -121,6 +125,9 @@ export default {
             margin-bottom: 12px;
         }
         &-group{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             &-left{
                 display: flex;
                 align-items: center;
@@ -149,11 +156,12 @@ export default {
                 justify-content: flex-end;
                 flex-wrap: wrap;
                 gap: 4px;
+                border-bottom: 1px solid var(--border2);
             }
-            &:not(:last-child){
-                .chances-group-right{
-                    border-bottom: 1px solid #3A3A42;
-                }
+        }
+        &-group:last-child{
+            &-right{
+                border-bottom: 0;
             }
         }
     }

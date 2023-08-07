@@ -26,8 +26,20 @@ export default createStore({
       return state.referall
     },
     getText(state){
-      return state.text
-    }
+      if(state.text){
+        return state.text[1]
+      }
+    },
+    getWheelText(state){
+      if(state.text){
+        return state.text[0]
+      }
+    },
+    getRulesText(state){
+      if(state.text){
+        return state.text[2]
+      }
+    },
   },
   mutations: {
     setUser: (state, user) => {
