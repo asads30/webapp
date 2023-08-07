@@ -3,7 +3,7 @@
     <div class="home" v-if="test">
       <Header :left="false" :right="false" :center="true" :centerText="$t('stock')"/>
       <div class="home-wrapper">
-        <!-- <div class="modal" id="codeModal">
+        <div class="modal" id="codeModal">
           <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                   <div class="cmodal-title" v-html="$t('modal.title')"></div>
@@ -12,8 +12,8 @@
                   <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
               </div>
           </div>
-        </div> -->
-        <!-- <div class="modal" id="noCodeModal">
+        </div>
+        <div class="modal" id="noCodeModal">
           <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="cmodal-title" v-html="$t('modal.title')"></div>
@@ -22,8 +22,8 @@
                   <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
               </div>
           </div>
-        </div> -->
-        <!-- <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
+        </div>
+         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getText[1]?.title_ru }}</h5>
             <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getText[1]?.title_uz }}</h5>
@@ -32,7 +32,7 @@
             <div v-if="$i18n.locale == 'ru'" v-html="getText[1]?.description_ru"></div>
             <div v-if="$i18n.locale == 'uz'" v-html="getText[1]?.description_uz"></div>
           </div>
-        </div> -->
+        </div>
         <div class="home-box">
           {{ getWeb }}
           <div class="prizes">
@@ -133,47 +133,47 @@ export default {
     Referall,
     Footer,
   },
-  // async created() {
-  //   const data = {
-  //     web_session: (this.getWeb) ? this.getWeb : this.cookie
-  //   }
-  //   await api.post('me', data).then(res => {
-  //     if(res.data.status == 200){
-  //       this.$store.commit('setUser', res.data.data)
-  //     }
-  //   }).catch(err => {
-  //     if(err.response.data.error){
-  //       if(err.response.data.error.code == 1000){
-  //         this.$router.push({name: 'start'})
-  //       }
-  //       if(err.response.data.error.code == 1001){
-  //         this.$router.push({name: 'ident'})
-  //       }
-  //       }
-  //   })
-  //   this.$store.commit('setWeb', data.web_session)
-  //   await api.get('getTexts').then(res => {
-  //     if(res.data){
-  //       this.$store.commit('setText', res.data)
-  //     }
-  //   })
-  //   let theme = getCookie('theme');
-  //   if(theme && theme == 'light'){
-  //     document.documentElement.setAttribute('theme', 'light');
-  //   }
-  //   let lang = getCookie('lang');
-  //   if(lang && lang == 'uz'){
-  //     this.$i18n.locale = 'uz'
-  //   }
-  //   if(this.getMethod == 'code'){
-  //     const codeModal = new bootstrap.Modal('#codeModal');
-  //     codeModal.show();
-  //   }
-  //   if(this.getMethod == 'nocode'){
-  //     const noCodeModal = new bootstrap.Modal('#noCodeModal');
-  //     noCodeModal.show();
-  //   }
-  // },
+  async created() {
+    const data = {
+      web_session: (this.getWeb) ? this.getWeb : this.cookie
+    }
+    await api.post('me', data).then(res => {
+      if(res.data.status == 200){
+        this.$store.commit('setUser', res.data.data)
+      }
+    }).catch(err => {
+      if(err.response.data.error){
+        if(err.response.data.error.code == 1000){
+          this.$router.push({name: 'start'})
+        }
+        if(err.response.data.error.code == 1001){
+          this.$router.push({name: 'ident'})
+        }
+        }
+    })
+    this.$store.commit('setWeb', data.web_session)
+    await api.get('getTexts').then(res => {
+      if(res.data){
+        this.$store.commit('setText', res.data)
+      }
+    })
+    let theme = getCookie('theme');
+    if(theme && theme == 'light'){
+      document.documentElement.setAttribute('theme', 'light');
+    }
+    let lang = getCookie('lang');
+    if(lang && lang == 'uz'){
+      this.$i18n.locale = 'uz'
+    }
+    if(this.getMethod == 'code'){
+      const codeModal = new bootstrap.Modal('#codeModal');
+      codeModal.show();
+    }
+    if(this.getMethod == 'nocode'){
+      const noCodeModal = new bootstrap.Modal('#noCodeModal');
+      noCodeModal.show();
+    }
+  },
 }
 </script>
 
