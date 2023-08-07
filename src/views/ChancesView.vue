@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .chancesview{
         height: 100vh;
         overflow: hidden;
@@ -126,13 +126,14 @@ export default {
         }
         &-group{
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             &-left{
                 display: flex;
                 align-items: center;
                 gap: 4px;
                 max-width: 75px;
+                padding: 8px 0;
                 svg.type1{
                     path{
                         stroke: var(--text);
@@ -176,12 +177,14 @@ export default {
         letter-spacing: 0.14px;
         font-weight: 700;
     }
-    .chances-group{
-        margin-bottom: 10px;
-        .chances-group-item{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    .chancesview{
+        .chances-group{
+            display: block;
+            .chances-group-item{
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
         }
     }
 </style>

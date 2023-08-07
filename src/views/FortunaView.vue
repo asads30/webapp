@@ -430,9 +430,9 @@
                 .wheel-base-container{
                     border: 2px solid #fff;
                 }
-                .wheel-container-indicator::before{
-                    content: none;
-                }
+            }
+            .wheel-container-indicator:before{
+                content: none !important;
             }
         }
         .roullete::before{
