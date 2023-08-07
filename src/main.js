@@ -13,8 +13,7 @@ const messages = Object.assign(languages)
 const i18n = createI18n({
     locale: defaultLocale,
     fallbackLocale: 'ru',
-    messages,
-    warnHtmlInMessage: 'off'
+    messages
 })
 
 createApp(App).use(store).use(router).use(i18n).mount('#app')
