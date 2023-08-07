@@ -44,6 +44,7 @@
           </div>
       </div>
         <div class="home-box">
+          {{ getWeb }}
           <div class="prizes">
             <div class="container">
                 <div class="prizes-box">
@@ -87,7 +88,6 @@
               </router-link>
             </div>
           </div>
-          {{ getWeb }}
           <Drawing />
           <Referall />
           <Footer :count="getUser?.spin_wheel" />
