@@ -328,6 +328,20 @@
                     if(res.data.data.type_id == 2){
                         this.$refs.wheel.wheelResultIndex.value = 7
                     }
+                    if(res.data.data.type_id == 3){
+                        if(res.data.data.chances_count == '1'){
+                            this.$refs.wheel.wheelResultIndex.value = 8
+                        }
+                        if(res.data.data.chances_count == '5'){
+                            this.$refs.wheel.wheelResultIndex.value = 6
+                        }
+                        if(res.data.data.chances_count == '10'){
+                            this.$refs.wheel.wheelResultIndex.value = 2
+                        }
+                        if(res.data.data.chances_count == '100'){
+                            this.$refs.wheel.wheelResultIndex.value = 0
+                        }
+                    }
                     if(res.data.data.type_id == 14){
                         this.$refs.wheel.wheelResultIndex.value = 9
                     }
@@ -342,6 +356,8 @@
                 modal.show();
             },
             goPromo(){
+                const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
+                modal.hide();
                 this.$router.push({name: 'prizes'})
             }
         },
