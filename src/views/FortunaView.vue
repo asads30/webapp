@@ -412,12 +412,12 @@
             }
         }
         .roullete{
-            position: absolute;
-            bottom: -150px;
-            left: -60px;
+            margin-bottom: -150px;
+            margin-left: -60px;
             text-align: center;
+            position: relative;
             @media screen and (max-height: 750px) {
-                bottom: -200px;
+                margin-bottom: -200px;
             }
             .wheel-container{
                 overflow: inherit;

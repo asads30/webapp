@@ -62,6 +62,16 @@
               </div>
           </div>
         </div>
+        <div class="modal fade" id="noCodeModal" tabindex="-1" aria-labelledby="noCodeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                  <div class="cmodal-title" v-html="$t('modal.title')"></div>
+                  <div class="cmodal-hr"></div>
+                  <div class="cmodal-des">{{ $t('modal.des2') }}</div>
+                  <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
+              </div>
+          </div>
+        </div>
          <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getText?.title_ru }}</h5>
@@ -127,12 +137,14 @@ export default {
         this.$store.commit('setUser', res.data.data)
       }
     }).catch(err => {
-      if(err.response){
-        if(err.response.data.error.code == 1000){
-          this.$router.push({name: 'start'})
-        }
-        if(err.response.data.error.code == 1001){
-          this.$router.push({name: 'ident'})
+      if(err.response.data){
+        if(err.response.data.error){
+          if(err.response.data.error.code == 1000){
+            this.$router.push({name: 'start'})
+          }
+          if(err.response.data.error.code == 1001){
+            this.$router.push({name: 'ident'})
+          }
         }
       }
     })
