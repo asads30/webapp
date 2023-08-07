@@ -430,6 +430,9 @@
                 .wheel-base-container{
                     border: 2px solid #fff;
                 }
+                .wheel-container-indicator::before{
+                    content: none;
+                }
             }
         }
         .roullete::before{
@@ -441,7 +444,7 @@
             height: 64px;
             border: 0;
             top: 0;
-            background: url(../assets/images/bounce.svg) no-repeat;
+            background: url(../assets/images/wheel.svg) no-repeat;
             background-size: cover;
             filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.35));
         }
