@@ -81,6 +81,10 @@ export default {
 </script>
 
 <style lang="scss">
+    .chancesview-wrapper{
+        height: calc(100vh - 74px);
+        overflow-y: auto;
+    }
     .chances{
         padding: 40px 0 20px;
         height: 100%;

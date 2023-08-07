@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="home" v-if="test">
+    <div class="home" v-if="getUser">
       <Header :left="false" :right="false" :center="true" :centerText="$t('stock')"/>
       <div class="home-wrapper">
         <div class="modal" id="codeModal">
@@ -108,11 +108,6 @@ import {mapGetters} from 'vuex'
 
 export default {
   name: 'HomeView',
-  data() {
-    return {
-      test: true
-    }
-  },
   computed: {
     cookie(){
       return getCookie('web-session')
@@ -149,7 +144,7 @@ export default {
         if(err.response.data.error.code == 1001){
           this.$router.push({name: 'ident'})
         }
-        }
+      }
     })
     this.$store.commit('setWeb', data.web_session)
     await api.get('getTexts').then(res => {
