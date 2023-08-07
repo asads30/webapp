@@ -342,7 +342,7 @@
                             this.$refs.wheel.wheelResultIndex.value = 0
                         }
                     }
-                    if(res.data.data.type_id == 14){
+                    if(res.data.data.type_id == 5){
                         this.$refs.wheel.wheelResultIndex.value = 9
                     }
                 })
