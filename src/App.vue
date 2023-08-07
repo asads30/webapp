@@ -1,7 +1,5 @@
 <template>
-  <div class="applayout">
-    <router-view/>
-  </div>
+  <router-view/>
 </template>
 
 <script>
