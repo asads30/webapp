@@ -103,6 +103,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="modal" id="prize3-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
@@ -134,12 +135,12 @@
                         <div class="modal-content pmodal-content">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
-                                <img src="@/assets/images/prizes/uzum.png" alt="">
+                                <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des" v-html="$t('wheel.modal8')"></div>
+                            <div class="pmodal-des">{{ prize1?.partner[0].name }}</div>
                             <div class="pmodal-code">
-                                <input type="text" readonly id="code" value="HR10U00">
+                                <input type="text" readonly id="code" :value="prize1?.promo_code">
                                 <button type="button" class="pmodal-code-icon">
                                     <img src="@/assets/images/copy.svg" alt="">
                                 </button>
@@ -308,7 +309,7 @@
                 await api.post(`generatePrize?web_session=${this.getWeb}`).then(res => {
                     if(res.data.data.type_id == 1){
                         this.prize1 = res.data.data
-                        this.$refs.wheel.wheelResultIndex.value = 1
+                        this.$refs.wheel.wheelResultIndex.value = 6
                     }
                     if(res.data.data.type_id == 2){
                         this.$refs.wheel.wheelResultIndex.value = 7
