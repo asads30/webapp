@@ -27,7 +27,7 @@
                                 <div class="start-content-text"><span>+2</span> {{ $t('start.start5') }}</div>
                                 <div class="start-content-text"><span>+2</span> {{ $t('start.start6') }}</div>
                                 <div class="start-content-input">
-                                    <input type="text" placeholder="Промокод" v-model="promocode" maxlength="6">
+                                    <input type="text" :placeholder="$t('prizes.prize1')" v-model="promocode" maxlength="6">
                                 </div>
                             </div>
                             <div class="start-content-bottom">

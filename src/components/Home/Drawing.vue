@@ -11,20 +11,20 @@
            <div class="drawing-item">
              <div class="drawing-item-label">X8</div>
              <div class="drawing-item-img">
-               <img src="@/assets/images/draw-1.png" alt="">
+               <img src="@/assets/images/super/prize1.png" alt="">
              </div>
              <div class="drawing-item-title">Apple Watch 8</div>
            </div>
            <div class="drawing-byd">
              <div class="drawing-byd-img">
-               <img src="@/assets/images/byd.png" alt="">
+               <img src="@/assets/images/super/byd.png" alt="">
              </div>
              <div class="drawing-byd-title">{{ $t('home.home6') }}<br /><strong>BYD Song Plus</strong></div>
            </div>
            <div class="drawing-item">
              <div class="drawing-item-label">X8</div>
              <div class="drawing-item-img">
-               <img src="@/assets/images/draw-2.png" alt="">
+               <img src="@/assets/images/super/prize2.png" alt="">
              </div>
              <div class="drawing-item-title">iPhone 14 Pro Max</div>
            </div>
@@ -125,8 +125,24 @@ export default {
          }
          .drawing-byd-img{
            margin-bottom: 10px;
+           position: relative;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           &::before{
+            content: '';
+            width: 100px;
+            height: 100px;
+            background: #00DEFF;
+            position: absolute;
+            filter: blur(12.5px);
+            border-radius: 50%;
+            bottom: -12px;
+           }
            img{
-             max-width: 100%;
+             position: relative;
+             height: 80px;
            }
          }
        }
