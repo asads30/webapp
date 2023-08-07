@@ -41,19 +41,17 @@ export default {
         }
     }
     .myprizes-text{
-        padding: 12px;
+        padding: 6px 12px 12px;
     }
     .myprizes-name{
         font-size: 12px;
         color: var(--text);
         font-weight: 500;
         line-height: 16px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        overflow: hidden;
+        display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+        overflow: hidden;
         text-overflow: ellipsis;
     }
 </style>
