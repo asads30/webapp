@@ -184,6 +184,11 @@ export default {
                 display: flex;
                 align-items: flex-start;
                 justify-content: space-between;
+                .chances-group-left{
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                }
             }
         }
     }
