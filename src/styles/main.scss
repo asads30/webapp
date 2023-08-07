@@ -30,6 +30,7 @@ a[href^=tel] {
   --tab: rgba(255, 255, 255, 0.12);
   --border: rgba(255, 255, 255, 0.35);
   --border2: #3A3A42;
+  --hr: #3A3A42;
 }
 
 :root[theme="light"]{
@@ -45,6 +46,7 @@ a[href^=tel] {
   --tab: #E2E4F0;
   --border: rgba(0, 0, 0, 0.35);
   --border2: #fff;
+  --hr: rgba(255,255,255,0.5);
 }
 
 body{

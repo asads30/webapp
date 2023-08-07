@@ -130,7 +130,7 @@ export default {
   },
   async created() {
     const data = {
-      web_session: (this.getWeb) ? this.getWeb : this.cookie
+      web_session: (this.cookie) ? this.cookie : this.getWeb
     }
     await api.post('me', data).then(res => {
       if(res.data.status == 200){

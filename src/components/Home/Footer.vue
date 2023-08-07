@@ -86,7 +86,7 @@ export default {
       }
     }
     .cfooter-hr{
-      background: #3A3A42;
+      background: var(--hr);
       width: 100%;
       height: 1px;
       margin-bottom: 20px;

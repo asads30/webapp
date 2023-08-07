@@ -51,5 +51,9 @@ export default {
         height: 32px;
         display: flex;
         align-items: center;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
     }
 </style>
