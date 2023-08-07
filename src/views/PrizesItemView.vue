@@ -99,6 +99,7 @@
             text-align: center;
             img{
                 height: 80px;
+                max-width: 80%;
             }
         }
         &-content{
