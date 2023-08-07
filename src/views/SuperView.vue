@@ -1,15 +1,15 @@
 <template>
     <div class="super">
-        <Header :left="true" :center="true" :centerText="'Основные призы'" />
+        <Header :left="true" :center="true" :centerText="$t('super.title')" />
         <div class="super-wrapper">
             <div class="container">
-                <div class="des">Основные призы будут разыгрываться с помощью генератора случайных чисел в прямом эфире среди всех участников акции каждые 2 недели. На 8 неделе акции состоится розыгрыш главного приза – автомобиля BYD. Чем больше количество накопленных шансов, тем выше вероятность стать победителем основных призов</div>
+                <div class="des">{{ $t('super.des') }}</div>
                 <div class="big">
                     <div class="big-img">
                         <img src="@/assets/images/byd.png" alt="">
                     </div>
                     <div class="big-text">
-                        <div class="big-subtitle">Супер–приз</div>
+                        <div class="big-subtitle">{{ $t('home.home6') }}</div>
                         <div class="big-title">BYD Song Plus <br />Flagship</div>
                     </div>
                 </div>
@@ -26,21 +26,21 @@
                             <img src="@/assets/images/prize3.png" alt="">
                             <div class="item-label">X8</div>
                         </div>
-                        <div class="item-title">iPhone 14 Pro Max</div>
+                        <div class="item-title">Apple Watch 8</div>
                     </div>
                     <div class="item">
                         <div class="item-image">
                             <img src="@/assets/images/prize4.png" alt="">
                             <div class="item-label">X8</div>
                         </div>
-                        <div class="item-title">iPhone 14 Pro Max</div>
+                        <div class="item-title">Яндекс Станция</div>
                     </div>
                     <div class="item">
                         <div class="item-image">
                             <img src="@/assets/images/prize5.png" alt="">
                             <div class="item-label">X8</div>
                         </div>
-                        <div class="item-title">iPhone 14 Pro Max</div>
+                        <div class="item-title">Airpods Pro</div>
                     </div>
                 </div>
             </div>

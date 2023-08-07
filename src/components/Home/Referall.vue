@@ -1,9 +1,9 @@
 <template>
     <div class="referall">
         <div class="container">
-          <div class="referall-title" v-html="$t('home.home8')"></div>
+          <div class="referall-title" v-html="$t('home.home7')"></div>
           <button class="referall-btn" @click="goRef">
-            <span>{{ $t('home.home9') }}</span>
+            <span>{{ $t('home.home8') }}</span>
             <img src="@/assets/images/referall.svg" alt="">
           </button>
         </div>

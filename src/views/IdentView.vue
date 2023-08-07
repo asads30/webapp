@@ -1,20 +1,20 @@
 <template>
     <div class="ident">
-      <div class="container">
-        <div class="ident-box">
-            <div class="ident-top"></div>
-            <div class="ident-center">
-                <div class="ident-center-img">
-                    <img src="@/assets/images/main.png" alt="">
+        <div class="container">
+            <div class="ident-box">
+                <div class="ident-top"></div>
+                <div class="ident-center">
+                    <div class="ident-center-img">
+                        <img src="@/assets/images/ident/main.png" alt="">
+                    </div>
+                    <div class="ident-center-title">{{ $t('chances.chance1') }}</div>
+                    <div class="ident-center-des">{{ $t('chances.chance2') }}</div>
                 </div>
-                <div class="ident-center-title">{{ t('chances.chance1') }}</div>
-                <div class="ident-center-des">{{ t('chances.chance2') }}</div>
-            </div>
-            <div class="ident-bottom">
-                <a href="https://my.click.uz/app/identification" class="ident-bottom-btn">{{ t('chances.chance3') }}</a>
+                <div class="ident-bottom">
+                    <a href="https://my.click.uz/app/identification" class="ident-bottom-btn">{{ $t('chances.chance3') }}</a>
+                </div>
             </div>
         </div>
-      </div>
     </div>
 </template>
 

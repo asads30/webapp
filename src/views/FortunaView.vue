@@ -1,21 +1,21 @@
 <template>
     <div class="wrapper">
-        <Header :left="true" :center="true" :centerText="'Колесо фортуны'" />
+        <Header :left="true" :center="true" :centerText="$t('wheel.title')" />
         <div class="pagebox">
             <div class="pagewrapper fortuna">
                 <div class="top">
                     <div class="info">
                         <div class="container">
                             <div class="info-box">
-                                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#fortunaModal" aria-controls="fortunaModal" class="info-text">Инфо о рулетке</button>
+                                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#fortunaModal" aria-controls="fortunaModal" class="info-text">{{ $t('wheel.info') }}</button>
                                 <button type="button" data-bs-toggle="offcanvas" data-bs-target="#fortunaModal" aria-controls="fortunaModal"><img src="@/assets/images/info.svg" alt=""></button>
                             </div>
                         </div>
                     </div>
                     <div class="fortuna-des">
                         <div class="container">
-                            <div class="title">Крутите рулетку и получайте ценные призы</div>
-                            <div class="des">Вы можете крутить и выигрывать призы два раза в сутки! Чем выше шанс - тем выше призы.</div>
+                            <div class="title">{{ $t('wheel.title2') }}</div>
+                            <div class="des">{{ $t('wheel.des') }}</div>
                         </div>
                     </div>
                 </div>
@@ -77,20 +77,20 @@
                 <div class="modal" id="prize0-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">Вы практически выиграли!</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal1') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize1.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">100 шансов на участие<br />в розыгрыше основных призов</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <div class="pmodal-des" v-html="'100 ' + $t('wheel.modal2')"></div>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="prize1-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">Поздравляем, вы выиграли!</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
                             </div>
@@ -102,117 +102,117 @@
                                     <img src="@/assets/images/copy.svg" alt="">
                                 </button>
                             </div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="prize2-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">Вы практически выиграли!</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal5') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize3.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">10 шансов на участие<br />в розыгрыше основных призов</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <div class="pmodal-des" v-html="'10 ' + $t('wheel.modal2')"></div>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="prize3-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">Ничего себе! Ваши шансы удвоены!</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal5') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize4.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">2Х всех имеющихся шансов на участие в розыгрыше основных призов</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <div class="pmodal-des">{{ $t('wheel.modal6') }}</div>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="prize4-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">Поздравляем, вы выиграли!</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize5.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">5000 сум на ваш <br />Click-кошелек</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <div class="pmodal-des" v-html="$t('wheel.modal7')"></div>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="prize5-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">Поздравляем, вы выиграли!</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/uzum.png" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">Промокод на 10 000 сумов<br />в Uzum Market</div>
+                            <div class="pmodal-des" v-html="$t('wheel.modal8')"></div>
                             <div class="pmodal-code">
                                 <input type="text" readonly id="code" value="HR10U00">
                                 <button type="button" class="pmodal-code-icon">
                                     <img src="@/assets/images/copy.svg" alt="">
                                 </button>
                             </div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="prize6-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">Теперь у вас еще больше шансов на участие!</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal9') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize7.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">5 шансов на участие в розыгрыше основных призов</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <div class="pmodal-des" v-html="'5 ' + $t('wheel.modal2')"></div>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="prize7-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">Поздравляем, вы выиграли!</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize6.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">Бесплатную Premium-подписку<br />на 30 дней</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <div class="pmodal-des" v-html="$t('wheel.modal10')"></div>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="prize8-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">У вас еще один шанс на победу!</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal11') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize10.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">1 шанс к участию в розыгрыше основных призов</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <div class="pmodal-des" v-html="'1 ' + $t('wheel.modal2')"></div>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal" id="prize9-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">Сектор «Крутить заново»</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal12') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize9.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">У вас есть возможность покрутить колесо еще раз!</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Получить награду</button>
+                            <div class="pmodal-des">{{ $t('wheel.modal13') }}</div>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
                         </div>
                     </div>
                 </div>
@@ -349,7 +349,6 @@
                 this.$refs.wheel.launchWheel()
             },
             wheelStartedCallback(){
-                console.log('wheelStartedCallback')
             },
             wheelEndedCallback(){
                 const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');

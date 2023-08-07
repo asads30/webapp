@@ -6,7 +6,8 @@ export default createStore({
     prizes: null,
     chances: null,
     web: null,
-    referall: null
+    referall: null,
+    offerText: null
   },
   getters: {
     getUser(state){
@@ -23,6 +24,9 @@ export default createStore({
     },
     getReferall(state){
       return state.referall
+    },
+    getOfferText(state){
+      return state.offerText
     }
   },
   mutations: {
@@ -41,6 +45,9 @@ export default createStore({
     setReferall: (state, referall) => {
       state.referall = referall;
     },
+    setOfferText: (state, offerText) => {
+      state.offerText = offerText
+    }
   },
   actions: {
   }

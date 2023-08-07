@@ -4,10 +4,11 @@
             <div class="container">
                 <div class="start-title" v-html="$t('start.start1')"></div>
                 <div class="start-img">
-                    <img src="@/assets/images/main.png" alt="">
+                    <img src="@/assets/images/ident/main.png" alt="">
                 </div>
             </div>
         </div>
+        {{ getWeb }}
         <div class="start-bottom">
             <div class="container">
                 <ul class="nav nav-tabs start-tabs" id="myTab" role="tablist">
@@ -22,26 +23,26 @@
                     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                         <div class="start-content">
                             <div class="start-content-top">
-                                <div class="start-content-text">Введите промокод от друга, чтобы увеличить шансы на победу у обоих!</div>
-                                <div class="start-content-text"><span>+2</span> шанса на участие</div>
-                                <div class="start-content-text"><span>+2</span> возможности крутить колесо</div>
+                                <div class="start-content-text">{{ $t('start.start4') }}</div>
+                                <div class="start-content-text"><span>+2</span> {{ $t('start.start5') }}</div>
+                                <div class="start-content-text"><span>+2</span> {{ $t('start.start6') }}</div>
                                 <div class="start-content-input">
                                     <input type="text" placeholder="Промокод" v-model="promocode" maxlength="6">
                                 </div>
                             </div>
                             <div class="start-content-bottom">
-                                <div class="start-content-privacy">Нажимая кнопку Участвовать в акции, вы соглашаетесь с <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">условиями акции</button> «ID марафон»</div>
-                                <button class="start-content-btn" :disabled="promocode.length != 6" @click="goAction">Участвовать в акции</button>
+                                <div class="start-content-privacy">{{ $t('start.start7') }} <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">{{$t('start.start8')}}</button> {{ $t('start.start9') }}</div>
+                                <button class="start-content-btn" :disabled="promocode.length != 6" @click="goAction">{{ $t('start.start11') }}</button>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                         <div class="start-content">
                             <div class="start-content-top">
-                                <div class="start-content-text">Становитесь участником самой масштабной акции!</div>
+                                <div class="start-content-text">{{ $t('start.start10') }}</div>
                             </div>
                             <div class="start-content-bottom">
-                                <div class="start-content-privacy">Нажимая кнопку Участвовать в акции, вы соглашаетесь с <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">условиями акции</button> «ID марафон»</div>
+                                <div class="start-content-privacy">{{ $t('start.start7') }} <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">{{$t('start.start8')}}</button> {{ $t('start.start9') }}</div>
                                 <button class="start-content-btn" @click="goActionNot">Участвовать в акции</button>
                             </div>
                         </div>
@@ -99,7 +100,8 @@
                 const data = {
                     web_session: this.getWeb,
                     active: 'ref',
-                    ref: this.promocode
+                    ref: this.promocode,
+                    lang: this.$i18n.locale
                 }
                 await api.post('me', data).then(res => {
                     if(res.data.status == 200){
@@ -115,7 +117,8 @@
             async goActionNot(){
                 const data = {
                     web_session: this.getWeb,
-                    active: true
+                    active: true,
+                    lang: this.$i18n.locale
                 }
                 await api.post('me', data).then(res => {
                     if(res.data.status == 200){
@@ -138,6 +141,7 @@
         flex-direction: column;
         justify-content: space-between;
         height: 100vh;
+        background: #242429;
         &-title{
             font-size: 24px;
             font-weight: 700;
