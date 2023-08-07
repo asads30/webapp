@@ -93,7 +93,7 @@
           <Footer :count="getUser?.spin_wheel" />
         </div>
       </div>
-      <div class="wheel">
+      <div class="wheelhome">
         <img src="@/assets/images/wheel.png" alt="">
       </div>
     </div>
