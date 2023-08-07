@@ -6,7 +6,7 @@
                 <div class="des">{{ $t('super.des') }}</div>
                 <div class="big">
                     <div class="big-img">
-                        <img src="@/assets/images/byd.png" alt="">
+                        <img src="@/assets/images/super/byd.png" alt="">
                     </div>
                     <div class="big-text">
                         <div class="big-subtitle">{{ $t('home.home6') }}</div>
@@ -16,28 +16,28 @@
                 <div class="list">
                     <div class="item">
                         <div class="item-image">
-                            <img src="@/assets/images/prize2.png" alt="">
+                            <img src="@/assets/images/super/iphone.png" alt="">
                             <div class="item-label">X8</div>
                         </div>
                         <div class="item-title">iPhone 14 Pro Max</div>
                     </div>
                     <div class="item">
                         <div class="item-image">
-                            <img src="@/assets/images/prize3.png" alt="">
+                            <img src="@/assets/images/super/watch.png" alt="">
                             <div class="item-label">X8</div>
                         </div>
                         <div class="item-title">Apple Watch 8</div>
                     </div>
                     <div class="item">
                         <div class="item-image">
-                            <img src="@/assets/images/prize4.png" alt="">
+                            <img src="@/assets/images/super/yandex.png" alt="">
                             <div class="item-label">X8</div>
                         </div>
                         <div class="item-title">Яндекс Станция</div>
                     </div>
-                    <div class="item">
+                    <div class="item item5">
                         <div class="item-image">
-                            <img src="@/assets/images/prize5.png" alt="">
+                            <img src="@/assets/images/super/airpods.png" alt="">
                             <div class="item-label">X8</div>
                         </div>
                         <div class="item-title">Airpods Pro</div>
@@ -166,6 +166,13 @@
             font-size: 12px;
             color: #fff;
             position: relative;
+        }
+    }
+    .item.item5{
+        .item-image{
+            .item-label{
+                right: 40px;
+            }
         }
     }
 }

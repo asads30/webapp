@@ -50,28 +50,12 @@
                 </div>
                 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="fortunaModal" aria-labelledby="fortunaModalLabel">
                     <div class="offcanvas-header">
-                      <h5 class="offcanvas-title" id="fortunaModalLabel">Колесо фортуны</h5>
+                        <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getText[0]?.title_ru }}</h5>
+                        <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getText[0]?.title_uz }}</h5>
                     </div>
                     <div class="offcanvas-body">
-                      <div>
-                        <p>Крутите колесо, пока ждете розыгрыш основных призов и проверьте свою удачу! Выигрывайте гарантированные призы от Click сразу после прокрутки или копите шансы на победу!</p>
-                        <p><strong>Каждый участник получает возможность прокрутить в трех случаях:</strong></p>
-                        <p>1. При активации акции</p>
-                        <p>2. Каждую новую неделю после активации акции</p>
-                        <p>3. Каждый раз, когда новый друг принимает приглашение</p>
-                        <p>Прокручивание колеса дает участнику один из гарантированных призов:</p>
-                        <ul>
-                          <li>Premium-подписка от Click</li>
-                          <li>5000 сумов на кошелек от Click</li>
-                          <li>Призы от партнера Uzum</li>
-                          <li>+1 к победе в розыгрыше основных призов</li>
-                          <li>+5 к победе в розыгрыше основных призов</li>
-                          <li>+10 к победе в розыгрыше основных призов</li>
-                          <li>+100 к победе в розыгрыше основных призов</li>
-                          <li>2Х всех имеющихся шансов</li>
-                          <li>Сектор «Крутить заново»</li>
-                        </ul>
-                      </div>
+                        <div v-if="$i18n.locale == 'ru'" v-html="getText[0]?.description_ru"></div>
+                        <div v-if="$i18n.locale == 'uz'" v-html="getText[0]?.description_uz"></div>
                     </div>
                 </div>
                 <div class="modal" id="prize0-modal" data-bs-backdrop="static" data-bs-keyboard="false">
@@ -315,7 +299,8 @@
         },
         computed: {
             ...mapGetters([
-                'getWeb'
+                'getWeb',
+                'getText'
             ]),
         },
         methods: {

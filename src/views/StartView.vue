@@ -43,7 +43,7 @@
                             </div>
                             <div class="start-content-bottom">
                                 <div class="start-content-privacy">{{ $t('start.start7') }} <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">{{$t('start.start8')}}</button> {{ $t('start.start9') }}</div>
-                                <button class="start-content-btn" @click="goActionNot">Участвовать в акции</button>
+                                <button class="start-content-btn" @click="goActionNot">{{ $t('start.start11') }}</button>
                             </div>
                         </div>
                     </div>
@@ -52,22 +52,12 @@
         </div>
         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="infoModalLabel">Информация об акции</h5>
+                <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getText[2]?.title_ru }}</h5>
+                <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getText[2]?.title_uz }}</h5>
             </div>
             <div class="offcanvas-body">
-              <div>
-                <p>Чтобы стать участником акции – необходимо пройти идентификацию в приложении Click Up и зайти в раздел «Акция». После этого пользователь автоматически становится участником и получает 1 шанс на победу основных призов.</p>
-                <p>Главная задача участника – накопить как можно больше шансов для выигрыша одного или нескольких основных призов. Копите шансы, приглашая друзей по своему промокоду.</p>
-                <p><strong>Вы можете следить за ходом розыгрышей основных призов в прямых эфирах на официальных страничках компании:</strong></p>
-                <p>● 1 розыгрыш – 24 августа  </p>
-                <p>розыгрыш Apple Watch – 2 шт, AirPods – 2 шт, Яндекс Станция – 2 шт, Iphone 14MAX PRO – 2 шт.</p>
-                <p>● 2 розыгрыш – 7 сентября</p>
-                <p>розыгрыш Apple Watch – 2 шт, AirPods – 2 шт, Яндекс Станция – 2 шт, Iphone 14MAX PRO – 2 шт.</p>
-                <p>● 3 розыгрыш – 21 сентября</p>
-                <p>розыгрыш Apple Watch – 2 шт, AirPods – 2 шт, Яндекс Станция – 2 шт, Iphone 14MAX PRO – 2 шт.</p>
-                <p>● 4 розыгрыш – 5 октября</p>
-                <p>розыгрыш Apple Watch – 2 шт, AirPods – 2 шт, Яндекс Станция – 2 шт, Iphone 14MAX PRO – 2 шт, а также суперприз – электромобиль BYD Song Plus Flagship.</p>
-              </div>
+                <div v-if="$i18n.locale == 'ru'" v-html="getText[2]?.description_ru"></div>
+                <div v-if="$i18n.locale == 'uz'" v-html="getText[2]?.description_uz"></div>
             </div>
         </div>
     </div>
@@ -87,7 +77,8 @@
         computed: {
             ...mapGetters([
                 'getWeb',
-                'getUser'
+                'getUser',
+                'getText'
             ]),
         },
         mounted() {
