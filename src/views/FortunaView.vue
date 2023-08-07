@@ -295,7 +295,7 @@
                 width: window.innerWidth + 120,
                 base: '<div class="base">Крутить</div>',
                 win: null,
-                prize1: null
+                prize1: null,
             };
         },
         computed: {

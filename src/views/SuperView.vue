@@ -4,6 +4,7 @@
         <div class="super-wrapper">
             <div class="container">
                 <div class="des">{{ $t('super.des') }}</div>
+                <button @click="play">Старт</button>
                 <div class="big">
                     <div class="big-img">
                         <img src="@/assets/images/super/byd.png" alt="">
@@ -50,10 +51,19 @@
   
 <script>
     import Header from '@/components/Header'
+    import { useSound } from '@vueuse/sound'
+    import buttonSfx from '@/assets/win.mp3'
+
     export default {
         name: "SuperView",
         components: {
-            Header
+            Header,
+        },
+        setup() {
+            const { play } = useSound(buttonSfx)
+            return {
+                play
+            }
         }
     };
 </script>
