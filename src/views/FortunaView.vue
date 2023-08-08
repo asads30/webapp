@@ -95,7 +95,7 @@
                 <div class="modal" id="prize2-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">{{ $t('wheel.modal5') }}</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize3.svg" alt="">
                             </div>
@@ -109,7 +109,7 @@
                 <div class="modal" id="prize3-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">{{ $t('wheel.modal5') }}</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize4.svg" alt="">
                             </div>
@@ -154,7 +154,7 @@
                 <div class="modal" id="prize6-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">{{ $t('wheel.modal9') }}</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize7.svg" alt="">
                             </div>
@@ -180,7 +180,7 @@
                 <div class="modal" id="prize8-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">{{ $t('wheel.modal11') }}</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize10.svg" alt="">
                             </div>
@@ -193,7 +193,7 @@
                 <div class="modal" id="prize9-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">{{ $t('wheel.modal12') }}</div>
+                            <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize9.svg" alt="">
                             </div>
