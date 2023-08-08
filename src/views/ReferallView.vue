@@ -57,13 +57,13 @@
                         <div class="chances" v-if="getReferall">
                         <div class="chances-top">
                             <div class="container">
-                                <div class="chances-title">{{ $t('referall.ref6') }} <span>0 {{ $t('referall.ref7') }}</span></div>
+                                <div class="chances-title">{{ $t('referall.ref6') }} <span>{{ getReferall.referrals_count }} {{ $t('referall.ref7') }}</span></div>
                             </div>
                         </div>
                         <div class="chances-items">
                             <div class="container">
                                 <div class="chances-list">
-                                    <div class="chances-item" v-for="(referall, key) in getReferall" :key="referall">
+                                    <div class="chances-item" v-for="(referall, key) in getReferall.referrals" :key="referall">
                                         <div class="chances-date">{{ key }}</div>
                                         <div class="chances-group" v-for="group in referall" :key="group">
                                             <div class="chances-group-left">
