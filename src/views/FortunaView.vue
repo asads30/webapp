@@ -58,7 +58,8 @@
                         <div v-if="$i18n.locale == 'uz'" v-html="getWheelText?.description_uz"></div>
                     </div>
                 </div>
-                <div class="modal" id="prize0-modal" data-bs-backdrop="static" data-bs-keyboard="false">
+                <!-- 100 шансов -->
+                <!-- <div class="modal" id="prize0-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
                             <div class="pmodal-title">{{ $t('wheel.modal1') }}</div>
@@ -70,7 +71,7 @@
                             <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="modal" id="prize1-modal" data-bs-backdrop="static" data-bs-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content pmodal-content">
@@ -79,7 +80,8 @@
                                 <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">{{ prize1?.partner[0].name }}</div>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.partner[0].name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.partner[0].name_uz }}</div>
                             <div class="pmodal-code">
                                 <input type="text" readonly id="code" :value="prize1?.promo_code">
                                 <button type="button" class="pmodal-code-icon">
@@ -231,7 +233,7 @@
                     {
                         id: 2,
                         name: "prize2",
-                        htmlContent: '<div class="priz priz2"><div class="priz-icon"><img src="./img/icons/prize2.svg"></div><div class="priz-title">Промокод на 10 000 сум в UZUM MARKET</div><div class="priz-img"><img src="./img/icons/prize2-label.svg"></div></div>',
+                        htmlContent: '<div class="priz priz2"><div class="priz-icon"><img src="./img/icons/prize2.svg"></div><div class="priz-title">Промокод в UZUM MARKET</div><div class="priz-img"><img src="./img/icons/prize2-label.svg"></div></div>',
                         textColor: "#fff",
                         background: "linear-gradient(29deg, #8341EF 0%, #3F68F9 100%)",
                     },
@@ -309,7 +311,7 @@
                 await api.post(`generatePrize?web_session=${this.getWeb}`).then(res => {
                     if(res.data.data.type_id == 1){
                         this.prize1 = res.data.data
-                        this.$refs.wheel.wheelResultIndex.value = 6
+                        this.$refs.wheel.wheelResultIndex.value = 5
                     }
                     if(res.data.data.type_id == 2){
                         this.$refs.wheel.wheelResultIndex.value = 7
@@ -328,8 +330,15 @@
                             this.$refs.wheel.wheelResultIndex.value = 0
                         }
                     }
+                    if(res.data.data.type_id == 4){
+                        this.prize1 = res.data.data
+                        this.$refs.wheel.wheelResultIndex.value = 1
+                    }
                     if(res.data.data.type_id == 5){
                         this.$refs.wheel.wheelResultIndex.value = 9
+                    }
+                    if(res.data.data.type_id == 14){
+                        this.$refs.wheel.wheelResultIndex.value = 3
                     }
                 })
                 this.$refs.wheel.launchWheel()
