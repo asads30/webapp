@@ -387,6 +387,9 @@
         justify-content: space-between;
         .info{
             margin-bottom: 30px;
+            @media screen and (max-height: 745px) and (max-width: 380px) {
+                margin-bottom: 20px;
+            }
             .container{
                 display: flex;
                 justify-content: flex-end;
@@ -411,7 +414,7 @@
             }
         }
         .fortuna-des{
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             .title{
                 font-size: 28px;
                 font-weight: 600;
@@ -419,6 +422,12 @@
                 text-align: center;
                 margin-bottom: 20px;
                 line-height: 36px;
+            }
+            @media screen and (max-height: 745px) {
+                .title{
+                    font-size: 22px;
+                    line-height: 28px;
+                }
             }
             .des{
                 font-size: 14px;
@@ -465,7 +474,7 @@
         }
         .roullete::before{
             content: '';
-            left: 50%;
+            left: calc(50% - -5px);
             z-index: 999;
             position: absolute;
             width: 54px;
