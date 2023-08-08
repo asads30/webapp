@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="prizesview-content-bottom">
-                    <div class="prizesview-promo" v-if="prize.type_id == 0">
+                    <div class="prizesview-promo" v-if="prize.type_id == 1">
                         <div class="container">
                             <div class="prizesview-promo-info">
                                 <div class="prizesview-promo-info-icon">
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="prizesview-promo-info-text">
                                     <div class="prizesview-promo-info-label">{{ $t('prizes.prize1') }}</div>
-                                    <div class="prizesview-promo-info-value">{{ prize.prize.promocode }}</div>
+                                    <div class="prizesview-promo-info-value">{{ prize.promocode }}</div>
                                 </div>
                             </div>
                             <div class="prizesview-promo-copy">
