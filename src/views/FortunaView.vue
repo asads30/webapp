@@ -213,7 +213,6 @@
     import { api } from '@/boot/axios'
     import {mapGetters} from 'vuex'
     var audio = new Audio('./audio/wheel.mp3')
-    var winplay = new Audio('./audio/win.mp3');
 
     export default {
         name: "FortunaView",
@@ -352,6 +351,7 @@
             wheelStartedCallback(){
             },
             wheelEndedCallback(){
+                var winplay = new Audio('./audio/win.mp3')
                 winplay.play();
                 const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
                 modal.show();
