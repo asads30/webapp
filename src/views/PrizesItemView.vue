@@ -2,7 +2,7 @@
     <div class="page">
         <div class="prizesview" :style="'background: ' + prize.prize.background" v-if="prize">
             <div class="prizesview-top">
-                <Header :left="true" :center="true" :centerText="$t('prizes.prize2')" :leftText="'prizes'"/>
+                <Header :left="true" :center="true" :centerText="$t('prizes.prize2')" :leftText="'prizes'" :color="(prize.prize.backgroud == '#FFF;') ? 'white' : 'black'"/>
                 <div class="prizesview-logo">
                     <img :src="'https://promadm.click.uz/' + prize.prize.photo">
                 </div>

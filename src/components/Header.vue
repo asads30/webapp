@@ -14,7 +14,7 @@
                 </router-link>
             </div>
             <div class="header-center">
-                <div v-if="center" class="header-center-text">
+                <div v-if="center" class="header-center-text" :style="(color == '#FFF;') ? 'color: #fff;' : ''">
                     {{ centerText }}
                 </div>
             </div>
@@ -36,7 +36,8 @@ export default {
         center: Boolean,
         centerText: String,
         right: Boolean,
-        rightText: String
+        rightText: String,
+        color: String
     }
 }
 </script>
