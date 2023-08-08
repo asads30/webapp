@@ -14,7 +14,7 @@
                 </router-link>
             </div>
             <div class="header-center">
-                <div v-if="center" class="header-center-text" :style="(color == '#FFF;') ? 'color: #fff;' : ''">
+                <div v-if="center" class="header-center-text" :style="(color == '#FFF;') ? 'color: #000;' : ''">
                     {{ centerText }}
                 </div>
             </div>

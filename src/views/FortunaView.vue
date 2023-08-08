@@ -213,7 +213,7 @@
     import { api } from '@/boot/axios'
     import {mapGetters} from 'vuex'
     var audio = new Audio('./audio/wheel.mp3')
-    var win = new Audio('./audio/win.mp3')
+    var win = new Audio('./audio/win.mp3');
 
     export default {
         name: "FortunaView",
