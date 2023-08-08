@@ -108,6 +108,7 @@ export default {
            color: #fff;
            text-align: center;
            font-weight: 400;
+           height: 30px;
          }
        }
        .drawing-byd{

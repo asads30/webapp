@@ -37,7 +37,8 @@ export default {
         border-top-right-radius: 12px;
         background: linear-gradient(219deg, #F0F 0%, #0073FF 100%);
         img{
-            max-width: 120px;
+            max-height: 60px;
+            max-width: 80px;
         }
     }
     .myprizes-text{
