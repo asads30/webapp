@@ -30,7 +30,7 @@
                         :horizontal-content="false"
                         :size="width"
                         :result-variation="50"
-                        :duration="7"
+                        :duration="8"
                         :indicator-position="'top'"
                         :base-display="true"
                         :base-display-shadow="false"
@@ -43,7 +43,7 @@
                         @wheel-end="wheelEndedCallback"
                     >
                         <template #baseContent>
-                            <div class="base" @click.once="launchWheel">Крутить</div>
+                            <div class="base" @click.once="launchWheel" :disabled="!active">Крутить</div>
                         </template>
                     </Roulette>
                 </div>
@@ -212,6 +212,8 @@
     import { Roulette } from "vue3-roulette"
     import { api } from '@/boot/axios'
     import {mapGetters} from 'vuex'
+    var audio = new Audio('./audio/wheel.mp3')
+    var win = new Audio('./audio/win.mp3')
 
     export default {
         name: "FortunaView",
@@ -296,6 +298,7 @@
                 width: window.innerWidth + 120,
                 win: null,
                 prize1: null,
+                active: true
             };
         },
         computed: {
@@ -306,6 +309,7 @@
         },
         methods: {
             async launchWheel() {
+                this.active = false;
                 await api.post(`generatePrize?web_session=${this.getWeb}`).then(res => {
                     if(res.data.data.type_id == 1){
                         this.prize1 = res.data.data
@@ -343,12 +347,14 @@
                     }
                 })
                 this.$refs.wheel.launchWheel()
+                audio.play();
             },
             wheelStartedCallback(){
             },
             wheelEndedCallback(){
                 const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
                 modal.show();
+                win.play();
             },
             goPromo(){
                 const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
@@ -440,23 +446,6 @@
                 }
                 .wheel-base-container{
                     border: 2px solid #fff;
-                    &::before{
-                        position: absolute;
-                        content: '';
-                        top: -2px;
-                        left: -2px;
-                        height: calc(100% + 4px);
-                        width: calc(100% + 4px);
-                        border-radius: 5px;
-                        z-index: -1;
-                        opacity: 1;
-                        filter: blur(20px);
-                        background: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
-                        background-size: 400%;
-                        transition: opacity .3s ease-in-out;
-                        animation: animate 5s linear infinite;
-                        border-radius: 50%;
-                    }
                 }
             }
             @keyframes animate {
@@ -516,6 +505,28 @@
         color: #000;
         font-weight: 700;
         font-size: 18px;
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &::before{
+            position: absolute;
+            content: '';
+            top: -2px;
+            left: -2px;
+            height: calc(100% + 4px);
+            width: calc(100% + 4px);
+            border-radius: 5px;
+            z-index: -1;
+            opacity: 1;
+            filter: blur(20px);
+            background: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+            background-size: 400%;
+            transition: opacity .3s ease-in-out;
+            animation: animate 5s linear infinite;
+            border-radius: 50%;
+        }
     }
         .title{
             color: #363845;

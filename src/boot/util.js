@@ -26,7 +26,6 @@ const getCookie =  function (name) {
     return (arr[2]);
   else
     return null;
-  // return '774a1ddd-bc3d-49ec-b548-08cb835489c9'
 }
 
 export {getStorage, saveStorage, clearStorage, getCookie}
