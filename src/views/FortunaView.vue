@@ -39,12 +39,11 @@
                         :easing='"easy"'
                         :base-background="'linear-gradient(54deg, #FCFE5D 0%, #FDDC08 24.02%, #FD9F83 47.72%, #F97DD3 69.57%, #C566E4 100%)'"
                         :items="items" 
-                        @click.once="launchWheel"
                         @wheel-start="wheelStartedCallback"
                         @wheel-end="wheelEndedCallback"
                     >
                         <template #baseContent>
-                            <div v-html="base"></div>
+                            <div class="base" @click.once="launchWheel">Крутить</div>
                         </template>
                     </Roulette>
                 </div>
@@ -295,7 +294,6 @@
                     },
                 ],
                 width: window.innerWidth + 120,
-                base: '<div class="base">Крутить</div>',
                 win: null,
                 prize1: null,
             };
@@ -336,6 +334,9 @@
                     }
                     if(res.data.data.type_id == 5){
                         this.$refs.wheel.wheelResultIndex.value = 9
+                    }
+                    if(res.data.data.type_id == 6){
+                        this.$refs.wheel.wheelResultIndex.value = 4
                     }
                     if(res.data.data.type_id == 14){
                         this.$refs.wheel.wheelResultIndex.value = 3
@@ -439,8 +440,36 @@
                 }
                 .wheel-base-container{
                     border: 2px solid #fff;
+                    &::before{
+                        position: absolute;
+                        content: '';
+                        top: -2px;
+                        left: -2px;
+                        height: calc(100% + 4px);
+                        width: calc(100% + 4px);
+                        border-radius: 5px;
+                        z-index: -1;
+                        opacity: 1;
+                        filter: blur(20px);
+                        background: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+                        background-size: 400%;
+                        transition: opacity .3s ease-in-out;
+                        animation: animate 5s linear infinite;
+                        border-radius: 50%;
+                    }
                 }
             }
+            @keyframes animate {
+                0% {
+                  background-position: 0 0;
+                }
+                50% {
+                  background-position: 400% 0;
+                }
+                100% {
+                  background-position: 0 0;
+                }
+              }
             .wheel-container-indicator:before{
                 content: none !important;
             }
@@ -484,7 +513,7 @@
         }
     }
     .base{
-        color: #242429;
+        color: #000;
         font-weight: 700;
         font-size: 18px;
     }
