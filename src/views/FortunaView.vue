@@ -88,7 +88,7 @@
                                     <img src="@/assets/images/copy.svg" alt="">
                                 </button>
                             </div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="pmodal-hr"></div>
                             <div class="pmodal-des" v-html="'10 ' + $t('wheel.modal2')"></div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                             </div>
                             <div class="pmodal-hr"></div>
                             <div class="pmodal-des">{{ $t('wheel.modal6') }}</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                             </div>
                             <div class="pmodal-hr"></div>
                             <div class="pmodal-des" v-html="$t('wheel.modal7')"></div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                                     <img src="@/assets/images/copy.svg" alt="">
                                 </button>
                             </div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                             </div>
                             <div class="pmodal-hr"></div>
                             <div class="pmodal-des" v-html="'5 ' + $t('wheel.modal2')"></div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                             </div>
                             <div class="pmodal-hr"></div>
                             <div class="pmodal-des" v-html="$t('wheel.modal10')"></div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                             </div>
                             <div class="pmodal-hr"></div>
                             <div class="pmodal-des" v-html="'1 ' + $t('wheel.modal2')"></div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
                 </div>
@@ -199,7 +199,7 @@
                             </div>
                             <div class="pmodal-hr"></div>
                             <div class="pmodal-des">{{ $t('wheel.modal13') }}</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal1') }}</button>
+                            <button type="button" class="cmodal-btn" @click="goPromo">Крутить еще раз</button>
                         </div>
                     </div>
                 </div>
@@ -360,7 +360,7 @@
 
 <style lang="scss">
     .pmodal-uzum>img{
-        max-height: 40px;
+        max-height: 60px;
     }
     .pagewrapper{
         height: calc(100vh - 74px);
