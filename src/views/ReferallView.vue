@@ -120,7 +120,7 @@ export default {
     },
     mounted(){
         api.get(`myReferrals?web_session=${this.getWeb}`).then(res => {
-            this.$store.commit('setReferall', res.data)
+            this.$store.commit('setReferall', res.data.data)
         }).catch(err => {
             console.log(err)
         })
