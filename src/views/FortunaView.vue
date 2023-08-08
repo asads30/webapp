@@ -352,9 +352,9 @@
             wheelStartedCallback(){
             },
             wheelEndedCallback(){
+                win.play();
                 const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
                 modal.show();
-                win.play();
             },
             goPromo(){
                 const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
