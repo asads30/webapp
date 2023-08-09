@@ -393,6 +393,11 @@
                 this.$router.push({name: 'prizes'})
             }
         },
+        mounted() {
+            window.onpopstate = event => {
+                console.log(event)
+            };
+        },
     };
 </script>
 
