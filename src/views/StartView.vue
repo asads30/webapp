@@ -46,6 +46,8 @@
                         <div class="start-content">
                             <div class="start-content-top">
                                 <div class="start-content-text">{{ $t('start.start10') }}</div>
+                                <div class="start-content-text"><span>+1</span> {{ $t('start.start5') }}</div>
+                                <div class="start-content-text"><span>+1</span> {{ $t('start.start6') }}</div>
                             </div>
                             <div class="start-content-bottom">
                                 <div class="start-content-privacy">{{ $t('start.start7') }} <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">{{$t('start.start8')}}</button> {{ $t('start.start9') }}</div>
@@ -117,9 +119,19 @@
                         this.$router.push({ name: 'home', query: { method: 'code' }})
                     } else{
                         const locale = this.$i18n.locale;
-                        $toast.error(res.data.error + locale, {
-                            position: 'bottom'
-                        });
+                        if(locale == 'en'){
+                            $toast.error(res.data.error.en, {
+                                position: 'bottom'
+                            });
+                        } else if(locale == 'uz'){
+                            $toast.error(res.data.error.uz, {
+                                position: 'bottom'
+                            });
+                        } else{
+                            $toast.error(res.data.error.ru, {
+                                position: 'bottom'
+                            });
+                        }
                     }
                 })
             },
