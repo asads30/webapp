@@ -8,7 +8,6 @@
                 </div>
             </div>
         </div>
-        <div class="session">{{ getWeb }}</div>
         <div class="start-bottom">
             <div class="container">
                 <ul class="nav nav-tabs start-tabs" id="myTab" role="tablist">

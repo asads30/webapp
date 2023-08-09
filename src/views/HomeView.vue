@@ -4,7 +4,6 @@
       <Header :left="false" :right="false" :center="true" :centerText="$t('stock')"/>
       <div class="home-wrapper">
         <div class="home-box">
-          <div class="session">{{ getWeb }}</div>
           <div class="prizes">
             <div class="container">
                 <div class="prizes-box">

@@ -43,7 +43,7 @@
                         @wheel-end="wheelEndedCallback"
                     >
                         <template #baseContent>
-                            <div class="base" @click.once="launchWheel" :disabled="active">Крутить</div>
+                            <div class="base" @click.once="launchWheel" :disabled="active">{{ $t('wheel.spin') }}</div>
                         </template>
                     </Roulette>
                 </div>
@@ -83,6 +83,7 @@
                             <div class="pmodal-hr"></div>
                             <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.partner[0].name_ru }}</div>
                             <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.partner[0].name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.partner[0].name_en }}</div>
                             <div class="pmodal-code">
                                 <input type="text" readonly id="code" :value="prize1?.promo_code">
                                 <button type="button" class="pmodal-code-icon">
@@ -395,6 +396,7 @@
             }
         },
         mounted() {
+            this.$i18n.locale = 'uz'
             window.onpopstate = event => {
                 console.log(event)
             };

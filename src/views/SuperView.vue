@@ -45,19 +45,6 @@
                     </div>
                 </div>
             </div>
-            <div class="amodal" v-if="amodal == true">
-                <div class="amodal-content">
-                    <div class="amodal-header">
-                        <button class="close" @click="amodal = false">&times;</button>
-                    </div>
-                    <div class="amodal-body">
-                        <div class="cmodal-title" v-html="$t('modal.title')"></div>
-                        <div class="cmodal-hr"></div>
-                        <div class="cmodal-des">{{ $t('modal.des') }}</div>
-                        <button type="button" class="cmodal-btn" @click="amodal = false">{{ $t('modal.done') }}</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </template>
@@ -71,11 +58,6 @@
         name: "SuperView",
         components: {
             Header,
-        },
-        data() {
-            return {
-                amodal: false
-            }
         },
         setup() {
             const { play } = useSound(buttonSfx)
