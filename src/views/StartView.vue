@@ -31,7 +31,6 @@
                                         v-model="promocode"
                                         radix="."
                                         :mask="'{******}'"
-                                        @keydown.space="(event) => event.preventDefault()"
                                         autofocus
                                     />
                                 </div>
