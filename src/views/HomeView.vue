@@ -61,20 +61,20 @@
                 <div class="cmodal-title" v-html="$t('modal.title')"></div>
                 <div class="cmodal-hr"></div>
                 <div class="cmodal-des">{{ $t('modal.des') }}</div>
-                <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
+                <button type="button" class="cmodal-btn" @click="code1 = false">{{ $t('modal.done') }}</button>
               </div>
           </div>
         </div>
         <div class="amodal" v-if="code2 == true">
           <div class="amodal-content">
               <div class="amodal-header">
-                  <button class="close" @click="code1 = false">&times;</button>
+                  <button class="close" @click="code2 = false">&times;</button>
               </div>
               <div class="amodal-body">
                 <div class="cmodal-title" v-html="$t('modal.title')"></div>
                 <div class="cmodal-hr"></div>
                 <div class="cmodal-des">{{ $t('modal.des') }}</div>
-                <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
+                <button type="button" class="cmodal-btn" @click="code2 = false">{{ $t('modal.done') }}</button>
               </div>
           </div>
         </div>

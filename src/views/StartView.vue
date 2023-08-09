@@ -288,9 +288,11 @@
                     }
                     &::placeholder{
                         font-weight: 300;
+                        color: #000;
                     }
                     &:-ms-input-placeholder{
                         font-weight: 300;
+                        color: #000;
                     }
 
                 }
