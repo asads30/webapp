@@ -44,9 +44,10 @@
     },
     "prizes": {
         "prize1": "Promokod",
-        "prize2": "Детали приза",
+        "prize2": "Sovg'a ma'lumoti",
         "prize3": "Скопировать",
-        "prize4": "Bosh sahifaga"
+        "prize4": "Bosh sahifaga",
+        "not": "Siz hali sovrinlarga ega emassiz. Kafolatlangan sovrinni qo'lga kiritish uchun omad g'ildiragini aylantiring, shuningdek, asosiy sovrinlardan birini qo'lga kiritish uchun imkoniyatlarni to'plang!"
     },
     "referall": {
         "title": "Mening takliflarim",
@@ -57,7 +58,8 @@
         "ref4": "Выделить",
         "ref5": "Пригласить друга",
         "ref6": "Вы пригласили",
-        "ref7": "пользователей"
+        "ref7": "пользователей",
+        "not": "Bu yerda siz taklif qilgan do'stlar aks ettiriladi"
     },
     "super": {
         "title": "Asosiy sovrinlar",

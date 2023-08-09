@@ -45,7 +45,8 @@
         "prize1": "Promo code",
         "prize2": "Details of the Prize",
         "prize3": "Copy",
-        "prize4": "Main page"
+        "prize4": "Main page",
+        "not": "You don't have any prizes yet. Spin the wheel of fortune to get a guaranteed prize, as well as accumulate chances to get one of the main prizes!"
     },
     "referall": {
         "title": "My invitations",
@@ -56,7 +57,8 @@
         "ref4": "Select",
         "ref5": "To invite a friend",
         "ref6": "You invited",
-        "ref7": "users"
+        "ref7": "users",
+        "not": "Your invited friends will be displayed here."
     },
     "super": {
         "title": "Main Prizes",
