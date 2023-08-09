@@ -78,7 +78,7 @@
               <div class="amodal-body">
                 <div class="cmodal-title" v-html="$t('modal.title')"></div>
                 <div class="cmodal-hr"></div>
-                <div class="cmodal-des">{{ $t('modal.des') }}</div>
+                <div class="cmodal-des">{{ $t('modal.des2') }}</div>
                 <button type="button" class="cmodal-btn" @click="code2 = false">{{ $t('modal.done') }}</button>
               </div>
           </div>

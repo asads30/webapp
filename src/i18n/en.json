@@ -82,13 +82,10 @@
         "info": "About the wheel of fortune",
 		"prize1": "Chance<br />to participate",
 		"prize2": "Gift from<br />Uzum Market",
-		"prize3": "Chance<br />to participate",
-		"prize4": "Premium<br />subscription<br />for 30 days",
-		"prize5": "Chance<br />to participate",
-		"prize6": "Sector<br />twist again",
-		"prize7": "Prizes from<br />our partners",
-		"prize8": "5000 soums<br />to Click wallet",
-		"prize9": "of all<br />chances",
-		"prize10": "Chance<br />to participate"
+		"prize3": "Premium<br />subscription<br />for 30 days",
+		"prize4": "Sector<br />twist again",
+		"prize5": "Prizes from<br />our partners",
+		"prize6": "5000 soums<br />to Click wallet",
+		"prize7": "of all<br />chances"
     }
 }
