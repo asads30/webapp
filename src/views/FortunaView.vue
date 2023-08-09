@@ -71,9 +71,9 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="modal" id="prize1-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
+                <div class="amodal" v-if="amodal1 == true">
+                    <div class="amodal-content">
+                        <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
@@ -91,9 +91,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal" id="prize2-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
+                <div class="amodal" v-if="amodal2 == true">
+                    <div class="amodal-content">
+                        <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize3.svg" alt="">
@@ -104,10 +104,9 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="modal" id="prize3-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
+                <div class="amodal" v-if="amodal3 == true">
+                    <div class="amodal-content">
+                        <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize4.svg" alt="">
@@ -118,9 +117,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal" id="prize4-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
+                <div class="amodal" v-if="amodal4 == true">
+                    <div class="amodal-content">
+                        <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize5.svg" alt="">
@@ -131,9 +130,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal" id="prize5-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
+                <div class="amodal" v-if="amodal5 == true">
+                    <div class="amodal-content">
+                        <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
@@ -150,9 +149,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal" id="prize6-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
+                <div class="amodal" v-if="amodal6 == true">
+                    <div class="amodal-content">
+                        <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize7.svg" alt="">
@@ -163,9 +162,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal" id="prize7-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
+                <div class="amodal" v-if="amodal7 == true">
+                    <div class="amodal-content">
+                        <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize6.svg" alt="">
@@ -176,9 +175,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal" id="prize8-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
+                <div class="amodal" v-if="amodal8 == true">
+                    <div class="amodal-content">
+                        <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize10.svg" alt="">
@@ -189,9 +188,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal" id="prize9-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
+                <div class="amodal" v-if="amodal9 == true">
+                    <div class="amodal-content">
+                        <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
                                 <img src="@/assets/images/prizes/prize9.svg" alt="">
@@ -297,7 +296,16 @@
                 width: window.innerWidth + 120,
                 win: null,
                 prize1: null,
-                active: true
+                active: true,
+                modal1: false,
+                modal2: false,
+                modal3: false,
+                modal4: false,
+                modal5: false,
+                modal6: false,
+                modal7: false,
+                modal8: false,
+                modal9: false
             };
         },
         computed: {
@@ -353,8 +361,33 @@
             wheelEndedCallback(){
                 var winplay = new Audio('./audio/win.mp3')
                 winplay.play();
-                const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
-                modal.show();
+                if(this.$refs.wheel.wheelResultIndex.value == 1){
+                    modal1 = true
+                }
+                if(this.$refs.wheel.wheelResultIndex.value == 2){
+                    modal2 = true
+                }
+                if(this.$refs.wheel.wheelResultIndex.value == 3){
+                    modal3 = true
+                }
+                if(this.$refs.wheel.wheelResultIndex.value == 4){
+                    modal4 = true
+                }
+                if(this.$refs.wheel.wheelResultIndex.value == 5){
+                    modal5 = true
+                }
+                if(this.$refs.wheel.wheelResultIndex.value == 6){
+                    modal6 = true
+                }
+                if(this.$refs.wheel.wheelResultIndex.value == 7){
+                    modal7 = true
+                }
+                if(this.$refs.wheel.wheelResultIndex.value == 8){
+                    modal8 = true
+                }
+                if(this.$refs.wheel.wheelResultIndex.value == 9){
+                    modal9 = true
+                }
             },
             goPromo(){
                 const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
