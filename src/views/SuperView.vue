@@ -4,7 +4,6 @@
         <div class="super-wrapper">
             <div class="container">
                 <div class="des">{{ $t('super.des') }}</div>
-                <button @click="amodal = true">Старт</button>
                 <div class="big">
                     <div class="big-img">
                         <img src="@/assets/images/super/byd.png" alt="">
