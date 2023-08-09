@@ -263,7 +263,7 @@
                     {
                         id: 6,
                         name: "prize6",
-                        htmlContent: this.$i18n.locale == 'en' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize6.png"></div><div class="priz-title">Приз от нашего партнера</div><div class="priz-img"><img src="./img/icons/prize4-label.svg"></div></div>' : this.$i18n.locale == 'uz' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize6.png"></div><div class="priz-title">Hamkorlardan<br />sovg\'alar</div><div class="priz-img"><img src="./img/icons/prize4-label.svg"></div></div>' : '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize6.png"></div><div class="priz-title">Призы от наших<br />партнеров</div><div class="priz-img"><img src="./img/icons/prize4-label.svg"></div></div>',
+                        htmlContent: this.$i18n.locale == 'en' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize6.png"></div><div class="priz-title">Prizes from<br />our partners</div><div class="priz-img"><img src="./img/icons/prize4-label.svg"></div></div>' : this.$i18n.locale == 'uz' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize6.png"></div><div class="priz-title">Hamkorlardan<br />sovg\'alar</div><div class="priz-img"><img src="./img/icons/prize4-label.svg"></div></div>' : '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize6.png"></div><div class="priz-title">Призы от наших<br />партнеров</div><div class="priz-img"><img src="./img/icons/prize4-label.svg"></div></div>',
                         textColor: "#fff",
                         background: "linear-gradient(29deg, #8341EF 0%, #3F68F9 100%)",
                     },
