@@ -10,8 +10,8 @@
                             :key="item.id"
                             :background="item.prize.background" 
                             :text="item.prize.name_ru"
-                            :textEN="item.prize.name_uz" 
-                            :textUZ="item.prize.name_en" 
+                            :textEN="item.prize.name_en" 
+                            :textUZ="item.prize.name_uz" 
                             :img="item.prize.photo"
                             :id="item.id"
                         />
