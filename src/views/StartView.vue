@@ -114,7 +114,20 @@
                         try {
                             this.$store.commit('setUser', res.data.data)
                         } catch (error) {
-                            console.log(error)
+                            const locale = this.$i18n.locale;
+                            if(locale == 'en'){
+                                $toast.error(res.data.error.en, {
+                                    position: 'bottom'
+                                });
+                            } else if(locale == 'uz'){
+                                $toast.error(res.data.error.uz, {
+                                    position: 'bottom'
+                                });
+                            } else{
+                                $toast.error(res.data.error.ru, {
+                                    position: 'bottom'
+                                });
+                            }
                         }
                         this.$router.push({ name: 'home', query: { method: 'code' }})
                     } else{
@@ -132,6 +145,21 @@
                                 position: 'bottom'
                             });
                         }
+                    }
+                }).catch(error => {
+                    const locale = this.$i18n.locale;
+                    if(locale == 'en'){
+                        $toast.error(error.response.data.error.en, {
+                            position: 'bottom'
+                        });
+                    } else if(locale == 'uz'){
+                        $toast.error(error.response.data.error.uz, {
+                            position: 'bottom'
+                        });
+                    } else{
+                        $toast.error(error.response.data.error.ru, {
+                            position: 'bottom'
+                        });
                     }
                 })
             },
