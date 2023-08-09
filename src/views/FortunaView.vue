@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="amodal" v-if="amodal1 == true">
+                <div class="amodal" v-if="modal1 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="amodal" v-if="amodal2 == true">
+                <div class="amodal" v-if="modal2 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="amodal" v-if="amodal3 == true">
+                <div class="amodal" v-if="modal3 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="amodal" v-if="amodal4 == true">
+                <div class="amodal" v-if="modal4 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="amodal" v-if="amodal5 == true">
+                <div class="amodal" v-if="modal5 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
@@ -149,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="amodal" v-if="amodal6 == true">
+                <div class="amodal" v-if="modal6 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="amodal" v-if="amodal7 == true">
+                <div class="amodal" v-if="modal7 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="amodal" v-if="amodal8 == true">
+                <div class="amodal" v-if="modal8 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
@@ -188,7 +188,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="amodal" v-if="amodal9 == true">
+                <div class="amodal" v-if="modal9 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
