@@ -51,10 +51,12 @@
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getWheelText?.title_ru }}</h5>
                         <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getWheelText?.title_uz }}</h5>
+                        <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'en'">{{ getWheelText?.title_en }}</h5>
                     </div>
                     <div class="offcanvas-body">
                         <div v-if="$i18n.locale == 'ru'" v-html="getWheelText?.description_ru"></div>
                         <div v-if="$i18n.locale == 'uz'" v-html="getWheelText?.description_uz"></div>
+                        <div v-if="$i18n.locale == 'en'" v-html="getWheelText?.description_en"></div>
                     </div>
                 </div>
                 <!-- 100 шансов -->

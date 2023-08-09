@@ -87,10 +87,12 @@
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getText?.title_ru }}</h5>
             <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getText?.title_uz }}</h5>
+            <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'en'">{{ getText?.title_en }}</h5>
           </div>
           <div class="offcanvas-body">
             <div v-if="$i18n.locale == 'ru'" v-html="getText?.description_ru"></div>
             <div v-if="$i18n.locale == 'uz'" v-html="getText?.description_uz"></div>
+            <div v-if="$i18n.locale == 'en'" v-html="getText?.description_en"></div>
           </div>
         </div>
       </div>
@@ -157,6 +159,9 @@ export default {
     let lang = getCookie('lang');
     if(lang && lang == 'uz'){
       this.$i18n.locale = 'uz'
+    }
+    if(lang && lang == 'en'){
+      this.$i18n.locale = 'en'
     }
     await api.post('me', data).then(res => {
       if(res.data.status == 200){

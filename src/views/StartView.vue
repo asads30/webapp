@@ -61,10 +61,12 @@
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getRulesText?.title_ru }}</h5>
                 <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getRulesText?.title_uz }}</h5>
+                <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'en'">{{ getRulesText?.title_en }}</h5>
             </div>
             <div class="offcanvas-body">
                 <div v-if="$i18n.locale == 'ru'" v-html="getRulesText?.description_ru"></div>
                 <div v-if="$i18n.locale == 'uz'" v-html="getRulesText?.description_uz"></div>
+                <div v-if="$i18n.locale == 'en'" v-html="getRulesText?.description_en"></div>
             </div>
         </div>
     </div>
