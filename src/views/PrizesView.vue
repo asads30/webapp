@@ -9,7 +9,9 @@
                             v-for="item in getPrizes"
                             :key="item.id"
                             :background="item.prize.background" 
-                            :text="item.prize.name_ru" 
+                            :text="item.prize.name_ru"
+                            :textEN="item.prize.name_uz" 
+                            :textUZ="item.prize.name_en" 
                             :img="item.prize.photo"
                             :id="item.id"
                         />

@@ -4,7 +4,9 @@
             <img :src="'https://promadm.click.uz/' + img">
         </div>
         <div class="myprizes-text">
-            <div class="myprizes-name">{{ text }}</div>
+            <div class="myprizes-name" v-if="$i18n.locale == 'ru'">{{ text }}</div>
+            <div class="myprizes-name" v-if="$i18n.locale == 'uz'">{{ textUZ }}</div>
+            <div class="myprizes-name" v-if="$i18n.locale == 'en'">{{ textEN }}</div>
         </div>
     </router-link>
 </template>
@@ -15,6 +17,8 @@ export default {
     props: {
         background: String,
         text: String,
+        textEN: String,
+        textUZ: String,
         id: Number,
         img: String
     }    

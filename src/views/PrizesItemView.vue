@@ -12,7 +12,9 @@
                     <div class="container">
                         <div class="prizesview-date">{{ format_date(prize.created_at) }}</div>
                         <div class="prizesview-title">{{ prize.prize.name_ru }}</div>
-                        <div class="prizesview-des" v-html="prize.prize.description_ru"></div>
+                        <div class="prizesview-des" v-if="$i18n.locale == 'ru'" v-html="prize.prize.description_ru"></div>
+                        <div class="prizesview-des" v-if="$i18n.locale == 'uz'" v-html="prize.prize.description_uz"></div>
+                        <div class="prizesview-des" v-if="$i18n.locale == 'en'" v-html="prize.prize.description_en"></div>
                     </div>
                 </div>
                 <div class="prizesview-content-bottom">
