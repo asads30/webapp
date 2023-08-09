@@ -27,7 +27,12 @@
                                 <div class="start-content-text"><span>+2</span> {{ $t('start.start5') }}</div>
                                 <div class="start-content-text"><span>+2</span> {{ $t('start.start6') }}</div>
                                 <div class="start-content-input">
-                                    <input type="text" :placeholder="$t('prizes.prize1')" v-model="promocode" maxlength="6">
+                                    <imask-input
+                                        v-model="promocode"
+                                        radix="."
+                                        :mask="'{******}'"
+                                        autofocus
+                                    />
                                 </div>
                             </div>
                             <div class="start-content-bottom">
@@ -64,11 +69,18 @@
 </template>
 
 <script>
+    import {useToast} from 'vue-toast-notification';
+    import 'vue-toast-notification/dist/theme-sugar.css';
+    import { IMaskComponent } from 'vue-imask';
     import {api} from '@/boot/axios'
     import {mapGetters} from 'vuex'
+    const $toast = useToast();
 
     export default {
         name: 'StartView',
+        components: {
+            'imask-input': IMaskComponent
+        },
         data() {
             return {
                 promocode: ''
@@ -102,6 +114,10 @@
                             console.log(error)
                         }
                         this.$router.push({ name: 'home', query: { method: 'code' }})
+                    } else{
+                        $toast.error(res.data.error.this.$i18n.locale, {
+                            position: 'bottom'
+                        });
                     }
                 })
             },
@@ -119,6 +135,10 @@
                             console.log(error)
                         }
                         this.$router.push({ name: 'home', query: { method: 'nocode' }})
+                    } else{
+                        $toast.error(res.data.error.this.$i18n.locale, {
+                            position: 'bottom'
+                        });
                     }
                 })
             },

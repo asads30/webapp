@@ -21,11 +21,12 @@ const clearStorage = function(key='false') {
 }
 
 const getCookie =  function (name) {
-  var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-  if (arr = document.cookie.match(reg))
-    return (arr[2]);
-  else
-    return null;
+  // var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+  // if (arr = document.cookie.match(reg))
+  //   return (arr[2]);
+  // else
+  //   return null;
+  return 'd5c34dfe-46a2-4cf2-85aa-1303d6fcd199'
 }
 
 export {getStorage, saveStorage, clearStorage, getCookie}
