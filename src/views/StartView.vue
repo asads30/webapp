@@ -32,6 +32,7 @@
                                         radix="."
                                         :mask="'{******}'"
                                         autofocus
+                                        class="start-input"
                                     />
                                 </div>
                             </div>
@@ -330,5 +331,13 @@
                 }
             }
         }
+    }
+    .start-input{
+        -webkit-touch-callout: auto;
+        -webkit-user-select: auto;
+        -khtml-user-select: auto;
+        -moz-user-select: auto;
+        -ms-user-select: auto;
+        user-select: auto;
     }
 </style>

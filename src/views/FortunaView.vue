@@ -43,7 +43,7 @@
                         @wheel-end="wheelEndedCallback"
                     >
                         <template #baseContent>
-                            <div class="base" @click.once="launchWheel" :disabled="!active">Крутить</div>
+                            <div class="base" @click.once="launchWheel" :disabled="active">Крутить</div>
                         </template>
                     </Roulette>
                 </div>
@@ -307,7 +307,8 @@
                 modal6: false,
                 modal7: false,
                 modal8: false,
-                modal9: false
+                modal9: false,
+                active: false
             };
         },
         computed: {
@@ -318,7 +319,7 @@
         },
         methods: {
             async launchWheel() {
-                this.active = false;
+                this.active = true;
                 await api.post(`generatePrize?web_session=${this.getWeb}`).then(res => {
                     if(res.data.data.type_id == 1){
                         this.prize1 = res.data.data
