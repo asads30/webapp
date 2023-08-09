@@ -4,7 +4,7 @@
         <div class="super-wrapper">
             <div class="container">
                 <div class="des">{{ $t('super.des') }}</div>
-                <button data-bs-toggle="modal" data-bs-target="#exampleModal">Старт</button>
+                <button @click="amodal = true">Старт</button>
                 <div class="big">
                     <div class="big-img">
                         <img src="@/assets/images/super/byd.png" alt="">
@@ -45,23 +45,21 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div id="myModal" class="amodal" v-if="amodal == true">
+                <div class="amodal-content">
+                    <div class="amodal-header">
+                        <span class="close" @click="amodal = false">&times;</span>
+                        <h2>Modal Header</h2>
                     </div>
-                    <div class="modal-body">
-                      ...
+                    <div class="amodal-body">
+                        <p>Some text in the Modal Body</p>
+                        <p>Some other text...</p>
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="amodal-footer">
+                        <h3>Modal Footer</h3>
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
         </div>
     </div>
 </template>
@@ -75,6 +73,11 @@
         name: "SuperView",
         components: {
             Header,
+        },
+        data() {
+            return {
+                amodal: false
+            }
         },
         setup() {
             const { play } = useSound(buttonSfx)
