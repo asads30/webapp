@@ -45,18 +45,16 @@
                     </div>
                 </div>
             </div>
-            <div id="myModal" class="amodal" v-if="amodal == true">
+            <div class="amodal" v-if="amodal == true">
                 <div class="amodal-content">
                     <div class="amodal-header">
-                        <span class="close" @click="amodal = false">&times;</span>
-                        <h2>Modal Header</h2>
+                        <button class="close" @click="amodal = false">&times;</button>
                     </div>
                     <div class="amodal-body">
-                        <p>Some text in the Modal Body</p>
-                        <p>Some other text...</p>
-                    </div>
-                    <div class="amodal-footer">
-                        <h3>Modal Footer</h3>
+                        <div class="cmodal-title" v-html="$t('modal.title')"></div>
+                        <div class="cmodal-hr"></div>
+                        <div class="cmodal-des">{{ $t('modal.des') }}</div>
+                        <button type="button" class="cmodal-btn" @click="amodal = false">{{ $t('modal.done') }}</button>
                     </div>
                 </div>
             </div>
