@@ -104,7 +104,6 @@
         <img src="@/assets/images/loader.svg" alt="">
       </div>
       <div class="preloader-text" v-html="$t('preloader')"></div>
-      <div class="preloader-text">{{ cookie }}</div>
     </div>
   </div>
 </template>
