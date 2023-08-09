@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="prizesview-promo-info-text">
                                     <div class="prizesview-promo-info-label">{{ $t('prizes.prize1') }}</div>
-                                    <div class="prizesview-promo-info-value">{{ prize.promocode }}</div>
+                                    <div class="prizesview-promo-info-value">{{ prize.promo_code }}</div>
                                 </div>
                             </div>
                             <div class="prizesview-promo-copy">
