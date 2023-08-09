@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="prizesview-content-bottom">
-                    <div class="prizesview-promo" v-if="prize.type_id == 1">
+                    <div class="prizesview-promo" v-if="prize.type_id == 1 || prize.type_id == 4">
                         <div class="container">
                             <div class="prizesview-promo-info">
                                 <div class="prizesview-promo-info-icon">

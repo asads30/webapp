@@ -362,31 +362,31 @@
                 var winplay = new Audio('./audio/win.mp3')
                 winplay.play();
                 if(this.$refs.wheel.wheelResultIndex.value == 1){
-                    modal1 = true
+                    this.modal1 = true
                 }
                 if(this.$refs.wheel.wheelResultIndex.value == 2){
-                    modal2 = true
+                    this.modal2 = true
                 }
                 if(this.$refs.wheel.wheelResultIndex.value == 3){
-                    modal3 = true
+                    this.modal3 = true
                 }
                 if(this.$refs.wheel.wheelResultIndex.value == 4){
-                    modal4 = true
+                    this.modal4 = true
                 }
                 if(this.$refs.wheel.wheelResultIndex.value == 5){
-                    modal5 = true
+                    this.modal5 = true
                 }
                 if(this.$refs.wheel.wheelResultIndex.value == 6){
-                    modal6 = true
+                    this.modal6 = true
                 }
                 if(this.$refs.wheel.wheelResultIndex.value == 7){
-                    modal7 = true
+                    this.modal7 = true
                 }
                 if(this.$refs.wheel.wheelResultIndex.value == 8){
-                    modal8 = true
+                    this.modal8 = true
                 }
                 if(this.$refs.wheel.wheelResultIndex.value == 9){
-                    modal9 = true
+                    this.modal9 = true
                 }
             },
             goPromo(){
