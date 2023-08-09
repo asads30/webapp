@@ -2,7 +2,7 @@
     <div class="page">
         <div class="prizes" v-if="getPrizes">
             <Header :left="true" :right="false" :center="true" :centerText="$t('home.home2')"/>
-            <div class="prizes-wrapper" v-if="getUser?.prizes_count">
+            <div class="prizes-wrapper" v-if="getPrizes?.length > 0">
                 <div class="container">
                     <div class="prizes-list">
                         <Prize 
