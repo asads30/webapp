@@ -116,7 +116,8 @@
                         }
                         this.$router.push({ name: 'home', query: { method: 'code' }})
                     } else{
-                        $toast.error(res.data.error.this.$i18n.locale, {
+                        const locale = this.$i18n.locale;
+                        $toast.error(res.data.error + locale, {
                             position: 'bottom'
                         });
                     }
@@ -133,11 +134,14 @@
                         try {
                             this.$store.commit('setUser', res.data.data)
                         } catch (error) {
-                            console.log(error)
+                            $toast.error(error, {
+                                position: 'bottom'
+                            });
                         }
                         this.$router.push({ name: 'home', query: { method: 'nocode' }})
                     } else{
-                        $toast.error(res.data.error.this.$i18n.locale, {
+                        const locale = this.$i18n.locale;
+                        $toast.error(res.data.error + locale, {
                             position: 'bottom'
                         });
                     }
