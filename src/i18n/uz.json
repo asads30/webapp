@@ -1,43 +1,95 @@
 {
     "stock": "Aksiya",
-    "preloader": "Ma'lumotlar yuklanmoqda...<br />Tez orada hamma narsa tayyor bo'ladi!",
+    "preloader": "Ma'lumotlar yuklanmoqda…<br />Bir zumda tayyor bo'ladi!",
     "modal": {
-        "title": "Tabriklaymiz!<br />Siz bizning aksiyamizning<br />ishtirokchisi bo'ldingiz!",
-        "des": "Siz hali ham asosiy sovrinlarni yutib olish uchun 2 imkoniyatga egasiz",
-        "des2": "Siz hali ham asosiy sovrinlarni yutib olish uchun 1 imkoniyatga egasiz",
+        "title": "Tabriklaymiz!<br />Siz aksiyamiz ishtirokchisiga<br />aylandingiz!",
+        "des": "Sizda asosiy sovrinlar yutuqli o'yinida ishtirok etishga 2 imkoniyat bor",
+        "des2": "Sizda asosiy sovrinlar yutuqli o'yinida ishtirok etishga 1 imkoniyat bor",
         "done": "Ajoyib"
     },
     "home": {
         "home1": "Siz aksiya ishtirokchisisiz",
         "home2": "Mening sovrinlarim",
-        "home3": "Super sovrinlarni yutib olish<br />imkoniyati",
-        "home4": "Lotereyada",
-        "home5": "Asosiy sovrinlar",
-        "home6": "Super-mukofot",
-        "home7": "Aksiya haqida ma'lumot",
-        "home8": "Do'stlaringizni taklif qiling va g'alaba qozonish<br />imkoniyatini oshiring",
-        "home9": "Do'stingizni taklif qiling",
-        "home10": "Omadingizni tekshiring"
+        "home3": "Asosiy sovrinlar yutuqli<br />o'yinidagi imkoniyatlar",
+        "home4": "Asosiy sovrinlar",
+        "home5": "Batafsil",
+        "home6": "Supersovrin",
+        "home7": "Do'stlaringizni taklif qiling va g'olib bo'lishga<br />imkoniyatlaringizni ko'paytiring",
+        "home8": "Do'stni taklif qilish",
+        "home9": "Omadni sinab ko'rish"
     },
     "start": {
-        "start1": "Click BYD va boshqa<br /> ko'plab sovrinlarni o'ynaydi",
-        "start2": "Menda promo-kod<br />bor",
-        "start3": "Men aksiya haqida o'zim bilib oldim"
+        "start1": "Click BYD va ko'plab<br />boshqasovrinlar yutuqli o'yinini o'tkazmoqda",
+        "start2": "Menda promokod<br />mavjud",
+        "start3": "Aksiya haqida<br />o'zim bildim",
+        "start4": "Ikkalangizda ham g'olib bo'lishga imkoniyatlarni ko'paytirish uchun do'stingiz promokodini kiriting!",
+        "start5": "Qatnashishga imkoniyat",
+        "start6": "G'ildirakni aylantirishga imkoniyat",
+        "start7": "Aksiyada ishtirok etish tugmasini bosish orqali siz \"ID marafon\"",
+        "start8": "aksiyasi shartlariga",
+        "start9": "rozilik bildirasiz",
+        "start10": "Tugmani bosganda quyidagilarni qo'lga kiritasiz:",
+        "start11": "Aksiyada ishtirok etish"
+
     },
     "chances": {
-        "chance1": "Imkoniyatlar soni",
-        "chance2": "G'ildiraklar, bu kafolatlangan sovrinlardan biridir. Ishtirokchi boylik g'ildiragini aylantirganda, u tasodifiy ravishda qaysi sovrinlar uning yutug'iga aylanishini aniqlaydi. Bu erda yutqazganlar yo'q!",
+        "chance1": "To'plangan imkoniyatlaringiz",
+        "chance2": "Bu yerda asosiy sovrinlar yutuqli o'yinidagi barcha imkoniyatlaringiz saqlanadi. Imkoniyatlaringizni ko'paytirish uchun do'stlaringizni taklif qiling!",
         "chance3": "Mening imkoniyatlarim"
     },
     "ident": {
-        "ident1": "Click BYD Song Plus avtomobilini va boshqa ko'plab sovrinlarni o'ynaydi!",
-        "ident2": "Aksiyada ishtirok etish uchun siz Click-da identifikatsiyadan o'tishingiz kerak",
-        "ident3": "Identifikatsiyani boshlang"
+        "ident1": "Click BYD Song Plus avtomobili va ko'plab boshqa sovrinlar yutuqli o'yinini o'tkazmoqda!",
+        "ident2": "Aksiyada qatnashish uchun Click Up ilovasida identifikatsiyadan o'tish lozim",
+        "ident3": "Identifikatsiyani boshlash"
     },
     "prizes": {
         "prize1": "Promokod",
-        "prize2": "Mukofot tafsilotlari",
-        "prize3": "Nusxalash",
-        "prize4": "Asosiyga o'tish"
+        "prize2": "Детали приза",
+        "prize3": "Скопировать",
+        "prize4": "Bosh sahifaga"
+    },
+    "referall": {
+        "title": "Mening takliflarim",
+        "btn1": "Taklif qilish",
+        "ref1": "Do'stlaringizni taklif qiling - g'olib bo'lishga imkoniyatlaringizni ko'paytiring.",
+        "ref2": "Agar do'stingiz promokodingizni kiritsa, siz qatnashishga +1 imkoniyatni va omad g'ildiragini qo'shimcha aylantirish imkoniyatini qo'lga kiritasiz. Do'stingiz esa qatnashishga +2 imkoniyatni va omad g'ildiragini",
+        "ref3": "Sizning taklif kodingiz",
+        "ref4": "Выделить",
+        "ref5": "Пригласить друга",
+        "ref6": "Вы пригласили",
+        "ref7": "пользователей"
+    },
+    "super": {
+        "title": "Asosiy sovrinlar",
+        "des": "Asosiy sovrinlar yutuqli o'yini har 2 haftada jonli efirda barcha ishtirokchilar o'rtasida tasodifiy sonlar generatori yordamida o'tkaziladi. Aksiyaning 8-haftasida supersovrin - BYD avtomobili yutuqli o'yini o'tkaziladi."
+    },
+    "wheel": {
+        "title": "Omad g'ildiragi",
+        "title2": "Omad g'ildiragini aylantiring va kafolatlangan sovrinlarni qo'lga kiriting!",
+        "des": "Siz g'ildirakni haftasiga bir marta, hamda har safar do'stlaringiz sizning promokodingiz bo'yicha ro'yxatdan o'tganda aylantirishingiz mumkin. ",
+        "modal1": "Вы практически выиграли!",
+        "modal2": "шансов на участие<br />в розыгрыше основных призов",
+        "modal3": "Sovrinni olish",
+        "modal4": "Tabriklaymiz! Siz qo'lga kiritingiz!",
+        "modal5": "Ничего себе! Ваши шансы удвоены!",
+        "modal6": "2Х всех имеющихся шансов на участие в розыгрыше основных призов",
+        "modal7": "5000 сум на ваш <br />Click-кошелек",
+        "modal8": "Промокод от<br /> Uzum Market",
+        "modal9": "Теперь у вас еще больше шансов на участие!",
+        "modal10": "Бесплатную Premium-подписку<br />на 30 дней",
+        "modal11": "У вас еще один шанс на победу!",
+        "modal12": "Сектор «Крутить заново»",
+        "modal13": "У вас есть возможность покрутить колесо еще раз!",
+        "info": "Omad g'ildiragi haqida",
+		"prize1": "Qatnashishga<br />imkoniyat",
+		"prize2": "«Uzum Market»<br />dan sovg'a",
+		"prize3": "Qatnashishga<br />imkoniyat",
+		"prize4": "30 kunga<br />Premium-obuna",
+		"prize5": "Qatnashishga<br />imkoniyat",
+		"prize6": "qayta<br />aylantirish",
+		"prize7": "Hamkorlardan<br />sovg'alar",
+		"prize8": "Click-hamyonga<br />5000 so'm",
+		"prize9": "Barcha<br />imkoniyatlar<br />uchun",
+		"prize10": "Qatnashishga<br />imkoniyat"
     }
 }
