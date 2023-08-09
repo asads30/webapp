@@ -359,8 +359,6 @@
             wheelStartedCallback(){
             },
             wheelEndedCallback(){
-                var winplay = new Audio('./audio/win.mp3')
-                winplay.play();
                 if(this.$refs.wheel.wheelResultIndex.value == 1){
                     this.modal1 = true
                 }

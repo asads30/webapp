@@ -59,6 +59,11 @@
               </div>
               <div class="amodal-body">
                 <div class="cmodal-title" v-html="$t('modal.title')"></div>
+                <div class="cmodal-chances">
+                  <div class="cmodal-chance" v-for="chance in getUser?.chances" :key="chance">
+                    {{ chance?.id }}
+                  </div>
+                </div>
                 <div class="cmodal-hr"></div>
                 <div class="cmodal-des">{{ $t('modal.des') }}</div>
                 <button type="button" class="cmodal-btn" @click="code1 = false">{{ $t('modal.done') }}</button>
@@ -307,5 +312,23 @@ export default {
         }
       }
     }   
-}
+  }
+
+  .cmodal-chances{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .cmodal-chance{
+    border-radius: 30px;
+    background: #0073FF;
+    padding: 0 8px;
+    line-height: 24px;
+    height: 24px;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.14px;
+    font-weight: 700;
+  }
 </style>

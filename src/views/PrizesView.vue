@@ -2,7 +2,7 @@
     <div class="page">
         <div class="prizes" v-if="getPrizes">
             <Header :left="true" :right="false" :center="true" :centerText="$t('home.home2')"/>
-            <div class="prizes-wrapper">
+            <div class="prizes-wrapper" v-if="getUser?.prizes_count">
                 <div class="container">
                     <div class="prizes-list">
                         <Prize 
@@ -16,12 +16,21 @@
                     </div>
                 </div>
             </div>
+            <div class="prizes-not" v-else>
+                <div class="container">
+                    <div class="prizes-not-img">
+                        <img src="@/assets/images/not.png" alt="">
+                    </div>
+                    <div class="prizes-not-text">У вас пока нет призов. Крутите колесо фортуны, чтобы получить гарантированный приз, а так же копите шансы чтобы получить один из основных призов!</div>
+                </div>
+            </div>
         </div>
         <div class="preloader" v-else>
             <div class="preloader-img">
               <img src="@/assets/images/loader.svg" alt="">
             </div>
             <div class="preloader-text" v-html="$t('preloader')"></div>
+            <div class="preloader-text">{{ cookie }}</div>
         </div>
     </div>
 </template>
@@ -37,7 +46,8 @@ export default {
     computed: {
         ...mapGetters([
             'getPrizes',
-            'getWeb'
+            'getWeb',
+            'getUser'
         ])
     },
     components: {
@@ -63,5 +73,22 @@ export default {
         display: flex;
         gap: 12px;
         flex-wrap: wrap;
+    }
+    .prizes-not{
+        padding: 50px 0;
+    }
+    .prizes-not-img{
+        text-align: center;
+        img{
+            width: 200px;
+            margin-bottom: 50px;
+        }
+    }
+    .prizes-not-text{
+        font-size: 12px;
+        color: var(--text);
+        font-weight: 600;
+        line-height: 135%; 
+        letter-spacing: 0.5px;
     }
 </style>e
