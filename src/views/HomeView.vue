@@ -52,23 +52,29 @@
           <Referall />
           <Footer :count="getUser?.spin_wheel" />
         </div>
-        <div class="modal fade" id="codeModal" tabindex="-1" aria-labelledby="codeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                  <div class="cmodal-title" v-html="$t('modal.title')"></div>
-                  <div class="cmodal-hr"></div>
-                  <div class="cmodal-des">{{ $t('modal.des') }}</div>
-                  <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
+        <div class="amodal" v-if="code1 == true">
+          <div class="amodal-content">
+              <div class="amodal-header">
+                  <button class="close" @click="code1 = false">&times;</button>
+              </div>
+              <div class="amodal-body">
+                <div class="cmodal-title" v-html="$t('modal.title')"></div>
+                <div class="cmodal-hr"></div>
+                <div class="cmodal-des">{{ $t('modal.des') }}</div>
+                <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
               </div>
           </div>
         </div>
-        <div class="modal fade" id="noCodeModal" tabindex="-1" aria-labelledby="noCodeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                  <div class="cmodal-title" v-html="$t('modal.title')"></div>
-                  <div class="cmodal-hr"></div>
-                  <div class="cmodal-des">{{ $t('modal.des2') }}</div>
-                  <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
+        <div class="amodal" v-if="code2 == true">
+          <div class="amodal-content">
+              <div class="amodal-header">
+                  <button class="close" @click="code1 = false">&times;</button>
+              </div>
+              <div class="amodal-body">
+                <div class="cmodal-title" v-html="$t('modal.title')"></div>
+                <div class="cmodal-hr"></div>
+                <div class="cmodal-des">{{ $t('modal.des') }}</div>
+                <button type="button" class="cmodal-btn" data-bs-dismiss="modal">{{ $t('modal.done') }}</button>
               </div>
           </div>
         </div>
@@ -122,6 +128,12 @@ export default {
       return this.$route.query.method
     }
   },
+  data() {
+    return {
+      code1: false,
+      code2: false
+    }
+  },
   components: {
     Header,
     User,
@@ -164,12 +176,10 @@ export default {
       }
     })
     if(this.getMethod && this.getMethod == 'code'){
-      const codeModal = new bootstrap.Modal('#codeModal');
-      codeModal.show();
+      this.code1 = true
     }
     if(this.getMethod && this.getMethod == 'nocode'){
-      const noCodeModal = new bootstrap.Modal('#noCodeModal');
-      noCodeModal.show();
+      this.code2 = true
     }
   },
 }
