@@ -194,4 +194,13 @@
             }
         }
     }
+    .prizesview-promo-info-value{
+        -moz-user-select: auto;
+        -webkit-touch-callout: auto;
+        -webkit-user-select: auto;
+        -khtml-user-select: auto;
+        -moz-user-select: auto;
+        -ms-user-select: auto;
+        user-select: auto;
+    }
 </style>

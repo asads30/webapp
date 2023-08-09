@@ -133,6 +133,14 @@ export default {
     const data = {
       web_session: (this.cookie) ? this.cookie : this.getWeb
     }
+    let theme = getCookie('theme');
+    if(theme && theme == 'light'){
+      document.documentElement.setAttribute('theme', 'light');
+    }
+    let lang = getCookie('lang');
+    if(lang && lang == 'uz'){
+      this.$i18n.locale = 'uz'
+    }
     await api.post('me', data).then(res => {
       if(res.data.status == 200){
         this.$store.commit('setUser', res.data.data)
@@ -155,14 +163,6 @@ export default {
         this.$store.commit('setText', res.data)
       }
     })
-    let theme = getCookie('theme');
-    if(theme && theme == 'light'){
-      document.documentElement.setAttribute('theme', 'light');
-    }
-    let lang = getCookie('lang');
-    if(lang && lang == 'uz'){
-      this.$i18n.locale = 'uz'
-    }
     if(this.getMethod && this.getMethod == 'code'){
       const codeModal = new bootstrap.Modal('#codeModal');
       codeModal.show();

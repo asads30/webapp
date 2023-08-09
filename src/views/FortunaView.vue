@@ -618,4 +618,15 @@
             padding: 0;
         }
     }
+    .pmodal-code{
+        input{
+            -moz-user-select: auto;
+            -webkit-touch-callout: auto;
+            -webkit-user-select: auto;
+            -khtml-user-select: auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+            user-select: auto;
+        }
+    }
 </style>

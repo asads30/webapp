@@ -258,4 +258,13 @@ export default {
     margin-bottom: 60px;
     align-items: flex-end;
 }
+.code-number{
+    -moz-user-select: auto;
+    -webkit-touch-callout: auto;
+    -webkit-user-select: auto;
+    -khtml-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}
 </style>
