@@ -277,7 +277,7 @@
                     {
                         id: 8,
                         name: "prize8",
-                        htmlContent: this.$i18n.locale == 'en' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize8.svg"></div><div class="priz-title">Premium<br />subscription<br />for 30 days</div><div class="priz-img"><img src="./img/icons/prize2-label.svg"></div></div>' : this.$i18n.locale == 'uz' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize8.svg"></div><div class="priz-title">30 kunga<br />Premium-obuna<br />for 30 days</div><div class="priz-img"><img src="./img/icons/prize2-label.svg"></div></div>' : '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize8.svg"></div><div class="priz-title">Премиум<br />подписка на<br />30 дней</div><div class="priz-img"><img src="./img/icons/prize2-label.svg"></div></div>',
+                        htmlContent: this.$i18n.locale == 'en' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize8.svg"></div><div class="priz-title">Premium<br />subscription<br />for 30 days</div><div class="priz-img"><img src="./img/icons/prize2-label.svg"></div></div>' : this.$i18n.locale == 'uz' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize8.svg"></div><div class="priz-title">30 kunga<br />Premium-obuna</div><div class="priz-img"><img src="./img/icons/prize2-label.svg"></div></div>' : '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize8.svg"></div><div class="priz-title">Премиум<br />подписка на<br />30 дней</div><div class="priz-img"><img src="./img/icons/prize2-label.svg"></div></div>',
                         textColor: "#fff",
                         background: "linear-gradient(29deg, #8341EF 0%, #3F68F9 100%)",
                     },
@@ -396,7 +396,6 @@
             }
         },
         mounted() {
-            this.$i18n.locale = 'uz'
             window.onpopstate = event => {
                 console.log(event)
             };
