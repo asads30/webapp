@@ -390,8 +390,6 @@
                 }
             },
             goPromo(){
-                const modal = new bootstrap.Modal('#prize' + this.$refs.wheel.wheelResultIndex.value + '-modal');
-                modal.hide();
                 this.$router.push({name: 'prizes'})
             }
         },
