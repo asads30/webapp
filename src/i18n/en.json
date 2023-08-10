@@ -21,7 +21,7 @@
     "start": {
         "start1": "Click is giving away BYD<br />and many other prizes",
         "start2": "I have a<br />promo code",
-        "start3": "I learned about the promotion on my own",
+        "start3": "I learned about the<br />promotion on my own",
         "start4": "Enter a promo code from a friend to increase your chances of winning!",
         "start5": "chance to participate",
         "start6": "chance to spin the wheel",
@@ -32,7 +32,7 @@
         "start11": "Participate in the promotion"
     },
     "chances": {
-        "chance1": "You collected",
+        "chance1": "Total quantity",
         "chance2": "This is where all your chances in the main prize draw are stored. Invite your friends to join the action for even more chances!",
         "chance3": "My chances"
     },

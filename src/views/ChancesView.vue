@@ -5,7 +5,7 @@
             <div class="chancesview-wrapper">
                 <div class="chances-top">
                     <div class="container">
-                        <div class="chances-title">{{ $t('chances.chance1') }} - <span>{{ getUser.score }}</span></div>
+                        <div class="chances-title">{{ $t('chances.chance1') }}: <span>{{ getUser.score }}</span></div>
                     </div>
                 </div>
                 <div class="chances-des">

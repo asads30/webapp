@@ -21,7 +21,7 @@
     "start": {
         "start1": "Click BYD va ko'plab<br />boshqasovrinlar yutuqli o'yinini o'tkazmoqda",
         "start2": "Menda promokod<br />mavjud",
-        "start3": "Aksiya haqida o'zim bildim",
+        "start3": "Aksiya haqida<br />o'zim bildim",
         "start4": "Ikkalangizda ham g'olib bo'lishga imkoniyatlarni ko'paytirish uchun do'stingiz promokodini kiriting!",
         "start5": "Qatnashishga imkoniyat",
         "start6": "G'ildirakni aylantirishga imkoniyat",
@@ -33,7 +33,7 @@
 
     },
     "chances": {
-        "chance1": "To'plangan imkoniyatlaringiz",
+        "chance1": "Umumiy soni",
         "chance2": "Bu yerda asosiy sovrinlar yutuqli o'yinidagi barcha imkoniyatlaringiz saqlanadi. Imkoniyatlaringizni ko'paytirish uchun do'stlaringizni taklif qiling!",
         "chance3": "Mening imkoniyatlarim"
     },
@@ -53,7 +53,7 @@
         "title": "Mening takliflarim",
         "btn1": "Taklif qilish",
         "ref1": "Do'stlaringizni taklif qiling - g'olib bo'lishga imkoniyatlaringizni ko'paytiring.",
-        "ref2": "Agar do'stingiz promokodingizni kiritsa, siz qatnashishga +1 imkoniyatni va omad g'ildiragini qo'shimcha aylantirish imkoniyatini qo'lga kiritasiz. Do'stingiz esa qatnashishga +2 imkoniyatni va omad g'ildiragini",
+        "ref2": "Agar do'stingiz promokodingizni kiritsa, siz qatnashishga +1 imkoniyatni va omad g'ildiragini qo'shimcha aylantirish imkoniyatini qo'lga kiritasiz. Do'stingiz esa qatnashishga +2 imkoniyatni va omad g'ildiragini qo'shimcha 2 marta aylantirish imkoniyatini qo'lga kiritadi.",
         "ref3": "Sizning taklif kodingiz",
         "ref4": "Выделить",
         "ref5": "Пригласить друга",
