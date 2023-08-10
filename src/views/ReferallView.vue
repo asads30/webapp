@@ -73,9 +73,9 @@
                         <div class="prizes-not" v-else>
                             <div class="container">
                                 <div class="prizes-not-img">
-                                    <img src="@/assets/images/not.png" alt="">
+                                    <img src="@/assets/images/referall-not.svg" alt="">
                                 </div>
-                                <div class="prizes-not-text">У вас пока нет призов. Крутите колесо фортуны, чтобы получить гарантированный приз, а так же копите шансы чтобы получить один из основных призов!</div>
+                                <div class="prizes-not-text">{{ $t('referall.not') }}</div>
                             </div>
                         </div>
                     </div>
