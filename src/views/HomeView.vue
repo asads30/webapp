@@ -150,7 +150,6 @@ export default {
       'getWeb',
       'getText',
       'getActiveFortune',
-      'getChances'
     ]),
     getMethod(){
       return this.$route.query.method
