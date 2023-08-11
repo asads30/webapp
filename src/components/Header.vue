@@ -3,7 +3,10 @@
         <div class="container">
             <div class="header-left">
                 <router-link :to="{name: leftText}" v-if="left && leftText">
-                    <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="black" v-if="color == 'black'">
+                        <path d="M8.00004 14.6668L1.33337 8.00016L8.00004 1.3335" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" v-else>
                         <path d="M8.00004 14.6668L1.33337 8.00016L8.00004 1.3335" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </router-link>
@@ -14,7 +17,7 @@
                 </router-link>
             </div>
             <div class="header-center">
-                <div v-if="center" class="header-center-text" :style="(color == '#FFF;') ? 'color: #000;' : ''">
+                <div v-if="center" class="header-center-text" :style="(color == 'black') ? 'color: #000;' : ''">
                     {{ centerText }}
                 </div>
             </div>
@@ -64,6 +67,11 @@ export default {
                     svg{
                         path{
                             stroke: var(--text);
+                        }
+                    }
+                    svg.black{
+                        path{
+                            stroke: #000;
                         }
                     }
                 }

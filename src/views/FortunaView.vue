@@ -30,20 +30,20 @@
                         :horizontal-content="false"
                         :size="width"
                         :result-variation="50"
-                        :duration="8"
+                        :duration="duration"
                         :indicator-position="'top'"
                         :base-display="true"
                         :base-display-shadow="false"
                         :base-display-indicator="false"
                         :base-size="120"
                         :easing='"easy"'
-                        :base-background="'linear-gradient(54deg, #FCFE5D 0%, #FDDC08 24.02%, #FD9F83 47.72%, #F97DD3 69.57%, #C566E4 100%)'"
+                        :base-background="'none'"
                         :items="items" 
                         @wheel-start="wheelStartedCallback"
                         @wheel-end="wheelEndedCallback"
                     >
                         <template #baseContent>
-                            <div class="base" @click.once="launchWheel" :disabled="active">{{ $t('wheel.spin') }}</div>
+                            <button class="base" @click="launchWheel" :disabled="active">{{ $t('wheel.spin') }}</button>
                         </template>
                     </Roulette>
                 </div>
@@ -59,20 +59,6 @@
                         <div v-if="$i18n.locale == 'en'" v-html="getWheelText?.description_en"></div>
                     </div>
                 </div>
-                <!-- 100 шансов -->
-                <!-- <div class="modal" id="prize0-modal" data-bs-backdrop="static" data-bs-keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content pmodal-content">
-                            <div class="pmodal-title">{{ $t('wheel.modal1') }}</div>
-                            <div class="pmodal-uzum">
-                                <img src="@/assets/images/prizes/prize1.svg" alt="">
-                            </div>
-                            <div class="pmodal-hr"></div>
-                            <div class="pmodal-des" v-html="'100 ' + $t('wheel.modal2')"></div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="amodal" v-if="modal1 == true">
                     <div class="amodal-content">
                         <div class="amodal-body">
@@ -81,9 +67,9 @@
                                 <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.partner[0].name_ru }}</div>
-                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.partner[0].name_uz }}</div>
-                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.partner[0].name_en }}</div>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <div class="pmodal-code">
                                 <input type="text" readonly id="code" :value="prize1?.promo_code">
                                 <button type="button" class="pmodal-code-icon">
@@ -102,7 +88,9 @@
                                 <img src="@/assets/images/prizes/prize3.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des" v-html="'10 ' + $t('wheel.modal2')"></div>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
@@ -115,7 +103,9 @@
                                 <img src="@/assets/images/prizes/prize4.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">{{ $t('wheel.modal6') }}</div>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
@@ -128,7 +118,9 @@
                                 <img src="@/assets/images/prizes/prize5.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des" v-html="$t('wheel.modal7')"></div>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
@@ -141,7 +133,9 @@
                                 <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">{{ prize1?.partner[0].name }}</div>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <div class="pmodal-code">
                                 <input type="text" readonly id="code" :value="prize1?.promo_code">
                                 <button type="button" class="pmodal-code-icon">
@@ -160,7 +154,9 @@
                                 <img src="@/assets/images/prizes/prize7.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des" v-html="'5 ' + $t('wheel.modal2')"></div>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
@@ -173,7 +169,9 @@
                                 <img src="@/assets/images/prizes/prize6.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des" v-html="$t('wheel.modal10')"></div>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
@@ -186,7 +184,9 @@
                                 <img src="@/assets/images/prizes/prize10.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des" v-html="'1 ' + $t('wheel.modal2')"></div>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
                     </div>
@@ -199,8 +199,10 @@
                                 <img src="@/assets/images/prizes/prize9.svg" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
-                            <div class="pmodal-des">{{ $t('wheel.modal13') }}</div>
-                            <button type="button" class="cmodal-btn" @click="goPromo">Крутить еще раз</button>
+                            <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
+                            <div v-if="$i18n.locale == 'uz'" class="pmodal-des">{{ prize1?.name_uz }}</div>
+                            <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
+                            <button type="button" class="cmodal-btn" @click="goScore">{{ $t('wheel.spin_again') }}</button>
                         </div>
                     </div>
                 </div>
@@ -215,7 +217,6 @@
     import { api } from '@/boot/axios'
     import {mapGetters} from 'vuex'
     var audio = new Audio('./audio/wheel.mp3')
-
     export default {
         name: "FortunaView",
         components: {
@@ -284,7 +285,7 @@
                     {
                         id: 9,
                         name: "prize9",
-                        htmlContent: this.$i18n.locale == 'en' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize10.svg"></div><div class="priz-title">Chance<br />to participate</div><div class="priz-img"><img src="./img/icons/prize1-label.svg"></div></div>' : this.$i18n.locale == 'uz' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize10.svg"></div><div class="priz-title">Qatnashishga<br />imkoniyat</div><div class="priz-img"><img src="./img/icons/prize1-label.svg"></div></div>' : '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize10.svg"></div><div class="priz-title">Шансов<br />на участие</div><div class="priz-img"><img src="./img/icons/prize1-label.svg"></div></div>',
+                        htmlContent: this.$i18n.locale == 'en' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize10.svg"></div><div class="priz-title">Chance<br />to participate</div><div class="priz-img"><img src="./img/icons/prize1-label.svg"></div></div>' : this.$i18n.locale == 'uz' ? '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize10.svg"></div><div class="priz-title">Qatnashishga<br />imkoniyat</div><div class="priz-img"><img src="./img/icons/prize1-label.svg"></div></div>' : '<div class="priz"><div class="priz-icon"><img src="./img/icons/prize10.svg"></div><div class="priz-title">Шанс<br />на участие</div><div class="priz-img"><img src="./img/icons/prize1-label.svg"></div></div>',
                         textColor: "#fff",
                         background: "linear-gradient(329deg, #4109EB 0%, #00C2FF 100%)",
                     },
@@ -309,7 +310,9 @@
                 modal7: false,
                 modal8: false,
                 modal9: false,
-                active: false
+                active: false,
+                repeat: false,
+                duration: 8
             };
         },
         computed: {
@@ -320,10 +323,12 @@
         },
         methods: {
             async launchWheel() {
+                this.$store.commit('setActiveFortune', true);
                 this.active = true;
+                this.repeat = false;
                 await api.post(`generatePrize?web_session=${this.getWeb}`).then(res => {
+                    this.prize1 = res.data.data
                     if(res.data.data.type_id == 1){
-                        this.prize1 = res.data.data
                         this.$refs.wheel.wheelResultIndex.value = 5
                     }
                     if(res.data.data.type_id == 2){
@@ -344,7 +349,6 @@
                         }
                     }
                     if(res.data.data.type_id == 4){
-                        this.prize1 = res.data.data
                         this.$refs.wheel.wheelResultIndex.value = 1
                     }
                     if(res.data.data.type_id == 5){
@@ -363,43 +367,52 @@
             wheelStartedCallback(){
             },
             wheelEndedCallback(){
-                if(this.$refs.wheel.wheelResultIndex.value == 1){
-                    this.modal1 = true
-                }
-                if(this.$refs.wheel.wheelResultIndex.value == 2){
-                    this.modal2 = true
-                }
-                if(this.$refs.wheel.wheelResultIndex.value == 3){
-                    this.modal3 = true
-                }
-                if(this.$refs.wheel.wheelResultIndex.value == 4){
-                    this.modal4 = true
-                }
-                if(this.$refs.wheel.wheelResultIndex.value == 5){
-                    this.modal5 = true
-                }
-                if(this.$refs.wheel.wheelResultIndex.value == 6){
-                    this.modal6 = true
-                }
-                if(this.$refs.wheel.wheelResultIndex.value == 7){
-                    this.modal7 = true
-                }
-                if(this.$refs.wheel.wheelResultIndex.value == 8){
-                    this.modal8 = true
-                }
-                if(this.$refs.wheel.wheelResultIndex.value == 9){
-                    this.modal9 = true
+                this.$store.commit('setActiveFortune', false);
+                if(this.repeat == false){
+                    if(this.$refs.wheel.wheelResultIndex.value == 1){
+                        this.modal1 = true
+                    }
+                    if(this.$refs.wheel.wheelResultIndex.value == 2){
+                        this.modal2 = true
+                    }
+                    if(this.$refs.wheel.wheelResultIndex.value == 3){
+                        this.modal3 = true
+                    }
+                    if(this.$refs.wheel.wheelResultIndex.value == 4){
+                        this.modal4 = true
+                    }
+                    if(this.$refs.wheel.wheelResultIndex.value == 5){
+                        this.modal5 = true
+                    }
+                    if(this.$refs.wheel.wheelResultIndex.value == 6){
+                        this.modal6 = true
+                    }
+                    if(this.$refs.wheel.wheelResultIndex.value == 7){
+                        this.modal7 = true
+                    }
+                    if(this.$refs.wheel.wheelResultIndex.value == 8){
+                        this.modal8 = true
+                    }
+                    if(this.$refs.wheel.wheelResultIndex.value == 9){
+                        this.modal9 = true
+                        this.repeat = true
+                        this.$refs.wheel.firstItemIndex.value = 9;
+                    }
                 }
             },
             goPromo(){
                 this.$router.push({name: 'prizes'})
+            },
+            goScore(){
+                this.duration = 2;
+                this.$refs.wheel.reset();
+                this.modal9 = false;
+                setTimeout(() => {
+                    this.active = false;
+                    this.duration = 8;
+                }, 2000);
             }
-        },
-        mounted() {
-            window.onpopstate = event => {
-                console.log(event)
-            };
-        },
+        }
     };
 </script>
 
@@ -492,7 +505,12 @@
                     border: 2px solid #fff;
                 }
                 .wheel-base-container{
-                    border: 2px solid #fff;
+                    border: 0;
+                    .wheel-base{
+                        width: 120px;
+                        height: 120px;
+                        position: initial;
+                    }
                 }
             }
             @keyframes animate {
@@ -552,16 +570,19 @@
         color: #000;
         font-weight: 700;
         font-size: 18px;
-        width: 120px;
-        height: 120px;
         display: flex;
         align-items: center;
         justify-content: center;
+        background: linear-gradient(54deg, rgb(252, 254, 93) 0%, rgb(253, 220, 8) 24.02%, rgb(253, 159, 131) 47.72%, rgb(249, 125, 211) 69.57%, rgb(197, 102, 228) 100%);
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        border: 0;
         &::before{
             position: absolute;
             content: '';
-            top: -2px;
-            left: -2px;
+            top: 0;
+            left: 0;
             height: calc(100% + 4px);
             width: calc(100% + 4px);
             border-radius: 5px;
@@ -574,6 +595,11 @@
             animation: animate 5s linear infinite;
             border-radius: 50%;
         }
+    }
+    .base:disabled{
+        background: #3a3a3a;
+        color: #ccc;
+        cursor: no-drop;
     }
         .title{
             color: #363845;

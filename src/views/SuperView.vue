@@ -50,19 +50,11 @@
   
 <script>
     import Header from '@/components/Header'
-    import { useSound } from '@vueuse/sound'
-    import buttonSfx from '@/assets/win.mp3'
 
     export default {
         name: "SuperView",
         components: {
             Header,
-        },
-        setup() {
-            const { play } = useSound(buttonSfx)
-            return {
-                play
-            }
         }
     };
 </script>

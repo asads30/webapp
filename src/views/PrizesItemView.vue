@@ -28,7 +28,8 @@
                                 </div>
                                 <div class="prizesview-promo-info-text">
                                     <div class="prizesview-promo-info-label">{{ $t('prizes.prize1') }}</div>
-                                    <div class="prizesview-promo-info-value">{{ prize.promo_code }}</div>
+                                    <div class="prizesview-promo-info-value" v-if="prize.promo_code.substring(0,4) == 'http'"><a :href="prize.promo_code">{{ prize.promo_code }}</a></div>
+                                    <div class="prizesview-promo-info-value" v-else>{{ prize.promo_code }}</div>
                                 </div>
                             </div>
                         </div>
@@ -190,5 +191,9 @@
         -moz-user-select: auto;
         -ms-user-select: auto;
         user-select: auto;
+        a{
+            color: #fff;
+            text-decoration: none;
+        }
     }
 </style>

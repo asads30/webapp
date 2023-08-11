@@ -8,12 +8,18 @@ import ChancesView from '../views/ChancesView.vue'
 import SuperView from '../views/SuperView.vue'
 import ReferallView from '../views/ReferallView.vue'
 import FortunaView from '../views/FortunaView.vue'
+import store from '../store/index'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    beforeEnter: (to, from) => {
+      if(from.name == 'fortuna' && store.state.activeFortune == true){
+        return false
+      }
+    }
   },
   {
     path: '/start',

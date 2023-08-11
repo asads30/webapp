@@ -5,7 +5,11 @@
         "title": "Congratulations!<br />You have become a participant<br />of our action!",
         "des": "You have 2 chance to participate in the main prize draw",
         "des2": "You have 1 chance to participate in the main prize draw",
-        "done": "Amazing"
+        "done": "Amazing",
+        "notscore": {
+            "title": "Want to try your luck again?",
+            "des": "Invite friends using your promo code and you will get +1 chance and +1 opportunity to spin the wheel"
+        }
     },
     "home": {
         "home1": "You're a campaigner",
@@ -58,6 +62,7 @@
         "ref5": "To invite a friend",
         "ref6": "You invited",
         "ref7": "users",
+        "ref8": "Select and copy the promo code to share with a friend",
         "not": "Your invited friends will be displayed here."
     },
     "super": {
@@ -89,6 +94,7 @@
 		"prize5": "Prizes from<br />our partners",
 		"prize6": "5000 soums<br />to Click wallet",
 		"prize7": "of all<br />chances",
-        "spin": "Spin"
+        "spin": "Spin",
+        "spin_again": "Spin again"
     }
 }

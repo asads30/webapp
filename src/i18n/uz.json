@@ -5,7 +5,11 @@
         "title": "Tabriklaymiz!<br />Siz aksiyamiz ishtirokchisiga<br />aylandingiz!",
         "des": "Sizda asosiy sovrinlar yutuqli o'yinida ishtirok etishga 2 imkoniyat bor",
         "des2": "Sizda asosiy sovrinlar yutuqli o'yinida ishtirok etishga 1 imkoniyat bor",
-        "done": "Ajoyib"
+        "done": "Ajoyib",
+        "notscore": {
+            "title": "Omadingizni yana bir bor sinab ko'rishni xohlaysizmi?",
+            "des": "Promokodingiz bo'yicha do'stlaringizni taklif qiling va siz +1 imkoniyat, hamda g'ildirakni aylantirishga +1 imkoniyatni qo'lga kiritasiz"
+        }
     },
     "home": {
         "home1": "Siz aksiya ishtirokchisisiz",
@@ -30,7 +34,6 @@
         "start9": "rozilik bildirasiz",
         "start10": "Tugmani bosganda quyidagilarni qo'lga kiritasiz:",
         "start11": "Aksiyada ishtirok etish"
-
     },
     "chances": {
         "chance1": "Umumiy soni",
@@ -56,9 +59,10 @@
         "ref2": "Agar do'stingiz promokodingizni kiritsa, siz qatnashishga +1 imkoniyatni va omad g'ildiragini qo'shimcha aylantirish imkoniyatini qo'lga kiritasiz. Do'stingiz esa qatnashishga +2 imkoniyatni va omad g'ildiragini qo'shimcha 2 marta aylantirish imkoniyatini qo'lga kiritadi.",
         "ref3": "Sizning taklif kodingiz",
         "ref4": "Выделить",
-        "ref5": "Пригласить друга",
+        "ref5": "Do'stingizni taklif qiling",
         "ref6": "Вы пригласили",
         "ref7": "пользователей",
+        "ref8": "Promokodni do'stingizga yuborish uchun ajrating va nusxalang",
         "not": "Bu yerda siz taklif qilgan do'stlar aks ettiriladi."
     },
     "super": {
@@ -90,6 +94,7 @@
 		"prize5": "Hamkorlardan<br />sovg'alar",
 		"prize6": "Click-hamyonga<br />5000 so'm",
 		"prize7": "Barcha<br />imkoniyatlar<br />uchun",
-        "spin": "Aylantirish"
+        "spin": "Aylantirish",
+        "spin_again": "Yana aylantiring"
     }
 }

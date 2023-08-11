@@ -7,7 +7,8 @@ export default createStore({
     chances: null,
     web: null,
     referall: null,
-    text: null
+    text: null,
+    activeFortune: false
   },
   getters: {
     getUser(state){
@@ -40,6 +41,9 @@ export default createStore({
         return state.text[2]
       }
     },
+    getActiveFortune(state){
+      return state.activeFortune
+    }
   },
   mutations: {
     setUser: (state, user) => {
@@ -59,6 +63,9 @@ export default createStore({
     },
     setText: (state, text) => {
       state.text = text
+    },
+    setActiveFortune: (state, activeFortune) => {
+      state.activeFortune = activeFortune
     }
   },
   actions: {

@@ -36,6 +36,7 @@
                                             <div class="code-title">{{ $t('referall.ref3') }}</div>
                                             <input class="code-number" readonly :value="getUser?.ref" id="code" ref="code">
                                         </div>
+                                        <div class="referall-code-des">{{ $t('referall.ref8') }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +46,7 @@
                         <div class="chances" v-if="getReferall.referrals_count">
                             <div class="chances-top">
                                 <div class="container">
-                                    <div class="chances-title">{{ $t('referall.ref6') }} <span>{{ getReferall.referrals_count }} {{ $t('referall.ref7') }}</span></div>
+                                    <div class="chances-title">{{ $t('chances.chance1') }} <span>{{ getReferall.referrals_count }}</span></div>
                                 </div>
                             </div>
                             <div class="chances-items">
@@ -180,22 +181,23 @@ export default {
     line-height: 16px;
     letter-spacing: 0.5px;
     font-size: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .ref-box-bottom{
     padding-bottom: 40px;
     padding-top: 40px;
     border-radius: 24px 24px 0 0;
-    background: var(--bg4);
+    background: var(--bg2);
     .referall-codebox{
         display: flex;
         flex-direction: column;
         gap: 4px;
-        width: calc(100% - 131px);
+        width: 100%;
         .code-title{
-            font-size: 10px;
+            font-size: 12px;
             color: var(--text3);
             font-weight: 600;
+            text-align: center;
         }
         input{
             border-radius: 10px;
@@ -208,6 +210,7 @@ export default {
             color: var(--text);
             font-size: 18px;
             font-weight: 700;
+            text-align: center;
         }
     }
     .referall-copy{
@@ -250,9 +253,15 @@ export default {
 }
 .referall-code{
     display: flex;
-    gap: 12px;
-    margin-bottom: 60px;
+    flex-direction: column;
+    gap: 10px;
     align-items: flex-end;
+    &-des{
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        line-height: 135%;
+    }
 }
 .code-number{
     -moz-user-select: auto;

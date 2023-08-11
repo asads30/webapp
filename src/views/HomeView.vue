@@ -8,13 +8,13 @@
             <div class="container">
                 <div class="prizes-box">
                     <div class="prizes-left">
-                      <div class="prizes-title">{{ $t('home.home1') }}</div>
                       <button type="button" data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10 1.64798C7.7691 1.64798 5.67172 2.51674 4.09423 4.09423C2.51674 5.67172 1.64798 7.7691 1.64798 10C1.64798 12.2309 2.51674 14.3283 4.09423 15.9058C5.67172 17.4833 7.7691 18.352 10 18.352C12.2309 18.352 14.3283 17.4833 15.9058 15.9058C17.4833 14.3283 18.352 12.2309 18.352 10C18.352 7.7691 17.4833 5.67172 15.9058 4.09423C14.3283 2.51674 12.2309 1.64798 10 1.64798ZM10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0Z" fill="#0073FF"/>
                             <path d="M9.72397 8.50619C9.58866 8.50817 9.45945 8.56281 9.36376 8.6585C9.26807 8.75419 9.21344 8.8834 9.21145 9.01871V14.2247C9.21344 14.36 9.26807 14.4892 9.36376 14.5849C9.45945 14.6806 9.58866 14.7352 9.72397 14.7372H10.292C10.4273 14.7352 10.5565 14.6806 10.6522 14.5849C10.7479 14.4892 10.8025 14.36 10.8045 14.2247V9.01871C10.8025 8.8834 10.7479 8.75419 10.6522 8.6585C10.5565 8.56281 10.4273 8.50817 10.292 8.50619H9.72397ZM10.0426 5.33547C9.91525 5.32684 9.78749 5.3444 9.6672 5.38706C9.54692 5.42973 9.43666 5.4966 9.34322 5.58355C9.24979 5.6705 9.17517 5.77567 9.12397 5.89258C9.07278 6.00949 9.04609 6.13566 9.04556 6.26329C9.03911 6.39597 9.0605 6.52854 9.10837 6.65246C9.15623 6.77638 9.22949 6.88891 9.32345 6.98282C9.41741 7.07672 9.52998 7.14993 9.65393 7.19772C9.77787 7.24551 9.91045 7.26683 10.0431 7.26031C10.1696 7.25793 10.2943 7.22987 10.4096 7.17786C10.5249 7.12584 10.6284 7.05094 10.7139 6.95771C10.7993 6.86447 10.865 6.75484 10.9068 6.63548C10.9486 6.51611 10.9658 6.38948 10.9572 6.26329C10.9599 6.14186 10.9383 6.02112 10.8935 5.90822C10.8487 5.79532 10.7817 5.69257 10.6964 5.60605C10.6112 5.51952 10.5094 5.45099 10.3972 5.40452C10.285 5.35804 10.164 5.33456 10.0426 5.33547Z" fill="#0073FF"/>
                         </svg>
                       </button>
+                      <div class="prizes-title">{{ $t('home.home1') }}</div>
                     </div>
                     <router-link :to="{name: 'prizes'}" class="prizes-right">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
@@ -49,7 +49,20 @@
           </div>
           <Drawing />
           <Referall />
-          <Footer :count="getUser?.spin_wheel" />
+          <div class="cfooter">
+            <div class="container">
+              <div class="cfooter-hr"></div>
+              <button class="cfooter-btn" v-if="getUser?.spin_wheel > 0" @click="goFortuna">
+                <span>{{ $t('home.home9') }}</span>
+                <div class="cfooter-btn__label">{{ getUser?.spin_wheel }}</div>
+                <div class="flare"></div>
+              </button>
+              <button class="cfooter-btn notscore" v-if="getUser?.spin_wheel < 1" @click="notscore = true">
+                <span>{{ $t('home.home9') }}</span>
+                <div class="flare"></div>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="amodal" v-if="code1 == true">
           <div class="amodal-content">
@@ -58,11 +71,6 @@
               </div>
               <div class="amodal-body">
                 <div class="cmodal-title" v-html="$t('modal.title')"></div>
-                <div class="cmodal-chances">
-                  <div class="cmodal-chance" v-for="chance in getUser?.chances" :key="chance">
-                    {{ chance?.id }}
-                  </div>
-                </div>
                 <div class="cmodal-hr"></div>
                 <div class="cmodal-des">{{ $t('modal.des') }}</div>
                 <button type="button" class="cmodal-btn" @click="code1 = false">{{ $t('modal.done') }}</button>
@@ -82,7 +90,20 @@
               </div>
           </div>
         </div>
-         <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
+        <div class="amodal" v-if="notscore == true">
+          <div class="amodal-content">
+              <div class="amodal-header">
+                  <button class="close" @click="notscore = false">&times;</button>
+              </div>
+              <div class="amodal-body">
+                <div class="cmodal-title" v-html="$t('modal.notscore.title')"></div>
+                <div class="cmodal-hr"></div>
+                <div class="cmodal-des">{{ $t('modal.notscore.des') }}</div>
+                <button type="button" class="cmodal-btn" @click="goRef">{{ $t('referall.ref5') }}</button>
+              </div>
+          </div>
+        </div>
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getText?.title_ru }}</h5>
             <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getText?.title_uz }}</h5>
@@ -127,7 +148,9 @@ export default {
     ...mapGetters([
       'getUser',
       'getWeb',
-      'getText'
+      'getText',
+      'getActiveFortune',
+      'getChances'
     ]),
     getMethod(){
       return this.$route.query.method
@@ -136,7 +159,8 @@ export default {
   data() {
     return {
       code1: false,
-      code2: false
+      code2: false,
+      notscore: false
     }
   },
   components: {
@@ -190,10 +214,22 @@ export default {
       this.code2 = true
     }
   },
+  methods: {
+    goFortuna(){
+      this.$router.push({name: 'fortuna'})
+    },
+    goRef(){
+      this.$router.push({name: 'referall'})
+    }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+
+  .preloader-text{
+
+  }
   .home{
     height: 100vh;
     overflow: hidden;
@@ -333,5 +369,86 @@ export default {
     font-size: 14px;
     letter-spacing: 0.14px;
     font-weight: 700;
+  }
+
+  .cfooter{
+    padding: 20px 0 20px;
+    .cfooter-btn {
+      background: linear-gradient(0deg,#0073ff,#00c2ff);
+      height: 40px;
+      border-radius: 10px;
+      line-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      border: 0;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      &.notscore{
+        background: #363744;
+        span{
+          color: #575965;
+        }
+      }
+      span{
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        font-family: Golos Text,sans-serif!important;
+      }
+      .cfooter-btn__label {
+        height: 25px;
+        border-radius: 25px;
+        background: #000;
+        line-height: 25px;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 0 10px;
+        color: #fff;
+        font-family: Golos Text,sans-serif!important;
+      }
+      .flare {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 45px;
+        transform: skewX(-45deg);
+        animation: flareAnimation;
+        left: -150%;
+        background: linear-gradient(90deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.4));
+        animation: flareAnimation 3s linear infinite;
+      }
+      &:disabled{
+        background: #363744;
+        span{
+          color: #575965;
+        }
+      }
+    }
+    .cfooter-link {
+      text-align: center;
+      .cfooter-link-btn {
+        color: var(--text-secondary);
+        text-decoration: underline;
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+    .cfooter-hr{
+      background: var(--hr);
+      width: 100%;
+      height: 1px;
+      margin-bottom: 20px;
+    }
+  }
+@keyframes flareAnimation {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
   }
 </style>
