@@ -8,7 +8,6 @@ import ChancesView from '../views/ChancesView.vue'
 import SuperView from '../views/SuperView.vue'
 import ReferallView from '../views/ReferallView.vue'
 import FortunaView from '../views/FortunaView.vue'
-import store from '../store/index'
 
 const routes = [
   {
