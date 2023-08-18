@@ -52,6 +52,10 @@ export default createStore({
     setPrizes: (state, prizes) => {
       state.prizes = prizes;
     },
+    addPrizes: (state, prizes) => {
+      state.prizes.data = state.prizes.data.concat(prizes.data);
+      state.prizes.current_page = prizes.current_page
+    },
     setChances: (state, chances) => {
       state.chances = chances;
     },

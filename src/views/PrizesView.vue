@@ -16,6 +16,7 @@
                             :id="item.id"
                         />
                     </div>
+                    <button class="prizes-more" v-if="getPrizes?.total > getPrizes?.data?.length" @click="loadMore">{{ $t('prizes.more') }}</button>
                 </div>
             </div>
             <div class="prizes-not" v-else>
@@ -56,12 +57,22 @@ export default {
         Prize
     },
     mounted() {
-        api.get(`myPrizes?web_session=${this.getWeb}`).then(res => {
+        api.get(`myPrizes?web_session=${this.getWeb}&page=1`).then(res => {
             this.$store.commit('setPrizes', res.data)
         }).catch(err => {
             console.log(err)
         })
     },
+    methods: {
+        loadMore(){
+            let nextPage = Number(this.getPrizes?.current_page) + 1;
+            api.get(`myPrizes?web_session=${this.getWeb}&page=${nextPage}`).then(res => {
+                this.$store.commit('addPrizes', res.data)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+    }
 }
 </script>
 
@@ -74,6 +85,7 @@ export default {
         display: flex;
         gap: 12px;
         flex-wrap: wrap;
+        padding-bottom: 20px;
     }
     .prizes-not{
         padding: 50px 0;
@@ -92,4 +104,16 @@ export default {
         line-height: 135%; 
         letter-spacing: 0.5px;
     }
-</style>e
+    .prizes-more{
+        width: 100%;
+        background: linear-gradient(0deg, #0073ff, #00c2ff);
+        margin: 0 0 20px;
+        color: #fff;
+        border: 0;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+</style>
