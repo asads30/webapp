@@ -33,12 +33,14 @@
         "start8": "terms",
         "start9": "of the «ID Marathon» promotion",
         "start10": "After clicking you get:",
-        "start11": "Participate in the promotion"
+        "start11": "Participate in the promotion",
+        "start12": "Enter the invitation code"
     },
     "chances": {
         "chance1": "Total quantity",
         "chance2": "This is where all your chances in the main prize draw are stored. Invite your friends to join the action for even more chances!",
-        "chance3": "My chances"
+        "chance3": "My chances",
+        "search": "Search for chances"
     },
     "ident": {
         "ident1": "Click is giving away a BYD Song Plus car and many other prizes!",

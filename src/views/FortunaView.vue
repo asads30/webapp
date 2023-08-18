@@ -6,6 +6,8 @@
                 <div class="top">
                     <div class="info">
                         <div class="container">
+                            <div class="info-volume">
+                            </div>
                             <div class="info-box">
                                 <button type="button" data-bs-toggle="offcanvas" data-bs-target="#fortunaModal" aria-controls="fortunaModal" class="info-text">{{ $t('wheel.info') }}</button>
                                 <button type="button" data-bs-toggle="offcanvas" data-bs-target="#fortunaModal" aria-controls="fortunaModal"><img src="@/assets/images/info.svg" alt=""></button>
@@ -43,7 +45,7 @@
                         @wheel-end="wheelEndedCallback"
                     >
                         <template #baseContent>
-                            <button class="base" @click="launchWheel" :disabled="active">{{ $t('wheel.spin') }}</button>
+                            <button class="base" @click="launchWheel" :disabled="active || getUser.spin_wheel < 1">{{ $t('wheel.spin') }}</button>
                         </template>
                     </Roulette>
                 </div>
@@ -306,12 +308,13 @@
                 modal9: false,
                 active: false,
                 repeat: false,
-                duration: 8
+                duration: 8,
             };
         },
         computed: {
             ...mapGetters([
                 'getWeb',
+                'getUser',
                 'getWheelText'
             ]),
         },
@@ -437,7 +440,21 @@
             }
             .container{
                 display: flex;
-                justify-content: flex-end;
+                justify-content: space-between;
+                .info-volume{
+                    &-btn{
+                        background: none;
+                        padding: 0;
+                        border: 0;
+                        &:disabled{
+                            svg{
+                                path{
+                                    fill: #363845;
+                                }
+                            }
+                        }
+                    }
+                }
                 .info-box{
                     display: flex;
                     align-items: center;

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import store from '../store/index'
 import HomeView from '../views/HomeView.vue'
 import StartView from '../views/StartView.vue'
 import IdentView from '../views/IdentView.vue'
@@ -60,7 +61,12 @@ const routes = [
   {
     path: '/fortuna',
     name: 'fortuna',
-    component: FortunaView
+    component: FortunaView,
+    beforeEnter: (to, from) => {
+      if(from.name == 'prizes'){
+        return false
+      }
+    }
   },
 ]
 

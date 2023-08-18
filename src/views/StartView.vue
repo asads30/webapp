@@ -28,6 +28,7 @@
                                 <div class="start-content-input">
                                     <imask-input
                                         v-model="promocode"
+                                        :placeholder="$t('start.start12')"
                                         radix="."
                                         :mask="'{******}'"
                                         autofocus
@@ -275,8 +276,8 @@
                     width: 100%;
                     background: #E2E4F0;
                     border: 1px solid #E2E4F0;
-                    height: 40px;
-                    line-height: 40px;
+                    height: 56px;
+                    line-height: 56px;
                     text-align: center;
                     border-radius: 10px;
                     text-transform: uppercase;
@@ -290,11 +291,15 @@
                     }
                     &::placeholder{
                         font-weight: 300;
-                        color: #000;
+                        color: #9A9BA3;
+                        font-size: 14px;
+                        font-weight: 700;
                     }
                     &:-ms-input-placeholder{
                         font-weight: 300;
-                        color: #000;
+                        color: #9A9BA3;
+                        font-size: 14px;
+                        font-weight: 700;
                     }
 
                 }

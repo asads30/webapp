@@ -13,9 +13,14 @@
                         <p>{{ $t('chances.chance2') }}</p>
                     </div>
                 </div>
+                <div class="chances-search">
+                    <div class="container">
+                        <input type="text" :placeholder="$t('chances.search')" v-model="search" pattern="[0-9]*" maxlength="7" inputmode="decimal">
+                    </div>
+                </div>
                 <div class="chances-items">
                     <div class="container">
-                        <div class="chances-list">
+                        <div class="chances-list" v-if="!loading">
                             <div class="chances-item" v-for="(chance, key) in getChances" :key="chance">
                                 <div class="chances-date">{{ key }}</div>
                                 <div class="chances-group" v-for="(category, key2) in chance" :key="category">
@@ -38,6 +43,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="chances-loading" v-else>
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
                             </div>
                         </div>
                     </div>
@@ -63,6 +73,11 @@ export default {
     components: {
         Header,
     },
+    data() {
+        return {
+            search: ''
+        }
+    },
     computed: {
             ...mapGetters([
                 'getChances',
@@ -70,11 +85,25 @@ export default {
                 'getUser'
             ]),
     },
+    watch: {
+        search(value) {
+            this.doSearch(value);
+        }
+    },
+    methods: {
+        doSearch(value) {
+            this.loading = true
+            setTimeout(() => {
+                api.get(`chancesList?web_session=${this.getWeb}&chanceNumber=${this.search}`, {timeout: 5000}).then(res => {
+                    this.loading = false
+                    this.$store.commit('setChances', res.data)
+                });  
+            }, 1000);
+        }
+    },
     mounted(){
         api.get(`chancesList?web_session=${this.getWeb}`).then(res => {
             this.$store.commit('setChances', res.data)
-        }).catch(err => {
-            console.log(err)
         })
     }
 }
@@ -92,10 +121,13 @@ export default {
     .chances{
         padding: 40px 0 20px;
         height: 100%;
+        &-loading{
+            text-align: center;
+        }
         &-items{
-            height: 100%;
+            height: calc(100vh - 278px);
             overflow-y: auto;
-            padding-bottom: 20px;
+            padding: 20px 0;
         }
         &-title{
             font-size: 16px;
@@ -107,6 +139,8 @@ export default {
             }
         }
         &-des{
+            max-height: 110px;
+            overflow: hidden;
             p{
                 font-size: 12px;
                 color: var(--text);
@@ -196,5 +230,32 @@ export default {
                 }
             }
         }
+    }
+    .chances-search{
+        input{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: 10px;
+            padding: 10px 10px 10px 35px;
+            font-size: 12px;
+            color: var(--text);
+            background: var(--bg2) url(../assets/images/search.svg) 100% no-repeat;
+            background-position: 10px;
+            background-size: 16px;
+            &::placeholder{
+                color: var(--text4);
+            }
+            &:-ms-input-placeholder{
+                color: var(--text4);
+            }
+            &:focus{
+                outline: 0;
+            }
+        }
+    }
+    .spinner-border{
+        text-align: center;
     }
 </style>

@@ -20,6 +20,9 @@ export default createStore({
     getChances(state){
       return state.chances
     },
+    getChancesBySearch(state){
+      return state.chances
+    },
     getWeb(state){
       return state.web
     },

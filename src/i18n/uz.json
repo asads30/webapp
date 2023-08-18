@@ -33,12 +33,14 @@
         "start8": "aksiyasi shartlariga",
         "start9": "rozilik bildirasiz",
         "start10": "Tugmani bosganda quyidagilarni qo'lga kiritasiz:",
-        "start11": "Aksiyada ishtirok etish"
+        "start11": "Aksiyada ishtirok etish",
+        "start12": "Taklif kodini kiriting"
     },
     "chances": {
         "chance1": "Umumiy soni",
         "chance2": "Bu yerda asosiy sovrinlar yutuqli o'yinidagi barcha imkoniyatlaringiz saqlanadi. Imkoniyatlaringizni ko'paytirish uchun do'stlaringizni taklif qiling!",
-        "chance3": "Mening imkoniyatlarim"
+        "chance3": "Mening imkoniyatlarim",
+        "search": "Imkoniyatlarni izlash"
     },
     "ident": {
         "ident1": "Click BYD Song Plus avtomobili va ko'plab boshqa sovrinlar yutuqli o'yinini o'tkazmoqda!",
