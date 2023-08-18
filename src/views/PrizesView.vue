@@ -1,12 +1,12 @@
 <template>
     <div class="page">
-        <div class="prizes" v-if="getPrizes">
+        <div class="prizes" v-if="getPrizes?.data">
             <Header :left="true" :right="false" :center="true" :centerText="$t('home.home2')"/>
-            <div class="prizes-wrapper" v-if="getPrizes?.length > 0">
+            <div class="prizes-wrapper" v-if="getPrizes?.data?.length > 0">
                 <div class="container">
                     <div class="prizes-list">
                         <Prize 
-                            v-for="item in getPrizes"
+                            v-for="item in getPrizes?.data"
                             :key="item.id"
                             :background="item.prize.background" 
                             :text="item.prize.name_ru"
