@@ -50,7 +50,8 @@
         "prize2": "Details of the Prize",
         "prize3": "Copy",
         "prize4": "Main page",
-        "not": "You don't have any prizes yet. Spin the wheel of fortune to get a guaranteed prize, as well as accumulate chances to get one of the main prizes!"
+        "not": "You don't have any prizes yet. Spin the wheel of fortune to get a guaranteed prize, as well as accumulate chances to get one of the main prizes!",
+        "more": "Load more"
     },
     "referall": {
         "title": "My invitations",

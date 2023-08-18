@@ -61,7 +61,7 @@
         computed: {
             prize() {
                 const id = this.$route.params.id
-                return this.$store.state.prizes.find(prize => prize.id == id);
+                return this.$store.state.prizes.data.find(prize => prize.id == id);
             }
         },
         methods: {
