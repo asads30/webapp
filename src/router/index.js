@@ -13,7 +13,12 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    beforeEnter: (to, from) => {
+      if(from.name == 'fortuna' && store.state.activeFortune == true){
+        return false
+      }
+    }
   },
   {
     path: '/start',

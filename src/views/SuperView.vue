@@ -33,7 +33,7 @@
                             <img src="@/assets/images/super/yandex.png" alt="">
                             <div class="item-label">X8</div>
                         </div>
-                        <div class="item-title">Яндекс Станция</div>
+                        <div class="item-title">{{ $t('prizes.yandex') }}</div>
                     </div>
                     <div class="item item5">
                         <div class="item-image">

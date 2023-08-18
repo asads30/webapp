@@ -72,9 +72,6 @@
                             <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <div class="pmodal-code">
                                 <input type="text" readonly id="code" :value="prize1?.promo_code">
-                                <button type="button" class="pmodal-code-icon">
-                                    <img src="@/assets/images/copy.svg" alt="">
-                                </button>
                             </div>
                             <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
@@ -138,9 +135,6 @@
                             <div v-if="$i18n.locale == 'en'" class="pmodal-des">{{ prize1?.name_en }}</div>
                             <div class="pmodal-code">
                                 <input type="text" readonly id="code" :value="prize1?.promo_code">
-                                <button type="button" class="pmodal-code-icon">
-                                    <img src="@/assets/images/copy.svg" alt="">
-                                </button>
                             </div>
                             <button type="button" class="cmodal-btn" @click="goPromo">{{ $t('wheel.modal3') }}</button>
                         </div>
@@ -431,7 +425,7 @@
         overflow: hidden;
     }
     .fortuna{
-        padding: 20px 0 0 0;
+        padding: 0;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -439,7 +433,7 @@
         .info{
             margin-bottom: 30px;
             @media screen and (max-height: 745px) and (max-width: 380px) {
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
             .container{
                 display: flex;
@@ -474,18 +468,23 @@
                 margin-bottom: 20px;
                 line-height: 36px;
             }
-            @media screen and (max-height: 745px) {
-                .title{
-                    font-size: 22px;
-                    line-height: 28px;
-                }
-            }
             .des{
                 font-size: 14px;
                 font-weight: 600;
                 line-height: 135%;
                 color: var(--text3);
                 text-align: center;
+            }
+            @media screen and (max-height: 745px) {
+                .title{
+                    font-size: 18px;
+                    line-height: 20px;
+                    margin-bottom: 10px;
+                }
+                .des{
+                    line-height: 110%;
+                    font-size: 12px;
+                }
             }
         }
         .roullete{
@@ -496,7 +495,7 @@
             overflow: hidden;
             padding-top: 54px;
             @media screen and (max-height: 750px) {
-                margin-bottom: -200px;
+                margin-bottom: -180px;
             }
             .wheel-container{
                 overflow: hidden;
@@ -660,4 +659,10 @@
             user-select: auto;
         }
     }
+@media screen and (max-height: 550px) {
+    .top{
+        max-height: 120px;
+        overflow-y: auto;
+    }
+}
 </style>

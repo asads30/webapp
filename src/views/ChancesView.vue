@@ -87,11 +87,16 @@ export default {
     }
     .chancesview-wrapper{
         height: calc(100vh - 74px);
-        overflow-y: auto;
+        overflow: hidden;
     }
     .chances{
         padding: 40px 0 20px;
         height: 100%;
+        &-items{
+            height: 100%;
+            overflow-y: auto;
+            padding-bottom: 20px;
+        }
         &-title{
             font-size: 16px;
             text-align: center;

@@ -50,6 +50,7 @@
         "prize2": "Details of the Prize",
         "prize3": "Copy",
         "prize4": "Main page",
+        "yandex": "Yandex Station",
         "not": "You don't have any prizes yet. Spin the wheel of fortune to get a guaranteed prize, as well as accumulate chances to get one of the main prizes!",
         "more": "Load more"
     },
@@ -68,7 +69,7 @@
     },
     "super": {
         "title": "Main Prizes",
-        "des": "The main prizes will be drawn using a live random number generator among all participants of the promotion every 2 weeks. On the 8th week of the promotion, the main prize will be drawn - a BYD car. The greater"
+        "des": "The main prizes will be drawn using a live random number generator among all participants of the promotion every 2 weeks. On the 8th week of the promotion, the main prize will be drawn - a BYD car. The greater the number of accumulated chances, the higher the probability of becoming the winner of the main prizes"
     },
     "wheel": {
         "title": "Wheel of Fortune",

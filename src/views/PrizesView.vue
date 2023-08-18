@@ -16,7 +16,7 @@
                             :id="item.id"
                         />
                     </div>
-                    <button class="prizes-more" v-if="getPrizes?.total > getPrizes?.data?.length" @click="loadMore">{{ $t('prizes.more') }}</button>
+                    <button class="prizes-more" v-if="getPrizes?.total > getPrizes?.data?.length" @click="loadMore" :disabled="loading == true">{{ $t('prizes.more') }}</button>
                 </div>
             </div>
             <div class="prizes-not" v-else>
@@ -45,6 +45,11 @@ import {mapGetters} from 'vuex';
 
 export default {
     name: 'PrizesView',
+    data() {
+        return {
+            loading: false
+        }
+    },
     computed: {
         ...mapGetters([
             'getPrizes',
@@ -65,9 +70,11 @@ export default {
     },
     methods: {
         loadMore(){
+            this.loading = true;
             let nextPage = Number(this.getPrizes?.current_page) + 1;
             api.get(`myPrizes?web_session=${this.getWeb}&page=${nextPage}`).then(res => {
                 this.$store.commit('addPrizes', res.data)
+                this.loading = false;
             }).catch(err => {
                 console.log(err)
             })
@@ -115,5 +122,10 @@ export default {
         border-radius: 10px;
         font-size: 14px;
         font-weight: 500;
+        &:disabled{
+            background: #363744;
+            color: #ccc;
+            cursor: no-drop;
+        }
     }
 </style>
