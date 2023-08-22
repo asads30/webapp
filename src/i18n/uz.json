@@ -68,7 +68,9 @@
         "ref6": "Вы пригласили",
         "ref7": "пользователей",
         "ref8": "Promokodni do'stingizga yuborish uchun ajrating va nusxalang",
-        "not": "Bu yerda siz taklif qilgan do'stlar aks ettiriladi."
+        "not": "Bu yerda siz taklif qilgan do'stlar aks ettiriladi.",
+        "push": "Takliflar haqida xabarnoma",
+        "push2": "Siz do'stingizni muvaffaqiyatli taklif qildingiz! Endilikda sizda aksiyada qatnashish uchun +1 imkoniyat va omad g'ildiragini aylantirish imkoniyati mavjud!"
     },
     "super": {
         "title": "Asosiy sovrinlar",

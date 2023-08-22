@@ -68,7 +68,9 @@
         "ref6": "You invited",
         "ref7": "users",
         "ref8": "Select and copy the promo code to share with a friend",
-        "not": "Your invited friends will be displayed here."
+        "not": "Your invited friends will be displayed here.",
+        "push": "Notification of invitations",
+        "push2": "You have successfully invited a friend! Now you have +1 chance to participate in the promotion and the opportunity to spin the wheel of fortune!"
     },
     "super": {
         "title": "Main Prizes",
