@@ -15,7 +15,10 @@
                 </div>
                 <div class="chances-search">
                     <div class="container">
-                        <input type="text" :placeholder="$t('chances.search')" v-model="search" pattern="[0-9]*" maxlength="7" inputmode="decimal">
+                        <div class="chances-search-box">
+                            <input type="text" :placeholder="$t('chances.search')" v-model="search" pattern="[0-9]*" maxlength="7" inputmode="decimal">
+                            <button type="button" @click="doSearch" :disabled="loading" v-if="search.length > 0">{{ $t('chances.search2') }}</button>
+                        </div>
                     </div>
                 </div>
                 <div class="chances-items">
@@ -75,30 +78,24 @@ export default {
     },
     data() {
         return {
-            search: ''
+            search: '',
+            loading: false
         }
     },
     computed: {
-            ...mapGetters([
-                'getChances',
-                'getWeb',
-                'getUser'
-            ]),
-    },
-    watch: {
-        search(value) {
-            this.doSearch(value);
-        }
+        ...mapGetters([
+            'getChances',
+            'getWeb',
+            'getUser'
+        ]),
     },
     methods: {
-        doSearch(value) {
+        doSearch() {
             this.loading = true
-            setTimeout(() => {
-                api.get(`chancesList?web_session=${this.getWeb}&chanceNumber=${this.search}`, {timeout: 5000}).then(res => {
-                    this.loading = false
-                    this.$store.commit('setChances', res.data)
-                });  
-            }, 1000);
+            api.get(`chancesList?web_session=${this.getWeb}&chanceNumber=${this.search}`).then(res => {
+                this.loading = false
+                this.$store.commit('setChances', res.data)
+            });
         }
     },
     mounted(){
@@ -232,26 +229,50 @@ export default {
         }
     }
     .chances-search{
-        input{
-            width: 100%;
-            height: 40px;
-            line-height: 40px;
+        &-box{
+            display: flex;
+            align-items: center;
             border: 1px solid rgba(255, 255, 255, 0.20);
             border-radius: 10px;
-            padding: 10px 10px 10px 35px;
-            font-size: 12px;
-            color: var(--text);
-            background: var(--bg2) url(../assets/images/search.svg) 100% no-repeat;
-            background-position: 10px;
-            background-size: 16px;
-            &::placeholder{
-                color: var(--text4);
+            background: var(--bg2);
+            input{
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                padding: 10px 10px 10px 35px;
+                font-size: 12px;
+                color: var(--text);
+                background: var(--bg2) url(../assets/images/search.svg) 100% no-repeat;
+                background-position: 10px;
+                background-size: 16px;
+                border-radius: 10px;
+                border: 0;
+                -webkit-user-select: none !important;
+                &::placeholder{
+                    color: var(--text4);
+                }
+                &:-ms-input-placeholder{
+                    color: var(--text4);
+                }
+                &:focus{
+                    outline: 0;
+                }
             }
-            &:-ms-input-placeholder{
-                color: var(--text4);
-            }
-            &:focus{
-                outline: 0;
+            button{
+                height: 40px;
+                line-height: 40px;
+                border: 0;
+                border-radius: 10px;
+                background: linear-gradient(0deg, #0073ff, #00c2ff);
+                padding: 0 15px;
+                font-size: 14px;
+                color: #fff;
+                font-weight: 500;
+                &:disabled{
+                    background: #363744;
+                    color: #ccc;
+                    cursor: no-drop;
+                }
             }
         }
     }

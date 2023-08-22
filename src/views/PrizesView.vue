@@ -62,11 +62,11 @@ export default {
         Prize
     },
     mounted() {
-        api.get(`myPrizes?web_session=${this.getWeb}&page=1`).then(res => {
-            this.$store.commit('setPrizes', res.data)
-        }).catch(err => {
-            console.log(err)
-        })
+        if(!this.getPrizes){
+            api.get(`myPrizes?web_session=${this.getWeb}&page=1`).then(res => {
+                this.$store.commit('setPrizes', res.data)
+            })
+        }
     },
     methods: {
         loadMore(){
@@ -75,8 +75,6 @@ export default {
             api.get(`myPrizes?web_session=${this.getWeb}&page=${nextPage}`).then(res => {
                 this.$store.commit('addPrizes', res.data)
                 this.loading = false;
-            }).catch(err => {
-                console.log(err)
             })
         }
     }

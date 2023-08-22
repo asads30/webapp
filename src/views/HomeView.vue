@@ -201,11 +201,13 @@ export default {
       }
     })
     this.$store.commit('setWeb', data.web_session)
-    await api.get('getTexts').then(res => {
-      if(res.data){
-        this.$store.commit('setText', res.data)
-      }
-    })
+    if(!this.getText){
+      await api.get('getTexts').then(res => {
+        if(res.data){
+          this.$store.commit('setText', res.data)
+        }
+      })
+    }
     if(this.getMethod && this.getMethod == 'code'){
       this.code1 = true
     }

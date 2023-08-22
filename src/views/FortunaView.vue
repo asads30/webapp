@@ -360,6 +360,9 @@
                 })
                 this.$refs.wheel.launchWheel()
                 audio.play();
+                api.get(`myPrizes?web_session=${this.getWeb}&page=1`).then(res => {
+                    this.$store.commit('setPrizes', res.data)
+                });
             },
             wheelStartedCallback(){
             },
