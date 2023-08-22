@@ -577,11 +577,6 @@
             height: 40px;
         }
     }
-    .priz3{
-        .priz-icon{
-
-        }
-    }
     .base{
         color: #000;
         font-weight: 700;
