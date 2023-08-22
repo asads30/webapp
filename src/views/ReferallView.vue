@@ -27,6 +27,17 @@
                                     </div>
                                     <div class="ref-title">{{ $t('referall.ref1') }}</div>
                                     <div class="ref-des" v-html="$t('referall.ref2')"></div>
+                                    <div class="ref-push">
+                                        <div class="ref-push-text">
+                                            <div class="ref-push-title">{{ $t('referall.push') }}</div>
+                                            <div class="ref-push-des">{{ $t('referall.push2') }}</div>
+                                        </div>
+                                        <div class="ref-push-check">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" v-model="push" @click="switchPush">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="ref-box-bottom">
@@ -93,6 +104,11 @@ import {mapGetters} from 'vuex'
 
 export default {
     name: 'ReferallView',
+    data() {
+        return {
+            push: true
+        }
+    },
     components: {
         Header,
     },
@@ -100,6 +116,13 @@ export default {
         format_date(value){
             var data = new Date(value);
             return data.toLocaleTimeString();
+        },
+        async switchPush(){
+            let data = {
+                push: (this.push == true) ? 0 : 1,
+                web_session: this.getWeb
+            }
+            api.post(`changePush`, data)
         }
     },
     computed: {
@@ -113,6 +136,11 @@ export default {
         api.get(`myReferrals?web_session=${this.getWeb}`).then(res => {
             this.$store.commit('setReferall', res.data.data)
         })
+        if(this.getUser.push == true || this.getUser.push == null){
+            this.push = true
+        } else{
+            this.push = false
+        }
     }
 }
 </script>
@@ -263,5 +291,52 @@ export default {
     -moz-user-select: auto;
     -ms-user-select: auto;
     user-select: auto;
+}
+.ref-push{
+    border-top: 1px solid #3A3A42;
+    border-bottom: 1px solid #3A3A42;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    &-title{
+        font-size: 14px;
+        line-height: 135%;
+        margin-bottom: 7px;
+    }
+    &-des{
+        font-size: 12px;
+        color: #B3B7CE;
+        line-height: 135%;
+    }
+    .form-check-input{
+        --bs-form-switch-bg: none;
+        border-radius: 24px;
+        opacity: 0.5;
+        background: #34353F;
+        width: 34px;
+        height: 14px;
+        border: 0;
+        position: relative;
+        &::before{
+            content: '';
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: -3px;
+            top: -3px;
+            background: #fff;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        &:checked{
+            background: rgba(0, 115, 255, 0.5);
+            opacity: 1;
+        }
+        &:checked::before{
+            background: #0073FF;
+            left: auto;
+            transform: translateX(20px);
+        }
+    }
 }
 </style>
