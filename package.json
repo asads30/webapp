@@ -28,7 +28,6 @@
     "vue3-roulette": "^0.3.3"
   },
   "browserslist": [
-    "> 1%",
-    "not dead"
+    ">0.1%"
   ]
 }
