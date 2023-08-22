@@ -263,7 +263,7 @@ export default {
                 line-height: 40px;
                 border: 0;
                 border-radius: 10px;
-                background: linear-gradient(0deg, #0073ff, #00c2ff);
+                background: #0073ff;
                 padding: 0 15px;
                 font-size: 14px;
                 color: #fff;
