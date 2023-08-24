@@ -87,7 +87,7 @@
             margin-top: 45px;
             text-align: center;
             img{
-                height: 80px;
+                height: 100px;
                 max-width: 80%;
             }
         }

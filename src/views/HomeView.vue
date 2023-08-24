@@ -184,22 +184,26 @@ export default {
     if(lang && lang == 'en'){
       this.$i18n.locale = 'en'
     }
-    await api.post('me', data).then(res => {
-      if(res.data.status == 200){
-        this.$store.commit('setUser', res.data.data)
+    const request = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
       }
-    }).catch(err => {
-      if(err.response.data){
-        if(err.response.data.error){
-          if(err.response.data.error.code == 1000){
-            this.$router.push({name: 'start'})
-          }
-          if(err.response.data.error.code == 1001){
-            this.$router.push({name: 'ident'})
-          }
-        }
+    let response = await fetch('https://promadm.click.uz/api/me', request);
+    let json = await response.json();
+    if(json.status == 200){
+      this.$store.commit('setUser', json.data)
+    } else{
+      console.log(json)
+      if(json.error.code == 1000){
+        this.$router.push({name: 'start'})
       }
-    })
+      if(json.error.code == 1001){
+        this.$router.push({name: 'ident'})
+      }
+    }
     this.$store.commit('setWeb', data.web_session)
     if(!this.getText){
       await api.get('getTexts').then(res => {

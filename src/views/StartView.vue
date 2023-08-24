@@ -38,7 +38,7 @@
                             </div>
                             <div class="start-content-bottom">
                                 <div class="start-content-privacy">{{ $t('start.start7') }} <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">{{$t('start.start8')}}</button> {{ $t('start.start9') }}</div>
-                                <button class="start-content-btn" :disabled="promocode.length != 6" @click="goAction">{{ $t('start.start11') }}</button>
+                                <button class="start-content-btn" :disabled="promocode.length != 6 || loader" @click="goAction">{{ $t('start.start11') }}</button>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="start-content-bottom">
                                 <div class="start-content-privacy">{{ $t('start.start7') }} <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">{{$t('start.start8')}}</button> {{ $t('start.start9') }}</div>
-                                <button class="start-content-btn" @click="goActionNot">{{ $t('start.start11') }}</button>
+                                <button class="start-content-btn" :disabled="loader" @click="goActionNot">{{ $t('start.start11') }}</button>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,8 @@
         },
         data() {
             return {
-                promocode: ''
+                promocode: '',
+                loader: false
             }
         },
         computed: {
@@ -105,6 +106,7 @@
         },
         methods: {
             async goAction(){
+                this.loader = true;
                 const data = {
                     web_session: this.getWeb,
                     active: 'ref',
@@ -112,9 +114,10 @@
                     lang: this.$i18n.locale
                 }
                 await api.post('me', data).then(res => {
+                    this.loader = false
                     if(res.data.status == 200){
                         try {
-                            this.$store.commit('setUser', res.data.data)
+                            this.$store.commit('setUser', res.data.data);
                         } catch (error) {
                             const locale = this.$i18n.locale;
                             if(locale == 'en'){
@@ -166,12 +169,14 @@
                 })
             },
             async goActionNot(){
+                this.loader = true;
                 const data = {
                     web_session: this.getWeb,
                     active: true,
                     lang: this.$i18n.locale
                 }
                 await api.post('me', data).then(res => {
+                    this.loader = false
                     if(res.data.status == 200){
                         try {
                             this.$store.commit('setUser', res.data.data)
