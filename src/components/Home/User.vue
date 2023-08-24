@@ -5,6 +5,9 @@
             <div class="user-title"><span>{{ name }}</span> <img src="@/assets/images/verify.svg" alt=""></div>
             <div class="user-phone">{{ phone }}</div>
           </div>
+          <div class="userlive" v-if="isMobile()">
+            <router-link class="userlive-btn" to="/live"><img src="@/assets/images/live.svg" alt=""> {{ $t('home.live') }}</router-link>
+          </div>
         </div>
     </div>
 </template>
@@ -15,7 +18,16 @@ export default {
     props: {
         name: String,
         phone: Number
-    }
+    },
+    methods: {
+        isMobile() {
+            if(/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                return true
+            } else {
+                return false
+            }
+        }
+    },
 }
 </script>
 
@@ -25,6 +37,7 @@ export default {
     .container{
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     .user-title{
         display: flex;
@@ -43,6 +56,17 @@ export default {
         a{
             color: var(--text);
         }
+    }
+    .userlive-btn{
+        background: #FF2B32;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        gap: 5px;
+        padding: 5px 12px;
+        text-decoration: none;
+        font-size: 14px;
     }
   }
 </style>

@@ -9,6 +9,7 @@ import ChancesView from '../views/ChancesView.vue'
 import SuperView from '../views/SuperView.vue'
 import ReferallView from '../views/ReferallView.vue'
 import FortunaView from '../views/FortunaView.vue'
+import LiveView from '../views/LiveView.vue'
 
 const routes = [
   {
@@ -68,6 +69,11 @@ const routes = [
       }
     }
   },
+  {
+    path: '/live',
+    name: 'live',
+    component: LiveView
+  }
 ]
 
 const router = createRouter({
