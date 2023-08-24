@@ -9,7 +9,6 @@ import ChancesView from '../views/ChancesView.vue'
 import SuperView from '../views/SuperView.vue'
 import ReferallView from '../views/ReferallView.vue'
 import FortunaView from '../views/FortunaView.vue'
-import LiveView from '../views/LiveView.vue'
 
 const routes = [
   {
@@ -68,11 +67,6 @@ const routes = [
         return false
       }
     }
-  },
-  {
-    path: '/live',
-    name: 'live',
-    component: LiveView
   }
 ]
 
