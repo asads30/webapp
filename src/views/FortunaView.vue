@@ -66,7 +66,7 @@
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
-                                <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
+                                <img :src="'https://dev-promo23.click.uz/' + prize1?.partner[0].photo" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
                             <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
@@ -129,7 +129,7 @@
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
-                                <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
+                                <img :src="'https://dev-promo23.click.uz/' + prize1?.partner[0].photo" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
                             <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
@@ -210,9 +210,12 @@
 <script>
     import Header from '@/components/Header'
     import { Roulette } from "vue3-roulette"
-    import { api } from '@/boot/axios'
     import {mapGetters} from 'vuex'
     var audio = new Audio('./audio/wheel.mp3')
+    import {useToast} from 'vue-toast-notification';
+    import 'vue-toast-notification/dist/theme-sugar.css';
+    const $toast = useToast();
+
     export default {
         name: "FortunaView",
         components: {
@@ -309,6 +312,7 @@
                 active: false,
                 repeat: false,
                 duration: 8,
+                loader: false
             };
         },
         computed: {
@@ -323,45 +327,90 @@
                 this.$store.commit('setActiveFortune', true);
                 this.active = true;
                 this.repeat = false;
-                await api.post(`generatePrize?web_session=${this.getWeb}`).then(res => {
-                    this.prize1 = res.data.data
-                    if(res.data.data.type_id == 1){
-                        this.$refs.wheel.wheelResultIndex.value = 5
+                const request = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
                     }
-                    if(res.data.data.type_id == 2){
-                        this.$refs.wheel.wheelResultIndex.value = 7
-                    }
-                    if(res.data.data.type_id == 3){
-                        if(res.data.data.chances_count == '1'){
-                            this.$refs.wheel.wheelResultIndex.value = 8
+                }
+                await fetch(`https://promadm.click.uz/api/generatePrize?web_session=${this.getWeb}`, request).then(async response => {
+                    const data = await response.json();
+                    if(response.ok){
+                        this.prize1 = data.data
+                        if(data.data.type_id == 1){
+                            this.$refs.wheel.wheelResultIndex.value = 5
                         }
-                        if(res.data.data.chances_count == '5'){
-                            this.$refs.wheel.wheelResultIndex.value = 6
+                        if(data.data.type_id == 2){
+                            this.$refs.wheel.wheelResultIndex.value = 7
                         }
-                        if(res.data.data.chances_count == '10'){
-                            this.$refs.wheel.wheelResultIndex.value = 2
+                        if(data.data.type_id == 3){
+                            if(data.data.chances_count == '1'){
+                                this.$refs.wheel.wheelResultIndex.value = 8
+                            }
+                            if(data.data.chances_count == '5'){
+                                this.$refs.wheel.wheelResultIndex.value = 6
+                            }
+                            if(data.data.chances_count == '10'){
+                                this.$refs.wheel.wheelResultIndex.value = 2
+                            }
+                            if(data.data.chances_count == '100'){
+                                this.$refs.wheel.wheelResultIndex.value = 0
+                            }
                         }
-                        if(res.data.data.chances_count == '100'){
-                            this.$refs.wheel.wheelResultIndex.value = 0
+                        if(data.data.type_id == 4){
+                            this.$refs.wheel.wheelResultIndex.value = 1
+                        }
+                        if(data.data.type_id == 5){
+                            this.$refs.wheel.wheelResultIndex.value = 9
+                        }
+                        if(data.data.type_id == 6){
+                            this.$refs.wheel.wheelResultIndex.value = 4
+                        }
+                        if(data.data.type_id == 14){
+                            this.$refs.wheel.wheelResultIndex.value = 3
+                        }
+                        this.$refs.wheel.launchWheel();
+                        audio.play();
+                        fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1`).then(async response => {
+                            const data = await response.json();
+                            this.loading = false
+                            if(response.ok){
+                                this.$store.commit('setPrizes', data)
+                            }
+                        })
+                    } else{
+                        if(this.$i18n.locale == 'ru'){
+                            $toast.error(this.$i18n.messages.ru.wheel.error, {
+                                position: 'bottom'
+                            });
+                        }
+                        if(this.$i18n.locale == 'uz'){
+                            $toast.error(this.$i18n.messages.uz.wheel.error, {
+                                position: 'bottom'
+                            });
+                        }
+                        if(this.$i18n.locale == 'en'){
+                            $toast.error(this.$i18n.messages.en.wheel.error, {
+                                position: 'bottom'
+                            });
                         }
                     }
-                    if(res.data.data.type_id == 4){
-                        this.$refs.wheel.wheelResultIndex.value = 1
+                }).catch(error => {
+                    if(this.$i18n.locale == 'ru'){
+                        $toast.error(this.$i18n.messages.ru.wheel.error, {
+                            position: 'bottom'
+                        });
                     }
-                    if(res.data.data.type_id == 5){
-                        this.$refs.wheel.wheelResultIndex.value = 9
+                    if(this.$i18n.locale == 'uz'){
+                        $toast.error(this.$i18n.messages.uz.wheel.error, {
+                            position: 'bottom'
+                        });
                     }
-                    if(res.data.data.type_id == 6){
-                        this.$refs.wheel.wheelResultIndex.value = 4
+                    if(this.$i18n.locale == 'en'){
+                        $toast.error(this.$i18n.messages.en.wheel.error, {
+                            position: 'bottom'
+                        });
                     }
-                    if(res.data.data.type_id == 14){
-                        this.$refs.wheel.wheelResultIndex.value = 3
-                    }
-                })
-                this.$refs.wheel.launchWheel()
-                audio.play();
-                api.get(`myPrizes?web_session=${this.getWeb}&page=1`).then(res => {
-                    this.$store.commit('setPrizes', res.data)
                 });
             },
             wheelStartedCallback(){

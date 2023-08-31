@@ -54,7 +54,7 @@
     export default {
         name: "SuperView",
         components: {
-            Header,
+            Header
         }
     };
 </script>

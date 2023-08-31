@@ -1,8 +1,11 @@
 {
     "stock": "Promotion",
-    "preloader": "Loading data...<br />Coming soon!",
+    "preloader": "Loading data...",
+    "preloader2": "Coming soon!",
     "modal": {
-        "title": "Congratulations!<br />You have become a participant<br />of our action!",
+        "title": "Congratulations!",
+        "title2": "You have become a participant",
+        "title3": "of our action!",
         "des": "You have 2 chance to participate in the main prize draw",
         "des2": "You have 1 chance to participate in the main prize draw",
         "done": "Amazing",
@@ -14,18 +17,24 @@
     "home": {
         "home1": "You're a campaigner",
         "home2": "My prizes",
-        "home3": "Chances for the<br />main prize draw",
+        "home3": "Chances for the",
+        "home3-2" : "main prize draw",
         "home4": "Main Prizes",
         "home5": "More",
         "home6": "Super prize",
-        "home7": "Invite your friends and increase<br />your chances to win",
+        "home7": "Invite your friends and increase",
+        "home7-2": "your chances to win",
         "home8": "To invite a friend",
-        "home9": "Try your luck"
+        "home9": "Try your luck",
+        "live": "Live"
     },
     "start": {
-        "start1": "Click is giving away BYD<br />and many other prizes",
-        "start2": "I have a<br />promo code",
-        "start3": "I learned about the<br />promotion on my own",
+        "start1": "Click is giving away BYD",
+        "start1-1": "and many other prizes",
+        "start2": "I have a",
+        "start2-1": "promo code",
+        "start3": "I learned about the",
+        "start3-1": "promotion on my own",
         "start4": "Enter a promo code from a friend to increase your chances of winning!",
         "start5": "chance to participate",
         "start6": "chance to spin the wheel",
@@ -41,7 +50,7 @@
         "chance2": "This is where all your chances in the main prize draw are stored. Invite your friends to join the action for even more chances!",
         "chance3": "My chances",
         "search": "Search for chances",
-        "search2": "Find"
+        "search2": "Search"
     },
     "ident": {
         "ident1": "Click is giving away a BYD Song Plus car and many other prizes!",
@@ -102,6 +111,7 @@
 		"prize6": "5000 soums<br />to Click wallet",
 		"prize7": "of all<br />chances",
         "spin": "Spin",
-        "spin_again": "Spin again"
+        "spin_again": "Spin again",
+        "error": "Something went wrong. Try again later"
     }
 }

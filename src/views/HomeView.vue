@@ -37,7 +37,9 @@
                     </div>
                     <div class="shot-rating-number">{{ getUser?.score }}</div>
                   </div>
-                  <div class="shot-title" v-html="$t('home.home3')"></div>
+                  <div class="shot-title">
+                    {{ $t('home.home3') }}<br />{{ $t('home.home3-2') }}
+                  </div>
                 </div>
                 <div class="shot-right">
                   <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
@@ -70,7 +72,9 @@
                   <button class="close" @click="code1 = false">&times;</button>
               </div>
               <div class="amodal-body">
-                <div class="cmodal-title" v-html="$t('modal.title')"></div>
+                <div class="cmodal-title">
+                  {{ $t('modal.title') }}<br />{{ $t('modal.title2') }}<br />{{ $t('modal.title3') }}
+                </div>
                 <div class="cmodal-hr"></div>
                 <div class="cmodal-des">{{ $t('modal.des') }}</div>
                 <button type="button" class="cmodal-btn" @click="code1 = false">{{ $t('modal.done') }}</button>
@@ -83,7 +87,9 @@
                   <button class="close" @click="code2 = false">&times;</button>
               </div>
               <div class="amodal-body">
-                <div class="cmodal-title" v-html="$t('modal.title')"></div>
+                <div class="cmodal-title">
+                  {{ $t('modal.title') }}<br />{{ $t('modal.title2') }}<br />{{ $t('modal.title3') }}
+                </div>
                 <div class="cmodal-hr"></div>
                 <div class="cmodal-des">{{ $t('modal.des2') }}</div>
                 <button type="button" class="cmodal-btn" @click="code2 = false">{{ $t('modal.done') }}</button>
@@ -124,7 +130,9 @@
       <div class="preloader-img">
         <img src="@/assets/images/loader.svg" alt="">
       </div>
-      <div class="preloader-text" v-html="$t('preloader')"></div>
+      <div class="preloader-text">
+        {{ $t('preloader') }}<br />{{ $t('preloader2') }}
+      </div>
     </div>
   </div>
 </template>
@@ -135,7 +143,6 @@ import User from '@/components/Home/User'
 import Drawing from '@/components/Home/Drawing'
 import Referall from '@/components/Home/Referall'
 import Footer from '@/components/Home/Footer'
-import {api} from '@/boot/axios'
 import {getCookie} from '@/boot/util'
 import {mapGetters} from 'vuex'
 
@@ -185,12 +192,12 @@ export default {
       this.$i18n.locale = 'en'
     }
     const request = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      }
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }
     let response = await fetch('https://promadm.click.uz/api/me', request);
     let json = await response.json();
     if(json.status == 200){
@@ -206,10 +213,12 @@ export default {
     }
     this.$store.commit('setWeb', data.web_session)
     if(!this.getText){
-      await api.get('getTexts').then(res => {
-        if(res.data){
-          this.$store.commit('setText', res.data)
-        }
+      await fetch(`https://promadm.click.uz/api/getTexts`).then(async response => {
+          const data = await response.json();
+          this.loading = false
+          if(response.ok){
+            this.$store.commit('setText', data)
+          }
       })
     }
     if(this.getMethod && this.getMethod == 'code'){
@@ -231,10 +240,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-  .preloader-text{
-
-  }
   .home{
     height: 100vh;
     overflow: hidden;

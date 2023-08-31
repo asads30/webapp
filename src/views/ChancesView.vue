@@ -50,7 +50,7 @@
                         </div>
                         <div class="chances-loading" v-else>
                             <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading...</span>
+                                <span class="visually-hidden">{{ $t('preloader') }}</span>
                             </div>
                         </div>
                     </div>
@@ -61,14 +61,15 @@
             <div class="preloader-img">
               <img src="@/assets/images/loader.svg" alt="">
             </div>
-            <div class="preloader-text" v-html="$t('preloader')"></div>
+            <div class="preloader-text">
+                {{ $t('preloader') }}<br />{{ $t('preloader2') }}
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
-import {api} from '@/boot/axios'
 import {mapGetters} from 'vuex'
 
 export default {
@@ -82,6 +83,11 @@ export default {
             loading: false
         }
     },
+    watch: {
+        search() {
+            this.goSearch();
+        }
+    },
     computed: {
         ...mapGetters([
             'getChances',
@@ -92,15 +98,34 @@ export default {
     methods: {
         doSearch() {
             this.loading = true
-            api.get(`chancesList?web_session=${this.getWeb}&chanceNumber=${this.search}`).then(res => {
+            fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}&chanceNumber=${this.search}`).then(async response => {
+                const data = await response.json();
                 this.loading = false
-                this.$store.commit('setChances', res.data)
-            });
+                if(response.ok){
+                    this.$store.commit('setChances', data)
+                }
+            })
+        },
+        goSearch(){
+            if(this.search.length == 0){
+                this.loading = true
+                fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}&chanceNumber=${this.search}`).then(async response => {
+                    const data = await response.json();
+                    this.loading = false
+                    if(response.ok){
+                        this.$store.commit('setChances', data)
+                    }
+                })
+            }
         }
     },
     mounted(){
-        api.get(`chancesList?web_session=${this.getWeb}`).then(res => {
-            this.$store.commit('setChances', res.data)
+        fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}`).then(async response => {
+            const data = await response.json();
+            this.loading = false
+            if(response.ok){
+                this.$store.commit('setChances', data)
+            }
         })
     }
 }
@@ -263,7 +288,7 @@ export default {
                 line-height: 40px;
                 border: 0;
                 border-radius: 10px;
-                background: #0073ff;
+                background: linear-gradient(0deg, #0073ff, #00c2ff);
                 padding: 0 15px;
                 font-size: 14px;
                 color: #fff;

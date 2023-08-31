@@ -1,8 +1,11 @@
 {
     "stock": "Aksiya",
-    "preloader": "Ma'lumotlar yuklanmoqda…<br />Bir zumda tayyor bo'ladi!",
+    "preloader": "Ma'lumotlar yuklanmoqda…",
+    "preloader2": "Bir zumda tayyor bo'ladi!",
     "modal": {
-        "title": "Tabriklaymiz!<br />Siz aksiyamiz ishtirokchisiga<br />aylandingiz!",
+        "title": "Tabriklaymiz!",
+        "title2": "Siz aksiyamiz ishtirokchisiga",
+        "title3": "aylandingiz!",
         "des": "Sizda asosiy sovrinlar yutuqli o'yinida ishtirok etishga 2 imkoniyat bor",
         "des2": "Sizda asosiy sovrinlar yutuqli o'yinida ishtirok etishga 1 imkoniyat bor",
         "done": "Ajoyib",
@@ -14,18 +17,24 @@
     "home": {
         "home1": "Siz aksiya ishtirokchisisiz",
         "home2": "Mening sovrinlarim",
-        "home3": "Asosiy sovrinlar yutuqli<br />o'yinidagi imkoniyatlar",
+        "home3": "Asosiy sovrinlar yutuqli",
+        "home3-2" : "o'yinidagi imkoniyatlar",
         "home4": "Asosiy sovrinlar",
         "home5": "Batafsil",
         "home6": "Supersovrin",
-        "home7": "Do'stlaringizni taklif qiling va g'olib bo'lishga<br />imkoniyatlaringizni ko'paytiring",
+        "home7": "Do'stlaringizni taklif qiling va g'olib bo'lishga",
+        "home7-2": "imkoniyatlaringizni ko'paytiring",
         "home8": "Do'stni taklif qilish",
-        "home9": "Omadni sinab ko'rish"
+        "home9": "Omadni sinab ko'rish",
+        "live": "Jonli efir"
     },
     "start": {
-        "start1": "Click BYD va ko'plab<br />boshqasovrinlar yutuqli o'yinini o'tkazmoqda",
-        "start2": "Menda promokod<br />mavjud",
-        "start3": "Aksiya haqida<br />o'zim bildim",
+        "start1": "Click BYD va ko'plab",
+        "start1-1": "boshqasovrinlar yutuqli o'yinini o'tkazmoqda",
+        "start2": "Menda promokod",
+        "start2-1": "mavjud",
+        "start3": "Aksiya haqida",
+        "start3-1": "o'zim bildim",
         "start4": "Ikkalangizda ham g'olib bo'lishga imkoniyatlarni ko'paytirish uchun do'stingiz promokodini kiriting!",
         "start5": "Qatnashishga imkoniyat",
         "start6": "G'ildirakni aylantirishga imkoniyat",
@@ -52,7 +61,7 @@
         "prize1": "Promokod",
         "prize2": "Sovg'a ma'lumoti",
         "more": "Yana yuklash",
-        "prize3": "Ko'chirish",
+        "prize3": "Скопировать",
         "yandex": "Yandex Stantsiya",
         "prize4": "Bosh sahifaga",
         "not": "Siz hali sovrinlarga ega emassiz. Kafolatlangan sovrinni qo'lga kiritish uchun omad g'ildiragini aylantiring, shuningdek, asosiy sovrinlardan birini qo'lga kiritish uchun imkoniyatlarni to'plang!"
@@ -102,7 +111,7 @@
 		"prize6": "Click-hamyonga<br />5000 so'm",
 		"prize7": "Barcha<br />imkoniyatlar<br />uchun",
         "spin": "Aylantirish",
-        "spin_again": "Yana aylantiring"
-    },
-    "live": "<p>Soat 15:00 da jonli efirda biz 8 ta qimmatli sovg’alar yutuqli o’yinini o’tkazamiz🎁</p><p>🔸 iPhone 14 Pro Max (2 dona);<br />🔸 Apple Watch aqlli soatlari (2 dona);<br />🔸 Apple Airpods 3 (2 dona);<br />🔸 Yandex Stansiya 2 (2 dona).</p><p>Barchaga omad🤞</p>"
+        "spin_again": "Yana aylantiring",
+        "error": "Xato yuz berdi, iltimos, keyinroq harakat qilib ko'ring"
+    }
 }

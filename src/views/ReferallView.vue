@@ -99,7 +99,6 @@
 
 <script>
 import Header from '@/components/Header'
-import {api} from '@/boot/axios'
 import {mapGetters} from 'vuex'
 
 export default {
@@ -118,12 +117,20 @@ export default {
             return data.toLocaleTimeString();
         },
         async switchPush(){
-            let data = {
+            const data = {
                 push: (this.push == true) ? 0 : 1,
                 web_session: this.getWeb
             }
-            api.post(`changePush`, data)
+            const request = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }
+            await fetch(`https://promadm.click.uz/api/changePush`, request)
         }
+
     },
     computed: {
         ...mapGetters([
@@ -133,8 +140,12 @@ export default {
         ])
     },
     mounted(){
-        api.get(`myReferrals?web_session=${this.getWeb}`).then(res => {
-            this.$store.commit('setReferall', res.data.data)
+        fetch(`https://promadm.click.uz/api/myReferrals?web_session=${this.getWeb}`).then(async response => {
+            const data = await response.json();
+            this.loading = false
+            if(response.ok){
+                this.$store.commit('setReferall', data.data)
+            }
         })
         if(this.getUser.push == true || this.getUser.push == null){
             this.push = true

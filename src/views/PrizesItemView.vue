@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="prizesview-promo-info-text">
                                     <div class="prizesview-promo-info-label">{{ $t('prizes.prize1') }}</div>
-                                    <div class="prizesview-promo-info-value" v-if="prize.promo_code.substring(0,4) == 'http'"><a :href="prize.promo_code"></a></div>
+                                    <div class="prizesview-promo-info-value" v-if="prize.promo_code.substring(0,4) == 'http'"><a :href="prize.promo_code">{{ prize.promo_code }}</a></div>
                                     <div class="prizesview-promo-info-value" v-else>{{ prize.promo_code }}</div>
                                 </div>
                             </div>
@@ -46,7 +46,9 @@
             <div class="preloader-img">
               <img src="@/assets/images/loader.svg" alt="">
             </div>
-            <div class="preloader-text" v-html="$t('preloader')"></div>
+            <div class="preloader-text">
+                {{ $t('preloader') }}<br />{{ $t('preloader2') }}
+            </div>
         </div>
     </div>
 </template>
@@ -84,15 +86,20 @@
             padding-bottom: 60px;
         }
         &-logo{
-            margin-top: 45px;
+            margin-top: 41px;
             text-align: center;
+            height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             img{
-                height: 100px;
-                max-width: 80%;
+                min-height: 60px;
+                max-height: 100%;
+                max-width: 70%;
             }
         }
         &-content{
-            height: calc(100vh - 259px);
+            height: calc(100vh - 260px);
             border-radius: 24px 24px 0px 0px;
             background: var(--bg3);
             padding: 20px 0 40px;
@@ -132,6 +139,7 @@
                 display: flex;
                 align-items: center;
                 gap: 8px;
+                max-width: 100%;
                 &-label{
                     color: #fff;
                     font-size: 12px;
@@ -144,6 +152,14 @@
                     font-weight: 700;
                     line-height: 135%;
                     letter-spacing: 1.6px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+                &-text{
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
             }
             &-copy{
@@ -191,7 +207,6 @@
         -moz-user-select: auto;
         -ms-user-select: auto;
         user-select: auto;
-        overflow-wrap: anywhere;
         a{
             color: #fff;
             text-decoration: none;

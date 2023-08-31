@@ -32,7 +32,9 @@
             <div class="preloader-img">
               <img src="@/assets/images/loader.svg" alt="">
             </div>
-            <div class="preloader-text" v-html="$t('preloader')"></div>
+            <div class="preloader-text">
+                {{ $t('preloader') }}<br />{{ $t('preloader2') }}
+            </div>
         </div>
     </div>
 </template>
@@ -40,7 +42,6 @@
 <script>
 import Header from '@/components/Header'
 import Prize from '@/components/Prizes/Item'
-import {api} from '@/boot/axios'
 import {mapGetters} from 'vuex';
 
 export default {
@@ -63,8 +64,12 @@ export default {
     },
     mounted() {
         if(!this.getPrizes){
-            api.get(`myPrizes?web_session=${this.getWeb}&page=1`).then(res => {
-                this.$store.commit('setPrizes', res.data)
+            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1`).then(async response => {
+                const data = await response.json();
+                this.loading = false
+                if(response.ok){
+                    this.$store.commit('setPrizes', data)
+                }
             })
         }
     },
@@ -72,9 +77,12 @@ export default {
         loadMore(){
             this.loading = true;
             let nextPage = Number(this.getPrizes?.current_page) + 1;
-            api.get(`myPrizes?web_session=${this.getWeb}&page=${nextPage}`).then(res => {
-                this.$store.commit('addPrizes', res.data)
-                this.loading = false;
+            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=${nextPage}`).then(async response => {
+                const data = await response.json();
+                this.loading = false
+                if(response.ok){
+                    this.$store.commit('addPrizes', data)
+                }
             })
         }
     }

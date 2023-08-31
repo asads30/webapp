@@ -2,7 +2,9 @@
     <div class="start">
         <div class="start-top">
             <div class="container">
-                <div class="start-title" v-html="$t('start.start1')"></div>
+                <div class="start-title">
+                    {{ $t('start.start1') }}<br />{{ $t('start.start1-1') }}
+                </div>
                 <div class="start-img">
                     <img src="@/assets/images/ident/main.png" alt="">
                 </div>
@@ -12,10 +14,14 @@
             <div class="container">
                 <ul class="nav nav-tabs start-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" v-html="$t('start.start2')"></button>
+                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                        {{ $t('start.start2') }}<br />{{ $t('start.start2-1') }}
+                      </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" v-html="$t('start.start3')"></button>
+                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                        {{ $t('start.start3') }}<br />{{ $t('start.start3-1') }}
+                      </button>
                     </li>
                   </ul>
                   <div class="tab-content" id="myTabContent">
@@ -51,7 +57,7 @@
                             </div>
                             <div class="start-content-bottom">
                                 <div class="start-content-privacy">{{ $t('start.start7') }} <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">{{$t('start.start8')}}</button> {{ $t('start.start9') }}</div>
-                                <button class="start-content-btn" :disabled="loader" @click="goActionNot">{{ $t('start.start11') }}</button>
+                                <button class="start-content-btn" :disabled="loader2" @click="goActionNot">{{ $t('start.start11') }}</button>
                             </div>
                         </div>
                     </div>
@@ -77,7 +83,6 @@
     import {useToast} from 'vue-toast-notification';
     import 'vue-toast-notification/dist/theme-sugar.css';
     import { IMaskComponent } from 'vue-imask';
-    import {api} from '@/boot/axios'
     import {mapGetters} from 'vuex'
     const $toast = useToast();
 
@@ -89,7 +94,8 @@
         data() {
             return {
                 promocode: '',
-                loader: false
+                loader: false,
+                loader2: false
             }
         },
         computed: {
@@ -113,11 +119,19 @@
                     ref: this.promocode,
                     lang: this.$i18n.locale
                 }
-                await api.post('me', data).then(res => {
+                const request = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                }
+                await fetch(`https://promadm.click.uz/api/me`, request).then(async response => {
                     this.loader = false
-                    if(res.data.status == 200){
+                    const data = await response.json();
+                    if(response.status == 200){
                         try {
-                            this.$store.commit('setUser', res.data.data);
+                            this.$store.commit('setUser', data.data);
                         } catch (error) {
                             const locale = this.$i18n.locale;
                             if(locale == 'en'){
@@ -138,48 +152,46 @@
                     } else{
                         const locale = this.$i18n.locale;
                         if(locale == 'en'){
-                            $toast.error(res.data.error.en, {
+                            $toast.error(data.error.en, {
                                 position: 'top'
                             });
                         } else if(locale == 'uz'){
-                            $toast.error(res.data.error.uz, {
+                            $toast.error(data.error.uz, {
                                 position: 'top'
                             });
                         } else{
-                            $toast.error(res.data.error.ru, {
+                            $toast.error(data.error.ru, {
                                 position: 'top'
                             });
                         }
                     }
                 }).catch(error => {
-                    const locale = this.$i18n.locale;
-                    if(locale == 'en'){
-                        $toast.error(error.response.data.error.en, {
-                            position: 'top'
-                        });
-                    } else if(locale == 'uz'){
-                        $toast.error(error.response.data.error.uz, {
-                            position: 'top'
-                        });
-                    } else{
-                        $toast.error(error.response.data.error.ru, {
-                            position: 'top'
-                        });
-                    }
+                    this.loader = false
+                    $toast.error(error, {
+                        position: 'top'
+                    });
                 })
             },
             async goActionNot(){
-                this.loader = true;
+                this.loader2 = true;
                 const data = {
                     web_session: this.getWeb,
                     active: true,
                     lang: this.$i18n.locale
                 }
-                await api.post('me', data).then(res => {
-                    this.loader = false
-                    if(res.data.status == 200){
+                const request = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                }
+                await fetch(`https://promadm.click.uz/api/me`, request).then(async response => {
+                    this.loader2 = false
+                    const data = await response.json();
+                    if(response.status == 200){
                         try {
-                            this.$store.commit('setUser', res.data.data)
+                            this.$store.commit('setUser', data.data);
                         } catch (error) {
                             $toast.error(error, {
                                 position: 'top'
@@ -188,10 +200,25 @@
                         this.$router.push({ name: 'home', query: { method: 'nocode' }})
                     } else{
                         const locale = this.$i18n.locale;
-                        $toast.error(res.data.error + locale, {
-                            position: 'top'
-                        });
+                        if(locale == 'en'){
+                            $toast.error(data.error.en, {
+                                position: 'top'
+                            });
+                        } else if(locale == 'uz'){
+                            $toast.error(data.error.uz, {
+                                position: 'top'
+                            });
+                        } else{
+                            $toast.error(data.error.ru, {
+                                position: 'top'
+                            });
+                        }
                     }
+                }).catch(error => {
+                    this.loader2 = false
+                    $toast.error(error, {
+                        position: 'top'
+                    });
                 })
             },
         }
