@@ -66,7 +66,7 @@
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
-                                <img :src="'https://dev-promo23.click.uz/' + prize1?.partner[0].photo" alt="">
+                                <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
                             <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
@@ -129,7 +129,7 @@
                         <div class="amodal-body">
                             <div class="pmodal-title">{{ $t('wheel.modal4') }}</div>
                             <div class="pmodal-uzum">
-                                <img :src="'https://dev-promo23.click.uz/' + prize1?.partner[0].photo" alt="">
+                                <img :src="'https://promadm.click.uz/' + prize1?.partner[0].photo" alt="">
                             </div>
                             <div class="pmodal-hr"></div>
                             <div v-if="$i18n.locale == 'ru'" class="pmodal-des">{{ prize1?.name_ru }}</div>
