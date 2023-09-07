@@ -5,6 +5,9 @@
             <div class="user-title"><span>{{ name }}</span> <img src="@/assets/images/verify.svg" alt=""></div>
             <div class="user-phone">{{ phone }}</div>
           </div>
+          <div class="userlive" v-if="isMobile()">
+            <router-link class="userlive-btn" to="/live"><img src="@/assets/images/live.svg" alt=""> {{ $t('home.live') }}</router-link>
+          </div>
         </div>
     </div>
 </template>
@@ -15,6 +18,15 @@ export default {
     props: {
         name: String,
         phone: Number
+    },
+    methods: {
+        isMobile() {
+            if(/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                return true
+            } else {
+                return false
+            }
+        }
     }
 }
 </script>
