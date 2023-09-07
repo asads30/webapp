@@ -57,7 +57,7 @@ export default createStore({
     },
     addPrizes: (state, prizes) => {
       state.prizes.data = state.prizes.data.concat(prizes.data);
-      state.prizes.current_page = prizes.current_page
+      state.prizes.pagination.currentPage = prizes.pagination.currentPage
     },
     setChances: (state, chances) => {
       state.chances = chances;

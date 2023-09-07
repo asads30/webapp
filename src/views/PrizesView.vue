@@ -16,7 +16,7 @@
                             :id="item.id"
                         />
                     </div>
-                    <button class="prizes-more" v-if="getPrizes?.total > getPrizes?.data?.length" @click="loadMore" :disabled="loading == true">{{ $t('prizes.more') }}</button>
+                    <button class="prizes-more" v-if="getPrizes?.pagination.total > getPrizes?.data?.length" @click="loadMore" :disabled="loading == true">{{ $t('prizes.more') }}</button>
                 </div>
             </div>
             <div class="prizes-not" v-else>
@@ -64,7 +64,7 @@ export default {
     },
     mounted() {
         if(!this.getPrizes){
-            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1`).then(async response => {
+            fetch(`/api/myPrizes?web_session=${this.getWeb}&page=1`).then(async response => {
                 const data = await response.json();
                 this.loading = false
                 if(response.ok){
@@ -76,8 +76,9 @@ export default {
     methods: {
         loadMore(){
             this.loading = true;
-            let nextPage = Number(this.getPrizes?.current_page) + 1;
-            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=${nextPage}`).then(async response => {
+            let nextPage = Number(this.getPrizes?.pagination?.currentPage) + 1;
+            console.log()
+            fetch(`/api/myPrizes?web_session=${this.getWeb}&page=${nextPage}`).then(async response => {
                 const data = await response.json();
                 this.loading = false
                 if(response.ok){
