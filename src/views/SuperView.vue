@@ -13,6 +13,14 @@
                         <div class="big-title">BYD Song Plus <br />Flagship</div>
                     </div>
                 </div>
+                <div class="big dubai">
+                    <div class="big-img">
+                        <img src="@/assets/images/super/dubai.png" alt="">
+                    </div>
+                    <div class="big-text">
+                        <div class="big-title" v-html="$t('home.home10')"></div>
+                    </div>
+                </div>
                 <div class="list">
                     <div class="item">
                         <div class="item-image">
@@ -113,6 +121,18 @@
             font-weight: 600;
             margin-bottom: 7px;
         }
+    }
+}
+.dubai{
+    .big-img{
+        width: 180px;
+        text-align: center;
+        img{
+            max-width: 100px;
+        }
+    }
+    .big-title{
+        margin-bottom: 15px !important;
     }
 }
 .list{

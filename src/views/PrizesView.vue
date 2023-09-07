@@ -64,7 +64,7 @@ export default {
     },
     mounted() {
         if(!this.getPrizes){
-            fetch(`/api/myPrizes?web_session=${this.getWeb}&page=1`).then(async response => {
+            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1`).then(async response => {
                 const data = await response.json();
                 this.loading = false
                 if(response.ok){
@@ -78,7 +78,7 @@ export default {
             this.loading = true;
             let nextPage = Number(this.getPrizes?.pagination?.currentPage) + 1;
             console.log()
-            fetch(`/api/myPrizes?web_session=${this.getWeb}&page=${nextPage}`).then(async response => {
+            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=${nextPage}`).then(async response => {
                 const data = await response.json();
                 this.loading = false
                 if(response.ok){
