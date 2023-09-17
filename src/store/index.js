@@ -62,6 +62,10 @@ export default createStore({
     setChances: (state, chances) => {
       state.chances = chances;
     },
+    addChances: (state, chances) => {
+      state.chances.data = Object.assign({}, state.chances.data, chances.data)
+      state.chances.current_page = chances.current_page
+    },
     setWeb: (state, web) => {
       state.web = web;
     },

@@ -200,6 +200,8 @@ export default {
     }
     let response = await fetch('https://promadm.click.uz/api/me', request);
     let json = await response.json();
+    console.log(response)
+    console.log(json)
     if(json.status == 200){
       this.$store.commit('setUser', json.data)
     } else{
@@ -212,13 +214,15 @@ export default {
       }
     }
     this.$store.commit('setWeb', data.web_session)
+    console.log(data)
     if(!this.getText){
       await fetch(`https://promadm.click.uz/api/getTexts`).then(async response => {
-          const data = await response.json();
-          this.loading = false
-          if(response.ok){
-            this.$store.commit('setText', data)
-          }
+        console.log(response)
+        const data = await response.json();
+        this.loading = false
+        if(response.ok){
+          this.$store.commit('setText', data)
+        }
       })
     }
     if(this.getMethod && this.getMethod == 'code'){

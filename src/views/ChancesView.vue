@@ -24,7 +24,7 @@
                 <div class="chances-items">
                     <div class="container">
                         <div class="chances-list" v-if="!loading">
-                            <div class="chances-item" v-for="(chance, key) in getChances" :key="chance">
+                            <div class="chances-item" v-for="(chance, key) in getChances.data" :key="chance">
                                 <div class="chances-date">{{ key }}</div>
                                 <div class="chances-group" v-for="(category, key2) in chance" :key="category">
                                     <div class="chances-group-item" v-for="(item, key3) in category" :key="item">
@@ -47,6 +47,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <button class="prizes-more" v-if="getChances?.total > Object.keys(getChances.data).length" @click="loadMore" :disabled="loading == true">{{ $t('prizes.more') }}</button>
                         </div>
                         <div class="chances-loading" v-else>
                             <div class="spinner-border text-primary" role="status">
@@ -102,7 +103,7 @@ export default {
                 const data = await response.json();
                 this.loading = false
                 if(response.ok){
-                    this.$store.commit('setChances', data)
+                    this.$store.commit('setChances', data.data)
                 }
             })
         },
@@ -113,10 +114,21 @@ export default {
                     const data = await response.json();
                     this.loading = false
                     if(response.ok){
-                        this.$store.commit('setChances', data)
+                        this.$store.commit('setChances', data.data)
                     }
                 })
             }
+        },
+        loadMore(){
+            this.loading = true;
+            let nextPage = Number(this.getChances?.current_page) + 1;
+            fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}&page=${nextPage}`).then(async response => {
+                const data = await response.json();
+                this.loading = false
+                if(response.ok){
+                    this.$store.commit('addChances', data.data)
+                }
+            })
         }
     },
     mounted(){
@@ -124,7 +136,7 @@ export default {
             const data = await response.json();
             this.loading = false
             if(response.ok){
-                this.$store.commit('setChances', data)
+                this.$store.commit('setChances', data.data)
             }
         })
     }
