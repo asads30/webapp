@@ -5,7 +5,7 @@
         <div class="container">
           <div class="videowrap">
             <div class="videoblock">
-              <iframe width="100%" height="320" src="https://www.youtube.com/embed/Y-UIxEjb4DM" allowfullscreen></iframe>
+              <iframe width="100%" height="320" src="https://www.youtube.com/embed/FIitzcwqd6g" allowfullscreen></iframe>
             </div>
             <div class="video-text" v-html="$t('live')"></div>
           </div>
