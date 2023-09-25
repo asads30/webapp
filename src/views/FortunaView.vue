@@ -425,6 +425,7 @@
                                 }
                             })
                         }
+                        audio.play();
                         this.$refs.wheel.launchWheel();
                         fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}&page=1`).then(async response => {
                             const data = await response.json();
