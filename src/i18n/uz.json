@@ -65,7 +65,9 @@
         "prize3": "Скопировать",
         "yandex": "Yandex Stantsiya",
         "prize4": "Bosh sahifaga",
-        "not": "Siz hali sovrinlarga ega emassiz. Kafolatlangan sovrinni qo'lga kiritish uchun omad g'ildiragini aylantiring, shuningdek, asosiy sovrinlardan birini qo'lga kiritish uchun imkoniyatlarni to'plang!"
+        "not": "Siz hali sovrinlarga ega emassiz. Kafolatlangan sovrinni qo'lga kiritish uchun omad g'ildiragini aylantiring, shuningdek, asosiy sovrinlardan birini qo'lga kiritish uchun imkoniyatlarni to'plang!",
+        "chances": "Imkoniyatlar",
+        "prizes": "Sovrinlar"
     },
     "referall": {
         "title": "Mening takliflarim",

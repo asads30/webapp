@@ -339,9 +339,25 @@
                         this.prize1 = data.data
                         if(data.data.type_id == 1){
                             this.$refs.wheel.wheelResultIndex.value = 5
+                            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1&type=a`).then(async response => {
+                                const data = await response.json();
+                                this.loading = false
+                                if(response.ok){
+                                    this.$store.commit('setPrizes', data)
+                                    this.$store.commit('setActiveTab', false)
+                                }
+                            })
                         }
                         if(data.data.type_id == 2){
                             this.$refs.wheel.wheelResultIndex.value = 7
+                            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1&type=a`).then(async response => {
+                                const data = await response.json();
+                                this.loading = false
+                                if(response.ok){
+                                    this.$store.commit('setPrizes', data)
+                                    this.$store.commit('setActiveTab', false)
+                                }
+                            })
                         }
                         if(data.data.type_id == 3){
                             if(data.data.chances_count == '1'){
@@ -356,26 +372,65 @@
                             if(data.data.chances_count == '100'){
                                 this.$refs.wheel.wheelResultIndex.value = 0
                             }
+                            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1&type=b`).then(async response => {
+                                const data = await response.json();
+                                this.loading = false
+                                if(response.ok){
+                                    this.$store.commit('setPrizesChances', data)
+                                    this.$store.commit('setActiveTab', true)
+                                }
+                            })
                         }
                         if(data.data.type_id == 4){
                             this.$refs.wheel.wheelResultIndex.value = 1
+                            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1&type=a`).then(async response => {
+                                const data = await response.json();
+                                this.loading = false
+                                if(response.ok){
+                                    this.$store.commit('setPrizes', data)
+                                    this.$store.commit('setActiveTab', false)
+                                }
+                            })
                         }
                         if(data.data.type_id == 5){
                             this.$refs.wheel.wheelResultIndex.value = 9
+                            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1&type=b`).then(async response => {
+                                const data = await response.json();
+                                this.loading = false
+                                if(response.ok){
+                                    this.$store.commit('setPrizesChances', data)
+                                    this.$store.commit('setActiveTab', true)
+                                }
+                            })
                         }
                         if(data.data.type_id == 6){
                             this.$refs.wheel.wheelResultIndex.value = 4
+                            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1&type=a`).then(async response => {
+                                const data = await response.json();
+                                this.loading = false
+                                if(response.ok){
+                                    this.$store.commit('setPrizes', data)
+                                    this.$store.commit('setActiveTab', false)
+                                }
+                            })
                         }
                         if(data.data.type_id == 14){
                             this.$refs.wheel.wheelResultIndex.value = 3
+                            fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1&type=b`).then(async response => {
+                                const data = await response.json();
+                                this.loading = false
+                                if(response.ok){
+                                    this.$store.commit('setPrizesChances', data)
+                                    this.$store.commit('setActiveTab', true)
+                                }
+                            })
                         }
                         this.$refs.wheel.launchWheel();
-                        audio.play();
-                        fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1`).then(async response => {
+                        fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}&page=1`).then(async response => {
                             const data = await response.json();
                             this.loading = false
                             if(response.ok){
-                                this.$store.commit('setPrizes', data)
+                                this.$store.commit('setChances', data.data)
                             }
                         })
                     } else{

@@ -65,7 +65,9 @@
         "prize4": "Main page",
         "yandex": "Yandex Station",
         "not": "You don't have any prizes yet. Spin the wheel of fortune to get a guaranteed prize, as well as accumulate chances to get one of the main prizes!",
-        "more": "Load more"
+        "more": "Load more",
+        "chances": "Chances",
+        "prizes": "Prizes"
     },
     "referall": {
         "title": "My invitations",

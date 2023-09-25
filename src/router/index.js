@@ -5,11 +5,11 @@ import StartView from '../views/StartView.vue'
 import IdentView from '../views/IdentView.vue'
 import PrizesView from '../views/PrizesView.vue'
 import PrizesItemView from '../views/PrizesItemView.vue'
+import PrizesItemChanceView from '../views/PrizesItemChanceView.vue'
 import ChancesView from '../views/ChancesView.vue'
 import SuperView from '../views/SuperView.vue'
 import ReferallView from '../views/ReferallView.vue'
 import FortunaView from '../views/FortunaView.vue'
-import LiveView from '../views/LiveView.vue'
 
 const routes = [
   {
@@ -44,6 +44,11 @@ const routes = [
     component: PrizesItemView
   },
   {
+    path: `/prizes/chance/:id`,
+    name: 'prizesItemChance',
+    component: PrizesItemChanceView
+  },
+  {
     path: '/chances',
     name: 'chances',
     component: ChancesView,
@@ -67,12 +72,7 @@ const routes = [
       if(from.name == 'prizes'){
         return false
       }
-    }
-  },
-  {
-    path: '/live',
-    name: 'live',
-    component: LiveView
+    },
   }
 ]
 

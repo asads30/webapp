@@ -1,5 +1,5 @@
 <template>
-    <div @click="goPrize" class="myprizes-item">
+    <div @click="goChance" class="myprizes-item">
         <div class="myprizes-img" :style="'background: ' + background">
             <img :src="'https://promadm.click.uz/' + img">
         </div>
@@ -23,11 +23,11 @@ export default {
         img: String
     },
     methods: {
-        goPrize(){
-            this.$router.push('/prizes/'+this.id)
-            this.$store.commit('setActiveTab', false)
+        goChance(){
+            this.$router.push('/prizes/chance/'+this.id)
+            this.$store.commit('setActiveTab', true)
         }
-    },  
+    }
 }
 </script>
 

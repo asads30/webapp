@@ -56,14 +56,14 @@
 <script>
     import Header from '@/components/Header'
     export default {
-        name: "PrizesItemView",
+        name: "PrizesItemChanceView",
         components: {
             Header
         },
         computed: {
             prize() {
                 const id = this.$route.params.id
-                return this.$store.state.prizes.data.find(prize => prize.id == id)
+                return this.$store.state.prizesChances.data.find(prize => prize.id == id)
             }
         },
         methods: {
