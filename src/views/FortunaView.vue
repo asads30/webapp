@@ -338,7 +338,11 @@
                     if(response.ok){
                         this.prize1 = data.data
                         if(data.data.type_id == 1){
-                            this.$refs.wheel.wheelResultIndex.value = 5
+                            if(data.data.prize_id == 42){
+                                this.$refs.wheel.wheelResultIndex.value = 7
+                            } else{
+                                this.$refs.wheel.wheelResultIndex.value = 5
+                            }
                         }
                         if(data.data.type_id == 2){
                             this.$refs.wheel.wheelResultIndex.value = 7
@@ -437,7 +441,7 @@
                         this.modal6 = true
                     }
                     if(this.$refs.wheel.wheelResultIndex.value == 7){
-                        this.modal7 = true
+                        this.modal5 = true
                     }
                     if(this.$refs.wheel.wheelResultIndex.value == 8){
                         this.modal8 = true
