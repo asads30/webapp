@@ -1,102 +1,60 @@
 <template>
     <div class="start">
-        <div class="start-top">
-            <div class="container">
-                <div class="start-title">
-                    {{ $t('start.start1') }}<br />{{ $t('start.start1-1') }}
-                </div>
-                <div class="start-img">
-                    <img src="@/assets/images/ident/main.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="start-bottom">
-            <div class="container">
-                <ul class="nav nav-tabs start-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-                        {{ $t('start.start2') }}<br />{{ $t('start.start2-1') }}
-                      </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-                        {{ $t('start.start3') }}<br />{{ $t('start.start3-1') }}
-                      </button>
-                    </li>
-                  </ul>
-                  <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                        <div class="start-content">
-                            <div class="start-content-top">
-                                <div class="start-content-text">{{ $t('start.start4') }}</div>
-                                <div class="start-content-text"><span>+2</span> {{ $t('start.start5') }}</div>
-                                <div class="start-content-text"><span>+2</span> {{ $t('start.start6') }}</div>
-                                <div class="start-content-input">
-                                    <imask-input
-                                        v-model="promocode"
-                                        :placeholder="$t('start.start12')"
-                                        radix="."
-                                        :mask="'{******}'"
-                                        autofocus
-                                        class="start-input"
-                                    />
+        <Header :left="false" :right="false" :center="true" :centerText="$t('stock')"/>
+        <div class="start-box">
+            <div class="start-top">
+                <div class="start-text">
+                    <div class="container">
+                        <div class="start-toptitle">{{ $t('start.start13') }}</div>
+                        <div class="start-subtitle">{{ $t('start.start14') }}</div>
+                        <div class="start-title">{{ $t('start.start15') }}</div>
+                        <div class="start-bottitle">{{ $t('start.start16') }}</div>
+                        <div class="start-bottomtitle">{{ $t('start.start17') }}</div>
+                        <div class="start-soc">
+                            <div class="start-soc-item">
+                                <div class="start-soc-item-img">
+                                    <img src="@/assets/images/start/tg.svg" alt="">
                                 </div>
+                                <div class="start-soc-item-text">@click_uz</div>
                             </div>
-                            <div class="start-content-bottom">
-                                <div class="start-content-privacy">{{ $t('start.start7') }} <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">{{$t('start.start8')}}</button> {{ $t('start.start9') }}</div>
-                                <button class="start-content-btn" :disabled="promocode.length != 6 || loader" @click="goAction">{{ $t('start.start11') }}</button>
+                            <div class="start-soc-item">
+                                <div class="start-soc-item-img">
+                                    <img src="@/assets/images/start/insta.svg" alt="">
+                                </div>
+                                <div class="start-soc-item-text">@clickuz</div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                        <div class="start-content">
-                            <div class="start-content-top">
-                                <div class="start-content-text">{{ $t('start.start10') }}</div>
-                                <div class="start-content-text"><span>+1</span> {{ $t('start.start5') }}</div>
-                                <div class="start-content-text"><span>+1</span> {{ $t('start.start6') }}</div>
-                            </div>
-                            <div class="start-content-bottom">
-                                <div class="start-content-privacy">{{ $t('start.start7') }} <button data-bs-toggle="offcanvas" data-bs-target="#infoModal" aria-controls="infoModal">{{$t('start.start8')}}</button> {{ $t('start.start9') }}</div>
-                                <button class="start-content-btn" :disabled="loader2" @click="goActionNot">{{ $t('start.start11') }}</button>
+                            <div class="start-soc-item">
+                                <div class="start-soc-item-img">
+                                    <img src="@/assets/images/start/yt.svg" alt="">
+                                </div>
+                                <div class="start-soc-item-text">@clickuz6549</div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="start-byd">
+                    <img src="@/assets/images/start/byd.png" alt="">
+                </div>
             </div>
-        </div>
-        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'ru'">{{ getRulesText?.title_ru }}</h5>
-                <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'uz'">{{ getRulesText?.title_uz }}</h5>
-                <h5 class="offcanvas-title" id="infoModalLabel" v-if="$i18n.locale == 'en'">{{ getRulesText?.title_en }}</h5>
-            </div>
-            <div class="offcanvas-body">
-                <div v-if="$i18n.locale == 'ru'" v-html="getRulesText?.description_ru"></div>
-                <div v-if="$i18n.locale == 'uz'" v-html="getRulesText?.description_uz"></div>
-                <div v-if="$i18n.locale == 'en'" v-html="getRulesText?.description_en"></div>
+            <div class="start-bottom">
+                <div class="container">
+                    <a href="https://click.uz/ru/offer-maraphone" class="start-offer" v-if="$i18n.locale == 'ru'">{{ $t('start.offer') }}</a>
+                    <a href="https://click.uz/uz/offer-maraphone" class="start-offer" v-if="$i18n.locale == 'uz'">{{ $t('start.offer') }}</a>
+                    <a href="https://click.uz/ru/offer-maraphone" class="start-offer" v-if="$i18n.locale == 'en'">{{ $t('start.offer') }}</a>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import {useToast} from 'vue-toast-notification';
-    import 'vue-toast-notification/dist/theme-sugar.css';
-    import { IMaskComponent } from 'vue-imask';
     import {mapGetters} from 'vuex'
-    const $toast = useToast();
+    import Header from '@/components/Header'
 
     export default {
         name: 'StartView',
         components: {
-            'imask-input': IMaskComponent
-        },
-        data() {
-            return {
-                promocode: '',
-                loader: false,
-                loader2: false
-            }
+            Header
         },
         computed: {
             ...mapGetters([
@@ -104,276 +62,131 @@
                 'getUser',
                 'getRulesText'
             ]),
-        },
-        mounted() {
-            if(this.getUser){
-                this.$router.push('/')
-            }
-        },
-        methods: {
-            async goAction(){
-                this.loader = true;
-                const data = {
-                    web_session: this.getWeb,
-                    active: 'ref',
-                    ref: this.promocode,
-                    lang: this.$i18n.locale
-                }
-                const request = {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                }
-                await fetch(`https://promadm.click.uz/api/me`, request).then(async response => {
-                    this.loader = false
-                    const data = await response.json();
-                    if(response.status == 200){
-                        try {
-                            this.$store.commit('setUser', data.data);
-                        } catch (error) {
-                            const locale = this.$i18n.locale;
-                            if(locale == 'en'){
-                                $toast.error(res.data.error.en, {
-                                    position: 'top'
-                                });
-                            } else if(locale == 'uz'){
-                                $toast.error(res.data.error.uz, {
-                                    position: 'top'
-                                });
-                            } else{
-                                $toast.error(res.data.error.ru, {
-                                    position: 'top'
-                                });
-                            }
-                        }
-                        this.$router.push({ name: 'home', query: { method: 'code' }})
-                    } else{
-                        const locale = this.$i18n.locale;
-                        if(locale == 'en'){
-                            $toast.error(data.error.en, {
-                                position: 'top'
-                            });
-                        } else if(locale == 'uz'){
-                            $toast.error(data.error.uz, {
-                                position: 'top'
-                            });
-                        } else{
-                            $toast.error(data.error.ru, {
-                                position: 'top'
-                            });
-                        }
-                    }
-                }).catch(error => {
-                    this.loader = false
-                    $toast.error(error, {
-                        position: 'top'
-                    });
-                })
-            },
-            async goActionNot(){
-                this.loader2 = true;
-                const data = {
-                    web_session: this.getWeb,
-                    active: true,
-                    lang: this.$i18n.locale
-                }
-                const request = {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                }
-                await fetch(`https://promadm.click.uz/api/me`, request).then(async response => {
-                    this.loader2 = false
-                    const data = await response.json();
-                    if(response.status == 200){
-                        try {
-                            this.$store.commit('setUser', data.data);
-                        } catch (error) {
-                            $toast.error(error, {
-                                position: 'top'
-                            });
-                        }
-                        this.$router.push({ name: 'home', query: { method: 'nocode' }})
-                    } else{
-                        const locale = this.$i18n.locale;
-                        if(locale == 'en'){
-                            $toast.error(data.error.en, {
-                                position: 'top'
-                            });
-                        } else if(locale == 'uz'){
-                            $toast.error(data.error.uz, {
-                                position: 'top'
-                            });
-                        } else{
-                            $toast.error(data.error.ru, {
-                                position: 'top'
-                            });
-                        }
-                    }
-                }).catch(error => {
-                    this.loader2 = false
-                    $toast.error(error, {
-                        position: 'top'
-                    });
-                })
-            },
         }
     }
 </script>
 
 <style lang="scss">
     .start{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        background: url(../assets/images/start/background.jpg) 100% no-repeat;
+        background-size: cover;
+        background-position: left top;
         height: 100vh;
-        background: #242429;
         color: #fff;
-        &-title{
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 26px;
-            margin-bottom: 16px;
-            height: 78px;
-            color: #fff;
+        &-box{
+            height: calc(100vh - 74px);
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
         }
-        &-img{
-            text-align: center;
-            height: 160px;
+        &-text{
+            padding-top: 20px;
+        }
+        &-toptitle{
+            font-size: 18px;
+            line-height: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+            @media screen and (max-width: 355px) {
+                font-size: 16px;
+            }
+        }
+        &-subtitle{
+            font-size: 18px;
+            line-height: 18px;
+            margin-bottom: 5px;
+            @media screen and (max-width: 355px) {
+                font-size: 16px;
+                line-height: 16px;
+            }
+        }
+        &-title{
+            background: linear-gradient(54deg, #FCFE5D -3.58%, #FDDC08 23.61%, #FD9F83 50.44%, #F97DD3 75.18%, #C566E4 109.63%);
+            background-clip: text;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 40px;
+            @media screen and (max-width: 355px) {
+                font-size: 32px;
+                line-height: 32px;
+            }
+        }
+        &-bottitle{
+            font-size: 24px;
+            line-height: 24px;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+        &-bottomtitle{
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        &-soc{
+            display: flex;
+            gap: 15px;
+            -webkit-touch-callout: auto;
+            -webkit-user-select: auto;
+            -khtml-user-select: auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+            user-select: auto;
+            &-item{
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                &-img{
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 25px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #fff;
+                    img{
+                        width: 19px;
+                    }
+                }
+                &-text{
+                    font-size: 12px;
+                }
+            }
+            @media screen and (max-width: 355px) {
+                gap: 8px;
+                &-item{
+                    gap: 4px;
+                    &-img{
+                        width: 22px;
+                        height: 22px;
+                        img{
+                            width: 16px;
+                        }
+                    }
+                    &-text{
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+        &-byd{
             img{
-                max-width: 100%;
-                max-height: 160px;
+                width: calc(100% - 25px);
             }
         }
         &-bottom{
-            height: calc(100vh - 318px);
-            padding: 30px 0 0;
-            overflow-y: auto;
+            padding-bottom: 20px;
+            text-align: center;
         }
-        &-tabs{
-            display: flex;
+        &-offer{
+            font-size: 12px;
+            text-decoration: underline;
+            background: none;
+            padding: 0;
             border: 0;
-            margin-bottom: 10px;
-            .nav-item{
-                width: 50%;
-                flex-wrap: nowrap;
-                .nav-link{
-                    background: rgba(255, 255, 255, 0.12);
-                    width: 100%;
-                    border-radius: 0;
-                    font-size: 12px;
-                    color: #fff;
-                    border: 0;
-                    &.active{
-                        background: #1F84FF;
-                    }
-                }
-                &:first-child{
-                    .nav-link{
-                        border-top-left-radius: 10px;
-                        border-bottom-left-radius: 10px;
-                    }
-                }
-                &:last-child{
-                    .nav-link{
-                        border-top-right-radius: 10px;
-                        border-bottom-right-radius: 10px;
-                    }
-                }
-            }
-        }
-        &-content{
-            height: calc(100vh - 409px);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            &-bottom{
-                padding-top: 15px;
-                padding-bottom: 40px;
-            }
-            &-text{
-                font-size: 14px;
-                color: #fff;
-                span{
-                    color: #FCFE5D;
-                }
-            }
-            &-input{
-                margin: 16px 0;
-                input{
-                    width: 100%;
-                    background: #E2E4F0;
-                    border: 1px solid #E2E4F0;
-                    height: 56px;
-                    line-height: 56px;
-                    text-align: center;
-                    border-radius: 10px;
-                    text-transform: uppercase;
-                    color: #000;
-                    font-weight: 900;
-                    font-size: 18px;
-                    &:focus{
-                        border-color: #0073FF;
-                        box-shadow: none;
-                        outline: 0;
-                    }
-                    &::placeholder{
-                        font-weight: 300;
-                        color: #9A9BA3;
-                        font-size: 14px;
-                        font-weight: 700;
-                    }
-                    &:-ms-input-placeholder{
-                        font-weight: 300;
-                        color: #9A9BA3;
-                        font-size: 14px;
-                        font-weight: 700;
-                    }
-
-                }
-            }
-            &-privacy{
-                font-size: 12px;
-                margin-bottom: 16px;
-                color: #fff;
-                button{
-                    padding: 0;
-                    border: 0;
-                    background: none;
-                    text-decoration: underline;
-                    color: #fff;
-                }
-            }
-            &-btn{
-                border-radius: 10px;
-                background: linear-gradient(0deg, #0073FF 0%, #00C2FF 100%), #FFF;
-                height: 40px;
-                line-height: 40px;
-                border: 0;
-                width: 100%;
-                color: #fff;
-                display: block;
-                text-align: center;
-                text-decoration: none;
-                font-size: 14px;
-                font-weight: 700;
-                &:disabled{
-                    background: #363744;
-                    color: #575965;
-                }
-            }
+            color: #fff;
         }
     }
-    .start-input{
-        -webkit-touch-callout: auto;
-        -webkit-user-select: auto;
-        -khtml-user-select: auto;
-        -moz-user-select: auto;
-        -ms-user-select: auto;
-        user-select: auto;
-    }
+    
 </style>

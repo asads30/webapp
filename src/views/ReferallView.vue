@@ -3,93 +3,40 @@
         <div class="referall">
             <Header :left="true" :right="false" :center="true" :centerText="$t('referall.title')"/>
             <div class="referall-wrapper">
-                <div class="referall-tabs">
+                <div class="chances" v-if="getReferall?.referrals_count">
+                    <div class="chances-top">
+                        <div class="container">
+                            <div class="chances-title">{{ $t('chances.chance1') }} <span>{{ getReferall?.referrals_count }}</span></div>
+                        </div>
+                    </div>
+                    <div class="chances-items">
+                        <div class="container">
+                            <div class="chances-list">
+                                <div class="chances-item" v-for="(referall, key) in getReferall?.referrals" :key="referall">
+                                    <div class="chances-date">{{ key }}</div>
+                                    <div class="chances-group" v-for="group in referall" :key="group">
+                                        <div class="chances-group-left">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11C22 17.0751 17.0751 22 11 22C4.92487 22 0 17.0751 0 11Z" fill="#4CAF50"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3107 7.04297C16.7012 7.43349 16.7012 8.06666 16.3107 8.45718L10.1036 14.9572C9.71307 15.3477 9.0799 15.3477 8.68938 14.9572L5.68938 11.9572C5.29885 11.5667 5.29885 10.9335 5.68938 10.543C6.0799 10.1524 6.71307 10.1524 7.10359 10.543L9.39648 12.8359L14.8965 7.04297C15.287 6.65244 15.9202 6.65244 16.3107 7.04297Z" fill="white"/>
+                                            </svg>
+                                            <span>{{ format_date(group?.created_at) }}</span>
+                                        </div>
+                                        <div class="chances-group-right">
+                                            <div class="chanc">{{ group?.phone_number }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="prizes-not" v-else>
                     <div class="container">
-                        <div class="referall-box">
-                            <ul class="nav nav-tabs ref-tabs" id="refTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="ref-tab" data-bs-toggle="tab" data-bs-target="#ref-tab-pane" type="button" role="tab" aria-controls="ref-tab-pane" aria-selected="true">{{ $t('referall.btn1') }}</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="my-tab" data-bs-toggle="tab" data-bs-target="#my-tab-pane" type="button" role="tab" aria-controls="my-tab-pane" aria-selected="false">{{ $t('referall.title') }}</button>
-                                </li>
-                            </ul>
+                        <div class="prizes-not-img">
+                            <img src="@/assets/images/referall-not.svg" alt="">
                         </div>
-                    </div>
-                </div>
-                <div class="tab-content" id="refTabContent">
-                    <div class="tab-pane fade show active" id="ref-tab-pane" role="tabpanel" aria-labelledby="ref-tab" tabindex="0">
-                        <div class="ref-content">
-                            <div class="ref-box-top">
-                                <div class="container">
-                                    <div class="ref-img">
-                                        <img src="@/assets/images/referall-img.svg" alt="">
-                                    </div>
-                                    <div class="ref-title">{{ $t('referall.ref1') }}</div>
-                                    <div class="ref-des" v-html="$t('referall.ref2')"></div>
-                                    <div class="ref-push">
-                                        <div class="ref-push-text">
-                                            <div class="ref-push-title">{{ $t('referall.push') }}</div>
-                                            <div class="ref-push-des">{{ $t('referall.push2') }}</div>
-                                        </div>
-                                        <div class="ref-push-check">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" role="switch" v-model="push" @click="switchPush">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ref-box-bottom">
-                                <div class="container">
-                                    <div class="referall-code">
-                                        <div class="referall-codebox">
-                                            <div class="code-title">{{ $t('referall.ref3') }}</div>
-                                            <input class="code-number" readonly :value="getUser?.ref" id="code" ref="code">
-                                        </div>
-                                        <div class="referall-code-des">{{ $t('referall.ref8') }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="my-tab-pane" role="tabpanel" aria-labelledby="my-tab" tabindex="0">
-                        <div class="chances" v-if="getReferall?.referrals_count">
-                            <div class="chances-top">
-                                <div class="container">
-                                    <div class="chances-title">{{ $t('chances.chance1') }} <span>{{ getReferall?.referrals_count }}</span></div>
-                                </div>
-                            </div>
-                            <div class="chances-items">
-                                <div class="container">
-                                    <div class="chances-list">
-                                        <div class="chances-item" v-for="(referall, key) in getReferall?.referrals" :key="referall">
-                                            <div class="chances-date">{{ key }}</div>
-                                            <div class="chances-group" v-for="group in referall" :key="group">
-                                                <div class="chances-group-left">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11C22 17.0751 17.0751 22 11 22C4.92487 22 0 17.0751 0 11Z" fill="#4CAF50"/>
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3107 7.04297C16.7012 7.43349 16.7012 8.06666 16.3107 8.45718L10.1036 14.9572C9.71307 15.3477 9.0799 15.3477 8.68938 14.9572L5.68938 11.9572C5.29885 11.5667 5.29885 10.9335 5.68938 10.543C6.0799 10.1524 6.71307 10.1524 7.10359 10.543L9.39648 12.8359L14.8965 7.04297C15.287 6.65244 15.9202 6.65244 16.3107 7.04297Z" fill="white"/>
-                                                    </svg>
-                                                    <span>{{ format_date(group?.created_at) }}</span>
-                                                </div>
-                                                <div class="chances-group-right">
-                                                    <div class="chanc">{{ group?.phone_number }}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="prizes-not" v-else>
-                            <div class="container">
-                                <div class="prizes-not-img">
-                                    <img src="@/assets/images/referall-not.svg" alt="">
-                                </div>
-                                <div class="prizes-not-text">{{ $t('referall.not') }}</div>
-                            </div>
-                        </div>
+                        <div class="prizes-not-text">{{ $t('referall.not') }}</div>
                     </div>
                 </div>
             </div>
@@ -103,11 +50,6 @@ import {mapGetters} from 'vuex'
 
 export default {
     name: 'ReferallView',
-    data() {
-        return {
-            push: true
-        }
-    },
     components: {
         Header,
     },
@@ -116,21 +58,6 @@ export default {
             var data = new Date(value);
             return data.toLocaleTimeString();
         },
-        async switchPush(){
-            const data = {
-                push: (this.push == true) ? 0 : 1,
-                web_session: this.getWeb
-            }
-            const request = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }
-            await fetch(`https://promadm.click.uz/api/changePush`, request)
-        }
-
     },
     computed: {
         ...mapGetters([
@@ -147,11 +74,6 @@ export default {
                 this.$store.commit('setReferall', data.data)
             }
         })
-        if(this.getUser.push == true || this.getUser.push == null){
-            this.push = true
-        } else{
-            this.push = false
-        }
     }
 }
 </script>

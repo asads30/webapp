@@ -21,6 +21,10 @@
   user-select: auto;
 }
 
+input{
+  -webkit-user-select: none;
+}
+
 #app{
   height: 100vh;
   position: relative;
@@ -111,16 +115,6 @@ body{
     background: var(--bg-ident);
     background-size: cover;
     background-position: center;
-}
-
-.start-top{
-    border-radius: 0px 0px 24px 24px;
-    position: relative;
-    padding-top: 50px;
-    padding-bottom: 14px;
-    background: #242429 url(../assets/images/start_bg.jpg) no-repeat 100%;
-    background-size: cover;
-    background-position: top left;
 }
 
 .offcanvas-body p{

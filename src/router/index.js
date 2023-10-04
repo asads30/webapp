@@ -7,9 +7,8 @@ import PrizesView from '../views/PrizesView.vue'
 import PrizesItemView from '../views/PrizesItemView.vue'
 import PrizesItemChanceView from '../views/PrizesItemChanceView.vue'
 import ChancesView from '../views/ChancesView.vue'
-import SuperView from '../views/SuperView.vue'
 import ReferallView from '../views/ReferallView.vue'
-import FortunaView from '../views/FortunaView.vue'
+import WinnersView from '../views/WinnersView.vue'
 
 const routes = [
   {
@@ -55,24 +54,14 @@ const routes = [
     props: true
   },
   {
-    path: '/super',
-    name: 'super',
-    component: SuperView
-  },
-  {
     path: '/referall',
     name: 'referall',
     component: ReferallView
   },
   {
-    path: '/fortuna',
-    name: 'fortuna',
-    component: FortunaView,
-    beforeEnter: (to, from) => {
-      if(from.name == 'prizes'){
-        return false
-      }
-    },
+    path: '/winners',
+    name: 'winners',
+    component: WinnersView
   }
 ]
 

@@ -26,7 +26,10 @@
         "home7-2": "imkoniyatlaringizni ko'paytiring",
         "home8": "Do'stni taklif qilish",
         "home9": "Omadni sinab ko'rish",
-        "home10": "Dubayga 2 kishilik<br />sayohat",
+        "home10": "Yakuniy yutuqli o'yin",
+        "home11": "7-oktabr kuni",
+        "home12": "15:00da Riviera savdo markazida bo'lib o'tadi",
+        "home13": "Click rasmiy kanallarida efirni tomosha qiling",
         "live": "Jonli efir"
     },
     "start": {
@@ -44,7 +47,13 @@
         "start9": "rozilik bildirasiz",
         "start10": "Tugmani bosganda quyidagilarni qo'lga kiritasiz:",
         "start11": "Aksiyada ishtirok etish",
-        "start12": "Taklif kodini kiriting"
+        "start12": "Taklif kodini kiriting",
+        "start13": "5-oktabr kuni ishtirokchilar ro'yxati yakunlandi",
+        "start14": "Yakuniy yutuqli o'yin",
+        "start15": "7-oktabr kuni",
+        "start16": "soat 15:00 da Riviera savdo markazida bo'lib o'tadi",
+        "start17": "Click rasmiy kanallarida efirni tomosha qiling.",
+        "offer": "Ommaviy oferta"
     },
     "chances": {
         "chance1": "Umumiy soni",
@@ -54,8 +63,8 @@
         "search2": "Izlash"
     },
     "ident": {
-        "ident1": "Click BYD Song Plus avtomobili va ko'plab boshqa sovrinlar yutuqli o'yinini o'tkazmoqda!",
-        "ident2": "Aksiyada qatnashish uchun Click Up ilovasida identifikatsiyadan o'tish lozim",
+        "ident1": "Aksiya yakunlandi",
+        "ident2": "Agar siz tafsilotlarni bilmoqchi bo'lsangiz, Click-da identifikatsiyadan o'tishingiz kerak",
         "ident3": "Identifikatsiyani boshlash"
     },
     "prizes": {
@@ -116,6 +125,5 @@
         "spin": "Aylantirish",
         "spin_again": "Yana aylantiring",
         "error": "Xato yuz berdi, iltimos, keyinroq harakat qilib ko'ring"
-    },
-    "live": "<p>7-sentabr kuni Central Park bog’ida Click aksiyasi 4 bosqichli yutuqli o’yinining 2-bosqichi bo’lib o’tadi. </p><p>19.00 jonli efirda tasodifiy sonlar generatori yordamida biz 9 dona qimmatli sovrinlarni o’ynaymiz 🎁</p><p>🔸 Dubayga 2 kishilik sayohat (1dona)</p><p>🔸 iPhone 14 Pro Max (2 dona);<br />🔸 Apple Watch aqlli soatlari (2 dona);<br />🔸 Apple Airpods 3 (2 dona);<br />🔸 Yandex Stansiya 2 (2 dona).</p><p>Shuningdek, sizni oldinda yana 2 ta o'yin va 5-oktyabr kuni bo'lib o'tadigan BYD Song Plus Flagship avtomobilining  asosiy o'yini bo'lib o'tishini eslatib o'tamiz 🔝</p><p>Barchaga omad🤞</p>"
+    }
 }

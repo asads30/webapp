@@ -15,8 +15,6 @@ export default {
     props: {
         name: String,
         phone: Number
-    },
-    methods: {
     }
 }
 </script>

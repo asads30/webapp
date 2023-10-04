@@ -26,7 +26,10 @@
         "home7-2": "your chances to win",
         "home8": "To invite a friend",
         "home9": "Try your luck",
-        "home10": "Voucher for two to<br />Dubai",
+        "home10": "The final draw will take place",
+        "home11": "on October 7",
+        "home12": "15.00 at Riviera Shopping Center",
+        "home13": "Follow the broadcast on our official Click pages",
         "live": "Live"
     },
     "start": {
@@ -44,7 +47,13 @@
         "start9": "of the «ID Marathon» promotion",
         "start10": "After clicking you get:",
         "start11": "Participate in the promotion",
-        "start12": "Enter the invitation code"
+        "start12": "Enter the invitation code",
+        "start13": "Registration of participants is closed from October 5",
+        "start14": "The final draw will take place",
+        "start15": "on October 7",
+        "start16": "15.00 at Riviera Shopping Center",
+        "start17": "Follow the broadcast on our official Click pages",
+        "offer": "Public offer of the promotion"
     },
     "chances": {
         "chance1": "Total quantity",
@@ -54,8 +63,8 @@
         "search2": "Search"
     },
     "ident": {
-        "ident1": "Click is giving away a BYD Song Plus car and many other prizes!",
-        "ident2": "To participate in the promotion, you must be identified in Click",
+        "ident1": "Promotion is over",
+        "ident2": "If you want to know the details, you need to pass identification in Click",
         "ident3": "Start identification"
     },
     "prizes": {
