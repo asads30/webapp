@@ -495,7 +495,7 @@ export default {
               }
           }
           &-text{
-              font-size: 12px;
+              font-size: 14px;
               -webkit-touch-callout: auto;
               -webkit-user-select: auto;
               -khtml-user-select: auto;

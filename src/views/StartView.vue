@@ -150,7 +150,7 @@
                     }
                 }
                 &-text{
-                    font-size: 12px;
+                    font-size: 14px;
                 }
             }
             @media screen and (max-width: 355px) {
