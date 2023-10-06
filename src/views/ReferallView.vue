@@ -67,13 +67,15 @@ export default {
         ])
     },
     mounted(){
-        fetch(`https://promadm.click.uz/api/myReferrals?web_session=${this.getWeb}`).then(async response => {
-            const data = await response.json();
-            this.loading = false
-            if(response.ok){
-                this.$store.commit('setReferall', data.data)
-            }
-        })
+        if(!this.getReferall){
+            fetch(`https://promadm.click.uz/api/myReferrals?web_session=${this.getWeb}`).then(async response => {
+                const data = await response.json();
+                this.loading = false
+                if(response.ok){
+                    this.$store.commit('setReferall', data.data)
+                }
+            })
+        }
     }
 }
 </script>

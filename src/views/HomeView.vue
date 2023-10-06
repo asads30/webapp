@@ -167,19 +167,21 @@ export default {
       },
       body: JSON.stringify(data)
     }
-    let response = await fetch('https://promadm.click.uz/api/me', request);
-    let json = await response.json();
-    if(json.status == 200){
-      if(json.data.status == 0){
-        this.$router.push({name: 'start'})
+    if(!this.getUser){
+      let response = await fetch('https://promadm.click.uz/api/me', request);
+      let json = await response.json();
+      if(json.status == 200){
+        if(json.data.status == 0){
+          this.$router.push({name: 'start'})
+        }
+        this.$store.commit('setUser', json.data)
+      } else{
+        if(json.error.code == 1001){
+          this.$router.push({name: 'ident'})
+        }
       }
-      this.$store.commit('setUser', json.data)
-    } else{
-      if(json.error.code == 1001){
-        this.$router.push({name: 'ident'})
-      }
+      this.$store.commit('setWeb', data.web_session)
     }
-    this.$store.commit('setWeb', data.web_session)
     if(!this.getText){
       await fetch(`https://promadm.click.uz/api/getTexts`).then(async response => {
           const data = await response.json();

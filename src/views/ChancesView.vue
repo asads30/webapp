@@ -159,14 +159,16 @@ export default {
         }
     },
     mounted(){
-        fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}`).then(async response => {
-            const data = await response.json();
-            this.loading = false
-            this.loading2 = false
-            if(response.ok){
-                this.$store.commit('setChances', data.data)
-            }
-        })
+        if(!this.getChances){
+            fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}`).then(async response => {
+                const data = await response.json();
+                this.loading = false
+                this.loading2 = false
+                if(response.ok){
+                    this.$store.commit('setChances', data.data)
+                }
+            })
+        }
     }
 }
 </script>
