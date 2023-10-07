@@ -125,5 +125,8 @@
         "spin": "Spin",
         "spin_again": "Spin again",
         "error": "Something went wrong. Try again later"
+    },
+    "live": {
+        "live": "Broadcasting the drawing ☝️<br /><br />Car raffle!<br />💥 October 7<br />💥 Riviera shopping mall<br />💥15:00<br /><br />We will draw 9 valuable prizes and the main super prize - BYD Song Plus Flagship car"
     }
 }

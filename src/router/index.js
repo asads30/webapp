@@ -9,6 +9,7 @@ import PrizesItemChanceView from '../views/PrizesItemChanceView.vue'
 import ChancesView from '../views/ChancesView.vue'
 import ReferallView from '../views/ReferallView.vue'
 import WinnersView from '../views/WinnersView.vue'
+import LiveView from '../views/LiveView.vue'
 
 const routes = [
   {
@@ -62,6 +63,11 @@ const routes = [
     path: '/winners',
     name: 'winners',
     component: WinnersView
+  },
+  {
+    path: '/live',
+    name: 'liev',
+    component: LiveView
   }
 ]
 
