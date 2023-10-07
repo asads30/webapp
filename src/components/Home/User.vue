@@ -5,9 +5,6 @@
             <div class="user-title"><span>{{ name }}</span> <img src="@/assets/images/verify.svg" alt=""></div>
             <div class="user-phone">{{ phone }}</div>
           </div>
-          <div class="userlive">
-            <router-link class="userlive-btn" to="/live"><img src="@/assets/images/live.svg" alt="">LIVE</router-link>
-          </div>
         </div>
     </div>
 </template>
