@@ -55,6 +55,7 @@
 
 <script>
     import Header from '@/components/Header'
+    import mixpanel from "mixpanel-browser";
     export default {
         name: "PrizesItemView",
         components: {
@@ -63,8 +64,11 @@
         computed: {
             prize() {
                 const id = this.$route.params.id
-                return this.$store.state.prizes.data.find(prize => prize.id == id)
+                return this.$store.state.prizes?.data?.find(prize => prize.id == id)
             }
+        },
+         mounted() {
+             mixpanel.track('Promo_Member_Launch_PrizeDetails');
         },
         methods: {
             goHome(){

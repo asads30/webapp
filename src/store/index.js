@@ -11,7 +11,8 @@ export default createStore({
     activeFortune: false,
     prizesChances: null,
     activeTab: false,
-    winners: null
+    winners: null,
+    old: false
   },
   getters: {
     getUser(state){
@@ -58,6 +59,9 @@ export default createStore({
     },
     getWinners(state){
       return state.winners
+    },
+    getOld(state){
+      return state.old
     }
   },
   mutations: {
@@ -102,6 +106,9 @@ export default createStore({
     },
     setWinners: (state, winners) => {
       state.winners = winners
+    },
+    setOld: (state, old) => {
+      state.old = true
     }
   },
   actions: {

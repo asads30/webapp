@@ -15,16 +15,7 @@ export default {
     props: {
         name: String,
         phone: Number
-    },
-    methods: {
-        isMobile() {
-            if(/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                return true
-            } else {
-                return false
-            }
-        }
-    },
+    }
 }
 </script>
 

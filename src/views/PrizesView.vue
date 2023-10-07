@@ -6,10 +6,10 @@
                 <div class="container">
                     <ul class="nav nav-tabs prizes-tabs" id="prizesTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button :class="getActiveTab == true ? 'nav-link' : 'nav-link active'" id="prizes-tab" data-bs-toggle="tab" data-bs-target="#prizes-tab-pane" type="button" role="tab" aria-controls="prizes-tab-pane" aria-selected="true">{{ $t('prizes.prizes') }}</button>
+                            <button @click="sendEventMyPrizes" :class="getActiveTab == true ? 'nav-link' : 'nav-link active'" id="prizes-tab" data-bs-toggle="tab" data-bs-target="#prizes-tab-pane" type="button" role="tab" aria-controls="prizes-tab-pane" aria-selected="true">{{ $t('prizes.prizes') }}</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button :class="getActiveTab == false ? 'nav-link' : 'nav-link active'" id="chances-tab" data-bs-toggle="tab" data-bs-target="#chances-tab-pane" type="button" role="tab" aria-controls="chances-tab-pane" aria-selected="false">{{ $t('prizes.chances') }}</button>
+                            <button @click="sendEventMyChances" :class="getActiveTab == false ? 'nav-link' : 'nav-link active'" id="chances-tab" data-bs-toggle="tab" data-bs-target="#chances-tab-pane" type="button" role="tab" aria-controls="chances-tab-pane" aria-selected="false">{{ $t('prizes.chances') }}</button>
                         </li>
                     </ul>
                 </div>
@@ -28,6 +28,7 @@
                                     :textUZ="item.prize.name_uz" 
                                     :img="item.prize.photo"
                                     :id="item.id"
+                                    @click="sendEventPrizeItem(item)"
                                 />
                             </div>
                             <button class="prizes-more" v-if="getPrizes?.pagination.total > getPrizes?.data?.length" @click="loadMore" :disabled="loading == true">{{ $t('prizes.more') }}</button>
@@ -55,6 +56,7 @@
                                     :textUZ="item.prize.name_uz" 
                                     :img="item.prize.photo"
                                     :id="item.id"
+                                    @click="sendEventChanceItem(item)"
                                 />
                             </div>
                             <button class="prizes-more" v-if="getPrizesChances?.pagination.total > getPrizesChances?.data?.length" @click="loadMoreChances" :disabled="loadingChances == true">{{ $t('prizes.more') }}</button>
@@ -87,6 +89,7 @@ import Header from '@/components/Header'
 import Prize from '@/components/Prizes/Item'
 import Chance from '@/components/Prizes/Chance'
 import {mapGetters} from 'vuex';
+import mixpanel from "mixpanel-browser";
 
 export default {
     name: 'PrizesView',
@@ -111,7 +114,8 @@ export default {
         Chance
     },
     mounted() {
-        if(!this.getPrizes){
+      mixpanel.track('Promo_Member_Launch_MyPrizes');
+      if(!this.getPrizes){
             fetch(`https://promadm.click.uz/api/myPrizes?web_session=${this.getWeb}&page=1&type=a`).then(async response => {
                 const data = await response.json();
                 this.loading = false
@@ -152,7 +156,25 @@ export default {
                     this.$store.commit('addPrizesChances', data)
                 }
             })
-        }
+        },
+      sendEventMyPrizes(){
+        mixpanel.track('Promo_Member_MyPrizes_TabPrizes');
+      },
+      sendEventMyChances(){
+        mixpanel.track('Promo_Member_MyPrizes_TabChances');
+      },
+      sendEventPrizeItem(prizeData){
+        mixpanel.track('Promo_Member_PrizesDetailGet', {
+          prize_type_id: prizeData.type_id,
+          prizes_id: prizeData.prize_id
+        });
+      },
+      sendEventChanceItem(prizeData){
+        mixpanel.track('Promo_Member_PrizesDetailGet', {
+          prize_type_id: prizeData.type_id,
+          prizes_id: prizeData.prize_id
+        });
+      }
     }
 }
 </script>

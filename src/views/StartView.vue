@@ -5,29 +5,26 @@
             <div class="start-top">
                 <div class="start-text">
                     <div class="container">
-                        <div class="start-toptitle">{{ $t('start.start13') }}</div>
-                        <div class="start-subtitle">{{ $t('start.start14') }}</div>
-                        <div class="start-title">{{ $t('start.start15') }}</div>
-                        <div class="start-bottitle">{{ $t('start.start16') }}</div>
-                        <div class="start-bottomtitle">{{ $t('start.start17') }}</div>
+                        <div class="start-title">{{ $t('start.start1') }}</div>
+                        <div class="start-bottomtitle">{{ $t('start.start2') }}</div>
                         <div class="start-soc">
                             <div class="start-soc-item">
                                 <div class="start-soc-item-img">
                                     <img src="@/assets/images/start/tg.svg" alt="">
                                 </div>
-                                <div class="start-soc-item-text">@click_uz</div>
+                                <div ref="tg_copy" class="start-soc-item-text">@click_uz</div>
                             </div>
                             <div class="start-soc-item">
                                 <div class="start-soc-item-img">
                                     <img src="@/assets/images/start/insta.svg" alt="">
                                 </div>
-                                <div class="start-soc-item-text">@clickuz</div>
+                                <div ref="insta_copy" class="start-soc-item-text">@clickuz</div>
                             </div>
                             <div class="start-soc-item">
                                 <div class="start-soc-item-img">
                                     <img src="@/assets/images/start/yt.svg" alt="">
                                 </div>
-                                <div class="start-soc-item-text">@clickuz6549</div>
+                                <div ref="youtube_copy" class="start-soc-item-text">@clickuz6549</div>
                             </div>
                         </div>
                     </div>
@@ -38,6 +35,9 @@
             </div>
             <div class="start-bottom">
                 <div class="container">
+                    <button @click="goWinners" class="start-know">{{ $t('start.start3') }}</button>
+                </div>
+                <div @click="sendEvent" class="container">
                     <a href="https://click.uz/ru/offer-maraphone" class="start-offer" v-if="$i18n.locale == 'ru'">{{ $t('start.offer') }}</a>
                     <a href="https://click.uz/uz/offer-maraphone" class="start-offer" v-if="$i18n.locale == 'uz'">{{ $t('start.offer') }}</a>
                     <a href="https://click.uz/ru/offer-maraphone" class="start-offer" v-if="$i18n.locale == 'en'">{{ $t('start.offer') }}</a>
@@ -50,19 +50,49 @@
 <script>
     import {mapGetters} from 'vuex'
     import Header from '@/components/Header'
+    import mixpanel from "mixpanel-browser";
 
     export default {
         name: 'StartView',
         components: {
             Header
         },
+      data() {
+        return {
+          insta_copy: null,
+          youtube_copy: null,
+          tg_copy: null,
+        }
+      },
+      mounted() {
+        mixpanel.track('Promo_Guest_Launch_DetailPage');
+        this.$refs.insta_copy?.addEventListener('copy', ()=>{
+          mixpanel.track('Promo_Guest_InstagramCopy');
+        })
+        this.$refs.youtube_copy?.addEventListener('copy', ()=>{
+          mixpanel.track('Promo_Guest_YoutubeCopy');
+        })
+        this.$refs.tg_copy?.addEventListener('copy', ()=>{
+          mixpanel.track('Promo_Guest_TelegramCopy');
+        })
+      },
         computed: {
             ...mapGetters([
                 'getWeb',
                 'getUser',
                 'getRulesText'
             ]),
-        }
+        },
+        methods: {
+            goWinners(){
+              mixpanel.track('Promo_Guest_WinnersGet')
+                this.$router.push({name: 'winners'})
+                this.$store.commit('setOld', true)
+            },
+          sendEvent(){
+            mixpanel.track('Promo_Guest_Offer');
+          }
+        },
     }
 </script>
 
@@ -101,14 +131,12 @@
             }
         }
         &-title{
-            background: linear-gradient(54deg, #FCFE5D -3.58%, #FDDC08 23.61%, #FD9F83 50.44%, #F97DD3 75.18%, #C566E4 109.63%);
-            background-clip: text;
             font-size: 40px;
             font-weight: 700;
             margin-bottom: 5px;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             line-height: 40px;
+            color: #fff;
+            margin-bottom: 20px;
             @media screen and (max-width: 355px) {
                 font-size: 32px;
                 line-height: 32px;
@@ -150,7 +178,7 @@
                     }
                 }
                 &-text{
-                    font-size: 14px;
+                    font-size: 12px;
                 }
             }
             @media screen and (max-width: 355px) {
@@ -186,6 +214,21 @@
             padding: 0;
             border: 0;
             color: #fff;
+        }
+        .start-know{
+            margin-bottom: 45px;
+            height: 40px;
+            background: #fff;
+            display: block;
+            width: 100%;
+            text-align: center;
+            border: 0;
+            border-radius: 10px;
+            line-height: 40px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            color: #363845;
         }
     }
     

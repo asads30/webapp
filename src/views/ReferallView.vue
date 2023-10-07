@@ -47,6 +47,7 @@
 <script>
 import Header from '@/components/Header'
 import {mapGetters} from 'vuex'
+import mixpanel from "mixpanel-browser";
 
 export default {
     name: 'ReferallView',
@@ -67,15 +68,14 @@ export default {
         ])
     },
     mounted(){
-        if(!this.getReferall){
-            fetch(`https://promadm.click.uz/api/myReferrals?web_session=${this.getWeb}`).then(async response => {
-                const data = await response.json();
-                this.loading = false
-                if(response.ok){
-                    this.$store.commit('setReferall', data.data)
-                }
-            })
-        }
+      mixpanel.track('Promo_Member_Launch_MyInvitations');
+      fetch(`https://promadm.click.uz/api/myReferrals?web_session=${this.getWeb}`).then(async response => {
+            const data = await response.json();
+            this.loading = false
+            if(response.ok){
+                this.$store.commit('setReferall', data.data)
+            }
+        })
     }
 }
 </script>

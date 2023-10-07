@@ -10,7 +10,7 @@
                     <div class="ident-center-title">{{ $t('ident.ident1') }}</div>
                     <div class="ident-center-des">{{ $t('ident.ident2') }}</div>
                 </div>
-                <div class="ident-bottom">
+                <div @click="sendEvent" class="ident-bottom">
                     <a href="https://my.click.uz/app/identification" class="ident-bottom-btn">{{ $t('ident.ident3') }}</a>
                 </div>
             </div>
@@ -19,8 +19,18 @@
 </template>
 
 <script>
+    import mixpanel from "mixpanel-browser";
+
     export default {
-        name: 'IdentComponent'
+        name: 'IdentComponent',
+      mounted() {
+        mixpanel.track('Promo_Guest_Launch_FirstPage');
+      },
+      methods:{
+          sendEvent(){
+            mixpanel.track('Promo_Guest_Start_ID');
+          }
+      }
     }
 </script>
 

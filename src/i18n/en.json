@@ -2,6 +2,10 @@
     "stock": "Promotion",
     "preloader": "Loading data...",
     "preloader2": "Coming soon!",
+    "video": {
+        "video": "Video",
+        "video1": "The final draw of the promotion from Click!"
+    },
     "modal": {
         "title": "Congratulations!",
         "title2": "You have become a participant",
@@ -26,33 +30,15 @@
         "home7-2": "your chances to win",
         "home8": "To invite a friend",
         "home9": "Try your luck",
-        "home10": "The final draw will take place",
-        "home11": "on October 7",
-        "home12": "15.00 at Riviera Shopping Center",
-        "home13": "Don't miss it! Subscribe to our channels! Turn on notifications!",
+        "home10": "The promotion has finished",
+        "home11": "Subscribe to our official pages to learn about new promotions and events",
+        "home14": "Winners",
         "live": "Live"
     },
     "start": {
-        "start1": "Click is giving away BYD",
-        "start1-1": "and many other prizes",
-        "start2": "I have a",
-        "start2-1": "promo code",
-        "start3": "I learned about the",
-        "start3-1": "promotion on my own",
-        "start4": "Enter a promo code from a friend to increase your chances of winning!",
-        "start5": "chance to participate",
-        "start6": "chance to spin the wheel",
-        "start7": "By clicking the Participate in the promotion button, you agree to the",
-        "start8": "terms",
-        "start9": "of the «ID Marathon» promotion",
-        "start10": "After clicking you get:",
-        "start11": "Participate in the promotion",
-        "start12": "Enter the invitation code",
-        "start13": "Registration of participants is closed from October 5",
-        "start14": "The final draw will take place",
-        "start15": "on October 7",
-        "start16": "15.00 at Riviera Shopping Center",
-        "start17": "Don't miss it! Subscribe to our channels! Turn on notifications!",
+        "start1": "The promotion has finished",
+        "start2": "Subscribe to our official pages to learn about new promotions and events",
+        "start3": "Winners of the Promotion",
         "offer": "Public offer of the promotion"
     },
     "chances": {
@@ -97,6 +83,10 @@
         "title": "Main Prizes",
         "des": "The main prizes will be drawn using a live random number generator among all participants of the promotion every 2 weeks. On the 8th week of the promotion, the main prize will be drawn - a BYD car. The greater the number of accumulated chances, the higher the probability of becoming the winner of the main prizes"
     },
+    "winners": {
+        "title": "Winners",
+        "des": "Congratulations to the winners of the Click promotion"
+    },
     "wheel": {
         "title": "Wheel of Fortune",
         "title2": "Spin the wheel of fortune and get guaranteed prizes!",
@@ -125,8 +115,5 @@
         "spin": "Spin",
         "spin_again": "Spin again",
         "error": "Something went wrong. Try again later"
-    },
-    "live": {
-        "live": "Broadcasting the drawing ☝️<br /><br />Car raffle!<br />💥 October 7<br />💥 Riviera shopping mall<br />💥15:00<br /><br />We will draw 9 valuable prizes and the main super prize - BYD Song Plus Flagship car"
     }
 }

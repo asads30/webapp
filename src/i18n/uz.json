@@ -2,6 +2,10 @@
     "stock": "Aksiya",
     "preloader": "Ma'lumotlar yuklanmoqda…",
     "preloader2": "Bir zumda tayyor bo'ladi!",
+    "video": {
+        "video": "Video",
+        "video1": "Click aksiyasining yakuniy yutuqli o'yini!"
+    },
     "modal": {
         "title": "Tabriklaymiz!",
         "title2": "Siz aksiyamiz ishtirokchisiga",
@@ -26,33 +30,15 @@
         "home7-2": "imkoniyatlaringizni ko'paytiring",
         "home8": "Do'stni taklif qilish",
         "home9": "Omadni sinab ko'rish",
-        "home10": "Yakuniy yutuqli o'yin",
-        "home11": "7-oktabr kuni",
-        "home12": "15:00da Riviera savdo markazida bo'lib o'tadi",
-        "home13": "O'tkazib yubormang! Kanallarimizga obuna bo'ling! Bildirishnomani qo'shing!",
+        "home10": "Aksiya yakunlandi",
+        "home11": "Yangi aksiya va tadbirlar haqida bilish uchun rasmiy sahifalarimizga obuna bo’ling",
+        "home14": "G'oliblarini bilish",
         "live": "Jonli efir"
     },
     "start": {
-        "start1": "Click BYD va ko'plab",
-        "start1-1": "boshqasovrinlar yutuqli o'yinini o'tkazmoqda",
-        "start2": "Menda promokod",
-        "start2-1": "mavjud",
-        "start3": "Aksiya haqida",
-        "start3-1": "o'zim bildim",
-        "start4": "Ikkalangizda ham g'olib bo'lishga imkoniyatlarni ko'paytirish uchun do'stingiz promokodini kiriting!",
-        "start5": "Qatnashishga imkoniyat",
-        "start6": "G'ildirakni aylantirishga imkoniyat",
-        "start7": "Aksiyada ishtirok etish tugmasini bosish orqali siz \"ID marafon\"",
-        "start8": "aksiyasi shartlariga",
-        "start9": "rozilik bildirasiz",
-        "start10": "Tugmani bosganda quyidagilarni qo'lga kiritasiz:",
-        "start11": "Aksiyada ishtirok etish",
-        "start12": "Taklif kodini kiriting",
-        "start13": "5-oktabr kuni ishtirokchilar ro'yxati yakunlandi",
-        "start14": "Yakuniy yutuqli o'yin",
-        "start15": "7-oktabr kuni",
-        "start16": "soat 15:00 da Riviera savdo markazida bo'lib o'tadi",
-        "start17": "O'tkazib yubormang! Kanallarimizga obuna bo'ling! Bildirishnomani qo'shing!",
+        "start1": "Aksiya yakunlandi",
+        "start2": "Yangi aksiya va tadbirlar haqida bilish uchun rasmiy sahifalarimizga obuna bo’ling",
+        "start3": "Aksiya g'oliblarini bilish",
         "offer": "Ommaviy oferta"
     },
     "chances": {
@@ -97,6 +83,10 @@
         "title": "Asosiy sovrinlar",
         "des": "Asosiy sovrinlar yutuqli o'yini har 2 haftada jonli efirda barcha ishtirokchilar o'rtasida tasodifiy sonlar generatori yordamida o'tkaziladi. Aksiyaning 8-haftasida supersovrin - BYD avtomobili yutuqli o'yini o'tkaziladi."
     },
+    "winners": {
+        "title": "G'oliblar",
+        "des": "Click Aksiya g'oliblarini tabriklaymiz"
+    },
     "wheel": {
         "title": "Omad g'ildiragi",
         "title2": "Omad g'ildiragini aylantiring va kafolatlangan sovrinlarni qo'lga kiriting!",
@@ -125,8 +115,5 @@
         "spin": "Aylantirish",
         "spin_again": "Yana aylantiring",
         "error": "Xato yuz berdi, iltimos, keyinroq harakat qilib ko'ring"
-    },
-    "live": {
-        "live": "O'yin translyatsiyasi ☝️<br /><br />Avtomobil yutuqli o'yini<br />💥7-oktabr<br />💥Riviera savdo markazi<br />💥15:00<br /><br />Biz 9 taa qimmatli sovrinlar va supersovrin – BYD Song Plus Flagship avtomobili yutuqli o'yinini o'tkazmoqdamiz"
     }
 }

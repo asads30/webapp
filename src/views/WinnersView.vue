@@ -2,10 +2,10 @@
     <div class="page">
         <div class="winners">
             <div class="winners-top">
-                <Header :left="true" :right="false" :center="true" :centerText="'Победители'"/>
+                <Header :left="true" :right="false" :center="true" :centerText="$t('winners.title')" :leftText="getOld == true ? 'start' : 'home'"/>
                 <div class="winners-toptitle">
                     <div class="container">
-                        <div class="winners-title">Поздравляем победителей акции от Click</div>
+                        <div class="winners-title">{{ $t('winners.des') }}</div>
                     </div>
                 </div>
             </div>
@@ -34,6 +34,7 @@
 <script>
 import Header from '@/components/Header'
 import {mapGetters} from 'vuex';
+import mixpanel from "mixpanel-browser";
 
 export default {
     name: 'WinnersView',
@@ -43,7 +44,8 @@ export default {
     computed: {
         ...mapGetters([
             'getWeb',
-            'getWinners'
+            'getWinners',
+            'getOld'
         ])
     },
     mounted() {
@@ -56,6 +58,13 @@ export default {
             })
         }
     },
+    beforeRouteEnter(to, from){
+        if(from.name=== 'home'){
+        mixpanel.track('Promo_Member_Launch_HomePage')
+        } else {
+        mixpanel.track('Promo_Guest_Launch_WinersPage')
+        }
+    }
 }
 </script>
 

@@ -87,6 +87,7 @@
 <script>
 import Header from '@/components/Header'
 import {mapGetters} from 'vuex'
+import mixpanel from "mixpanel-browser";
 
 export default {
     name: 'ChancesView',
@@ -101,7 +102,10 @@ export default {
         }
     },
     watch: {
-        search() {
+        search(value) {
+          if(value.length > 1){
+            mixpanel.track('Promo_Member_SearchingChances');
+          }
             this.goSearch();
         }
     },
@@ -114,7 +118,8 @@ export default {
     },
     methods: {
         doSearch() {
-            this.loading = true
+          mixpanel.track('Promo_Member_Entering_SearchChances');
+          this.loading = true
             fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}&chanceNumber=${this.search}`).then(async response => {
                 const data = await response.json();
                 this.loading = false
@@ -159,7 +164,8 @@ export default {
         }
     },
     mounted(){
-        if(!this.getChances){
+      mixpanel.track('Promo_Member_Launch_Chances');
+      if(!this.getChances){
             fetch(`https://promadm.click.uz/api/chancesList?web_session=${this.getWeb}`).then(async response => {
                 const data = await response.json();
                 this.loading = false
