@@ -85,7 +85,14 @@
     },
     "winners": {
         "title": "Winners",
-        "des": "Congratulations to the winners of the Click promotion"
+        "des": "Congratulations to the winners of the Click promotion",
+        "win1": "The final draw of the promotion",
+        "win2": "The third stage of the draw",
+        "win3": "The second stage of the draw from",
+        "win4": "The first stage of the draw from",
+        "name": "Name",
+        "prize": "Prize",
+        "chance": "Chance number"
     },
     "wheel": {
         "title": "Wheel of Fortune",

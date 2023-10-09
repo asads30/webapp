@@ -85,7 +85,14 @@
     },
     "winners": {
         "title": "G'oliblar",
-        "des": "Click Aksiya g'oliblarini tabriklaymiz"
+        "des": "Click Aksiya g'oliblarini tabriklaymiz",
+        "win1": "Aksiyasining yakuniy yutuqli o'yini",
+        "win2": "Yutuqli o'yinining 3-bosqichi",
+        "win3": "Yutuqli o'yinining 2-bosqichi",
+        "win4": "Yutuqli o'yinining 1-bosqichi",
+        "name": "Ism",
+        "prize": "Mukofot",
+        "chance": "Imkoniyat raqami"
     },
     "wheel": {
         "title": "Omad g'ildiragi",
