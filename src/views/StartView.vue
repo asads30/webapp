@@ -8,23 +8,23 @@
                         <div class="start-title">{{ $t('start.start1') }}</div>
                         <div class="start-bottomtitle">{{ $t('start.start2') }}</div>
                         <div class="start-soc">
-                            <div class="start-soc-item">
+                            <div @copy="sendEventTgCopy" class="start-soc-item">
                                 <div class="start-soc-item-img">
                                     <img src="@/assets/images/start/tg.svg" alt="">
                                 </div>
-                                <div ref="tg_copy" class="start-soc-item-text">@click_uz</div>
+                                <div class="start-soc-item-text">@click_uz</div>
                             </div>
-                            <div class="start-soc-item">
+                            <div @copy="sendEventInstaCopy" class="start-soc-item">
                                 <div class="start-soc-item-img">
                                     <img src="@/assets/images/start/insta.svg" alt="">
                                 </div>
-                                <div ref="insta_copy" class="start-soc-item-text">@clickuz</div>
+                                <div class="start-soc-item-text">@clickuz</div>
                             </div>
-                            <div class="start-soc-item">
+                            <div @copy="sendEventYoutubeCopy" class="start-soc-item">
                                 <div class="start-soc-item-img">
                                     <img src="@/assets/images/start/yt.svg" alt="">
                                 </div>
-                                <div ref="youtube_copy" class="start-soc-item-text">@clickuz6549</div>
+                                <div class="start-soc-item-text">@clickuz6549</div>
                             </div>
                         </div>
                     </div>
@@ -57,24 +57,8 @@
         components: {
             Header
         },
-      data() {
-        return {
-          insta_copy: null,
-          youtube_copy: null,
-          tg_copy: null,
-        }
-      },
       mounted() {
         mixpanel.track('Promo_Guest_Launch_DetailPage');
-        this.$refs.insta_copy?.addEventListener('copy', ()=>{
-          mixpanel.track('Promo_Guest_InstagramCopy');
-        })
-        this.$refs.youtube_copy?.addEventListener('copy', ()=>{
-          mixpanel.track('Promo_Guest_YoutubeCopy');
-        })
-        this.$refs.tg_copy?.addEventListener('copy', ()=>{
-          mixpanel.track('Promo_Guest_TelegramCopy');
-        })
       },
         computed: {
             ...mapGetters([
@@ -91,7 +75,16 @@
             },
           sendEvent(){
             mixpanel.track('Promo_Guest_Offer');
-          }
+          },
+          sendEventYoutubeCopy(){
+            mixpanel.track('Promo_Guest_YoutubeCopy');
+          },
+          sendEventTgCopy(){
+            mixpanel.track('Promo_Guest_TelegramCopy');
+          },
+          sendEventInstaCopy(){
+            mixpanel.track('Promo_Guest_InstagramCopy');
+          },
         },
     }
 </script>

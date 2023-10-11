@@ -62,19 +62,19 @@
                       <div class="draw-soc-item-img">
                           <img src="@/assets/images/start/tg.svg" alt="">
                       </div>
-                      <div ref="tg_copy" class="draw-soc-item-text">@click_uz</div>
+                      <div @copy="sendEventCopyTelegram"  class="draw-soc-item-text">@click_uz</div>
                   </div>
                   <div class="draw-soc-item">
                       <div class="draw-soc-item-img">
                           <img src="@/assets/images/start/insta.svg" alt="">
                       </div>
-                      <div ref="ins_copy" class="draw-soc-item-text">@clickuz</div>
+                      <div @copy="sendEventCopyInstagram" class="draw-soc-item-text">@clickuz</div>
                   </div>
                   <div class="draw-soc-item">
                       <div class="draw-soc-item-img">
                           <img src="@/assets/images/start/yt.svg" alt="">
                       </div>
-                      <div ref="yt_copy" class="draw-soc-item-text">@clickuz6549</div>
+                      <div @copy="sendEventCopyYoutube" class="draw-soc-item-text">@clickuz6549</div>
                   </div>
               </div>
               </div>
@@ -133,24 +133,6 @@ import mixpanel from 'mixpanel-browser'
 
 export default {
   name: 'HomeView',
-  data() {
-    return {
-      ins_copy: null,
-      yt_copy: null,
-      tg_copy: null,
-    }
-  },
-  mounted() {
-    this.$refs.ins_copy?.addEventListener('copy', (event)=>{
-      mixpanel.track('Promo_Member_InstagramCopy');
-    })
-    this.$refs.yt_copy?.addEventListener('copy', ()=>{
-      mixpanel.track('Promo_Member_YoutubeCopy');
-    })
-    this.$refs.tg_copy?.addEventListener('copy', ()=>{
-      mixpanel.track('Promo_Member_TelegramCopy');
-    })
-  },
   computed: {
     cookie(){
       return getCookie('web-session')
@@ -191,12 +173,11 @@ export default {
     let response = await fetch('https://promadm.click.uz/api/me', request);
     let json = await response.json();
     if(json.status == 200){
-      mixpanel.identify(json.data.client_id);
       mixpanel.register({
         lang: json.data.lang,
-        theme: getCookie('theme') || 'dark',
+        theme: getCookie('theme'),
         region_code: json.data.region_code,
-        gender: 'M'
+        gender: json.data.gender
       })
       mixpanel.track('Promo_Member_Launch_HomePage');
       if(json.data.status == 0){
@@ -241,6 +222,15 @@ export default {
     },
     sendScoreEvent(){
       mixpanel.track('Promo_Member_ChancesGet');
+    },
+    sendEventCopyInstagram(){
+      mixpanel.track('Promo_Member_InstagramCopy');
+    },
+    sendEventCopyTelegram(){
+      mixpanel.track('Promo_Member_TelegramCopy');
+    },
+    sendEventCopyYoutube(){
+      mixpanel.track('Promo_Member_YoutubeCopy');
     }
   },
 }

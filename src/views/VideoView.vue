@@ -7,13 +7,31 @@
             <div class="video-body">
                 <div class="container">
                     <div class="video-item">
-                        <video :width="width" controls>
-                            <source src="https://wpaka.uz/video.mp4" type="video/mp4">
-                            Ваш браузер не підтримує відео HTML.
-                         </video>
+                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/Pb0GaKz1JZU?si=0Nc70YSi-jWV05jr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         <div class="video-box">
                             <div class="video-title">{{ $t('video.video1') }}</div>
                             <div class="video-date"><span>15:00</span> 07.10.2023</div>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/FIitzcwqd6g?si=V6ssbDoX38_iVt1G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <div class="video-box">
+                            <div class="video-title">{{ $t('winners.win2') }}</div>
+                            <div class="video-date"><span>15:00</span> 21.09.2023</div>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/Y-UIxEjb4DM?si=20H9mgO9AJ_RhILA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <div class="video-box">
+                            <div class="video-title">{{ $t('winners.win3') }}</div>
+                            <div class="video-date"><span>15:00</span> 07.09.2023</div>
+                        </div>
+                    </div>
+                    <div class="video-item">
+                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/8q72vqSa3ZM?si=WTqxUMamyoFkSevD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <div class="video-box">
+                            <div class="video-title">{{ $t('winners.win4') }}</div>
+                            <div class="video-date"><span>15:00</span> 24.08.2023</div>
                         </div>
                     </div>
                 </div>
@@ -68,6 +86,11 @@
             video{
                 border-radius: 30px;
             }
+        }
+        &-body{
+            height: calc(100vh - 74px);
+            overflow-y: scroll;
+            padding-bottom: 15px;
         }
     }
 </style>
