@@ -42,6 +42,7 @@
 
 <script>
     import Header from '@/components/Header'
+    import mixpanel from 'mixpanel-browser'
     export default {
         name: 'StartView',
         components: {
@@ -52,7 +53,14 @@
                 const screenWidth = window.screen.width
                 return screenWidth - 40
             }
+        },
+      beforeRouteEnter(to, from){
+        if(from.name=== 'home'){
+          mixpanel.track('Video_Member_Launch_Page')
+        } else {
+          mixpanel.track('Video_Guest_Launch_Page')
         }
+      }
     }
 </script>
 
