@@ -1,7 +1,7 @@
 <template>
     <div class="user">
         <div class="container">
-          <div class="usertop">
+          <div v-if="name && phone" class="usertop">
             <div class="user-title"><span>{{ name }}</span> <img src="@/assets/images/verify.svg" alt=""></div>
             <div class="user-phone">{{ phone }}</div>
           </div>
