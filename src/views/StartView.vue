@@ -6,7 +6,7 @@
                 <div class="start-text">
                     <div class="container">
                         <div class="start-title">
-                          <p>{{ $t('start.start1') }}</p>
+                            <p>{{ $t('start.start1') }}</p>
                             <User />
                         </div>
                         <div class="start-bottomtitle">{{ $t('start.start2') }}</div>
@@ -59,7 +59,7 @@
     export default {
         name: 'StartView',
         components: {
-          User,
+            User,
             Header
         },
       mounted() {
