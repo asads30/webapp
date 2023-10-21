@@ -12,11 +12,15 @@ export default createStore({
     prizesChances: null,
     activeTab: false,
     winners: null,
-    old: false
+    old: false,
+    surveyCompleted: false,
   },
   getters: {
     getUser(state){
       return state.user
+    },
+    getSurveyCompleted(state){
+      return state.surveyCompleted
     },
     getPrizes(state){
       return state.prizes
@@ -62,7 +66,7 @@ export default createStore({
     },
     getOld(state){
       return state.old
-    }
+    },
   },
   mutations: {
     setUser: (state, user) => {
@@ -109,6 +113,9 @@ export default createStore({
     },
     setOld: (state, old) => {
       state.old = true
+    },
+    surveyCompleted(state){
+      state.surveyCompleted = true
     }
   },
   actions: {

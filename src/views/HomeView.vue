@@ -121,6 +121,44 @@
         {{ $t('preloader') }}<br />{{ $t('preloader2') }}
       </div>
     </div>
+
+    <Modal
+        headerCloseBtn
+        btnName="Начать"
+        v-show="isModalStartVisible"
+        @close="closeStartModal"
+        @closeBtnModal="closeStartModal"
+    >
+      <template v-slot:header>
+        <img src="@/assets/images/survey/start-survey.svg" class="header-image" alt="">
+        <p class="header-text">Новая акция от Click</p>
+        <div class="border-header"></div>
+      </template>
+      <template v-slot:body>
+        <p class="modal-body-content">
+          Наша команда придумывает новую акцию для вас. Уделите 2 минуты, ответьте на наши вопросы. Ваше мнение очень важно для нас
+        </p>
+      </template>
+      <template v-slot:footer></template>
+    </Modal>
+
+    <Modal
+        btnName="Закрыть"
+        v-show="isModalEndVisible"
+        @close="closeEndModal"
+    >
+      <template v-slot:header>
+        <img src="@/assets/images/survey/start-survey.svg" class="header-image" alt="">
+        <p class="header-text">Спасибо за внимание!</p>
+        <div class="border-header"></div>
+      </template>
+      <template v-slot:body>
+        <p class="modal-body-content">
+          Спасибо, что приняли участие в опросе! Мы ценим ваше мнение и рады, что вы уделили нам свое время.
+        </p>
+      </template>
+      <template v-slot:footer></template>
+    </Modal>
   </div>
 </template>
 
@@ -130,6 +168,7 @@ import User from '@/components/Home/User'
 import {getCookie} from '@/boot/util'
 import {mapGetters} from 'vuex'
 import mixpanel from 'mixpanel-browser'
+import Modal from "@/components/Modal.vue";
 
 export default {
   name: 'HomeView',
@@ -140,12 +179,26 @@ export default {
     ...mapGetters([
       'getUser',
       'getWeb',
-      'getText'
+      'getText',
+      'getSurveyCompleted',
     ])
   },
+  data(){
+    return{
+      isModalStartVisible: true,
+      isModalEndVisible: false,
+    }
+  },
   components: {
+    Modal,
     Header,
     User
+  },
+  mounted() {
+    if(this.getSurveyCompleted){
+         this.isModalEndVisible = true;
+         this.isModalStartVisible = false;
+    }
   },
   async created() {
     const data = {
@@ -231,6 +284,12 @@ export default {
     },
     sendEventCopyYoutube(){
       mixpanel.track('Promo_Member_YoutubeCopy');
+    },
+    closeStartModal() {
+      this.isModalStartVisible = false;
+    },
+    closeEndModal() {
+      this.isModalEndVisible = false;
     }
   },
 }
@@ -574,5 +633,35 @@ export default {
     padding: 0;
     border: 0;
     color: var(--text);
+  }
+  .header-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto 10px auto;
+  }
+  .header-text{
+    margin: 0;
+    color: #363845;
+    text-align: center;
+    font-family: 'Golos Text', sans-serif !important;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  .border-header{
+    margin: 15px 0;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+  }
+  .modal-body-content{
+    color: #363845;
+    text-align: center;
+    font-family: Golos Text,sans-serif!important;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 </style>
