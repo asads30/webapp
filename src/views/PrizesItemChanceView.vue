@@ -4,7 +4,7 @@
             <div class="prizesview-top">
                 <Header :left="true" :center="true" :centerText="$t('prizes.prize2')" :leftText="'prizes'" :color="(prize.prize.backgroud == '#FFF;') ? 'white' : 'black'"/>
                 <div class="prizesview-logo">
-                    <img :src="'https://dev-promo23.click.uz/' + prize.prize.photo">
+                    <img :src="'https://promadm.click.uz//' + prize.prize.photo">
                 </div>
             </div>
             <div class="prizesview-content">
