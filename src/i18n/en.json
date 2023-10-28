@@ -18,6 +18,22 @@
             "des": "Invite friends using your promo code and you will get +1 chance and +1 opportunity to spin the wheel"
         }
     },
+    "startModalSurvey": {
+        "title": "New promotion from Click",
+        "description": "Our team is coming up with a new promotion for you. Take 2 minutes to answer our questions. Your feedback is very important to us",
+        "btnName": "Begin"
+    },
+    "completeModalSurvey": {
+        "title": "Thank you for your attention!",
+        "description": "Thank you for taking the survey! We value your opinion and we appreciate your time.",
+        "btnName": "Close"
+    },
+    "survey": {
+        "header_title": "Click Promotion",
+        "question": "Question",
+        "stepBtn": "Continue",
+        "lastBtn": "Complete"
+    },
     "home": {
         "home1": "You're a campaigner",
         "home2": "My prizes",

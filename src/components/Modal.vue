@@ -1,14 +1,15 @@
 <template>
+  <div>
   <transition name="modal-fade">
-  <div class="modal-backdrop" @click="$emit('close')">
-    <div class="modal" role="dialog"
+  <div class="modal-backdrop" @click="closeModalBackdrop">
+    <div @click.stop="" class="modal" role="dialog"
          aria-labelledby="modalTitle"
          aria-describedby="modalDescription">
       <header id="modalTitle">
         <slot name="header"></slot>
         <img v-if="headerCloseBtn"  src="@/assets/images/Vector.svg" alt=""
             class="btn-close"
-            @click="closeBtnModal"
+            @click="sendCancelPool"
             aria-label="Close modal"
         >
       </header>
@@ -30,9 +31,13 @@
     </div>
   </div>
   </transition>
+  </div>
 </template>
 
 <script>
+
+import {getCookie} from "@/boot/util";
+
 export default {
   name: 'Modal',
   props:{
@@ -46,15 +51,47 @@ export default {
   },
   methods: {
     close() {
-      if(this.btnName === 'Начать'){
-        this.$router.push({name: 'survey.index'})
-      } else {
+      if(this.btnName === this.$t('startModalSurvey.btnName')){
+        this.$router.replace({name:'survey.index', params: {id: 1}})
+      } else{
         this.$emit('close');
       }
     },
-    closeBtnModal(){
+    closeModalBackdrop(){
+      if(this.$store.state.surveyPoolId){
+        const data = {
+          web_session: `${getCookie('web-session')}`,
+          poll_id: this.$store.state.surveyPoolId
+        }
+        const request = {
+          method: "POST",
+          headers: {
+            "Accept": 'application/json',
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        }
+        fetch('https://promadm.click.uz/api/cancelPoll', request)
+      }
+        this.$emit('close');
+    },
+    sendCancelPool(){
+        if(this.$store.state.surveyPoolId){
+          const data = {
+            web_session: `${getCookie('web-session')}`,
+            poll_id: this.$store.state.surveyPoolId
+          }
+          const request = {
+            method: "POST",
+            headers: {
+              "Accept": 'application/json',
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          }
+          fetch('https://promadm.click.uz/api/cancelPoll', request)
+        }
       this.$emit('closeBtnModal');
-
     }
   },
 };
@@ -118,7 +155,7 @@ export default {
 }
 
 .modal-fade-enter-active{
-  transition: opacity 1.5s ease;
+  transition: opacity 1s ease;
 }
 .modal-fade-leave-active {
   transition: opacity 0.7s ease;

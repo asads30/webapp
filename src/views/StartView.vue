@@ -5,10 +5,7 @@
             <div class="start-top">
                 <div class="start-text">
                     <div class="container">
-                        <div class="start-title">
-                            <p>{{ $t('start.start1') }}</p>
-                            <User />
-                        </div>
+                        <div class="start-title">{{ $t('start.start1') }}</div>
                         <div class="start-bottomtitle">{{ $t('start.start2') }}</div>
                         <div class="start-soc">
                             <div @copy="sendEventTgCopy" class="start-soc-item">
@@ -54,12 +51,10 @@
     import {mapGetters} from 'vuex'
     import Header from '@/components/Header'
     import mixpanel from "mixpanel-browser";
-    import User from "@/components/Home/User.vue";
 
     export default {
         name: 'StartView',
         components: {
-            User,
             Header
         },
       mounted() {
@@ -110,11 +105,6 @@
         &-text{
             padding-top: 20px;
         }
-      &-title{
-       display: flex;
-        justify-content: space-between;
-        align-items: center
-      }
         &-toptitle{
             font-size: 18px;
             line-height: 18px;
@@ -140,22 +130,10 @@
             line-height: 40px;
             color: #fff;
             margin-bottom: 20px;
-            @media screen and (max-width: 385px) {
+            @media screen and (max-width: 355px) {
                 font-size: 32px;
                 line-height: 32px;
             }
-          @media screen and (max-width: 334px) {
-            font-size: 30px;
-            line-height: 32px;
-          }
-          @media screen and (max-width: 320px) {
-            font-size: 26px;
-            line-height: 32px;
-          }
-          @media screen and (max-width: 300px) {
-            font-size: 22px;
-            line-height: 32px;
-          }
         }
         &-bottitle{
             font-size: 24px;

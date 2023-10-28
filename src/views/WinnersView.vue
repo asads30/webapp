@@ -155,13 +155,13 @@ export default {
             })
         }
     },
-    beforeRouteEnter(to, from){
-        if(from.name=== 'home'){
-        mixpanel.track('Promo_Member_Launch_HomePage')
-        } else {
-        mixpanel.track('Promo_Guest_Launch_WinersPage')
-        }
-    }
+  beforeRouteEnter(to, from){
+     if(from.name=== 'home'){
+       mixpanel.track('Promo_Member_Launch_HomePage')
+     } else {
+       mixpanel.track('Promo_Guest_Launch_WinersPage')
+     }
+  }
 }
 </script>
 
@@ -178,6 +178,7 @@ export default {
         }
         &-body{
             height: calc(100vh - 142px);
+            max-height: calc(100vh - 142px);
             overflow-y: auto;
         }
         &-list{

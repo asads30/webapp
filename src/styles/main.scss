@@ -52,6 +52,13 @@ a[href^=tel] {
   --border: rgba(255, 255, 255, 0.35);
   --border2: #3A3A42;
   --hr: #3A3A42;
+  --progress-bar-backgorund: #34353F;
+  --radio-background: #2C2D35;
+  --text-label-question: #FFFFFF;
+  --survey-light-background: #2C2D35;
+  --survey-btn-text-color: #575965;
+  --survey-total-count: #B3B7CE;
+  --btn-next-active: #FFFFFF;
 }
 
 :root[theme="light"]{
@@ -69,6 +76,13 @@ a[href^=tel] {
   --border: rgba(0, 0, 0, 0.35);
   --border2: #fff;
   --hr: rgba(255,255,255,0.5);
+  --text-label-question: #363845;
+  --radio-background: #FFF;
+  --progress-bar-backgorund: #FFF;
+  --survey-light-background: #FFF;
+  --survey-btn-text-color: #575965;
+  --btn-next-active: #FFFFFF;
+  --survey-total-count: #616380
 }
 
 html,body {

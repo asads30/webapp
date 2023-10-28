@@ -1,12 +1,12 @@
 <template>
     <div class="user">
         <div class="container">
-          <div v-if="name && phone" class="usertop">
+          <div class="usertop">
             <div class="user-title"><span>{{ name }}</span> <img src="@/assets/images/verify.svg" alt=""></div>
             <div class="user-phone">{{ phone }}</div>
           </div>
           <div class="userlive">
-            <router-link class="userlive-btn" to="/video" v-if="isMobile()"><img src="@/assets/images/live.svg" alt="">{{ $t('video.video') }}</router-link>
+            <router-link class="userlive-btn" to="/video"><img src="@/assets/images/live.svg" alt="">{{ $t('video.video') }}</router-link>
           </div>
         </div>
     </div>
@@ -18,15 +18,6 @@ export default {
     props: {
         name: String,
         phone: Number
-    },
-    methods: {
-        isMobile() {
-            if(/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                return true
-            } else {
-                return false
-            }
-        }
     }
 }
 </script>

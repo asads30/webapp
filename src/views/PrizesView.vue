@@ -182,6 +182,7 @@ export default {
 <style lang="scss">
   .prizes-wrapper{
     height: calc(100vh - 127px);
+    max-height: calc(100vh - 127px);
     overflow-y: auto;
   }
   .prizes-list{

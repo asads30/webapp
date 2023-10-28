@@ -16,20 +16,55 @@
             </div>
         </div>
     </div>
+  <Modal
+      headerCloseBtn
+      :btnName="$t('startModalSurvey.btnName')"
+      v-show="isModalStartVisible"
+      @close="closeStartModal"
+      @closeBtnModal="closeStartModal"
+  >
+    <template v-slot:header>
+      <img src="@/assets/images/survey/start-survey.svg" loading="lazy" class="header-image" alt="">
+      <p class="header-text">{{ $t('startModalSurvey.title') }}</p>
+      <div class="border-header"></div>
+    </template>
+    <template v-slot:body>
+      <p class="modal-body-content">
+        {{ $t('startModalSurvey.description') }}
+      </p>
+    </template>
+    <template v-slot:footer></template>
+  </Modal>
 </template>
 
 <script>
     import mixpanel from "mixpanel-browser";
-
+    import Modal from "@/components/Modal.vue";
     export default {
-        name: 'IdentComponent',
+      name: 'IdentComponent',
+      components: { Modal },
+      async created(){
+        await this.$store.dispatch('getQuestionsList');
+        if(this.$store.state.questionsList?.length){
+          this.isModalStartVisible = true
+          this.$store.state.guestCompletesSurvey = true;
+        }
+      },
       mounted() {
         mixpanel.track('Promo_Guest_Launch_FirstPage');
       },
+      data(){
+          return {
+          isModalStartVisible: false
+        }
+      },
       methods:{
-          sendEvent(){
+        sendEvent(){
             mixpanel.track('Promo_Guest_Start_ID');
-          }
+        },
+        closeStartModal() {
+          this.isModalStartVisible = false;
+        },
       }
     }
 </script>
@@ -80,5 +115,41 @@
                 font-weight: 700;
             }
         }
+    }
+    .header-image{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 50px auto 10px auto;
+    }
+    .header-end-image{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 25px auto 10px auto;
+    }
+    .header-text{
+      margin: 0;
+      color: #363845;
+      text-align: center;
+      font-family: 'Golos Text', sans-serif !important;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      white-space: break-spaces;
+    }
+    .border-header{
+      margin: 15px 0;
+      border: 1px solid rgba(0, 0, 0, 0.10);
+    }
+    .modal-body-content{
+      color: #363845;
+      text-align: center;
+      font-family: Golos Text,sans-serif!important;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
 </style>

@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import {getCookie} from '@/boot/util'
 
 export default createStore({
   state: {
@@ -13,14 +14,16 @@ export default createStore({
     activeTab: false,
     winners: null,
     old: false,
-    surveyCompleted: false,
+    endGuestSurvey: false,
+    guestCompletesSurvey: false,
+    answerQuestion: [],
+    questionsList: null,
+    surveyPoolId: null,
+    surveyModalOpened: false,
   },
   getters: {
     getUser(state){
       return state.user
-    },
-    getSurveyCompleted(state){
-      return state.surveyCompleted
     },
     getPrizes(state){
       return state.prizes
@@ -67,6 +70,9 @@ export default createStore({
     getOld(state){
       return state.old
     },
+    getQuestionsList(state){
+      return state.questionsList
+    }
   },
   mutations: {
     setUser: (state, user) => {
@@ -114,10 +120,27 @@ export default createStore({
     setOld: (state, old) => {
       state.old = true
     },
-    surveyCompleted(state){
-      state.surveyCompleted = true
+    setStepQuestion(state , payload){
+      state.questionStep = payload
+    },
+    setQuestionsList(state, data){
+      state.questionsList = data
+    },
+    setAnswerQuestion(state, data){
+      state.answerQuestion.push(data)
+    },
+    setPoolId(state, data){
+      state.surveyPoolId = data
     }
   },
   actions: {
+      async getQuestionsList ({commit}){
+        const result = await fetch(`https://promadm.click.uz/api/getQuestionsList?web_session=${getCookie('web-session')}`);
+        const resultTotal = await result.json();
+        const questionsList = await resultTotal.data?.questions || [];
+        const cancelPoolId = await resultTotal.data?.id;
+        commit('setQuestionsList', questionsList);
+        commit('setPoolId', cancelPoolId)
+      }
   }
 })

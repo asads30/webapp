@@ -18,6 +18,22 @@
             "des": "Promokodingiz bo'yicha do'stlaringizni taklif qiling va siz +1 imkoniyat, hamda g'ildirakni aylantirishga +1 imkoniyatni qo'lga kiritasiz"
         }
     },
+    "startModalSurvey": {
+        "title": "Clickdan yangi aksiya",
+        "description": "Bizning jamoamiz siz uchun yangi aksiya tayyorlamoqda. Savollarimizga javob berish uchun 2 daqiqa vaqt ajrating. Sizning fikringiz biz uchun juda muhim",
+        "btnName": "Boshlash"
+    },
+    "completeModalSurvey": {
+        "title": "E'tiboringiz uchun rahmat!",
+        "description": "So'rovnomada qatnashganingiz uchun tashakkur! Biz sizning fikringizni qadrlaymiz va bizga vaqt ajratganingizdan xursandmiz.",
+        "btnName": "Yopish"
+    },
+    "survey": {
+        "header_title": "Click Aksiya",
+        "question": "Savol",
+        "stepBtn": "Davom etish",
+        "lastBtn": "Yakunlash"
+    },
     "home": {
         "home1": "Siz aksiya ishtirokchisisiz",
         "home2": "Mening sovrinlarim",

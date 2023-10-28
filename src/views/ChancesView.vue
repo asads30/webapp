@@ -23,7 +23,7 @@
                 </div>
                 <div class="chances-items">
                     <div class="container">
-                        <div class="chances1" v-if="getUser.id != 99733">
+                        <div class="chances1" v-if="getUser.id != 111">
                             <div class="chances-list" v-if="!loading">
                                 <div class="chances-item" v-for="(chance, key) in getChances.data" :key="chance">
                                     <div class="chances-date">{{ key }}</div>
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="chances2" v-if="getUser.id == 99733">
+                        <div class="chances2" v-if="getUser.id == 111">
                             <div class="chances-list2" v-if="!loading2">
                                 <div class="chances-list3">
                                     <div class="chanc" v-for="chance in getChances.data" :key="chance">{{ chance.id }}</div>
@@ -196,6 +196,7 @@ export default {
         }
         &-items{
             height: calc(100vh - 278px);
+            max-height: calc(100vh - 278px);
             overflow-y: auto;
             padding: 20px 0;
         }

@@ -1,7 +1,7 @@
 <template>
     <div @click="goPrize" class="myprizes-item">
         <div class="myprizes-img" :style="'background: ' + background">
-            <img :src="'https://promadm.click.uz/' + img">
+            <img :src="'https://dev-promo23.click.uz/' + img">
         </div>
         <div class="myprizes-text">
             <div class="myprizes-name" v-if="$i18n.locale == 'ru'">{{ text }}</div>
