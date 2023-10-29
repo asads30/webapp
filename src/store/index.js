@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-import {getCookie} from '@/boot/util'
 
 export default createStore({
   state: {
@@ -134,8 +133,8 @@ export default createStore({
     }
   },
   actions: {
-      async getQuestionsList ({commit}){
-        const result = await fetch(`https://promadm.click.uz/api/getQuestionsList?web_session=${getCookie('web-session')}`);
+      async getQuestionsList ({commit}, payload){
+        const result = await fetch(`https://promadm.click.uz/api/getQuestionsList?web_session=${payload}`);
         const resultTotal = await result.json();
         const questionsList = await resultTotal.data?.questions || [];
         const cancelPoolId = await resultTotal.data?.id;

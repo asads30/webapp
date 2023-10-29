@@ -139,8 +139,11 @@ const inputAnswerData = reactive({
   text: null,
 })
 
+const cookie = computed(()=> getCookie('web-session'))
+const getWeb = computed(()=> store.getters.getWeb)
 if(!store.state.questionsList?.length){
-  store.dispatch('getQuestionsList');
+  const queryQuestionsList = (cookie.value) ? cookie.value : getWeb.value;
+  store.dispatch('getQuestionsList', queryQuestionsList);
 }
 
 const questionsList = computed(()=> store.getters["getQuestionsList"]);
