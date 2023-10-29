@@ -175,7 +175,8 @@ export default {
     User
   },
   async created() {
-    await this.$store.dispatch('getQuestionsList');
+    const queryQuestionsList = (this.cookie) ? this.cookie : this.getWeb;
+    await this.$store.dispatch('getQuestionsList', queryQuestionsList);
     const data = {
       web_session: (this.cookie) ? this.cookie : this.getWeb,
       active: 1

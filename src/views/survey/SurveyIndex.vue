@@ -139,8 +139,11 @@ const inputAnswerData = reactive({
   text: null,
 })
 
+const cookie = computed(()=> getCookie('web-session'))
+const getWeb = computed(()=> store.getters.getWeb)
 if(!store.state.questionsList?.length){
-  store.dispatch('getQuestionsList');
+  const queryQuestionsList = (cookie.value) ? cookie.value : getWeb.value;
+  store.dispatch('getQuestionsList', queryQuestionsList);
 }
 
 const questionsList = computed(()=> store.getters["getQuestionsList"]);
@@ -176,7 +179,7 @@ const nextPage = async (typeQuestion, inputTypeQuestionId= null)=> {
       const stateCopyRadio = { ...radioAnswerData}
       store.commit('setAnswerQuestion', stateCopyRadio)
       const data = {
-        web_session: `${getCookie('web-session')}`,
+        web_session: (cookie.value) ? cookie.value : getWeb.value,
         answers: store.state.answerQuestion
       }
       const request = {
@@ -203,7 +206,7 @@ const nextPage = async (typeQuestion, inputTypeQuestionId= null)=> {
       const stateCopyCheckboxCopy = { ...checkBoxAnswerData }
       store.commit('setAnswerQuestion', stateCopyCheckboxCopy)
       const data = {
-        web_session: `${getCookie('web-session')}`,
+        web_session: (cookie.value) ? cookie.value : getWeb.value,
         answers: store.state.answerQuestion
       }
       const request = {
@@ -231,7 +234,7 @@ const nextPage = async (typeQuestion, inputTypeQuestionId= null)=> {
         const inputCopyAnswerData = { ...inputAnswerData }
         store.commit('setAnswerQuestion', inputCopyAnswerData)
         const data = {
-          web_session: `${getCookie('web-session')}`,
+          web_session: (cookie.value) ? cookie.value : getWeb.value,
           answers: store.state.answerQuestion
         }
         const request = {

@@ -40,11 +40,18 @@
 <script>
     import mixpanel from "mixpanel-browser";
     import Modal from "@/components/Modal.vue";
+    import {getCookie} from "@/boot/util";
     export default {
       name: 'IdentComponent',
       components: { Modal },
+      computed: {
+        cookie() {
+          return getCookie('web-session')
+        }
+      },
       async created(){
-        await this.$store.dispatch('getQuestionsList');
+        const queryQuestionsList = (this.cookie) ? this.cookie : this.getWeb;
+        await this.$store.dispatch('getQuestionsList', queryQuestionsList);
         if(this.$store.state.questionsList?.length){
           this.isModalStartVisible = true
           this.$store.state.guestCompletesSurvey = true;
