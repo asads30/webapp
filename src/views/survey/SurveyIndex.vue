@@ -179,7 +179,7 @@ const nextPage = async (typeQuestion, inputTypeQuestionId= null)=> {
       const stateCopyRadio = { ...radioAnswerData}
       store.commit('setAnswerQuestion', stateCopyRadio)
       const data = {
-        web_session: `${getCookie('web-session')}`,
+        web_session: (cookie.value) ? cookie.value : getWeb.value,
         answers: store.state.answerQuestion
       }
       const request = {
@@ -206,7 +206,7 @@ const nextPage = async (typeQuestion, inputTypeQuestionId= null)=> {
       const stateCopyCheckboxCopy = { ...checkBoxAnswerData }
       store.commit('setAnswerQuestion', stateCopyCheckboxCopy)
       const data = {
-        web_session: `${getCookie('web-session')}`,
+        web_session: (cookie.value) ? cookie.value : getWeb.value,
         answers: store.state.answerQuestion
       }
       const request = {
@@ -234,7 +234,7 @@ const nextPage = async (typeQuestion, inputTypeQuestionId= null)=> {
         const inputCopyAnswerData = { ...inputAnswerData }
         store.commit('setAnswerQuestion', inputCopyAnswerData)
         const data = {
-          web_session: `${getCookie('web-session')}`,
+          web_session: (cookie.value) ? cookie.value : getWeb.value,
           answers: store.state.answerQuestion
         }
         const request = {
