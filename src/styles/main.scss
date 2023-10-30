@@ -91,17 +91,16 @@ html,body {
   -webkit-text-size-adjust: none !important;
   -ms-text-size-adjust: none !important;
   -moz-text-size-adjust: none !important;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  position: relative;
 }
 
 body{
   font-family: 'Golos Text', sans-serif !important;
   background: var(--bg);
   color: var(--text);
-  height: 100dvh;
-  max-height: 100dvh;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  position: relative;
 }
 
 .preloader{
