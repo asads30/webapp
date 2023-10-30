@@ -97,6 +97,7 @@
         }
         &-body{
             height: calc(100dvh - 74px);
+            max-height: calc(100dvh - 74px);
             overflow-y: scroll;
             padding-bottom: 15px;
         }

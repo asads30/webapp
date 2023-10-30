@@ -95,9 +95,11 @@
         background-size: cover;
         background-position: left top;
         height: 100dvh;
+        max-height: 100dvh;
         color: #fff;
         &-box{
             height: calc(100dvh - 74px);
+            max-height: calc(100dvh - 74px);
             display: flex;
             justify-content: space-between;
             flex-direction: column;

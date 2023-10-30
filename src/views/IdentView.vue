@@ -83,6 +83,7 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100dvh;
+            max-height: 100dvh;
         }
         &-top{
             height: 80px;

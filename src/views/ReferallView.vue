@@ -115,6 +115,7 @@ export default {
 }
 .ref-content{
     height: calc(100dvh - 107px);
+    max-height: calc(100dvh - 107px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

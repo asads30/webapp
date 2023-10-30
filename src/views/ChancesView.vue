@@ -182,10 +182,12 @@ export default {
 <style lang="scss">
     .chancesview{
         height: 100dvh;
+        max-height: 100dvh;
         overflow: hidden;
     }
     .chancesview-wrapper{
         height: calc(100dvh - 74px);
+        max-height: calc(100dvh - 74px);
         overflow: hidden;
     }
     .chances{
