@@ -275,7 +275,7 @@ export default {
 
 <style lang="scss" scoped>
 .home{
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   position: relative;
   &-box{
@@ -286,8 +286,8 @@ export default {
   }
 }
 .home-wrapper{
-  height: calc(100vh - 74px);
-  max-height: calc(100vh - 74px);
+  height: calc(100dvh - 74px);
+  max-height: calc(100dvh - 74px);
   overflow-y: auto;
   position: relative;
 }

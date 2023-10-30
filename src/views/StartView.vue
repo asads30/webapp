@@ -94,10 +94,10 @@
         background: url(../assets/images/start/background.jpg) 100% no-repeat;
         background-size: cover;
         background-position: left top;
-        height: 100vh;
+        height: 100dvh;
         color: #fff;
         &-box{
-            height: calc(100vh - 74px);
+            height: calc(100dvh - 74px);
             display: flex;
             justify-content: space-between;
             flex-direction: column;

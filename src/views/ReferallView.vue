@@ -114,7 +114,7 @@ export default {
     }
 }
 .ref-content{
-    height: calc(100vh - 107px);
+    height: calc(100dvh - 107px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

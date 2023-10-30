@@ -177,8 +177,8 @@ export default {
             text-align: center;
         }
         &-body{
-            height: calc(100vh - 142px);
-            max-height: calc(100vh - 142px);
+            height: calc(100dvh - 142px);
+            max-height: calc(100dvh - 142px);
             overflow-y: auto;
         }
         &-list{

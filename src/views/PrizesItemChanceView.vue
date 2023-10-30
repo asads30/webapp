@@ -103,7 +103,7 @@
             }
         }
         &-content{
-            height: calc(100vh - 260px);
+            height: calc(100dvh - 260px);
             border-radius: 24px 24px 0px 0px;
             background: var(--bg3);
             padding: 20px 0 40px;

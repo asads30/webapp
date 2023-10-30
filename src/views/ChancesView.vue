@@ -181,11 +181,11 @@ export default {
 
 <style lang="scss">
     .chancesview{
-        height: 100vh;
+        height: 100dvh;
         overflow: hidden;
     }
     .chancesview-wrapper{
-        height: calc(100vh - 74px);
+        height: calc(100dvh - 74px);
         overflow: hidden;
     }
     .chances{
@@ -195,8 +195,8 @@ export default {
             text-align: center;
         }
         &-items{
-            height: calc(100vh - 278px);
-            max-height: calc(100vh - 278px);
+            height: calc(100dvh - 278px);
+            max-height: calc(100dvh - 278px);
             overflow-y: auto;
             padding: 20px 0;
         }

@@ -292,8 +292,8 @@ $color1: #34353F;
 $color2: #0073FF;
 
 .survey-status {
-  height: calc(100vh - 70px);
-  max-height: calc(100vh - 70px);
+  height: calc(100dvh - 70px);
+  max-height: calc(100dvh - 70px);
   overflow-x: hidden;
   overflow-y: scroll;
   display: flex;
@@ -358,8 +358,8 @@ $color2: #0073FF;
 }
 .wrapper {
   overflow-x: auto;
-  height: calc(100vh - 70px);
-  max-height: calc(100vh - 70px);
+  height: calc(100dvh - 70px);
+  max-height: calc(100dvh - 70px);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -486,8 +486,8 @@ $color2: #0073FF;
   }
 }
 .input-wrapper{
-  height: 100vh;
-  max-height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   gap: 10px;
